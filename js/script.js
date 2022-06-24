@@ -726,6 +726,9 @@ const worksRef = ref(database, 'works');
     resize({ target }) {
       windowWidth = $(target).width();
     },
+    load() {
+      $('[href^="http://alvarotrigo"]').parent().remove();
+    }
   }).trigger('resize');
 
   $body.on('scroll', () => {
