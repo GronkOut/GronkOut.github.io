@@ -11,7 +11,7 @@ initializeApp({
 });
 
 const database = getDatabase();
-const worksRef = ref(database, 'works');
+const refCalendar = ref(database, 'calendar');
 
 // $.noConflict();
 
@@ -656,7 +656,7 @@ const worksRef = ref(database, 'works');
 
             calendar.createSchedules([schedule]);
 
-            set(ref(database, `works/${ id }`), schedule);
+            set(ref(database, `calendar/${ id }`), schedule);
           }
         }
 
@@ -673,7 +673,7 @@ const worksRef = ref(database, 'works');
           if (parseInt(calendarId) >= 1 && parseInt(calendarId) <= 5) {
             calendar.updateSchedule(schedule.id, schedule.calendarId, { title, calendarId });
 
-            update(worksRef, {
+            update(refCalendar, {
               [schedule.id + '/title']: title,
               [schedule.id + '/calendarId']: calendarId,
               [schedule.id + '/color']: CalendarList[calendarId - 1].color,
@@ -685,7 +685,7 @@ const worksRef = ref(database, 'works');
         } else if (title === '') {
           calendar.deleteSchedule(schedule.id, schedule.calendarId);
 
-          remove(query(ref(database, `works/${ schedule.id }`)));
+          remove(query(ref(database, `calendar/${ schedule.id }`)));
         }
       },
       beforeUpdateSchedule({ schedule, start, end, changes }) {
@@ -693,14 +693,14 @@ const worksRef = ref(database, 'works');
 
         calendar.updateSchedule(schedule.id, schedule.calendarId, changes);
 
-        update(worksRef, {
+        update(refCalendar, {
           [schedule.id + '/start']: dateFormat(start._date),
           [schedule.id + '/end']: dateFormat(end._date),
         });
       },
     });
 
-    get(worksRef).then((snapshot) => {
+    get(refCalendar).then((snapshot) => {
       const data = snapshot.val();
       const scheduleList = [];
 
