@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Web Optimization | MIB</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.svg">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    
+        
+<link rel="stylesheet" href="/css/post.css">
+
+    
+    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
+    <script>
+      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
+      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
+    </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="post">
+    <!-- Loader -->
+    <div section="loader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header section="header">
+        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
+        <div class="title">
+            <a class="link" title="Memo In Brain" href="/">
+                <span class="text">Memo In Brain</span>
+                <img class="image" src="/img/logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="list">
+                
+                    <li class="item">
+                        <a class="button" title="Memo" href="/memo/">Memo</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            </ul>
+        </nav>
+        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
+    </header>
+
+    <!-- Main -->
+    <main section="main">
+        
+            <!-- Category / TOC -->
+            <aside section="sidebar">
+                <div class="wrap">
+                    <menu class="menu">
+                        <li class="item">
+                            <button class="button" title="Category" type="button">CATEGORY</button>
+                        </li>
+                        <li class="item">
+                            <button class="button" title="Table Of Content" type="button">TOC</button>
+                        </li>
+                    </menu>
+                    <div class="scroll">
+                        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/unit-test/">unit-test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/intersection-observer/">intersection-observer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a><span class="category-list-count">1</span></li></ul></li></ul>
+                        <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Navigation-and-resource-timings"><span class="toc-list-number">1.</span> <span class="toc-list-text">Navigation and resource timings</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Service"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">Service</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Redirect"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">Redirect</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Application"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">Application</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Network"><span class="toc-list-number">1.4.</span> <span class="toc-list-text">Network</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Browser"><span class="toc-list-number">1.5.</span> <span class="toc-list-text">Browser</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Browser-Rendering"><span class="toc-list-number">2.</span> <span class="toc-list-text">Browser Rendering</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#1-Parsing"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">1. Parsing</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#2-Render-tree"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">2. Render tree</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#3-Reflow-Layout"><span class="toc-list-number">2.3.</span> <span class="toc-list-text">3. Reflow (Layout)</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#4-Repaint"><span class="toc-list-number">2.4.</span> <span class="toc-list-text">4. Repaint</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Rendering-CSS"><span class="toc-list-number">3.</span> <span class="toc-list-text">Rendering CSS</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Javascript-performance"><span class="toc-list-number">4.</span> <span class="toc-list-text">Javascript performance</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Optimization"><span class="toc-list-number">5.</span> <span class="toc-list-text">Optimization</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Image-optimization"><span class="toc-list-number">5.1.</span> <span class="toc-list-text">Image optimization</span></a></li></ol></li></ol>
+                    </div>
+                    <div class="footer">
+                        <button class="button expand" title="Expand"><i class="fa-solid fa-arrows-down-to-line"></i></button>
+                        <button class="button collapse" title="Collapse"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+                        <div class="percent">
+                            <progress class="progress" max="100"></progress>
+                            <span class="text"></span>
+                        </div>
+                        <button class="button top" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+                        <button class="button bottom" title="Go to bottom"><i class="fa-solid fa-caret-up"></i></button>
+                    </div>
+                </div>
+            </aside>
+        
+        <!-- Content -->
+        <article section="content">
+    <section class="header">
+        <div class="breadcrumbs">
+            <span class="breadcrumb">MEMO IN BRAIN</span>
+            
+                <span class="breadcrumb">WEB</span>
+            
+                <span class="breadcrumb">OPTIMIZATION</span>
+            
+        </div>
+        <h1 class="title">Web Optimization</h1>
+    </section>
+
+    <section class="body">
+        <div class="links">
+  <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Performance">https://developer.mozilla.org/en-US/docs/Web/Performance</a>
+</div>
+
+<h2 id="Navigation-and-resource-timings"><a href="#Navigation-and-resource-timings" class="headerlink" title="Navigation and resource timings"></a>Navigation and resource timings</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Performance/Navigation_and_resource_timings">https://developer.mozilla.org/en-US/docs/Web/Performance/Navigation_and_resource_timings</a></p>
+<h3 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h3><blockquote>
+<p><code>Prompt for unload</code></p>
+<p>사용자가 웹 서비스를 이용하다 다른 주소로 이동할 때 브라우저가 제일 먼저 실행하는 단계이다.<br>페이지에 할당된 메모리가 해제된다.<br>메모리 가비지 컬렉션 기능이 제대로 동작하지 않으면 응답없음 상태가 발생한다.<br><code>beforunload</code> 이벤트를 활용하여 메모리 해제를 담당하는 모듈을 따로 만들수 있다.</p>
+</blockquote>
+<h3 id="Redirect"><a href="#Redirect" class="headerlink" title="Redirect"></a>Redirect</h3><blockquote>
+<p><code>Redirect</code></p>
+<p>사용자가 요청한 <code>URL</code> 에서 다른 <code>URL</code> 로 다시 보내는 단계이다.<br>리다이렉트 시 <code>/</code> 를 주소 끝에 꼭 붙여주어야 한다.<br>메타 태그를 이용하여 리다이렉트를 하게되면 불필요한 서버통신이 발생해 응답속도가 느려진다.<br><code>mod_alias</code> 모듈 또는 <code>mod_rewrite</code> 모듈을 사용하여 서버 사이드 설정으로 리다이렉트를 권장한다.</p>
+</blockquote>
+<h3 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h3><blockquote>
+<p><code>App cache</code></p>
+<p>브라우저의 캐시에 데이터가 있는지 확인하는 단계이다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>Last-Modified</code></td>
+<td align="left">서버에서 저장하고 있는 마지막 수정 날짜</td>
+</tr>
+<tr>
+<td align="left"><code>If-Modified-Since</code></td>
+<td align="left">브라우저에서 저장하고 있는 마지막 수정 날짜</td>
+</tr>
+<tr>
+<td align="left"><code>Expires</code></td>
+<td align="left">만료 날짜</td>
+</tr>
+<tr>
+<td align="left"><code>Cache-Control</code></td>
+<td align="left"><code>Expires</code> 정보의 한계를 극복하기 위해 <code>HTTP / 1.1</code> 에서 소개된 캐시 설정 추가 정보</td>
+</tr>
+<tr>
+<td align="left"><code>max-age</code></td>
+<td align="left">캐싱할 시간을 초단위까지 정할 수 있음, <code>HTTP / 1.1</code> 을 지원하지 않는 브라우저는 동작하지 않기때문에 <code>Expires</code> 설정과 동시에 해야 함</td>
+</tr>
+</tbody></table>
+<h3 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h3><blockquote>
+<p><code>DNS</code>, <code>TCP</code>, <code>Request</code>, <code>Response</code></p>
+<p>브라우저가 네트워크와 통신해서 웹 페이지와 구성요소를 다운로드 하는 단계이다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>Blocked</code></td>
+<td align="left">브라우저에서 리소스를 호출하기 전에 소요되는 대기시간</td>
+</tr>
+<tr>
+<td align="left"><code>DNS</code></td>
+<td align="left">호스트이름으로 <code>IP</code> 주소를 조회한 시간</td>
+</tr>
+<tr>
+<td align="left"><code>TCP</code></td>
+<td align="left">웹서버와의 <code>TCP</code> 연결을 생성하는 데 필요한 시간</td>
+</tr>
+<tr>
+<td align="left"><code>Request</code></td>
+<td align="left">웹서버와 <code>TCP</code> 연결이 이뤄지면 원하는 정보를 서버에 보내는 시간</td>
+</tr>
+<tr>
+<td align="left"><code>Wait</code></td>
+<td align="left">웹서버에서 보내는 응답 메시지를 받기까지의 대기 시간</td>
+</tr>
+<tr>
+<td align="left"><code>Response</code></td>
+<td align="left">서버에서 보내는 응답 메시지를 받는 시간</td>
+</tr>
+<tr>
+<td align="left"><code>TTFB</code></td>
+<td align="left">서버가 해당 요소의 첫번째 바이트 정보를 브라우저에 보내는데 걸리는 시간</td>
+</tr>
+<tr>
+<td align="left"><code>Cache Read</code></td>
+<td align="left">사용자 PC에 저장돼 있는 캐시를 읽어 오는데 걸리는 시간</td>
+</tr>
+</tbody></table>
+<h3 id="Browser"><a href="#Browser" class="headerlink" title="Browser"></a>Browser</h3><blockquote>
+<p><code>Processing</code>, <code>onload</code></p>
+<p>다운로드한 웹 페이지와 구성요소로 웹 페이지를 한 화면에 그리는 단계이다.<br><code>DOMContentLoaded</code> 이벤트는 이미지나 다른 요소를 다운로드 하는 것과 관계없이 <code>DOM</code> 이 로드되고 난 직후에 발생한다.<br><code>onLoad</code> 이벤트는 모든 이미지, 스타일시트, 자바스크립트 등이 모두 다운로드 될 때 발생한다.</p>
+</blockquote>
+<h2 id="Browser-Rendering"><a href="#Browser-Rendering" class="headerlink" title="Browser Rendering"></a>Browser Rendering</h2><h3 id="1-Parsing"><a href="#1-Parsing" class="headerlink" title="1. Parsing"></a>1. Parsing</h3><blockquote>
+<p><code>HTML</code> 문서를 파싱하여 <code>Content tree</code> 에서 태그를 <code>DOM</code> (<code>Document Object Model</code>) 노드로 변환하고, 외부 <code>CSS</code> 파일을 포함하여 스타일 요소로 <code>CSSOM</code> (<code>CSS Object Model</code>) 을 만든다.</p>
+</blockquote>
+<h3 id="2-Render-tree"><a href="#2-Render-tree" class="headerlink" title="2. Render tree"></a>2. Render tree</h3><blockquote>
+<p>문서 파싱에서 얻은 스타일 정보와 <code>HTML</code> 표시 규칙을 가지고 렌더트리를 생성한다.<br>렌더트리는 색상과 면적과 같은 시각적 속성 정보를 가지고 있다.</p>
+<p><code>&lt;head&gt;</code> 와 같은 비시각적 요소들은 제외한다.<br><code>display: none;</code> 이 할당된 요소는 제외한다.<br><code>visibility: hidden;</code> 은 포함한다.<br>하나의 사각형으로 표현하기 어려운 <code>DOM</code> 요소는 여러개의 렌더러로 구성한다.<br>한줄에 충분히 표시할 수 없는 문장의 경우, 여러줄로 변경될 때 각 줄은 새로운 렌더러로 추가한다.<br>인라인과 블럭이 섞인 경우, 인라인을 감싸기 위한 익명 블럭 렌더러가 추가적으로 생성한다.<br><code>position: absolute;</code> 혹은 <code>position: fixed;</code> 인 요소들은 흐름에서 벗어나 트리의 다른 곳에 배치된다.</p>
+</blockquote>
+<h3 id="3-Reflow-Layout"><a href="#3-Reflow-Layout" class="headerlink" title="3. Reflow (Layout)"></a>3. Reflow (Layout)</h3><blockquote>
+<p>생성된 렌더트리를 기반으로 각 노드가 화면에 정확한 위치에 표시되도록 배치하는 과정이다.</p>
+<p>최상위 렌더러의 위치는 <code>0, 0</code> 으로 결정되며, 뷰포트 (브라우저 창에서 보이는 영역 크기) 만큼의 면적을 갖는다.<br><code>HTML</code> 문서의 <code>&lt;html&gt;</code> 요소에 해당하는 최상위 렌더로로부터 계층적으로 배치된다.</p>
+<p>배치는 화면의 왼쪽에서 오른쪽, 그리고 위에서 아래 순으로 이루어진다.<br>배치가 순차적으로 진행될 때 나중에 등장하는 요소는 앞서 등장한 요소의 위치나 크기에 영향을 미치지 않는다.<br>배치의 종류에는 전역 배치 (<code>Global reflows</code>) 와 점증 배치 (<code>Incremental reflows</code>) 가 있다.<br>전역 배치는 전체 렌더러를 다시 배치할 필요가 있을 때 수행하며, 점증 배치는 작은 변경이 있을 때 전체를 다시 배치하지 않기 위한 최적화 기법이다.</p>
+</blockquote>
+<h3 id="4-Repaint"><a href="#4-Repaint" class="headerlink" title="4. Repaint"></a>4. Repaint</h3><blockquote>
+<p>리플로우로 배치된 노드들을 가로지르며 그리는 과정으로 <code>opacity</code>, <code>visibility</code>, <code>outline</code>, <code>background-color</code> 와 같이 시각적 속성에 해당하는 정보를 입힌다.<br>배경색, 배경이미지, 테두리, 자식, 아웃라인 순으로 진행된다.</p>
+</blockquote>
+<h2 id="Rendering-CSS"><a href="#Rendering-CSS" class="headerlink" title="Rendering CSS"></a>Rendering CSS</h2><table>
+<thead>
+<tr>
+<th align="left">Attributes</th>
+<th align="left">Rendering process</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>display</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>position</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>overflow</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>box-sizing</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>float</code>, <code>clear</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>margin</code>, <code>padding</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>border</code>, <code>border-width</code>, <code>border-color</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>width</code>, <code>height</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>min(max)-width</code>, <code>min(max)-height</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>list-style</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>vertical-align</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>background-color</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>font</code>, <code>font-family</code>, <code>font-size</code>, <code>font-weight</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>text-overflow</code>, <code>text-align</code>, <code>text-shadow</code>, <code>text-transform</code>, <code>text-indent</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>word-wrap</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>white-space</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>line-height</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>letter-spacing</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>appearance</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>content</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>zoom</code></td>
+<td align="left">layout</td>
+</tr>
+<tr>
+<td align="left"><code>border-style</code>, <code>border-radius</code></td>
+<td align="left">paint</td>
+</tr>
+<tr>
+<td align="left"><code>background</code>, <code>background-image</code>, <code>background-position</code>, <code>background-size</code>, <code>background-repeat</code></td>
+<td align="left">paint</td>
+</tr>
+<tr>
+<td align="left"><code>box-shadow</code></td>
+<td align="left">paint</td>
+</tr>
+<tr>
+<td align="left"><code>outline</code></td>
+<td align="left">paint</td>
+</tr>
+<tr>
+<td align="left"><code>color</code></td>
+<td align="left">paint</td>
+</tr>
+<tr>
+<td align="left"><code>text-decoration</code></td>
+<td align="left">paint</td>
+</tr>
+<tr>
+<td align="left"><code>visibility</code></td>
+<td align="left">paint</td>
+</tr>
+<tr>
+<td align="left"><code>z-index</code></td>
+<td align="left">composite</td>
+</tr>
+<tr>
+<td align="left"><code>transform</code></td>
+<td align="left">composite</td>
+</tr>
+<tr>
+<td align="left"><code>opacity</code></td>
+<td align="left">composite</td>
+</tr>
+<tr>
+<td align="left"><code>user-select</code></td>
+<td align="left">composite</td>
+</tr>
+<tr>
+<td align="left"><code>cursor</code></td>
+<td align="left">composite</td>
+</tr>
+</tbody></table>
+<h2 id="Javascript-performance"><a href="#Javascript-performance" class="headerlink" title="Javascript performance"></a>Javascript performance</h2><table>
+<thead>
+<tr>
+<th align="left">Slow</th>
+<th align="left">Fast</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">생성자를 사용한 문자열 생성<br><code>var string = new String()</code></td>
+<td align="left">리터럴을 사용한 문자열 생성<br><code>var str = &#39;&#39;</code></td>
+</tr>
+<tr>
+<td align="left">생성자를 사용한 오브젝트 생성<br><code>var object = new Object()</code></td>
+<td align="left">리터럴을 사용한 오브젝트 생성<br><code>var object = &#123;&#125;</code></td>
+</tr>
+<tr>
+<td align="left">생성자를 사용한 배열 생성<br><code>var array = new Array()</code></td>
+<td align="left">리터럴을 사용한 배열 생성<br><code>var array = []</code></td>
+</tr>
+<tr>
+<td align="left">메서드를 사용한 데이터 할당<br><code>array.push(i)</code></td>
+<td align="left">접근자를 사용한 데이터 할당<br><code>array[i] = i</code></td>
+</tr>
+<tr>
+<td align="left">괄호 연산자를 이용한 데이터 할당<br><code>object[&#39;a&#39;] = 1</code></td>
+<td align="left">닷연산자를 이용한 데이터 할당<br><code>object.a = 1</code></td>
+</tr>
+<tr>
+<td align="left">연산자를 사용한 문자열 조합<br><code>+=</code></td>
+<td align="left">메서드를 사용한 문자열 조합<br><code>Array.join()</code></td>
+</tr>
+</tbody></table>
+<h2 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h2><ul>
+<li><code>HTTP</code> 요청 최소화 (다운로드 해야 하는 구성요소의 개수를 줄이는 것은 가장 효과가 크고 중요한 최적화 방법)</li>
+<li>해더에 만료 날짜 추가 (<code>mod_expires</code> 모듈을 사용하여 설정)</li>
+<li>자바스크립트 파일 통합 및 압축 (<code>deflate</code> 보다는 <code>gzip</code> 을 권장함)</li>
+<li><code>HTML</code> 태그의 개수 및 중첩을 줄임</li>
+<li><code>CSS</code> 선택자의 중첩을 줄이고 불필요한 선택자는 제거함 (마지막 선택자는 상세히 기술)</li>
+<li>변경이 잦은 애니메이션 요소는 <code>position</code> 을 <code>absoulte</code> 또는 <code>fixed</code> 로 설정하여 전체 노드에서 분리</li>
+<li>동일한 요소에 스타일 변경은 가급적 한번에 묶어서 처리</li>
+<li>인라인 스타일은 추가 리플로우를 발생시키므로 사용을 지양</li>
+<li>복잡한 구조의 돔 추가시 <code>DOM Fragment</code> 를 사용하여 완성 후 <code>document</code> 에는 마지막으로 <code>append</code> 함</li>
+<li>테이블 구현시 <code>table-layout: fixed;</code> 속성을 추가</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-tag">div</span><span class="hljs-selector-id">#id</span> &#123;&#125; <span class="hljs-comment">/* div 는 불필요함 #id 만 사용 */</span><br><br><span class="hljs-selector-tag">div</span> &gt; <span class="hljs-selector-class">.class</span> &#123;&#125; <span class="hljs-comment">/* div &gt; p.class 와 같이 마지막 선택자를 상세히 기술하면 성능에 유리함 */</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>렌더링 엔진은 보다 나은 사용자 경험을 위해 위의 과정을 순차적으로 수행하지 않고 점진적으로 수행한다. 문서 파싱이 끝날때까지 기다리지 않고, 수행되는대로 배치와 그리기 과정을 동시에 수행하도록 되어 있다.<br>단, <code>table</code>의 경우는 기본적으로 점진적 렌더링이 적용되지 않는다.<br><code>table-layout: fixed;</code>속성이 있을 경우에만 점진적 렌더링이 적용되므로 추가하는 것이 좋다.</p>
+</blockquote>
+<h3 id="Image-optimization"><a href="#Image-optimization" class="headerlink" title="Image optimization"></a>Image optimization</h3><p><a target="_blank" rel="noopener" href="https://www.optimizeimages.com/tool">https://www.optimizeimages.com/tool</a></p>
+
+    </section>
+
+    <section class="footer">
+        <div class="background"><i class="fa-brands fa-creative-commons"></i></div>
+        <div class="post">
+            <p class="name">Web Optimization</p>
+            <a class="link" href="/web/optimization/">https://gronkout.github.io/web/optimization/</a>
+        </div>
+        <div class="information">
+            <div class="author">
+                <p class="label">Author</p>
+                <p class="name">GronkOut</p>
+            </div>
+            <div class="license">
+                <p class="label">Licensed under</p>
+                <ul class="list">
+                    <li class="item">
+                        <a class="link" title="Creative Commons" target="_blank" href="https://creativecommons.org/">
+                            <i class="fa-brands fa-creative-commons"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution-NonCommercial 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+            <div class="tags">
+                
+                    <a class="tag" href="/tags/optimization/"># optimization</a>
+                
+            </div>
+        
+    </section>
+
+    <section class="comment">
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous" async></script>
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-dark" crossorigin="anonymous" async></script>
+    </section>
+</article>
+    </main>
+
+    <!-- Option -->
+    <aside section="option">
+        <div class="wrap">
+            <menu class="tabs">
+                <li class="item">
+                    <button class="button active">Search</button>
+                </li>
+                <li class="item">
+                    <button class="button">Setup</button>
+                </li>
+            </menu>
+            <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            <div section="search" class="panel active">
+                <label class="label" for="input-search-keyword">Search keyword</label>
+                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
+                <div id="search-result"></div>
+            </div>
+            <div section="setup" class="panel">
+                <label class="label" for="select-color-scheme">Change color scheme</label>
+                <select id="select-color-scheme" class="scheme">
+                    <option value="system">System default</option>
+                    <option value="light">Forced light</option>
+                    <option value="dark">Forced dark</option>
+                </select>
+                <label class="label" for="input-border-radius">Change border radius</label>
+                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
+                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
+                <div class="button-group">
+                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
+                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+<!-- Script -->
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js" type="module"></script>
+
+<script>
+  $(() => {
+    $.ajax({
+      url: '/search.xml',
+      dataType: 'xml',
+      success(xmlResponse) {
+        const datas = $('entry', xmlResponse).map((index, entry) => ({
+          title: $('title', entry).text(),
+          content: $('content', entry).text(),
+          url: $('url', entry).text(),
+        })).get();
+
+        const $searchResult = $('#search-result');
+
+        $('#input-search-keyword').on('input', (event) => {
+          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
+          let str = '<div class="scroll"><ul class="list">';
+          let numOfPostFound = 0;
+
+          $searchResult.html('');
+
+          if (event.target.value.trim().length <= 0) {
+            return;
+          }
+
+          datas.forEach((data) => {
+            const title = data.title.trim().toLowerCase();
+            const content = data.content.trim().replace(/<[^>]+>/g, '');
+            const url = data.url;
+            let isMatch = true;
+            let firstOccur = -1;
+
+            if (title !== '' && content !== '') {
+              keywords.forEach((keyword, index) => {
+                let contentIndex = content.toLowerCase().indexOf(keyword);
+
+                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
+                  isMatch = false;
+                } else {
+                  if (contentIndex < 0) contentIndex = 0;
+                  if (index === 0) firstOccur = contentIndex;
+                }
+              });
+            }
+
+            if (isMatch) {
+              numOfPostFound += 1;
+
+              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
+
+              if (firstOccur >= 0) {
+                let start = firstOccur - 50;
+                let end = firstOccur + 50;
+
+                if (start < 0) start = 0;
+                if (start === 0) end = 100;
+                if (end > content.length) end = content.length;
+
+                let match = content.substring(start, start + end);
+
+                keywords.forEach((keyword) => {
+                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
+                });
+
+                str += `<p class="content">${ match }...</p>`;
+              }
+
+              str += '</a></li>';
+            }
+          });
+
+          str += '</ul></div>';
+
+          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
+        });
+      }
+    });
+  })
+</script>
+</body>
+</html>

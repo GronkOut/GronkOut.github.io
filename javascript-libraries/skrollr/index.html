@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Javascript - Skrollr v0.6.30 | MIB</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.svg">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    
+        
+<link rel="stylesheet" href="/css/post.css">
+
+    
+    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
+    <script>
+      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
+      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
+    </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="post">
+    <!-- Loader -->
+    <div section="loader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header section="header">
+        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
+        <div class="title">
+            <a class="link" title="Memo In Brain" href="/">
+                <span class="text">Memo In Brain</span>
+                <img class="image" src="/img/logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="list">
+                
+                    <li class="item">
+                        <a class="button" title="Memo" href="/memo/">Memo</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            </ul>
+        </nav>
+        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
+    </header>
+
+    <!-- Main -->
+    <main section="main">
+        
+            <!-- Category / TOC -->
+            <aside section="sidebar">
+                <div class="wrap">
+                    <menu class="menu">
+                        <li class="item">
+                            <button class="button" title="Category" type="button">CATEGORY</button>
+                        </li>
+                        <li class="item">
+                            <button class="button" title="Table Of Content" type="button">TOC</button>
+                        </li>
+                    </menu>
+                    <div class="scroll">
+                        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/unit-test/">unit-test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/intersection-observer/">intersection-observer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a><span class="category-list-count">1</span></li></ul></li></ul>
+                        <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Absolute-mode"><span class="toc-list-number">1.</span> <span class="toc-list-text">Absolute mode</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Top-based"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">Top based</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Bottom-based"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">Bottom based</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Relative-mode"><span class="toc-list-number">2.</span> <span class="toc-list-text">Relative mode</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Top-based-1"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">Top based</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Bottom-based-1"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">Bottom based</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#In-screen"><span class="toc-list-number">3.</span> <span class="toc-list-text">In screen</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Top"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">Top</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Center"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">Center</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Bottom"><span class="toc-list-number">3.3.</span> <span class="toc-list-text">Bottom</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#SVG-animation"><span class="toc-list-number">4.</span> <span class="toc-list-text">SVG animation</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Options"><span class="toc-list-number">5.</span> <span class="toc-list-text">Options</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#smoothScrolling"><span class="toc-list-number">5.1.</span> <span class="toc-list-text">smoothScrolling</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#smoothScrollingDuration"><span class="toc-list-number">5.2.</span> <span class="toc-list-text">smoothScrollingDuration</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#constants"><span class="toc-list-number">5.3.</span> <span class="toc-list-text">constants</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scale"><span class="toc-list-number">5.4.</span> <span class="toc-list-text">scale</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#forceHeight"><span class="toc-list-number">5.5.</span> <span class="toc-list-text">forceHeight</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#mobileCheck"><span class="toc-list-number">5.6.</span> <span class="toc-list-text">mobileCheck</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#mobileDeceleration"><span class="toc-list-number">5.7.</span> <span class="toc-list-text">mobileDeceleration</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#skrollrBody"><span class="toc-list-number">5.8.</span> <span class="toc-list-text">skrollrBody</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#edgeStrategy"><span class="toc-list-number">5.9.</span> <span class="toc-list-text">edgeStrategy</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#beforerender"><span class="toc-list-number">5.10.</span> <span class="toc-list-text">beforerender</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#render"><span class="toc-list-number">5.11.</span> <span class="toc-list-text">render</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#keyframe"><span class="toc-list-number">5.12.</span> <span class="toc-list-text">keyframe</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#easing"><span class="toc-list-number">5.13.</span> <span class="toc-list-text">easing</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Methods"><span class="toc-list-number">6.</span> <span class="toc-list-text">Methods</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#refresh"><span class="toc-list-number">6.1.</span> <span class="toc-list-text">refresh</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#relativeToAbsolute"><span class="toc-list-number">6.2.</span> <span class="toc-list-text">relativeToAbsolute</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#getScrollTop"><span class="toc-list-number">6.3.</span> <span class="toc-list-text">getScrollTop</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#getMaxScrollTop"><span class="toc-list-number">6.4.</span> <span class="toc-list-text">getMaxScrollTop</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setScrollTop"><span class="toc-list-number">6.5.</span> <span class="toc-list-text">setScrollTop</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#isMobile"><span class="toc-list-number">6.6.</span> <span class="toc-list-text">isMobile</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#animateTo"><span class="toc-list-number">6.7.</span> <span class="toc-list-text">animateTo</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#stopAnimateTo"><span class="toc-list-number">6.8.</span> <span class="toc-list-text">stopAnimateTo</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#isAnimatingTo"><span class="toc-list-number">6.9.</span> <span class="toc-list-text">isAnimatingTo</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#on"><span class="toc-list-number">6.10.</span> <span class="toc-list-text">on</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#off"><span class="toc-list-number">6.11.</span> <span class="toc-list-text">off</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#destroy"><span class="toc-list-number">6.12.</span> <span class="toc-list-text">destroy</span></a></li></ol></li></ol>
+                    </div>
+                    <div class="footer">
+                        <button class="button expand" title="Expand"><i class="fa-solid fa-arrows-down-to-line"></i></button>
+                        <button class="button collapse" title="Collapse"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+                        <div class="percent">
+                            <progress class="progress" max="100"></progress>
+                            <span class="text"></span>
+                        </div>
+                        <button class="button top" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+                        <button class="button bottom" title="Go to bottom"><i class="fa-solid fa-caret-up"></i></button>
+                    </div>
+                </div>
+            </aside>
+        
+        <!-- Content -->
+        <article section="content">
+    <section class="header">
+        <div class="breadcrumbs">
+            <span class="breadcrumb">MEMO IN BRAIN</span>
+            
+                <span class="breadcrumb">JAVASCRIPT-LIBRARIES</span>
+            
+                <span class="breadcrumb">SKROLLR</span>
+            
+        </div>
+        <h1 class="title">Javascript - Skrollr v0.6.30</h1>
+    </section>
+
+    <section class="body">
+        <div class="links">
+  <a target="_blank" href="https://github.com/Prinzhorn/skrollr">https://github.com/Prinzhorn/skrollr</a>
+  <a target="_blank" href="http://prinzhorn.github.io/skrollr">http://prinzhorn.github.io/skrollr</a>
+</div>
+
+<blockquote>
+<p>애니메이션 이전 (<code>skrollable-before</code>), 진행중 (<code>skrollable-between</code>), 이후 (<code>skrollable-after</code>) 클래스로 상태 확인이 가능하다.<br><code>display: none;</code> 속성이 있는 요소는 동작하지 않는다.</p>
+</blockquote>
+<div style="filter: invert(1) brightness(1.5); padding: 20px; background-color: #fff;">
+  <img src="/images/post/javascript-libraries-skrollr.gif" class="">
+</div>
+
+<h2 id="Absolute-mode"><a href="#Absolute-mode" class="headerlink" title="Absolute mode"></a>Absolute mode</h2><p><code>data-[offset]-[anchor]</code></p>
+<h3 id="Top-based"><a href="#Top-based" class="headerlink" title="Top based"></a>Top based</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 스크롤 위 끝 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-0</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-start</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-0-start</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><br><span class="hljs-comment">&lt;!-- 스크롤 위 끝에서부터 100px --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-100</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-100-start</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><br><span class="hljs-comment">&lt;!-- 스크롤 위 끝에서부터 30% --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-30p</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-30p-start</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Bottom-based"><a href="#Bottom-based" class="headerlink" title="Bottom based"></a>Bottom based</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 스크롤 아래 끝 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-end</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-0-end</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><br><span class="hljs-comment">&lt;!-- 스크롤 아래 끝에서부터 100px --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-100-end</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><br><span class="hljs-comment">&lt;!-- 스크롤 아래 끝에서부터 30% --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-30p-end</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Relative-mode"><a href="#Relative-mode" class="headerlink" title="Relative mode"></a>Relative mode</h2><p><code>data-[offset]-(viewport-anchor)-[element-anchor]</code></p>
+<h3 id="Top-based-1"><a href="#Top-based-1" class="headerlink" title="Top based"></a>Top based</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 요소 상단이 화면 상단에 위치 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-top</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-0-top</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-top-top</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-0-top-top</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><br><span class="hljs-comment">&lt;!-- 요소 상단이 화면 상단 위치보다 100px 위에 위치 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data--100-top</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data--100-top-top</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><br><span class="hljs-comment">&lt;!-- 요소 상단이 화면 상단 위치보다 100px 아래에 위치 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-100-top</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-100-top-top</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Bottom-based-1"><a href="#Bottom-based-1" class="headerlink" title="Bottom based"></a>Bottom based</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 요소 하단이 화면 하단에 위치 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-bottom</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><br><span class="hljs-comment">&lt;!-- 요소 하단이 화면 하단 위치보다 100px 아래에 위치 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-100-bottom</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><br><span class="hljs-comment">&lt;!-- 요소 하단이 화면 하단 위치보다 100px 위에 위치 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data--100-bottom</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="In-screen"><a href="#In-screen" class="headerlink" title="In screen"></a>In screen</h2><blockquote>
+<p>화면에서 보이지 않는 상태에서 스크롤에 화면 안으로 들어오면서 보이기 시작하는 시점이다.</p>
+</blockquote>
+<h3 id="Top"><a href="#Top" class="headerlink" title="Top"></a>Top</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-top-bottom</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-0-top-bottom</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Center"><a href="#Center" class="headerlink" title="Center"></a>Center</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-center</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-0-center</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-center-center</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-0-center-center</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-center-top</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-center-bottom</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Bottom"><a href="#Bottom" class="headerlink" title="Bottom"></a>Bottom</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-bottom-top</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-0-bottom-top</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="SVG-animation"><a href="#SVG-animation" class="headerlink" title="SVG animation"></a>SVG animation</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">path</span></span><br><span class="hljs-tag">  <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;fill:none;stroke:#333333;stroke-width:7;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:6000;stroke-dashoffset:0&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;...&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">data-0</span>=<span class="hljs-string">&quot;stroke-dashoffset:6000;&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">data-end</span>=<span class="hljs-string">&quot;stroke-dashoffset:0;&quot;</span></span><br><span class="hljs-tag">/&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><h3 id="smoothScrolling"><a href="#smoothScrolling" class="headerlink" title="smoothScrolling"></a>smoothScrolling</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#smoothscrollingtrue">https://github.com/Prinzhorn/skrollr#smoothscrollingtrue</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-smooth-scrolling</span>=<span class="hljs-string">&quot;on&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">skrollr.<span class="hljs-title function_">init</span>(&#123;<br>  <span class="hljs-attr">smoothScrolling</span>: <span class="hljs-literal">true</span>,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>부드러운 애니메이션 사용 여부를 결정한다.</p>
+</blockquote>
+<h3 id="smoothScrollingDuration"><a href="#smoothScrollingDuration" class="headerlink" title="smoothScrollingDuration"></a>smoothScrollingDuration</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#smoothscrollingduration200">https://github.com/Prinzhorn/skrollr#smoothscrollingduration200</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">skrollr.<span class="hljs-title function_">init</span>(&#123;<br>  <span class="hljs-attr">smoothScrollingDuration</span>: <span class="hljs-number">200</span>,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>부드러운 애니메이션 사용 시 시간을 설정한다.</p>
+</blockquote>
+<h3 id="constants"><a href="#constants" class="headerlink" title="constants"></a>constants</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#constants">https://github.com/Prinzhorn/skrollr#constants</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-_a-start</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-_a-200</span>=<span class="hljs-string">&quot;opacity:0;&quot;</span> /&gt;</span><br><span class="hljs-comment">&lt;!-- 결과: &lt;div data-300=&quot;opacity:0;&quot; /&gt; --&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript">skrollr.<span class="hljs-title function_">init</span>(&#123;<br>  <span class="hljs-attr">constants</span>: &#123;<br>    <span class="hljs-attr">a</span>: <span class="hljs-number">100</span>,<br>    <span class="hljs-title function_">b</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">100</span>;<br>    &#125;,<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>상수를 설정한다. (사용 가능한 문자 <code>a-z0-9_</code>)</p>
+</blockquote>
+<h3 id="scale"><a href="#scale" class="headerlink" title="scale"></a>scale</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#scale1">https://github.com/Prinzhorn/skrollr#scale1</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">skrollr.<span class="hljs-title function_">init</span>(&#123;<br>  <span class="hljs-attr">scale</span>: <span class="hljs-number">1</span>,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>전체 애니메이션 키프레임 스케일을 설정한다.</p>
+</blockquote>
+<h3 id="forceHeight"><a href="#forceHeight" class="headerlink" title="forceHeight"></a>forceHeight</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">skrollr.<span class="hljs-title function_">init</span>(&#123;<br>  <span class="hljs-attr">forceHeight</span>: <span class="hljs-literal">true</span>,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>모든 키프레임이 스크롤안에 들어갈 수 있도록 문서의 높이를 강제로 조정한다.</p>
+</blockquote>
+<h3 id="mobileCheck"><a href="#mobileCheck" class="headerlink" title="mobileCheck"></a>mobileCheck</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript">skrollr.<span class="hljs-title function_">init</span>(&#123;<br>  <span class="hljs-title function_">mobileCheck</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> (<span class="hljs-regexp">/Android|iPhone|iPad|iPod/i</span>).<span class="hljs-title function_">test</span>(navigator.<span class="hljs-property">userAgent</span> || navigator.<span class="hljs-property">vendor</span> || <span class="hljs-variable language_">window</span>.<span class="hljs-property">opera</span>);<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>모바일 검사 로직을 변경 가능하다.</p>
+</blockquote>
+<h3 id="mobileDeceleration"><a href="#mobileDeceleration" class="headerlink" title="mobileDeceleration"></a>mobileDeceleration</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#mobiledeceleration0004">https://github.com/Prinzhorn/skrollr#mobiledeceleration0004</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">skrollr.<span class="hljs-title function_">init</span>(&#123;<br>  <span class="hljs-attr">mobileDeceleration</span>: <span class="hljs-number">0.004</span>,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>모바일 스크롤링 감속량을 결정한다.</p>
+</blockquote>
+<h3 id="skrollrBody"><a href="#skrollrBody" class="headerlink" title="skrollrBody"></a>skrollrBody</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#skrollrbodyskrollr-body">https://github.com/Prinzhorn/skrollr#skrollrbodyskrollr-body</a></p>
+<h3 id="edgeStrategy"><a href="#edgeStrategy" class="headerlink" title="edgeStrategy"></a>edgeStrategy</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#edgestrategyset">https://github.com/Prinzhorn/skrollr#edgestrategyset</a></p>
+<h3 id="beforerender"><a href="#beforerender" class="headerlink" title="beforerender"></a>beforerender</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#beforerender">https://github.com/Prinzhorn/skrollr#beforerender</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript">skrollr.<span class="hljs-title function_">init</span>(&#123;<br>  <span class="hljs-title function_">beforerender</span>(<span class="hljs-params">&#123; curTop, lastTop, maxTop, direction &#125;</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(curTop, lastTop, maxTop, direction);<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>렌더링 하기 전 호출된다.</p>
+</blockquote>
+<h3 id="render"><a href="#render" class="headerlink" title="render"></a>render</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#render">https://github.com/Prinzhorn/skrollr#render</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript">skrollr.<span class="hljs-title function_">init</span>(&#123;<br>  <span class="hljs-title function_">render</span>(<span class="hljs-params">&#123; curTop, lastTop, maxTop, direction &#125;</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(curTop, lastTop, maxTop, direction);<br><br>    <span class="hljs-keyword">if</span> (curTop === maxTop) &#123; <span class="hljs-comment">// Loop</span><br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setScrollTop</span>(<span class="hljs-number">0</span>, <span class="hljs-literal">true</span>);<br>    &#125;<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>모든 요소를 렌더링한 후 호출된다.</p>
+</blockquote>
+<h3 id="keyframe"><a href="#keyframe" class="headerlink" title="keyframe"></a>keyframe</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#keyframe">https://github.com/Prinzhorn/skrollr#keyframe</a></p>
+<h3 id="easing"><a href="#easing" class="headerlink" title="easing"></a>easing</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#easing">https://github.com/Prinzhorn/skrollr#easing</a></p>
+<div class="tags">
+  <span class="tag is-medium is-dark">linear</span>
+  <span class="tag is-medium is-dark">quadratic</span>
+  <span class="tag is-medium is-dark">cubic</span>
+  <span class="tag is-medium is-dark">begin</span>
+  <span class="tag is-medium is-dark">end</span>
+  <span class="tag is-medium is-dark">swing</span>
+  <span class="tag is-medium is-dark">sqrt</span>
+  <span class="tag is-medium is-dark">outCubic</span>
+  <span class="tag is-medium is-dark">bounce</span>
+</div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-top</span>=<span class="hljs-string">&quot;opacity[a]:0;&quot;</span> <span class="hljs-attr">data-end</span>=<span class="hljs-string">&quot;opacity:1;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript">skrollr.<span class="hljs-title function_">init</span>(&#123;<br>  <span class="hljs-attr">easing</span>: &#123;<br>    <span class="hljs-attr">a</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-property">random</span>,<br>    <span class="hljs-title function_">b</span>(<span class="hljs-params">p</span>) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> - p;<br>    &#125;<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="refresh"><a href="#refresh" class="headerlink" title="refresh"></a>refresh</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#refreshelements">https://github.com/Prinzhorn/skrollr#refreshelements</a></p>
+<h3 id="relativeToAbsolute"><a href="#relativeToAbsolute" class="headerlink" title="relativeToAbsolute"></a>relativeToAbsolute</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#relativetoabsoluteelement-viewportanchor-elementanchor">https://github.com/Prinzhorn/skrollr#relativetoabsoluteelement-viewportanchor-elementanchor</a></p>
+<h3 id="getScrollTop"><a href="#getScrollTop" class="headerlink" title="getScrollTop"></a>getScrollTop</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#getscrolltop">https://github.com/Prinzhorn/skrollr#getscrolltop</a></p>
+<h3 id="getMaxScrollTop"><a href="#getMaxScrollTop" class="headerlink" title="getMaxScrollTop"></a>getMaxScrollTop</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#getmaxscrolltop">https://github.com/Prinzhorn/skrollr#getmaxscrolltop</a></p>
+<h3 id="setScrollTop"><a href="#setScrollTop" class="headerlink" title="setScrollTop"></a>setScrollTop</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#setscrolltoptop-force--false">https://github.com/Prinzhorn/skrollr#setscrolltoptop-force--false</a></p>
+<h3 id="isMobile"><a href="#isMobile" class="headerlink" title="isMobile"></a>isMobile</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#ismobile">https://github.com/Prinzhorn/skrollr#ismobile</a></p>
+<h3 id="animateTo"><a href="#animateTo" class="headerlink" title="animateTo"></a>animateTo</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#animatetotop-options">https://github.com/Prinzhorn/skrollr#animatetotop-options</a></p>
+<h3 id="stopAnimateTo"><a href="#stopAnimateTo" class="headerlink" title="stopAnimateTo"></a>stopAnimateTo</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#stopanimateto">https://github.com/Prinzhorn/skrollr#stopanimateto</a></p>
+<h3 id="isAnimatingTo"><a href="#isAnimatingTo" class="headerlink" title="isAnimatingTo"></a>isAnimatingTo</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#isanimatingto">https://github.com/Prinzhorn/skrollr#isanimatingto</a></p>
+<h3 id="on"><a href="#on" class="headerlink" title="on"></a>on</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#onname-fn">https://github.com/Prinzhorn/skrollr#onname-fn</a></p>
+<h3 id="off"><a href="#off" class="headerlink" title="off"></a>off</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#offname">https://github.com/Prinzhorn/skrollr#offname</a></p>
+<h3 id="destroy"><a href="#destroy" class="headerlink" title="destroy"></a>destroy</h3><p><a target="_blank" rel="noopener" href="https://github.com/Prinzhorn/skrollr#destroy">https://github.com/Prinzhorn/skrollr#destroy</a></p>
+
+    </section>
+
+    <section class="footer">
+        <div class="background"><i class="fa-brands fa-creative-commons"></i></div>
+        <div class="post">
+            <p class="name">Javascript - Skrollr v0.6.30</p>
+            <a class="link" href="/javascript-libraries/skrollr/">https://gronkout.github.io/javascript-libraries/skrollr/</a>
+        </div>
+        <div class="information">
+            <div class="author">
+                <p class="label">Author</p>
+                <p class="name">GronkOut</p>
+            </div>
+            <div class="license">
+                <p class="label">Licensed under</p>
+                <ul class="list">
+                    <li class="item">
+                        <a class="link" title="Creative Commons" target="_blank" href="https://creativecommons.org/">
+                            <i class="fa-brands fa-creative-commons"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution-NonCommercial 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+            <div class="tags">
+                
+                    <a class="tag" href="/tags/javascript/"># javascript</a>
+                
+            </div>
+        
+    </section>
+
+    <section class="comment">
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous" async></script>
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-dark" crossorigin="anonymous" async></script>
+    </section>
+</article>
+    </main>
+
+    <!-- Option -->
+    <aside section="option">
+        <div class="wrap">
+            <menu class="tabs">
+                <li class="item">
+                    <button class="button active">Search</button>
+                </li>
+                <li class="item">
+                    <button class="button">Setup</button>
+                </li>
+            </menu>
+            <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            <div section="search" class="panel active">
+                <label class="label" for="input-search-keyword">Search keyword</label>
+                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
+                <div id="search-result"></div>
+            </div>
+            <div section="setup" class="panel">
+                <label class="label" for="select-color-scheme">Change color scheme</label>
+                <select id="select-color-scheme" class="scheme">
+                    <option value="system">System default</option>
+                    <option value="light">Forced light</option>
+                    <option value="dark">Forced dark</option>
+                </select>
+                <label class="label" for="input-border-radius">Change border radius</label>
+                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
+                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
+                <div class="button-group">
+                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
+                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+<!-- Script -->
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js" type="module"></script>
+
+<script>
+  $(() => {
+    $.ajax({
+      url: '/search.xml',
+      dataType: 'xml',
+      success(xmlResponse) {
+        const datas = $('entry', xmlResponse).map((index, entry) => ({
+          title: $('title', entry).text(),
+          content: $('content', entry).text(),
+          url: $('url', entry).text(),
+        })).get();
+
+        const $searchResult = $('#search-result');
+
+        $('#input-search-keyword').on('input', (event) => {
+          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
+          let str = '<div class="scroll"><ul class="list">';
+          let numOfPostFound = 0;
+
+          $searchResult.html('');
+
+          if (event.target.value.trim().length <= 0) {
+            return;
+          }
+
+          datas.forEach((data) => {
+            const title = data.title.trim().toLowerCase();
+            const content = data.content.trim().replace(/<[^>]+>/g, '');
+            const url = data.url;
+            let isMatch = true;
+            let firstOccur = -1;
+
+            if (title !== '' && content !== '') {
+              keywords.forEach((keyword, index) => {
+                let contentIndex = content.toLowerCase().indexOf(keyword);
+
+                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
+                  isMatch = false;
+                } else {
+                  if (contentIndex < 0) contentIndex = 0;
+                  if (index === 0) firstOccur = contentIndex;
+                }
+              });
+            }
+
+            if (isMatch) {
+              numOfPostFound += 1;
+
+              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
+
+              if (firstOccur >= 0) {
+                let start = firstOccur - 50;
+                let end = firstOccur + 50;
+
+                if (start < 0) start = 0;
+                if (start === 0) end = 100;
+                if (end > content.length) end = content.length;
+
+                let match = content.substring(start, start + end);
+
+                keywords.forEach((keyword) => {
+                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
+                });
+
+                str += `<p class="content">${ match }...</p>`;
+              }
+
+              str += '</a></li>';
+            }
+          });
+
+          str += '</ul></div>';
+
+          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
+        });
+      }
+    });
+  })
+</script>
+</body>
+</html>

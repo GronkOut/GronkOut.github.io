@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Javascript - FullPage.js v3.1.2 | MIB</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.svg">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    
+        
+<link rel="stylesheet" href="/css/post.css">
+
+    
+    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
+    <script>
+      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
+      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
+    </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="post">
+    <!-- Loader -->
+    <div section="loader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header section="header">
+        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
+        <div class="title">
+            <a class="link" title="Memo In Brain" href="/">
+                <span class="text">Memo In Brain</span>
+                <img class="image" src="/img/logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="list">
+                
+                    <li class="item">
+                        <a class="button" title="Memo" href="/memo/">Memo</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            </ul>
+        </nav>
+        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
+    </header>
+
+    <!-- Main -->
+    <main section="main">
+        
+            <!-- Category / TOC -->
+            <aside section="sidebar">
+                <div class="wrap">
+                    <menu class="menu">
+                        <li class="item">
+                            <button class="button" title="Category" type="button">CATEGORY</button>
+                        </li>
+                        <li class="item">
+                            <button class="button" title="Table Of Content" type="button">TOC</button>
+                        </li>
+                    </menu>
+                    <div class="scroll">
+                        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/unit-test/">unit-test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/intersection-observer/">intersection-observer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a><span class="category-list-count">1</span></li></ul></li></ul>
+                        <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Setup"><span class="toc-list-number">1.</span> <span class="toc-list-text">Setup</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Use-NPM"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">Use NPM</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Use-html"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">Use html</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#HTML-structure"><span class="toc-list-number">2.</span> <span class="toc-list-text">HTML structure</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#section"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">section</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#slide"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">slide</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#HTML-properties"><span class="toc-list-number">3.</span> <span class="toc-list-text">HTML properties</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#fp-noscroll"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">fp-noscroll</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#fp-auto-height"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">fp-auto-height</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#fp-auto-height-responsive"><span class="toc-list-number">3.3.</span> <span class="toc-list-text">fp-auto-height-responsive</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#data-src"><span class="toc-list-number">3.4.</span> <span class="toc-list-text">data-src</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#data-autoplay"><span class="toc-list-number">3.5.</span> <span class="toc-list-text">data-autoplay</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Options"><span class="toc-list-number">4.</span> <span class="toc-list-text">Options</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#licenseKey"><span class="toc-list-number">4.1.</span> <span class="toc-list-text">licenseKey</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#controlArrows"><span class="toc-list-number">4.2.</span> <span class="toc-list-text">controlArrows</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#verticalCentered"><span class="toc-list-number">4.3.</span> <span class="toc-list-text">verticalCentered</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scrollingSpeed"><span class="toc-list-number">4.4.</span> <span class="toc-list-text">scrollingSpeed</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sectionsColor"><span class="toc-list-number">4.5.</span> <span class="toc-list-text">sectionsColor</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#anchors"><span class="toc-list-number">4.6.</span> <span class="toc-list-text">anchors</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#lockAnchors"><span class="toc-list-number">4.7.</span> <span class="toc-list-text">lockAnchors</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#easing"><span class="toc-list-number">4.8.</span> <span class="toc-list-text">easing</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#easingcss3"><span class="toc-list-number">4.9.</span> <span class="toc-list-text">easingcss3</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#loopTop"><span class="toc-list-number">4.10.</span> <span class="toc-list-text">loopTop</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#loopBottom"><span class="toc-list-number">4.11.</span> <span class="toc-list-text">loopBottom</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#loopHorizontal"><span class="toc-list-number">4.12.</span> <span class="toc-list-text">loopHorizontal</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#css3"><span class="toc-list-number">4.13.</span> <span class="toc-list-text">css3</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#autoScrolling"><span class="toc-list-number">4.14.</span> <span class="toc-list-text">autoScrolling</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#fitToSection"><span class="toc-list-number">4.15.</span> <span class="toc-list-text">fitToSection</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#fitToSectionDelay"><span class="toc-list-number">4.16.</span> <span class="toc-list-text">fitToSectionDelay</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scrollBar"><span class="toc-list-number">4.17.</span> <span class="toc-list-text">scrollBar</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#paddingTop"><span class="toc-list-number">4.18.</span> <span class="toc-list-text">paddingTop</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#paddingBottom"><span class="toc-list-number">4.19.</span> <span class="toc-list-text">paddingBottom</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#fixedElements"><span class="toc-list-number">4.20.</span> <span class="toc-list-text">fixedElements</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#normalScrollElements"><span class="toc-list-number">4.21.</span> <span class="toc-list-text">normalScrollElements</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#bigSectionsDestination"><span class="toc-list-number">4.22.</span> <span class="toc-list-text">bigSectionsDestination</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#keyboardScrolling"><span class="toc-list-number">4.23.</span> <span class="toc-list-text">keyboardScrolling</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#touchSensitivity"><span class="toc-list-number">4.24.</span> <span class="toc-list-text">touchSensitivity</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#continuousVertical"><span class="toc-list-number">4.25.</span> <span class="toc-list-text">continuousVertical</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#continuousHorizontal"><span class="toc-list-number">4.26.</span> <span class="toc-list-text">continuousHorizontal</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scrollHorizontally"><span class="toc-list-number">4.27.</span> <span class="toc-list-text">scrollHorizontally</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#interlockedSlides"><span class="toc-list-number">4.28.</span> <span class="toc-list-text">interlockedSlides</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#dragAndMove"><span class="toc-list-number">4.29.</span> <span class="toc-list-text">dragAndMove</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#offsetSections"><span class="toc-list-number">4.30.</span> <span class="toc-list-text">offsetSections</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#resetSliders"><span class="toc-list-number">4.31.</span> <span class="toc-list-text">resetSliders</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#fadingEffect"><span class="toc-list-number">4.32.</span> <span class="toc-list-text">fadingEffect</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#animateAnchor"><span class="toc-list-number">4.33.</span> <span class="toc-list-text">animateAnchor</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#recordHistory"><span class="toc-list-number">4.34.</span> <span class="toc-list-text">recordHistory</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#menu"><span class="toc-list-number">4.35.</span> <span class="toc-list-text">menu</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#navigation"><span class="toc-list-number">4.36.</span> <span class="toc-list-text">navigation</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#navigationPosition"><span class="toc-list-number">4.37.</span> <span class="toc-list-text">navigationPosition</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#navigationTooltips"><span class="toc-list-number">4.38.</span> <span class="toc-list-text">navigationTooltips</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#showActiveTooltip"><span class="toc-list-number">4.39.</span> <span class="toc-list-text">showActiveTooltip</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#slidesNavigation"><span class="toc-list-number">4.40.</span> <span class="toc-list-text">slidesNavigation</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#slidesNavPosition"><span class="toc-list-number">4.41.</span> <span class="toc-list-text">slidesNavPosition</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scrollOverflow"><span class="toc-list-number">4.42.</span> <span class="toc-list-text">scrollOverflow</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scrollOverflowReset"><span class="toc-list-number">4.43.</span> <span class="toc-list-text">scrollOverflowReset</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scrollOverflowOptions"><span class="toc-list-number">4.44.</span> <span class="toc-list-text">scrollOverflowOptions</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sectionSelector"><span class="toc-list-number">4.45.</span> <span class="toc-list-text">sectionSelector</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#slideSelector"><span class="toc-list-number">4.46.</span> <span class="toc-list-text">slideSelector</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#responsiveWidth"><span class="toc-list-number">4.47.</span> <span class="toc-list-text">responsiveWidth</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#responsiveHeight"><span class="toc-list-number">4.48.</span> <span class="toc-list-text">responsiveHeight</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#responsiveSlides"><span class="toc-list-number">4.49.</span> <span class="toc-list-text">responsiveSlides</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#parallax"><span class="toc-list-number">4.50.</span> <span class="toc-list-text">parallax</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#parallaxOptions"><span class="toc-list-number">4.51.</span> <span class="toc-list-text">parallaxOptions</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#dropEffect"><span class="toc-list-number">4.52.</span> <span class="toc-list-text">dropEffect</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#dropEffectOptions"><span class="toc-list-number">4.53.</span> <span class="toc-list-text">dropEffectOptions</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#waterEffect"><span class="toc-list-number">4.54.</span> <span class="toc-list-text">waterEffect</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#waterEffectOptions"><span class="toc-list-number">4.55.</span> <span class="toc-list-text">waterEffectOptions</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#cards"><span class="toc-list-number">4.56.</span> <span class="toc-list-text">cards</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#cardsOptions"><span class="toc-list-number">4.57.</span> <span class="toc-list-text">cardsOptions</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#lazyLoading"><span class="toc-list-number">4.58.</span> <span class="toc-list-text">lazyLoading</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Methods"><span class="toc-list-number">5.</span> <span class="toc-list-text">Methods</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#getActiveSection"><span class="toc-list-number">5.1.</span> <span class="toc-list-text">getActiveSection</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#getActiveSlide"><span class="toc-list-number">5.2.</span> <span class="toc-list-text">getActiveSlide</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#moveSectionUp"><span class="toc-list-number">5.3.</span> <span class="toc-list-text">moveSectionUp</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#moveSectionDown"><span class="toc-list-number">5.4.</span> <span class="toc-list-text">moveSectionDown</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#moveTo"><span class="toc-list-number">5.5.</span> <span class="toc-list-text">moveTo</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#silentMoveTo"><span class="toc-list-number">5.6.</span> <span class="toc-list-text">silentMoveTo</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#moveSlideRight"><span class="toc-list-number">5.7.</span> <span class="toc-list-text">moveSlideRight</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#moveSlideLeft"><span class="toc-list-number">5.8.</span> <span class="toc-list-text">moveSlideLeft</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setAutoScrolling"><span class="toc-list-number">5.9.</span> <span class="toc-list-text">setAutoScrolling</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setFitToSection"><span class="toc-list-number">5.10.</span> <span class="toc-list-text">setFitToSection</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#fitToSection-1"><span class="toc-list-number">5.11.</span> <span class="toc-list-text">fitToSection</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setLockAnchors"><span class="toc-list-number">5.12.</span> <span class="toc-list-text">setLockAnchors</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setAllowScrolling"><span class="toc-list-number">5.13.</span> <span class="toc-list-text">setAllowScrolling</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setKeyboardScrolling"><span class="toc-list-number">5.14.</span> <span class="toc-list-text">setKeyboardScrolling</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setRecordHistory"><span class="toc-list-number">5.15.</span> <span class="toc-list-text">setRecordHistory</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setScrollingSpeed"><span class="toc-list-number">5.16.</span> <span class="toc-list-text">setScrollingSpeed</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#destroy"><span class="toc-list-number">5.17.</span> <span class="toc-list-text">destroy</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#reBuild"><span class="toc-list-number">5.18.</span> <span class="toc-list-text">reBuild</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setResponsive"><span class="toc-list-number">5.19.</span> <span class="toc-list-text">setResponsive</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#responsiveSlides-toSections"><span class="toc-list-number">5.20.</span> <span class="toc-list-text">responsiveSlides.toSections</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#responsiveSlides-toSlides"><span class="toc-list-number">5.21.</span> <span class="toc-list-text">responsiveSlides.toSlides</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Event"><span class="toc-list-number">6.</span> <span class="toc-list-text">Event</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#afterLoad"><span class="toc-list-number">6.1.</span> <span class="toc-list-text">afterLoad</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#onLeave"><span class="toc-list-number">6.2.</span> <span class="toc-list-text">onLeave</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#afterRender"><span class="toc-list-number">6.3.</span> <span class="toc-list-text">afterRender</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#afterResize"><span class="toc-list-number">6.4.</span> <span class="toc-list-text">afterResize</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#afterReBuild"><span class="toc-list-number">6.5.</span> <span class="toc-list-text">afterReBuild</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#afterResponsive"><span class="toc-list-number">6.6.</span> <span class="toc-list-text">afterResponsive</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#afterSlideLoad"><span class="toc-list-number">6.7.</span> <span class="toc-list-text">afterSlideLoad</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#onSlideLeave"><span class="toc-list-number">6.8.</span> <span class="toc-list-text">onSlideLeave</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Examples"><span class="toc-list-number">7.</span> <span class="toc-list-text">Examples</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#HTML"><span class="toc-list-number">7.1.</span> <span class="toc-list-text">HTML</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#CSS"><span class="toc-list-number">7.2.</span> <span class="toc-list-text">CSS</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Javascript"><span class="toc-list-number">7.3.</span> <span class="toc-list-text">Javascript</span></a></li></ol></li></ol>
+                    </div>
+                    <div class="footer">
+                        <button class="button expand" title="Expand"><i class="fa-solid fa-arrows-down-to-line"></i></button>
+                        <button class="button collapse" title="Collapse"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+                        <div class="percent">
+                            <progress class="progress" max="100"></progress>
+                            <span class="text"></span>
+                        </div>
+                        <button class="button top" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+                        <button class="button bottom" title="Go to bottom"><i class="fa-solid fa-caret-up"></i></button>
+                    </div>
+                </div>
+            </aside>
+        
+        <!-- Content -->
+        <article section="content">
+    <section class="header">
+        <div class="breadcrumbs">
+            <span class="breadcrumb">MEMO IN BRAIN</span>
+            
+                <span class="breadcrumb">JAVASCRIPT-LIBRARIES</span>
+            
+                <span class="breadcrumb">FULLPAGE</span>
+            
+        </div>
+        <h1 class="title">Javascript - FullPage.js v3.1.2</h1>
+    </section>
+
+    <section class="body">
+        <div class="links">
+  <a target="_blank" href="https://github.com/alvarotrigo/fullPage.js/tree/master">https://github.com/alvarotrigo/fullPage.js/tree/master</a>
+  <a target="_blank" href="https://alvarotrigo.com/fullPage/extensions">https://alvarotrigo.com/fullPage/extensions</a>
+</div>
+
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><h3 id="Use-NPM"><a href="#Use-NPM" class="headerlink" title="Use NPM"></a>Use NPM</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell">npm install <span class="hljs-literal">--save</span> fullpage.js<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;node_modules/fullpage.js/dist/fullpage.css&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> fullpage = <span class="hljs-keyword">new</span> <span class="hljs-title function_">fullpage</span>(<span class="hljs-string">&#x27;#fullpage&#x27;</span>, &#123;&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="Use-html"><a href="#Use-html" class="headerlink" title="Use html"></a>Use html</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;fullpage.css&quot;</span> /&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;vendors/easings.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;vendors/scrolloverflow.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;fullpage.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="HTML-structure"><a href="#HTML-structure" class="headerlink" title="HTML structure"></a>HTML structure</h2><h3 id="section"><a href="#section" class="headerlink" title="section"></a>section</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fullpage&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;section active&quot;</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">&quot;firstSection&quot;</span>&gt;</span>#firstSection<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;section&quot;</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">&quot;secondSection&quot;</span>&gt;</span>#secondSection<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="slide"><a href="#slide" class="headerlink" title="slide"></a>slide</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fullpage&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;section&quot;</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">&quot;firstSection&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slide&quot;</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">&quot;firstSlide&quot;</span>&gt;</span>#firstSection/firstSlide<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slide&quot;</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">&quot;secondSlide&quot;</span>&gt;</span>#firstSection/secondSlide<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="HTML-properties"><a href="#HTML-properties" class="headerlink" title="HTML properties"></a>HTML properties</h2><h3 id="fp-noscroll"><a href="#fp-noscroll" class="headerlink" title="fp-noscroll"></a>fp-noscroll</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fullpage&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;section&quot;</span> <span class="hljs-attr">fp-noscroll</span>&gt;</span>#firstSection<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션에 스크롤바를 표시하지 않는다.</p>
+</blockquote>
+<h3 id="fp-auto-height"><a href="#fp-auto-height" class="headerlink" title="fp-auto-height"></a>fp-auto-height</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fullpage&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;section&quot;</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">&quot;firstSection&quot;</span>&gt;</span>#firstSection<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;section fp-auto-height&quot;</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">&quot;secondSection&quot;</span>&gt;</span>#secondSection<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>특정 섹션의 높이값을 자동으로 변경한다.</p>
+</blockquote>
+<h3 id="fp-auto-height-responsive"><a href="#fp-auto-height-responsive" class="headerlink" title="fp-auto-height-responsive"></a>fp-auto-height-responsive</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fullpage&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;section&quot;</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">&quot;firstSection&quot;</span>&gt;</span>#firstSection<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;section fp-auto-height-responsive&quot;</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">&quot;secondSection&quot;</span>&gt;</span>#secondSection<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>특정 섹션의 높이값을 자동으로 변경한다.<br>반응형 동작을 추가한다.</p>
+</blockquote>
+<h3 id="data-src"><a href="#data-src" class="headerlink" title="data-src"></a>data-src</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;image.png&quot;</span> /&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">video</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;video.mp4&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;video/mp4&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">audio</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;audio.ogg&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;audio/ogg&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">audio</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>미디어 파일을 지연 로드 (<code>lazy loading</code>) 한다.</p>
+</blockquote>
+<h3 id="data-autoplay"><a href="#data-autoplay" class="headerlink" title="data-autoplay"></a>data-autoplay</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">video</span> <span class="hljs-attr">data-autoplay</span> <span class="hljs-attr">data-keepplaying</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;video.mp4&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;video/mp4&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">audio</span> <span class="hljs-attr">data-autoplay</span> <span class="hljs-attr">data-keepplaying</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;audio.ogg&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;audio/ogg&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">audio</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>미디어를 섹션 진입 시 재생 (<code>data-autoplay</code>) 하고, 섹션 진출 시 정지 (<code>data-keepplaying</code>) 한다.</p>
+</blockquote>
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><h3 id="licenseKey"><a href="#licenseKey" class="headerlink" title="licenseKey"></a>licenseKey</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">licenseKey</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>상업용 라이센스키를 입력한다.</p>
+</blockquote>
+<h3 id="controlArrows"><a href="#controlArrows" class="headerlink" title="controlArrows"></a>controlArrows</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">controlArrows</span>: <span class="hljs-literal">true</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>키보드 화살표 키를 통해서 제어 가능 여부를 정한다.</p>
+</blockquote>
+<h3 id="verticalCentered"><a href="#verticalCentered" class="headerlink" title="verticalCentered"></a>verticalCentered</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">verticalCentered</span>: <span class="hljs-literal">true</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 내 컨텐츠를 수직 센터 정렬한다.</p>
+</blockquote>
+<h3 id="scrollingSpeed"><a href="#scrollingSpeed" class="headerlink" title="scrollingSpeed"></a>scrollingSpeed</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">scrollingSpeed</span>: <span class="hljs-number">700</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>스크롤 애니메이션 속도를 밀리세컨으로 정한다.</p>
+</blockquote>
+<h3 id="sectionsColor"><a href="#sectionsColor" class="headerlink" title="sectionsColor"></a>sectionsColor</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">sectionsColor</span>: [<span class="hljs-string">&#x27;#000&#x27;</span>, red],<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션의 배경색상을 설정한다.</p>
+</blockquote>
+<h3 id="anchors"><a href="#anchors" class="headerlink" title="anchors"></a>anchors</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">anchors</span>: [<span class="hljs-string">&#x27;firstSection&#x27;</span>, <span class="hljs-string">&#x27;secondSection&#x27;</span>],<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>각 섹션의 앵커를 설정한다.<br><code>data-anchor</code> 속성을 통해서 설정하는 것이 직관적이다.</p>
+</blockquote>
+<h3 id="lockAnchors"><a href="#lockAnchors" class="headerlink" title="lockAnchors"></a>lockAnchors</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">lockAnchors</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>URL</code> 의 앵커가 라이브러리에서 효과를 지닐지 말지를 결정한다.<br>나만의 기능과 콜백을 위해 여전히 내부에서 앵커를 쓸 수는 있지만 웹사이트 스크롤에는 아무런 효과가 없다.<br><code>URL</code> 의 앵커를 사용하여 다른 플러그인과 결합 할 때 유용하다.</p>
+</blockquote>
+<h3 id="easing"><a href="#easing" class="headerlink" title="easing"></a>easing</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/blob/master/vendors/easings.min.js">https://github.com/alvarotrigo/fullPage.js/blob/master/vendors/easings.min.js</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">easing</span>: <span class="hljs-string">&#x27;easeInOutCubic&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>vendors/easings.min.js</code> 파일이 필요하다.</p>
+</blockquote>
+<h3 id="easingcss3"><a href="#easingcss3" class="headerlink" title="easingcss3"></a>easingcss3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">easingcss3</span>: ease,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>css3: true</code> 일 경우 사용 할 효과를 정의한다.</p>
+</blockquote>
+<h3 id="loopTop"><a href="#loopTop" class="headerlink" title="loopTop"></a>loopTop</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">loopTop</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>첫번째 섹션에서 스크롤을 위로 올릴 때, 마지막 섹션으로 이동 할 지 여부를 결정한다.</p>
+</blockquote>
+<h3 id="loopBottom"><a href="#loopBottom" class="headerlink" title="loopBottom"></a>loopBottom</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">loopBottom</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>마지막 섹션에서 스크롤을 아래로 내릴릴 때, 첫번째 섹션으로 이동 할 지 여부를 결정한다.</p>
+</blockquote>
+<h3 id="loopHorizontal"><a href="#loopHorizontal" class="headerlink" title="loopHorizontal"></a>loopHorizontal</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">loopHorizontal</span>: <span class="hljs-literal">true</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>슬라이더 루핑 여부를 결정한다.<br>맨 처음 또는 맨 마지막으로 돌아가는 애니메이션을 재생한다.</p>
+</blockquote>
+<h3 id="css3"><a href="#css3" class="headerlink" title="css3"></a>css3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">css3</span>: <span class="hljs-literal">true</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>CSS</code> 를 이용하여 애니메이션을 할 지 여부를 결정한다.</p>
+</blockquote>
+<h3 id="autoScrolling"><a href="#autoScrolling" class="headerlink" title="autoScrolling"></a>autoScrolling</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">autoScrolling</span>: <span class="hljs-literal">true</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>automatic</code> 스크롤을 쓸지 <code>normal</code> 스크롤을 쓸지 여부를 결정한다.</p>
+</blockquote>
+<h3 id="fitToSection"><a href="#fitToSection" class="headerlink" title="fitToSection"></a>fitToSection</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">fitToSection</span>: <span class="hljs-literal">true</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션을 화면 높이에 맞춘다.</p>
+</blockquote>
+<h3 id="fitToSectionDelay"><a href="#fitToSectionDelay" class="headerlink" title="fitToSectionDelay"></a>fitToSectionDelay</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">fitToSectionDelay</span>: <span class="hljs-number">1000</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션을 화면 높이에 맞출 때 지연 시간을 준다.</p>
+</blockquote>
+<h3 id="scrollBar"><a href="#scrollBar" class="headerlink" title="scrollBar"></a>scrollBar</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">scrollBar</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>브라우저 스크롤바를 사용 할 지 여부를 결정한다.</p>
+</blockquote>
+<h3 id="paddingTop"><a href="#paddingTop" class="headerlink" title="paddingTop"></a>paddingTop</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">paddingTop</span>: <span class="hljs-number">0</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 상단의 여백을 정한다.</p>
+</blockquote>
+<h3 id="paddingBottom"><a href="#paddingBottom" class="headerlink" title="paddingBottom"></a>paddingBottom</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">paddingBottom</span>: <span class="hljs-number">0</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 하단의 여백을 정한다.</p>
+</blockquote>
+<h3 id="fixedElements"><a href="#fixedElements" class="headerlink" title="fixedElements"></a>fixedElements</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">fixedElements</span>: <span class="hljs-string">&#x27;#aside, #banner, #modal&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>고정된 요소를 지정한다.</p>
+</blockquote>
+<h3 id="normalScrollElements"><a href="#normalScrollElements" class="headerlink" title="normalScrollElements"></a>normalScrollElements</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">normalScrollElements</span>: <span class="hljs-string">&#x27;#modal&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>일반 스크롤 요소를 지정한다.<br><code>overflow: scroll</code> 또는 <code>overflow-y: scroll</code> 속성이 필요하다.</p>
+</blockquote>
+<h3 id="bigSectionsDestination"><a href="#bigSectionsDestination" class="headerlink" title="bigSectionsDestination"></a>bigSectionsDestination</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">bigSectionsDestination</span>: <span class="hljs-literal">null</span>, <span class="hljs-comment">// &#x27;top&#x27;, &#x27;bottom&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>화면보다 큰 섹션으로 갈 때 스크롤 위치를 정한다.</p>
+</blockquote>
+<h3 id="keyboardScrolling"><a href="#keyboardScrolling" class="headerlink" title="keyboardScrolling"></a>keyboardScrolling</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">keyboardScrolling</span>: <span class="hljs-literal">true</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>키보드를 사용하여 컨텐츠를 이동 할 지 여부를 결정한다.</p>
+</blockquote>
+<h3 id="touchSensitivity"><a href="#touchSensitivity" class="headerlink" title="touchSensitivity"></a>touchSensitivity</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">touchSensitivity</span>: <span class="hljs-number">5</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>스와이프가 동작하게 되는 거리 (민감도) 를 정한다.</p>
+</blockquote>
+<h3 id="continuousVertical"><a href="#continuousVertical" class="headerlink" title="continuousVertical"></a>continuousVertical</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">continuousVertical</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>처음 또는 마지막 섹션에서 루핑 여부를 결정한다.<br>맨 처음 또는 맨 마지막으로 가는 애니메이션이 보이므로 자연스럽지 못하다.</p>
+</blockquote>
+<h3 id="continuousHorizontal"><a href="#continuousHorizontal" class="headerlink" title="continuousHorizontal"></a>continuousHorizontal</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/continuous-horizontal.html">https://alvarotrigo.com/fullPage/extensions/continuous-horizontal.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">continuousHorizontal</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>슬라이드 루핑 시점에서 자연스러운 이동을 한다.<br>맨 처음 또는 맨 마지막으로 가는 애니메이션 없이 자연스럽다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="scrollHorizontally"><a href="#scrollHorizontally" class="headerlink" title="scrollHorizontally"></a>scrollHorizontally</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/scroll-horizontally.html">https://alvarotrigo.com/fullPage/extensions/scroll-horizontally.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">scrollHorizontally</span>: <span class="hljs-literal">true</span>,<br><span class="hljs-attr">scrollHorizontallyKey</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>스크롤에 따라 섹션과 슬라이드 모두 동작한다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="interlockedSlides"><a href="#interlockedSlides" class="headerlink" title="interlockedSlides"></a>interlockedSlides</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/interlocked-slides.html">https://alvarotrigo.com/fullPage/extensions/interlocked-slides.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">interlockedSlides</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>모든 슬라이드의 활성 슬라이드 인덱스를 동기화 할 수 있다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="dragAndMove"><a href="#dragAndMove" class="headerlink" title="dragAndMove"></a>dragAndMove</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/drag-and-move.html">https://alvarotrigo.com/fullPage/extensions/drag-and-move.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">dragAndMove</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// true, false, &#x27;vertical&#x27;, &#x27;horizontal&#x27;, &#x27;fingersonly&#x27;, &#x27;mouseonly&#x27;</span><br><span class="hljs-attr">dragAndMoveKey</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>드래그를 사용하여 섹션 및 슬라이드를 이동 할 수 있다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="offsetSections"><a href="#offsetSections" class="headerlink" title="offsetSections"></a>offsetSections</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/offset-sections.html">https://alvarotrigo.com/fullPage/extensions/offset-sections.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">offsetSections</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션을 전체화면이 아닌 구역으로 퍼센트에 기반하여 쓸 수 있는 방법을 지원한다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="resetSliders"><a href="#resetSliders" class="headerlink" title="resetSliders"></a>resetSliders</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/reset-sliders.html">https://alvarotrigo.com/fullPage/extensions/reset-sliders.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">resetSliders</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 이동 후 슬라이더 활성 인덱스를 초기화한다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="fadingEffect"><a href="#fadingEffect" class="headerlink" title="fadingEffect"></a>fadingEffect</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/fading-effect.html">https://alvarotrigo.com/fullPage/extensions/fading-effect.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">fadingEffect</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 이동 시 페이드인 효과를 적용한다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="animateAnchor"><a href="#animateAnchor" class="headerlink" title="animateAnchor"></a>animateAnchor</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">animateAnchor</span>: <span class="hljs-literal">true</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>URL</code> 에 앵커가 있을 경우 바로 화면으로 이동 할 지 애니메이션으로 이동 할 지 여부를 결정한다.</p>
+</blockquote>
+<h3 id="recordHistory"><a href="#recordHistory" class="headerlink" title="recordHistory"></a>recordHistory</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">recordHistory</span>: <span class="hljs-literal">true</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션과 슬라이드 이동 시 브라우저 히스토리에 저장한다.<br><code>autoScrolling: false</code> 일 경우 사용 불가하다.</p>
+</blockquote>
+<h3 id="menu"><a href="#menu" class="headerlink" title="menu"></a>menu</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">menu</span>: <span class="hljs-string">&#x27;#menu&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;menu&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-menuanchor</span>=<span class="hljs-string">&quot;first&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#first&quot;</span>&gt;</span>SECTION 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-menuanchor</span>=<span class="hljs-string">&quot;second&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#second&quot;</span>&gt;</span>SECTION 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>메뉴 요소를 정한다.</p>
+</blockquote>
+<h3 id="navigation"><a href="#navigation" class="headerlink" title="navigation"></a>navigation</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">navigation</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 인디케이터를 표시한다.</p>
+</blockquote>
+<h3 id="navigationPosition"><a href="#navigationPosition" class="headerlink" title="navigationPosition"></a>navigationPosition</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">navigationPosition</span>: [],<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 인디케이터 표시 위치를 정한다.</p>
+</blockquote>
+<h3 id="navigationTooltips"><a href="#navigationTooltips" class="headerlink" title="navigationTooltips"></a>navigationTooltips</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">navigationTooltips</span>: [],<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 인디케이터 툴팁을 지정한다.<br><code>data-tooltip</code> 속성을 통해서 설정하는 것이 직관적이다.</p>
+</blockquote>
+<h3 id="showActiveTooltip"><a href="#showActiveTooltip" class="headerlink" title="showActiveTooltip"></a>showActiveTooltip</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">showActiveTooltip</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 인디케이터 툴팁 노출 여부를 결정한다.</p>
+</blockquote>
+<h3 id="slidesNavigation"><a href="#slidesNavigation" class="headerlink" title="slidesNavigation"></a>slidesNavigation</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">slidesNavigation</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>슬라이더 인디케이터 표시 여부를 결정한다.</p>
+</blockquote>
+<h3 id="slidesNavPosition"><a href="#slidesNavPosition" class="headerlink" title="slidesNavPosition"></a>slidesNavPosition</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">slidesNavPosition</span>: <span class="hljs-string">&#x27;bottom&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>슬라이더 인디케이터 표시 위치를 정한다.</p>
+</blockquote>
+<h3 id="scrollOverflow"><a href="#scrollOverflow" class="headerlink" title="scrollOverflow"></a>scrollOverflow</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/blob/master/vendors/scrolloverflow.min.js">https://github.com/alvarotrigo/fullPage.js/blob/master/vendors/scrolloverflow.min.js</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">scrollOverflow</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션의 높이보다 컨텐츠의 높이가 클 경우 스크롤 여부를 결정한다.<br><code>vendors/scrolloverflow.min.js</code> 파일이 필요하다.</p>
+</blockquote>
+<h3 id="scrollOverflowReset"><a href="#scrollOverflowReset" class="headerlink" title="scrollOverflowReset"></a>scrollOverflowReset</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/scrolloverflow-reset.html">https://alvarotrigo.com/fullPage/extensions/scrolloverflow-reset.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">scrollOverflowReset</span>: <span class="hljs-literal">true</span>,<br><span class="hljs-attr">scrollOverflowResetKey</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>오버플로우 스크롤된 섹션에 재 진입 할 때 스크롤을 초기화한다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="scrollOverflowOptions"><a href="#scrollOverflowOptions" class="headerlink" title="scrollOverflowOptions"></a>scrollOverflowOptions</h3><p><a target="_blank" rel="noopener" href="https://github.com/cubiq/iscroll">https://github.com/cubiq/iscroll</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">scrollOverflowOptions</span>: <span class="hljs-literal">null</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>iScroll</code> 옵션을 지정 할 수 있다.</p>
+</blockquote>
+<h3 id="sectionSelector"><a href="#sectionSelector" class="headerlink" title="sectionSelector"></a>sectionSelector</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">sectionSelector</span>: <span class="hljs-string">&#x27;.section&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 클래스 선택자를 정 할 수 있다.</p>
+</blockquote>
+<h3 id="slideSelector"><a href="#slideSelector" class="headerlink" title="slideSelector"></a>slideSelector</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">slideSelector</span>: <span class="hljs-string">&#x27;.slide&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>슬라이드 클래스 선택자를 정 할 수 있다.</p>
+</blockquote>
+<h3 id="responsiveWidth"><a href="#responsiveWidth" class="headerlink" title="responsiveWidth"></a>responsiveWidth</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">responsiveWidth</span>: <span class="hljs-number">0</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>지정된 값에 따라 브라우저 너비가 변하면 일반 웹사이트 스크롤 구조로 변경한다.</p>
+</blockquote>
+<h3 id="responsiveHeight"><a href="#responsiveHeight" class="headerlink" title="responsiveHeight"></a>responsiveHeight</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">responsiveHeight</span>: <span class="hljs-number">0</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>지정된 값에 따라 브라우저 높이가 변하면 일반 웹사이트 스크롤 구조로 변경한다.</p>
+</blockquote>
+<h3 id="responsiveSlides"><a href="#responsiveSlides" class="headerlink" title="responsiveSlides"></a>responsiveSlides</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/responsive-slides.html">https://alvarotrigo.com/fullPage/extensions/responsive-slides.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">responsiveSlides</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>responsiveWidth</code> 또는 <code>responsiveHeight</code> 설정에 따라 슬라이드를 섹션으로 변경한다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="parallax"><a href="#parallax" class="headerlink" title="parallax"></a>parallax</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/parallax.html">https://alvarotrigo.com/fullPage/extensions/parallax.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">parallax</span>: <span class="hljs-literal">true</span>,<br><span class="hljs-attr">parallaxKey</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>배경 이미지에 패럴렉스 스크롤링 효과를 사용 할 수 있다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="parallaxOptions"><a href="#parallaxOptions" class="headerlink" title="parallaxOptions"></a>parallaxOptions</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">parallaxOptions</span>: &#123;<br>  <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;cover&#x27;</span>, <span class="hljs-comment">// &#x27;cover&#x27;, &#x27;reveal&#x27;</span><br>  <span class="hljs-attr">percentage</span>: <span class="hljs-number">0</span>,<br>  <span class="hljs-attr">property</span>: <span class="hljs-string">&#x27;translate&#x27;</span>,<br>&#125;,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>parallax: true</code> 일 경우 옵션을 설정한다.</p>
+</blockquote>
+<h3 id="dropEffect"><a href="#dropEffect" class="headerlink" title="dropEffect"></a>dropEffect</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/drop-effect.html">https://alvarotrigo.com/fullPage/extensions/drop-effect.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">dropEffect</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 이동 시 트랜지션 효과를 준다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="dropEffectOptions"><a href="#dropEffectOptions" class="headerlink" title="dropEffectOptions"></a>dropEffectOptions</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">dropEffectOptions</span>: &#123;<br>  <span class="hljs-attr">speed</span>: <span class="hljs-number">2300</span>,<br>  <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;#F82F4D&#x27;</span>,<br>  <span class="hljs-attr">zIndex</span>: <span class="hljs-number">9999</span>,<br>&#125;,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>dropEffect: true</code> 일 경우 옵션을 설정한다.</p>
+</blockquote>
+<h3 id="waterEffect"><a href="#waterEffect" class="headerlink" title="waterEffect"></a>waterEffect</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/water-effect.html">https://alvarotrigo.com/fullPage/extensions/water-effect.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">waterEffect</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 이동 시 트랜지션 효과를 준다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="waterEffectOptions"><a href="#waterEffectOptions" class="headerlink" title="waterEffectOptions"></a>waterEffectOptions</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">waterEffectOptions</span>: <br>  <span class="hljs-attr">animateContent</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">animateOnMouseMove</span>: <span class="hljs-literal">true</span>,<br>&#125;,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>waterEffect: true</code> 일 경우 옵션을 설정한다.</p>
+</blockquote>
+<h3 id="cards"><a href="#cards" class="headerlink" title="cards"></a>cards</h3><p><a target="_blank" rel="noopener" href="https://alvarotrigo.com/fullPage/extensions/cards.html">https://alvarotrigo.com/fullPage/extensions/cards.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">cards</span>: <span class="hljs-literal">false</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>섹션 이동 시 트랜지션 효과를 준다.<br>유로 확장 플러그인을 구매해야 한다.</p>
+</blockquote>
+<h3 id="cardsOptions"><a href="#cardsOptions" class="headerlink" title="cardsOptions"></a>cardsOptions</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">cardsOptions</span>: &#123;<br>  <span class="hljs-attr">perspective</span>: <span class="hljs-number">100</span>,<br>  <span class="hljs-attr">fadeContent</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-attr">fadeBackground</span>: <span class="hljs-literal">true</span>,<br>&#125;,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>cards: true</code> 일 경우 옵션을 설정한다.</p>
+</blockquote>
+<h3 id="lazyLoading"><a href="#lazyLoading" class="headerlink" title="lazyLoading"></a>lazyLoading</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">lazyLoading</span>: <span class="hljs-literal">true</span>,<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>data-src</code> 속성이 있는 모든 요소에 지연 로딩을 사용한다.</p>
+</blockquote>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="getActiveSection"><a href="#getActiveSection" class="headerlink" title="getActiveSection"></a>getActiveSection</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#getactivesection">https://github.com/alvarotrigo/fullPage.js/tree/master#getactivesection</a></p>
+<blockquote>
+<p>활성화된 섹션을 반환한다.</p>
+</blockquote>
+<h3 id="getActiveSlide"><a href="#getActiveSlide" class="headerlink" title="getActiveSlide"></a>getActiveSlide</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#getactiveslide">https://github.com/alvarotrigo/fullPage.js/tree/master#getactiveslide</a></p>
+<blockquote>
+<p>활성화된 슬라이드를 반환한다.</p>
+</blockquote>
+<h3 id="moveSectionUp"><a href="#moveSectionUp" class="headerlink" title="moveSectionUp"></a>moveSectionUp</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#movesectionup">https://github.com/alvarotrigo/fullPage.js/tree/master#movesectionup</a></p>
+<blockquote>
+<p>이전 섹션으로 이동한다.</p>
+</blockquote>
+<h3 id="moveSectionDown"><a href="#moveSectionDown" class="headerlink" title="moveSectionDown"></a>moveSectionDown</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#movesectiondown">https://github.com/alvarotrigo/fullPage.js/tree/master#movesectiondown</a></p>
+<blockquote>
+<p>다음 섹션으로 이동한다.</p>
+</blockquote>
+<h3 id="moveTo"><a href="#moveTo" class="headerlink" title="moveTo"></a>moveTo</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#movetosection-slide">https://github.com/alvarotrigo/fullPage.js/tree/master#movetosection-slide</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">fullpage.<span class="hljs-title function_">moveTo</span>(<span class="hljs-number">0</span>); <span class="hljs-comment">// 첫번째 섹션으로 이동</span><br><br>fullpage.<span class="hljs-title function_">moveTo</span>(<span class="hljs-string">&#x27;secondSection&#x27;</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// #secondSection 섹션의 세번째 슬라이드로 이동</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>특정 섹션 및 슬라이드로 이동한다.</p>
+</blockquote>
+<h3 id="silentMoveTo"><a href="#silentMoveTo" class="headerlink" title="silentMoveTo"></a>silentMoveTo</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#silentmovetosection-slide">https://github.com/alvarotrigo/fullPage.js/tree/master#silentmovetosection-slide</a></p>
+<blockquote>
+<p>특정 섹션 및 슬라이드로 애니메이션 효과 없이 이동한다.</p>
+</blockquote>
+<h3 id="moveSlideRight"><a href="#moveSlideRight" class="headerlink" title="moveSlideRight"></a>moveSlideRight</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#moveslideright">https://github.com/alvarotrigo/fullPage.js/tree/master#moveslideright</a></p>
+<blockquote>
+<p>다음 슬라이드로 이동한다.</p>
+</blockquote>
+<h3 id="moveSlideLeft"><a href="#moveSlideLeft" class="headerlink" title="moveSlideLeft"></a>moveSlideLeft</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#moveslideleft">https://github.com/alvarotrigo/fullPage.js/tree/master#moveslideleft</a></p>
+<blockquote>
+<p>이전 슬라이드로 이동한다.</p>
+</blockquote>
+<h3 id="setAutoScrolling"><a href="#setAutoScrolling" class="headerlink" title="setAutoScrolling"></a>setAutoScrolling</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#setautoscrollingboolean">https://github.com/alvarotrigo/fullPage.js/tree/master#setautoscrollingboolean</a></p>
+<blockquote>
+<p>스크롤 환경설정을 실시간으로 설정한다.</p>
+</blockquote>
+<h3 id="setFitToSection"><a href="#setFitToSection" class="headerlink" title="setFitToSection"></a>setFitToSection</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#setfittosectionboolean">https://github.com/alvarotrigo/fullPage.js/tree/master#setfittosectionboolean</a></p>
+<blockquote>
+<p>섹션을 화면에 맞출지 여부를 설정한다.</p>
+</blockquote>
+<h3 id="fitToSection-1"><a href="#fitToSection-1" class="headerlink" title="fitToSection"></a>fitToSection</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#fittosection">https://github.com/alvarotrigo/fullPage.js/tree/master#fittosection</a></p>
+<blockquote>
+<p>활성화된 섹션을 화면에 맞춘다.</p>
+</blockquote>
+<h3 id="setLockAnchors"><a href="#setLockAnchors" class="headerlink" title="setLockAnchors"></a>setLockAnchors</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#setlockanchorsboolean">https://github.com/alvarotrigo/fullPage.js/tree/master#setlockanchorsboolean</a></p>
+<blockquote>
+<p>주소표시줄에 앵커를 표시할지 여부를 설정한다.</p>
+</blockquote>
+<h3 id="setAllowScrolling"><a href="#setAllowScrolling" class="headerlink" title="setAllowScrolling"></a>setAllowScrolling</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#setallowscrollingboolean-directions">https://github.com/alvarotrigo/fullPage.js/tree/master#setallowscrollingboolean-directions</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">fullpage.<span class="hljs-title function_">setAllowScrolling</span>(<span class="hljs-literal">false</span>); <span class="hljs-comment">// 스크롤 비활성</span><br><br>fullpage.<span class="hljs-title function_">setAllowScrolling</span>(<span class="hljs-literal">false</span>, <span class="hljs-string">&#x27;down, right&#x27;</span>); <span class="hljs-comment">// 오른쪽 아래 스크롤 비활성</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>휠 또는 터치 제스처를 이용한 스크롤을 비활성한다.</p>
+</blockquote>
+<h3 id="setKeyboardScrolling"><a href="#setKeyboardScrolling" class="headerlink" title="setKeyboardScrolling"></a>setKeyboardScrolling</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#setkeyboardscrollingboolean-directions">https://github.com/alvarotrigo/fullPage.js/tree/master#setkeyboardscrollingboolean-directions</a></p>
+<blockquote>
+<p>키보드를 이용한 스크롤을 비활성한다.</p>
+</blockquote>
+<h3 id="setRecordHistory"><a href="#setRecordHistory" class="headerlink" title="setRecordHistory"></a>setRecordHistory</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#setrecordhistoryboolean">https://github.com/alvarotrigo/fullPage.js/tree/master#setrecordhistoryboolean</a></p>
+<blockquote>
+<p>앵커 변경사항을 기록할지 여부를 설정한다.</p>
+</blockquote>
+<h3 id="setScrollingSpeed"><a href="#setScrollingSpeed" class="headerlink" title="setScrollingSpeed"></a>setScrollingSpeed</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#setscrollingspeedmilliseconds">https://github.com/alvarotrigo/fullPage.js/tree/master#setscrollingspeedmilliseconds</a></p>
+<blockquote>
+<p>스크롤 속도를 설정한다.</p>
+</blockquote>
+<h3 id="destroy"><a href="#destroy" class="headerlink" title="destroy"></a>destroy</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#destroytype">https://github.com/alvarotrigo/fullPage.js/tree/master#destroytype</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">fullpage.<span class="hljs-title function_">destroy</span>(); <span class="hljs-comment">// 자바스크립트 제거</span><br><br>fullpage.<span class="hljs-title function_">destroy</span>(<span class="hljs-string">&#x27;all&#x27;</span>); <span class="hljs-comment">// 자바스크립트 제거 (마크업 속성 포함)</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>풀페이지 동작을 제거한다.</p>
+</blockquote>
+<h3 id="reBuild"><a href="#reBuild" class="headerlink" title="reBuild"></a>reBuild</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#rebuild">https://github.com/alvarotrigo/fullPage.js/tree/master#rebuild</a></p>
+<blockquote>
+<p>브라우저 사이즈에 맞춰서 풀페이지를 업데이트 한다.</p>
+</blockquote>
+<h3 id="setResponsive"><a href="#setResponsive" class="headerlink" title="setResponsive"></a>setResponsive</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#setresponsiveboolean">https://github.com/alvarotrigo/fullPage.js/tree/master#setresponsiveboolean</a></p>
+<blockquote>
+<p>반응형 모드를 설정한다.</p>
+</blockquote>
+<h3 id="responsiveSlides-toSections"><a href="#responsiveSlides-toSections" class="headerlink" title="responsiveSlides.toSections"></a>responsiveSlides.toSections</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#responsiveslidestosections">https://github.com/alvarotrigo/fullPage.js/tree/master#responsiveslidestosections</a></p>
+<blockquote>
+<p>슬라이드를 섹션으로 변경한다.<br><code>responsiveSlides</code> 확장 플러그인이 필요하다.</p>
+</blockquote>
+<h3 id="responsiveSlides-toSlides"><a href="#responsiveSlides-toSlides" class="headerlink" title="responsiveSlides.toSlides"></a>responsiveSlides.toSlides</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#responsiveslidestoslides">https://github.com/alvarotrigo/fullPage.js/tree/master#responsiveslidestoslides</a></p>
+<blockquote>
+<p> 섹션을 슬라이드로 변경한다.<br><code>responsiveSlides</code> 확장 플러그인이 필요****하다.</p>
+</blockquote>
+<h2 id="Event"><a href="#Event" class="headerlink" title="Event"></a>Event</h2><h3 id="afterLoad"><a href="#afterLoad" class="headerlink" title="afterLoad"></a>afterLoad</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#afterload-origin-destination-direction">https://github.com/alvarotrigo/fullPage.js/tree/master#afterload-origin-destination-direction</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title function_">fullpage</span>(<span class="hljs-string">&#x27;#fullpage&#x27;</span>, &#123;<br>  <span class="hljs-title function_">afterLoad</span>(<span class="hljs-params">origin</span>)&#123;<br>    <span class="hljs-keyword">const</span> loadedSection = <span class="hljs-variable language_">this</span>;<br><br>    <span class="hljs-keyword">if</span> (origin.<span class="hljs-property">index</span> === <span class="hljs-number">2</span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Section 3 ended loading&#x27;</span>);<br>    &#125;<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>origin</code></td>
+<td align="left">현재 섹션</td>
+</tr>
+<tr>
+<td align="left"><code>destination</code></td>
+<td align="left">션도착 섹션</td>
+</tr>
+<tr>
+<td align="left"><code>direction</code></td>
+<td align="left">방향 (<code>up</code>, <code>down</code>)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>스크롤이 끝나고 섹션이 로드된 후 실행된다.</p>
+</blockquote>
+<h3 id="onLeave"><a href="#onLeave" class="headerlink" title="onLeave"></a>onLeave</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#onleave-origin-destination-direction">https://github.com/alvarotrigo/fullPage.js/tree/master#onleave-origin-destination-direction</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title function_">fullpage</span>(<span class="hljs-string">&#x27;#fullpage&#x27;</span>, &#123;<br>  <span class="hljs-title function_">onLeave</span>(<span class="hljs-params">origin, destination, direction</span>) &#123;<br>    <span class="hljs-keyword">const</span> leavingSection = <span class="hljs-variable language_">this</span>;<br><br>    <span class="hljs-keyword">if</span> (origin.<span class="hljs-property">index</span> === <span class="hljs-number">1</span> &amp;&amp; direction ===<span class="hljs-string">&#x27;down&#x27;</span>)&#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Going to section 3&#x27;</span>);<br><br>      <span class="hljs-comment">// return false; // 섹션 이동 불가 (스크롤 되지 않음)</span><br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(origin.<span class="hljs-property">index</span> === <span class="hljs-number">1</span> &amp;&amp; direction === <span class="hljs-string">&#x27;up&#x27;</span>)&#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Going to section 1&#x27;</span>);<br>    &#125;<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>origin</code></td>
+<td align="left">출발 섹션</td>
+</tr>
+<tr>
+<td align="left"><code>destination</code></td>
+<td align="left">도착 섹션</td>
+</tr>
+<tr>
+<td align="left"><code>direction</code></td>
+<td align="left">방향 (<code>up</code>, <code>down</code>)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>섹션을 떠날 때 실행된다.</p>
+</blockquote>
+<h3 id="afterRender"><a href="#afterRender" class="headerlink" title="afterRender"></a>afterRender</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#afterrender">https://github.com/alvarotrigo/fullPage.js/tree/master#afterrender</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title function_">fullpage</span>(<span class="hljs-string">&#x27;#fullpage&#x27;</span>, &#123;<br>  <span class="hljs-title function_">afterRender</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> pluginContainer = <span class="hljs-variable language_">this</span>;<br><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;The resulting DOM structure is ready&#x27;</span>);<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>페이지 구조가 생성된 후 실행된다.<br><code>window.onLoad</code> 이후와 동일하다.</p>
+</blockquote>
+<h3 id="afterResize"><a href="#afterResize" class="headerlink" title="afterResize"></a>afterResize</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#afterresizewidth-height">https://github.com/alvarotrigo/fullPage.js/tree/master#afterresizewidth-height</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title function_">fullpage</span>(<span class="hljs-string">&#x27;#fullpage&#x27;</span>, &#123;<br>  <span class="hljs-title function_">afterResize</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> pluginContainer = <span class="hljs-variable language_">this</span>;<br><br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;The sections have finished resizing&#x27;</span>);<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>width</code></td>
+<td align="left">너비</td>
+</tr>
+<tr>
+<td align="left"><code>height</code></td>
+<td align="left">높이</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>브라우저 창의 크기가 바뀐 뒤 실행된다.</p>
+</blockquote>
+<h3 id="afterReBuild"><a href="#afterReBuild" class="headerlink" title="afterReBuild"></a>afterReBuild</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#afterrebuild">https://github.com/alvarotrigo/fullPage.js/tree/master#afterrebuild</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title function_">fullpage</span>(<span class="hljs-string">&#x27;#fullpage&#x27;</span>, &#123;<br>  <span class="hljs-title function_">afterReBuild</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;fullPage.js has manually being re-builded&#x27;</span>);<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>reBuild</code> 메서드가 실행된 후 실행된다.</p>
+</blockquote>
+<h3 id="afterResponsive"><a href="#afterResponsive" class="headerlink" title="afterResponsive"></a>afterResponsive</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#afterresponsiveisresponsive">https://github.com/alvarotrigo/fullPage.js/tree/master#afterresponsiveisresponsive</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title function_">fullpage</span>(<span class="hljs-string">&#x27;#fullpage&#x27;</span>, &#123;<br>  <span class="hljs-title function_">afterResponsive</span>(<span class="hljs-params">isResponsive</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(isResponsive);<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>isResponsive</code></td>
+<td align="left">반응형 모드 (<code>true</code>), 정상 모드 (<code>false</code>)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>정상 모드와 반응형 모드 간 변경이 있을 때 실행된다.</p>
+</blockquote>
+<h3 id="afterSlideLoad"><a href="#afterSlideLoad" class="headerlink" title="afterSlideLoad"></a>afterSlideLoad</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#afterslideload-section-origin-destination-direction">https://github.com/alvarotrigo/fullPage.js/tree/master#afterslideload-section-origin-destination-direction</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title function_">fullpage</span>(<span class="hljs-string">&#x27;#fullpage&#x27;</span>, &#123;<br>  <span class="hljs-title function_">onSlideLeave</span>(<span class="hljs-params">section, origin, destination, direction</span>) &#123;<br>    <span class="hljs-keyword">const</span> loadedSlide = <span class="hljs-variable language_">this</span>;<br><br>    <span class="hljs-comment">// 첫번째 섹션의 &#x27;#secondSlide&#x27; 슬라이드로 진입 했을 때</span><br>    <span class="hljs-keyword">if</span>(section.<span class="hljs-property">index</span> === <span class="hljs-number">0</span> &amp;&amp; destination.<span class="hljs-property">anchor</span> === <span class="hljs-string">&#x27;secondSlide&#x27;</span>)&#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Second slide loaded&#x27;</span>);<br>    &#125;<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>section</code></td>
+<td align="left">현재 섹션</td>
+</tr>
+<tr>
+<td align="left"><code>origin</code></td>
+<td align="left">출발 슬라이드</td>
+</tr>
+<tr>
+<td align="left"><code>destination</code></td>
+<td align="left">도착 슬라이드</td>
+</tr>
+<tr>
+<td align="left"><code>direction</code></td>
+<td align="left">방향 (<code>left</code>, <code>right</code>)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>슬라이드에 진입 후 실행된다.</p>
+</blockquote>
+<h3 id="onSlideLeave"><a href="#onSlideLeave" class="headerlink" title="onSlideLeave"></a>onSlideLeave</h3><p><a target="_blank" rel="noopener" href="https://github.com/alvarotrigo/fullPage.js/tree/master#onslideleave-section-origin-destination-direction">https://github.com/alvarotrigo/fullPage.js/tree/master#onslideleave-section-origin-destination-direction</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title function_">fullpage</span>(<span class="hljs-string">&#x27;#fullpage&#x27;</span>, &#123;<br>  <span class="hljs-title function_">onSlideLeave</span>(<span class="hljs-params">section, origin, destination, direction</span>) &#123;<br>    <span class="hljs-keyword">const</span> leavingSlide = <span class="hljs-variable language_">this</span>;<br><br>    <span class="hljs-comment">// 첫번째 섹션의 첫번째 슬라이드를 떠나서 오른쪽으로 이동</span><br>    <span class="hljs-keyword">if</span> (section.<span class="hljs-property">index</span> === <span class="hljs-number">0</span> &amp;&amp; origin.<span class="hljs-property">index</span> === <span class="hljs-number">0</span> &amp;&amp; direction === <span class="hljs-string">&#x27;right&#x27;</span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Leaving the fist slide&#x27;</span>);<br>    &#125;<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>section</code></td>
+<td align="left">현재 섹션</td>
+</tr>
+<tr>
+<td align="left"><code>origin</code></td>
+<td align="left">출발 슬라이드</td>
+</tr>
+<tr>
+<td align="left"><code>destination</code></td>
+<td align="left">도착 슬라이드</td>
+</tr>
+<tr>
+<td align="left"><code>direction</code></td>
+<td align="left">방향 (<code>left</code>, <code>right</code>)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>슬라이드를 떠날 때 실행된다.</p>
+</blockquote>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fullpage&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;section active&quot;</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">&quot;first&quot;</span> <span class="hljs-attr">data-tooltip</span>=<span class="hljs-string">&quot;First&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fp-bg&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;inner&quot;</span>&gt;</span>SECTION 1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;section&quot;</span> <span class="hljs-attr">data-anchor</span>=<span class="hljs-string">&quot;second&quot;</span> <span class="hljs-attr">data-tooltip</span>=<span class="hljs-string">&quot;Second&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fp-bg&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;inner&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slide active&quot;</span>&gt;</span>SECTION 2 - 1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slide&quot;</span>&gt;</span>SECTION 2 - 2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;aside&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;menu&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;menu&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;list&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;menuitem&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">data-menuanchor</span>=<span class="hljs-string">&quot;first&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#first&quot;</span>&gt;</span>SECTION 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;menuitem&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;item&quot;</span> <span class="hljs-attr">data-menuanchor</span>=<span class="hljs-string">&quot;second&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#second&quot;</span>&gt;</span>SECTION 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@import</span> <span class="hljs-string">&quot;node_modules/fullpage.js/dist/fullpage.css&quot;</span>;<br><br><span class="hljs-selector-class">.section</span> &#123;<br>  <span class="hljs-selector-class">.fp-bg</span> &#123;<br>    <span class="hljs-attribute">background-size</span>: cover;<br>    <span class="hljs-attribute">background-position</span>: center <span class="hljs-number">80%</span>;<br>  &#125;<br>  &amp;<span class="hljs-selector-attr">[data-anchor=<span class="hljs-string">&quot;first&quot;</span>]</span> <span class="hljs-selector-class">.fp-bg</span> &#123;<br>    <span class="hljs-attribute">background-image</span>: url(../image/first.jpg);<br>  &#125;<br>  &amp;<span class="hljs-selector-attr">[data-anchor=<span class="hljs-string">&quot;second&quot;</span>]</span> <span class="hljs-selector-class">.fp-bg</span> &#123;<br>    <span class="hljs-attribute">background-image</span>: url(../image/second.jpg);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h3><figure class="highlight javascript"><figcaption><span>/index.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> first <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./sections/first&#x27;</span>;<br><span class="hljs-keyword">import</span> second <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./sections/second&#x27;</span>;<br><br><span class="hljs-keyword">const</span> $body = $(<span class="hljs-string">&#x27;body&#x27;</span>);<br><span class="hljs-keyword">const</span> sections = &#123; first, second &#125;;<br><br><span class="hljs-keyword">const</span> fullpage = <span class="hljs-keyword">new</span> <span class="hljs-title function_">fullpage</span>(<span class="hljs-string">&#x27;#fullpage&#x27;</span>, &#123;<br>  <span class="hljs-attr">licenseKey</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>  <span class="hljs-attr">menu</span>: <span class="hljs-string">&#x27;#menu&#x27;</span>,<br>  onLeave (origin, destination, direction) &#123;<br>    sections[origin.<span class="hljs-property">anchor</span>].<span class="hljs-title function_">deActive</span>();<br>    sections[destination.<span class="hljs-property">anchor</span>].<span class="hljs-title function_">active</span>();<br>  &#125;,<br>  afterRender () &#123;<br>    $body.<span class="hljs-title function_">addClass</span>(<span class="hljs-string">&#x27;complete&#x27;</span>);<br><br>    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> fullpage.<span class="hljs-property">reBuild</span>, <span class="hljs-number">100</span>);<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><figcaption><span>/sections/first.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">TimelineMax</span>, <span class="hljs-title class_">TweenMax</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;gsap&#x27;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> (<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> sectionName = <span class="hljs-string">&#x27;first&#x27;</span>;<br>  <span class="hljs-keyword">const</span> timeline = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TimelineMax</span>(&#123; <span class="hljs-attr">paused</span>: <span class="hljs-literal">true</span> &#125;);<br><br>  timeline.<span class="hljs-title function_">add</span>(<span class="hljs-title class_">TweenMax</span>.<span class="hljs-title function_">fromTo</span>(<span class="hljs-string">`.section-<span class="hljs-subst">$&#123;sectionName&#125;</span> .text`</span>, <span class="hljs-number">1</span>, &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">0</span> &#125;, &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">300</span> &#125;), <span class="hljs-number">0</span>);<br>  timeline.<span class="hljs-title function_">pause</span>();<br><br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-title function_">active</span>(<span class="hljs-params"></span>) &#123;<br>      timeline.<span class="hljs-title function_">timeScale</span>(<span class="hljs-number">1</span>);<br>      timeline.<span class="hljs-title function_">play</span>();<br>    &#125;,<br>    <span class="hljs-title function_">deActive</span>(<span class="hljs-params"></span>) &#123;<br>      timeline.<span class="hljs-title function_">timeScale</span>(<span class="hljs-number">2</span>);<br>      timeline.<span class="hljs-title function_">reverse</span>();<br>    &#125;<br>  &#125;;<br>&#125;)();<br></code></pre></td></tr></table></figure>
+
+    </section>
+
+    <section class="footer">
+        <div class="background"><i class="fa-brands fa-creative-commons"></i></div>
+        <div class="post">
+            <p class="name">Javascript - FullPage.js v3.1.2</p>
+            <a class="link" href="/javascript-libraries/fullpage/">https://gronkout.github.io/javascript-libraries/fullpage/</a>
+        </div>
+        <div class="information">
+            <div class="author">
+                <p class="label">Author</p>
+                <p class="name">GronkOut</p>
+            </div>
+            <div class="license">
+                <p class="label">Licensed under</p>
+                <ul class="list">
+                    <li class="item">
+                        <a class="link" title="Creative Commons" target="_blank" href="https://creativecommons.org/">
+                            <i class="fa-brands fa-creative-commons"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution-NonCommercial 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+            <div class="tags">
+                
+                    <a class="tag" href="/tags/javascript/"># javascript</a>
+                
+            </div>
+        
+    </section>
+
+    <section class="comment">
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous" async></script>
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-dark" crossorigin="anonymous" async></script>
+    </section>
+</article>
+    </main>
+
+    <!-- Option -->
+    <aside section="option">
+        <div class="wrap">
+            <menu class="tabs">
+                <li class="item">
+                    <button class="button active">Search</button>
+                </li>
+                <li class="item">
+                    <button class="button">Setup</button>
+                </li>
+            </menu>
+            <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            <div section="search" class="panel active">
+                <label class="label" for="input-search-keyword">Search keyword</label>
+                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
+                <div id="search-result"></div>
+            </div>
+            <div section="setup" class="panel">
+                <label class="label" for="select-color-scheme">Change color scheme</label>
+                <select id="select-color-scheme" class="scheme">
+                    <option value="system">System default</option>
+                    <option value="light">Forced light</option>
+                    <option value="dark">Forced dark</option>
+                </select>
+                <label class="label" for="input-border-radius">Change border radius</label>
+                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
+                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
+                <div class="button-group">
+                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
+                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+<!-- Script -->
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js" type="module"></script>
+
+<script>
+  $(() => {
+    $.ajax({
+      url: '/search.xml',
+      dataType: 'xml',
+      success(xmlResponse) {
+        const datas = $('entry', xmlResponse).map((index, entry) => ({
+          title: $('title', entry).text(),
+          content: $('content', entry).text(),
+          url: $('url', entry).text(),
+        })).get();
+
+        const $searchResult = $('#search-result');
+
+        $('#input-search-keyword').on('input', (event) => {
+          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
+          let str = '<div class="scroll"><ul class="list">';
+          let numOfPostFound = 0;
+
+          $searchResult.html('');
+
+          if (event.target.value.trim().length <= 0) {
+            return;
+          }
+
+          datas.forEach((data) => {
+            const title = data.title.trim().toLowerCase();
+            const content = data.content.trim().replace(/<[^>]+>/g, '');
+            const url = data.url;
+            let isMatch = true;
+            let firstOccur = -1;
+
+            if (title !== '' && content !== '') {
+              keywords.forEach((keyword, index) => {
+                let contentIndex = content.toLowerCase().indexOf(keyword);
+
+                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
+                  isMatch = false;
+                } else {
+                  if (contentIndex < 0) contentIndex = 0;
+                  if (index === 0) firstOccur = contentIndex;
+                }
+              });
+            }
+
+            if (isMatch) {
+              numOfPostFound += 1;
+
+              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
+
+              if (firstOccur >= 0) {
+                let start = firstOccur - 50;
+                let end = firstOccur + 50;
+
+                if (start < 0) start = 0;
+                if (start === 0) end = 100;
+                if (end > content.length) end = content.length;
+
+                let match = content.substring(start, start + end);
+
+                keywords.forEach((keyword) => {
+                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
+                });
+
+                str += `<p class="content">${ match }...</p>`;
+              }
+
+              str += '</a></li>';
+            }
+          });
+
+          str += '</ul></div>';
+
+          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
+        });
+      }
+    });
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Javascript - Smooth Scrollbar v8.7.4 | MIB</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.svg">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    
+        
+<link rel="stylesheet" href="/css/post.css">
+
+    
+    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
+    <script>
+      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
+      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
+    </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="post">
+    <!-- Loader -->
+    <div section="loader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header section="header">
+        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
+        <div class="title">
+            <a class="link" title="Memo In Brain" href="/">
+                <span class="text">Memo In Brain</span>
+                <img class="image" src="/img/logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="list">
+                
+                    <li class="item">
+                        <a class="button" title="Memo" href="/memo/">Memo</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            </ul>
+        </nav>
+        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
+    </header>
+
+    <!-- Main -->
+    <main section="main">
+        
+            <!-- Category / TOC -->
+            <aside section="sidebar">
+                <div class="wrap">
+                    <menu class="menu">
+                        <li class="item">
+                            <button class="button" title="Category" type="button">CATEGORY</button>
+                        </li>
+                        <li class="item">
+                            <button class="button" title="Table Of Content" type="button">TOC</button>
+                        </li>
+                    </menu>
+                    <div class="scroll">
+                        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/unit-test/">unit-test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/intersection-observer/">intersection-observer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a><span class="category-list-count">1</span></li></ul></li></ul>
+                        <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Setup"><span class="toc-list-number">1.</span> <span class="toc-list-text">Setup</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Static-methods"><span class="toc-list-number">2.</span> <span class="toc-list-text">Static methods</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Scrollbar-init"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">Scrollbar.init</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Scrollbar-initAll"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">Scrollbar.initAll</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Scrollbar-has"><span class="toc-list-number">2.3.</span> <span class="toc-list-text">Scrollbar.has</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Scrollbar-get"><span class="toc-list-number">2.4.</span> <span class="toc-list-text">Scrollbar.get</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Scrollbar-getAll"><span class="toc-list-number">2.5.</span> <span class="toc-list-text">Scrollbar.getAll</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Scrollbar-destroy"><span class="toc-list-number">2.6.</span> <span class="toc-list-text">Scrollbar.destroy</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Scrollbar-destroyAll"><span class="toc-list-number">2.7.</span> <span class="toc-list-text">Scrollbar.destroyAll</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Scrollbar-use"><span class="toc-list-number">2.8.</span> <span class="toc-list-text">Scrollbar.use</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Scrollbar-attachStyle"><span class="toc-list-number">2.9.</span> <span class="toc-list-text">Scrollbar.attachStyle</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Scrollbar-detachStyle"><span class="toc-list-number">2.10.</span> <span class="toc-list-text">Scrollbar.detachStyle</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Instance-properties-and-methods"><span class="toc-list-number">3.</span> <span class="toc-list-text">Instance properties and methods</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#containerEl"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">containerEl</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#contentEl"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">contentEl</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#options"><span class="toc-list-number">3.3.</span> <span class="toc-list-text">options</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#size"><span class="toc-list-number">3.4.</span> <span class="toc-list-text">size</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#offset"><span class="toc-list-number">3.5.</span> <span class="toc-list-text">offset</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#limit"><span class="toc-list-number">3.6.</span> <span class="toc-list-text">limit</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scrollLeft"><span class="toc-list-number">3.7.</span> <span class="toc-list-text">scrollLeft</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scrollTop"><span class="toc-list-number">3.8.</span> <span class="toc-list-text">scrollTop</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#track"><span class="toc-list-number">3.9.</span> <span class="toc-list-text">track</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#getSize"><span class="toc-list-number">3.10.</span> <span class="toc-list-text">getSize</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#update"><span class="toc-list-number">3.11.</span> <span class="toc-list-text">update</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setPosition"><span class="toc-list-number">3.12.</span> <span class="toc-list-text">setPosition</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scrollTo"><span class="toc-list-number">3.13.</span> <span class="toc-list-text">scrollTo</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scrollIntoView"><span class="toc-list-number">3.14.</span> <span class="toc-list-text">scrollIntoView</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#isVisible"><span class="toc-list-number">3.15.</span> <span class="toc-list-text">isVisible</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#addMomentum"><span class="toc-list-number">3.16.</span> <span class="toc-list-text">addMomentum</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setMomentum"><span class="toc-list-number">3.17.</span> <span class="toc-list-text">setMomentum</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#updatePluginOptions"><span class="toc-list-number">3.18.</span> <span class="toc-list-text">updatePluginOptions</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#addListener"><span class="toc-list-number">3.19.</span> <span class="toc-list-text">addListener</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#removeListener"><span class="toc-list-number">3.20.</span> <span class="toc-list-text">removeListener</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#destroy"><span class="toc-list-number">3.21.</span> <span class="toc-list-text">destroy</span></a></li></ol></li></ol>
+                    </div>
+                    <div class="footer">
+                        <button class="button expand" title="Expand"><i class="fa-solid fa-arrows-down-to-line"></i></button>
+                        <button class="button collapse" title="Collapse"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+                        <div class="percent">
+                            <progress class="progress" max="100"></progress>
+                            <span class="text"></span>
+                        </div>
+                        <button class="button top" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+                        <button class="button bottom" title="Go to bottom"><i class="fa-solid fa-caret-up"></i></button>
+                    </div>
+                </div>
+            </aside>
+        
+        <!-- Content -->
+        <article section="content">
+    <section class="header">
+        <div class="breadcrumbs">
+            <span class="breadcrumb">MEMO IN BRAIN</span>
+            
+                <span class="breadcrumb">JAVASCRIPT-LIBRARIES</span>
+            
+                <span class="breadcrumb">SMOOTH-SCROLLBAR</span>
+            
+        </div>
+        <h1 class="title">Javascript - Smooth Scrollbar v8.7.4</h1>
+    </section>
+
+    <section class="body">
+        <div class="links">
+  <a target="_blank" href="https://github.com/idiotWu/smooth-scrollbar">https://github.com/idiotWu/smooth-scrollbar</a>
+  <a target="_blank" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md</a>
+  <a target="_blank" href="https://idiotwu.github.io/smooth-scrollbar">https://idiotwu.github.io/smooth-scrollbar</a>
+</div>
+
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell">npm install <span class="hljs-literal">--save</span> smooth<span class="hljs-literal">-scrollbar</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Static-methods"><a href="#Static-methods" class="headerlink" title="Static methods"></a>Static methods</h2><h3 id="Scrollbar-init"><a href="#Scrollbar-init" class="headerlink" title="Scrollbar.init"></a>Scrollbar.init</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarinit">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarinit</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title class_">Scrollbar</span>.<span class="hljs-title function_">init</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.scrollbar&#x27;</span>), &#123;<br>  <span class="hljs-attr">damping</span>: <span class="hljs-number">0.1</span>, <span class="hljs-comment">// 값이 낮을 수록 스크롤이 더 부드러움</span><br>  <span class="hljs-attr">thumbMinSize</span>: <span class="hljs-number">20</span>, <span class="hljs-comment">// 스크롤 막대 최소 크기</span><br>  <span class="hljs-attr">renderByPixels</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 픽셀을 정수로 렌더링</span><br>  <span class="hljs-attr">alwaysShowTracks</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 스크롤바 트랙을 항상 노출</span><br>  <span class="hljs-attr">continuousScrolling</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 스크롤 끝에 도달하면 외부 스크롤 허용</span><br>  <span class="hljs-attr">delegateTo</span>: <span class="hljs-literal">null</span>, <span class="hljs-comment">// 주어진 요소에 휠 및 터치 이벤트를 위임</span><br>  <span class="hljs-attr">plugins</span>: &#123;&#125;, <span class="hljs-comment">// 플러그인 추가</span><br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>스크롤바를 한 개 생성한다.</p>
+</blockquote>
+<h3 id="Scrollbar-initAll"><a href="#Scrollbar-initAll" class="headerlink" title="Scrollbar.initAll"></a>Scrollbar.initAll</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarinitall">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarinitall</a></p>
+<blockquote>
+<p>스크롤바를 여러 개 생성한다.</p>
+</blockquote>
+<h3 id="Scrollbar-has"><a href="#Scrollbar-has" class="headerlink" title="Scrollbar.has"></a>Scrollbar.has</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarhas">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarhas</a></p>
+<h3 id="Scrollbar-get"><a href="#Scrollbar-get" class="headerlink" title="Scrollbar.get"></a>Scrollbar.get</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarget">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarget</a></p>
+<h3 id="Scrollbar-getAll"><a href="#Scrollbar-getAll" class="headerlink" title="Scrollbar.getAll"></a>Scrollbar.getAll</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbargetall">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbargetall</a></p>
+<h3 id="Scrollbar-destroy"><a href="#Scrollbar-destroy" class="headerlink" title="Scrollbar.destroy"></a>Scrollbar.destroy</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbardestroy">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbardestroy</a></p>
+<h3 id="Scrollbar-destroyAll"><a href="#Scrollbar-destroyAll" class="headerlink" title="Scrollbar.destroyAll"></a>Scrollbar.destroyAll</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbardestroyall">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbardestroyall</a></p>
+<h3 id="Scrollbar-use"><a href="#Scrollbar-use" class="headerlink" title="Scrollbar.use"></a>Scrollbar.use</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbaruse">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbaruse</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Scrollbar</span>, &#123; <span class="hljs-title class_">ScrollbarPlugin</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;smooth-scrollbar&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-title class_">OverscrollPlugin</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;smooth-scrollbar/plugin/overscroll&#x27;</span>;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyPlugin</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">ScrollbarPlugin</span> &#123;&#125;<br><br><span class="hljs-title class_">Scrollbar</span>.<span class="hljs-title function_">use</span>(<span class="hljs-title class_">MyPlugin</span>, <span class="hljs-title class_">OverscrollPlugin</span>);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>플러그인을 사용한다.</p>
+</blockquote>
+<h3 id="Scrollbar-attachStyle"><a href="#Scrollbar-attachStyle" class="headerlink" title="Scrollbar.attachStyle"></a>Scrollbar.attachStyle</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarattachstyle">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarattachstyle</a></p>
+<h3 id="Scrollbar-detachStyle"><a href="#Scrollbar-detachStyle" class="headerlink" title="Scrollbar.detachStyle"></a>Scrollbar.detachStyle</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbardetachstyle">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbardetachstyle</a></p>
+<h2 id="Instance-properties-and-methods"><a href="#Instance-properties-and-methods" class="headerlink" title="Instance properties and methods"></a>Instance properties and methods</h2><h3 id="containerEl"><a href="#containerEl" class="headerlink" title="containerEl"></a>containerEl</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarcontainerel">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarcontainerel</a></p>
+<h3 id="contentEl"><a href="#contentEl" class="headerlink" title="contentEl"></a>contentEl</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarcontentel">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarcontentel</a></p>
+<h3 id="options"><a href="#options" class="headerlink" title="options"></a>options</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbaroptions">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbaroptions</a></p>
+<h3 id="size"><a href="#size" class="headerlink" title="size"></a>size</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarsize">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarsize</a></p>
+<h3 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbaroffset">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbaroffset</a></p>
+<h3 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarlimit">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarlimit</a></p>
+<h3 id="scrollLeft"><a href="#scrollLeft" class="headerlink" title="scrollLeft"></a>scrollLeft</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarscrollleft">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarscrollleft</a></p>
+<h3 id="scrollTop"><a href="#scrollTop" class="headerlink" title="scrollTop"></a>scrollTop</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarscrolltop">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarscrolltop</a></p>
+<h3 id="track"><a href="#track" class="headerlink" title="track"></a>track</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbartrack">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbartrack</a></p>
+<h3 id="getSize"><a href="#getSize" class="headerlink" title="getSize"></a>getSize</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbargetsize">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbargetsize</a></p>
+<h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarupdate">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarupdate</a></p>
+<h3 id="setPosition"><a href="#setPosition" class="headerlink" title="setPosition"></a>setPosition</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarsetposition">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarsetposition</a></p>
+<h3 id="scrollTo"><a href="#scrollTo" class="headerlink" title="scrollTo"></a>scrollTo</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarscrollto">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarscrollto</a></p>
+<h3 id="scrollIntoView"><a href="#scrollIntoView" class="headerlink" title="scrollIntoView"></a>scrollIntoView</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarscrollintoview">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarscrollintoview</a></p>
+<h3 id="isVisible"><a href="#isVisible" class="headerlink" title="isVisible"></a>isVisible</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarisvisible">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarisvisible</a></p>
+<h3 id="addMomentum"><a href="#addMomentum" class="headerlink" title="addMomentum"></a>addMomentum</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbaraddmomentum">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbaraddmomentum</a></p>
+<h3 id="setMomentum"><a href="#setMomentum" class="headerlink" title="setMomentum"></a>setMomentum</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarsetmomentum">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarsetmomentum</a></p>
+<h3 id="updatePluginOptions"><a href="#updatePluginOptions" class="headerlink" title="updatePluginOptions"></a>updatePluginOptions</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarupdatepluginoptions">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarupdatepluginoptions</a></p>
+<h3 id="addListener"><a href="#addListener" class="headerlink" title="addListener"></a>addListener</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbaraddlistener">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbaraddlistener</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">scrollbar.<span class="hljs-title function_">addListener</span>(<span class="hljs-function">(<span class="hljs-params">status</span>) =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(status);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>네이티브 스크롤 이벤트를 발생시키지 않기 때문에 리스너를 등록해야 한다.</p>
+</blockquote>
+<h3 id="removeListener"><a href="#removeListener" class="headerlink" title="removeListener"></a>removeListener</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarremovelistener">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbarremovelistener</a></p>
+<h3 id="destroy"><a href="#destroy" class="headerlink" title="destroy"></a>destroy</h3><p><a target="_blank" rel="noopener" href="https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbardestroy-1">https://github.com/idiotWu/smooth-scrollbar/blob/develop/docs/api.md#scrollbardestroy-1</a></p>
+
+    </section>
+
+    <section class="footer">
+        <div class="background"><i class="fa-brands fa-creative-commons"></i></div>
+        <div class="post">
+            <p class="name">Javascript - Smooth Scrollbar v8.7.4</p>
+            <a class="link" href="/javascript-libraries/smooth-scrollbar/">https://gronkout.github.io/javascript-libraries/smooth-scrollbar/</a>
+        </div>
+        <div class="information">
+            <div class="author">
+                <p class="label">Author</p>
+                <p class="name">GronkOut</p>
+            </div>
+            <div class="license">
+                <p class="label">Licensed under</p>
+                <ul class="list">
+                    <li class="item">
+                        <a class="link" title="Creative Commons" target="_blank" href="https://creativecommons.org/">
+                            <i class="fa-brands fa-creative-commons"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution-NonCommercial 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+            <div class="tags">
+                
+                    <a class="tag" href="/tags/javascript/"># javascript</a>
+                
+            </div>
+        
+    </section>
+
+    <section class="comment">
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous" async></script>
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-dark" crossorigin="anonymous" async></script>
+    </section>
+</article>
+    </main>
+
+    <!-- Option -->
+    <aside section="option">
+        <div class="wrap">
+            <menu class="tabs">
+                <li class="item">
+                    <button class="button active">Search</button>
+                </li>
+                <li class="item">
+                    <button class="button">Setup</button>
+                </li>
+            </menu>
+            <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            <div section="search" class="panel active">
+                <label class="label" for="input-search-keyword">Search keyword</label>
+                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
+                <div id="search-result"></div>
+            </div>
+            <div section="setup" class="panel">
+                <label class="label" for="select-color-scheme">Change color scheme</label>
+                <select id="select-color-scheme" class="scheme">
+                    <option value="system">System default</option>
+                    <option value="light">Forced light</option>
+                    <option value="dark">Forced dark</option>
+                </select>
+                <label class="label" for="input-border-radius">Change border radius</label>
+                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
+                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
+                <div class="button-group">
+                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
+                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+<!-- Script -->
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js" type="module"></script>
+
+<script>
+  $(() => {
+    $.ajax({
+      url: '/search.xml',
+      dataType: 'xml',
+      success(xmlResponse) {
+        const datas = $('entry', xmlResponse).map((index, entry) => ({
+          title: $('title', entry).text(),
+          content: $('content', entry).text(),
+          url: $('url', entry).text(),
+        })).get();
+
+        const $searchResult = $('#search-result');
+
+        $('#input-search-keyword').on('input', (event) => {
+          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
+          let str = '<div class="scroll"><ul class="list">';
+          let numOfPostFound = 0;
+
+          $searchResult.html('');
+
+          if (event.target.value.trim().length <= 0) {
+            return;
+          }
+
+          datas.forEach((data) => {
+            const title = data.title.trim().toLowerCase();
+            const content = data.content.trim().replace(/<[^>]+>/g, '');
+            const url = data.url;
+            let isMatch = true;
+            let firstOccur = -1;
+
+            if (title !== '' && content !== '') {
+              keywords.forEach((keyword, index) => {
+                let contentIndex = content.toLowerCase().indexOf(keyword);
+
+                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
+                  isMatch = false;
+                } else {
+                  if (contentIndex < 0) contentIndex = 0;
+                  if (index === 0) firstOccur = contentIndex;
+                }
+              });
+            }
+
+            if (isMatch) {
+              numOfPostFound += 1;
+
+              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
+
+              if (firstOccur >= 0) {
+                let start = firstOccur - 50;
+                let end = firstOccur + 50;
+
+                if (start < 0) start = 0;
+                if (start === 0) end = 100;
+                if (end > content.length) end = content.length;
+
+                let match = content.substring(start, start + end);
+
+                keywords.forEach((keyword) => {
+                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
+                });
+
+                str += `<p class="content">${ match }...</p>`;
+              }
+
+              str += '</a></li>';
+            }
+          });
+
+          str += '</ul></div>';
+
+          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
+        });
+      }
+    });
+  })
+</script>
+</body>
+</html>

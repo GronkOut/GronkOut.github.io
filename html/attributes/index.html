@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>HTML tag attributes | MIB</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.svg">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    
+        
+<link rel="stylesheet" href="/css/post.css">
+
+    
+    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
+    <script>
+      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
+      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
+    </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="post">
+    <!-- Loader -->
+    <div section="loader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header section="header">
+        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
+        <div class="title">
+            <a class="link" title="Memo In Brain" href="/">
+                <span class="text">Memo In Brain</span>
+                <img class="image" src="/img/logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="list">
+                
+                    <li class="item">
+                        <a class="button" title="Memo" href="/memo/">Memo</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            </ul>
+        </nav>
+        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
+    </header>
+
+    <!-- Main -->
+    <main section="main">
+        
+            <!-- Category / TOC -->
+            <aside section="sidebar">
+                <div class="wrap">
+                    <menu class="menu">
+                        <li class="item">
+                            <button class="button" title="Category" type="button">CATEGORY</button>
+                        </li>
+                        <li class="item">
+                            <button class="button" title="Table Of Content" type="button">TOC</button>
+                        </li>
+                    </menu>
+                    <div class="scroll">
+                        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/unit-test/">unit-test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/intersection-observer/">intersection-observer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a><span class="category-list-count">1</span></li></ul></li></ul>
+                        <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Global"><span class="toc-list-number">1.</span> <span class="toc-list-text">Global</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#accesskey"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">accesskey</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#autocapitalize"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">autocapitalize</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#autofocus"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">autofocus</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#class"><span class="toc-list-number">1.4.</span> <span class="toc-list-text">class</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#contenteditable"><span class="toc-list-number">1.5.</span> <span class="toc-list-text">contenteditable</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#data"><span class="toc-list-number">1.6.</span> <span class="toc-list-text">data</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#dir"><span class="toc-list-number">1.7.</span> <span class="toc-list-text">dir</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#draggable"><span class="toc-list-number">1.8.</span> <span class="toc-list-text">draggable</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#enterkeyhint"><span class="toc-list-number">1.9.</span> <span class="toc-list-text">enterkeyhint</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#exportparts"><span class="toc-list-number">1.10.</span> <span class="toc-list-text">exportparts</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#hidden"><span class="toc-list-number">1.11.</span> <span class="toc-list-text">hidden</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#id"><span class="toc-list-number">1.12.</span> <span class="toc-list-text">id</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#inputmode"><span class="toc-list-number">1.13.</span> <span class="toc-list-text">inputmode</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#is"><span class="toc-list-number">1.14.</span> <span class="toc-list-text">is</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#lang"><span class="toc-list-number">1.15.</span> <span class="toc-list-text">lang</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#nonce"><span class="toc-list-number">1.16.</span> <span class="toc-list-text">nonce</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#part"><span class="toc-list-number">1.17.</span> <span class="toc-list-text">part</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#slot"><span class="toc-list-number">1.18.</span> <span class="toc-list-text">slot</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#spellcheck"><span class="toc-list-number">1.19.</span> <span class="toc-list-text">spellcheck</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#style"><span class="toc-list-number">1.20.</span> <span class="toc-list-text">style</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#tabindex"><span class="toc-list-number">1.21.</span> <span class="toc-list-text">tabindex</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#title"><span class="toc-list-number">1.22.</span> <span class="toc-list-text">title</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#translate"><span class="toc-list-number">1.23.</span> <span class="toc-list-text">translate</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Common"><span class="toc-list-number">2.</span> <span class="toc-list-text">Common</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#loading"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">loading</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#fetchpriority"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">fetchpriority</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Microdata"><span class="toc-list-number">3.</span> <span class="toc-list-text">Microdata</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#itemid"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">itemid</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#itemprop"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">itemprop</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#itemref"><span class="toc-list-number">3.3.</span> <span class="toc-list-text">itemref</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#itemscope"><span class="toc-list-number">3.4.</span> <span class="toc-list-text">itemscope</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#itemtype"><span class="toc-list-number">3.5.</span> <span class="toc-list-text">itemtype</span></a></li></ol></li></ol>
+                    </div>
+                    <div class="footer">
+                        <button class="button expand" title="Expand"><i class="fa-solid fa-arrows-down-to-line"></i></button>
+                        <button class="button collapse" title="Collapse"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+                        <div class="percent">
+                            <progress class="progress" max="100"></progress>
+                            <span class="text"></span>
+                        </div>
+                        <button class="button top" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+                        <button class="button bottom" title="Go to bottom"><i class="fa-solid fa-caret-up"></i></button>
+                    </div>
+                </div>
+            </aside>
+        
+        <!-- Content -->
+        <article section="content">
+    <section class="header">
+        <div class="breadcrumbs">
+            <span class="breadcrumb">MEMO IN BRAIN</span>
+            
+                <span class="breadcrumb">HTML</span>
+            
+                <span class="breadcrumb">ATTRIBUTES</span>
+            
+        </div>
+        <h1 class="title">HTML tag attributes</h1>
+    </section>
+
+    <section class="body">
+        <div class="links">
+  <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes">https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes</a>
+</div>
+
+<h2 id="Global"><a href="#Global" class="headerlink" title="Global"></a>Global</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes</a></p>
+<h3 id="accesskey"><a href="#accesskey" class="headerlink" title="accesskey"></a>accesskey</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-accesskey">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-accesskey</a></p>
+<h3 id="autocapitalize"><a href="#autocapitalize" class="headerlink" title="autocapitalize"></a>autocapitalize</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-autocapitalize">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-autocapitalize</a></p>
+<h3 id="autofocus"><a href="#autofocus" class="headerlink" title="autofocus"></a>autofocus</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-autofocus">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-autofocus</a></p>
+<h3 id="class"><a href="#class" class="headerlink" title="class"></a>class</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-class">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-class</a></p>
+<h3 id="contenteditable"><a href="#contenteditable" class="headerlink" title="contenteditable"></a>contenteditable</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-contenteditable">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-contenteditable</a></p>
+<h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-data-*">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-data-*</a></p>
+<h3 id="dir"><a href="#dir" class="headerlink" title="dir"></a>dir</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-dir">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-dir</a></p>
+<h3 id="draggable"><a href="#draggable" class="headerlink" title="draggable"></a>draggable</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-draggable">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-draggable</a></p>
+<h3 id="enterkeyhint"><a href="#enterkeyhint" class="headerlink" title="enterkeyhint"></a>enterkeyhint</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-enterkeyhint">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-enterkeyhint</a></p>
+<h3 id="exportparts"><a href="#exportparts" class="headerlink" title="exportparts"></a>exportparts</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-exportparts">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-exportparts</a></p>
+<h3 id="hidden"><a href="#hidden" class="headerlink" title="hidden"></a>hidden</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-hidden">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-hidden</a></p>
+<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-id">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-id</a></p>
+<h3 id="inputmode"><a href="#inputmode" class="headerlink" title="inputmode"></a>inputmode</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-inputmode">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-inputmode</a></p>
+<h3 id="is"><a href="#is" class="headerlink" title="is"></a>is</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-is">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-is</a></p>
+<h3 id="lang"><a href="#lang" class="headerlink" title="lang"></a>lang</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-lang">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-lang</a></p>
+<h3 id="nonce"><a href="#nonce" class="headerlink" title="nonce"></a>nonce</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-nonce">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-nonce</a></p>
+<h3 id="part"><a href="#part" class="headerlink" title="part"></a>part</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-part">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-part</a></p>
+<h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-slot">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-slot</a></p>
+<h3 id="spellcheck"><a href="#spellcheck" class="headerlink" title="spellcheck"></a>spellcheck</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-spellcheck">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-spellcheck</a></p>
+<h3 id="style"><a href="#style" class="headerlink" title="style"></a>style</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-style">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-style</a></p>
+<h3 id="tabindex"><a href="#tabindex" class="headerlink" title="tabindex"></a>tabindex</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-tabindex">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-tabindex</a></p>
+<h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-title">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-title</a></p>
+<h3 id="translate"><a href="#translate" class="headerlink" title="translate"></a>translate</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-translate">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-translate</a></p>
+<h2 id="Common"><a href="#Common" class="headerlink" title="Common"></a>Common</h2><h3 id="loading"><a href="#loading" class="headerlink" title="loading"></a>loading</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading">https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading</a></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>lazy</code></td>
+<td align="left">로딩 지연</td>
+</tr>
+<tr>
+<td align="left"><code>eager</code></td>
+<td align="left">즉시 로드</td>
+</tr>
+<tr>
+<td align="left"><code>auto</code></td>
+<td align="left">브라우저가 결정 (기본값)</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;image.jpg&quot;</span> <span class="hljs-attr">loading</span>=<span class="hljs-string">&quot;lazy&quot;</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- &lt;iframe src=&quot;page.html&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt; --&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><figcaption><span>Fallback</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">if</span> (<span class="hljs-string">&#x27;loading&#x27;</span> <span class="hljs-keyword">in</span> <span class="hljs-title class_">HTMLImageElement</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>) &#123; <span class="hljs-comment">// Chrome 76 이상</span><br>  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">&#x27;img[loading=lazy]&#x27;</span>).<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">img</span>) =&gt;</span> &#123;<br>    img.<span class="hljs-property">src</span> = img.<span class="hljs-property">dataset</span>.<span class="hljs-property">src</span>;<br>  &#125;);<br>&#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// IE 모두</span><br>  <span class="hljs-keyword">const</span> script = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;script&#x27;</span>);<br><br>  script.<span class="hljs-property">async</span> = <span class="hljs-literal">true</span>;<br>  script.<span class="hljs-property">src</span> = <span class="hljs-string">&#x27;https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.8/lazysizes.min.js&#x27;</span>;<br><br>  <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(script);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>화면에 보이지 않으면 리소스를 다운로드 하지 않는다.<br><code>img</code>, <code>iframe</code> 태그에 사용 가능하다.</p>
+</blockquote>
+<p><a class="caniuse" target="_blank" rel="noopener" href="https://caniuse.com/?search=loading"><code>IE</code> 지원 안함</a></p>
+<h3 id="fetchpriority"><a href="#fetchpriority" class="headerlink" title="fetchpriority"></a>fetchpriority</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement/fetchPriority">https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement/fetchPriority</a></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>low</code></td>
+<td align="left">상대적 우선 순위를 낮춤</td>
+</tr>
+<tr>
+<td align="left"><code>heigh</code></td>
+<td align="left">상대적 우선 순위를 높임</td>
+</tr>
+<tr>
+<td align="left"><code>auto</code></td>
+<td align="left">브라우저가 결정 (기본값)</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;styles.css&quot;</span> <span class="hljs-attr">fetchpriority</span>=<span class="hljs-string">&quot;high&quot;</span> /&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;image.jpg&quot;</span> <span class="hljs-attr">fetchpriority</span>=<span class="hljs-string">&quot;low&quot;</span> /&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;page.html&quot;</span> <span class="hljs-attr">fetchpriority</span>=<span class="hljs-string">&quot;low&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>리소스의 상대적 우선 순위를 지정할 수 있다.<br>대부분의 <code>HTML</code> 요소에 적용할 수 있다.</p>
+</blockquote>
+<p><a class="caniuse" target="_blank" rel="noopener" href="https://caniuse.com/?search=fetchpriority"><code>IE</code> 지원 안함</a></p>
+<h2 id="Microdata"><a href="#Microdata" class="headerlink" title="Microdata"></a>Microdata</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">&quot;//schema.org/WebPage&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>Site name<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;description&quot;</span>&gt;</span>Description<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;mainEntity&quot;</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">&quot;//schema.org/CollegeOrUniversity&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;description&quot;</span>&gt;</span>Information<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;license&quot;</span>&gt;</span>License<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;publisher&quot;</span>&gt;</span>Publisher<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-attr">[itemtype$=<span class="hljs-string">&#x27;WebPage&#x27;</span>]</span> &#123;<br>  <span class="hljs-selector-attr">[itemprop=<span class="hljs-string">&quot;name&quot;</span>]</span> &#123;&#125;<br>  <span class="hljs-selector-attr">[itemprop=<span class="hljs-string">&quot;description&quot;</span>]</span> &#123;&#125;<br>  <span class="hljs-selector-attr">[itemprop=<span class="hljs-string">&quot;mainEntity&quot;</span>]</span> &#123;&#125;<br>  <span class="hljs-selector-attr">[itemprop=<span class="hljs-string">&quot;license&quot;</span>]</span> &#123;&#125;<br>  <span class="hljs-selector-attr">[itemprop=<span class="hljs-string">&quot;publisher&quot;</span>]</span> &#123;&#125;<br>&#125;<br><br><span class="hljs-selector-attr">[itemtype$=<span class="hljs-string">&#x27;CollegeOrUniversity&#x27;</span>]</span> &#123;<br>  <span class="hljs-selector-attr">[itemprop=<span class="hljs-string">&quot;name&quot;</span>]</span> &#123;&#125;<br>  <span class="hljs-selector-attr">[itemprop=<span class="hljs-string">&quot;description&quot;</span>]</span> &#123;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="itemid"><a href="#itemid" class="headerlink" title="itemid"></a>itemid</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemid">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemid</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">dl</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">&quot;http://vocab.example.net/book&quot;</span> <span class="hljs-attr">itemid</span>=<span class="hljs-string">&quot;urn:isbn:0-330-34032-8&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;title&quot;</span>&gt;</span>The Reality Dysfunction<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Author<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;author&quot;</span>&gt;</span>Peter F. Hamilton<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Publication date<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;pubdate&quot;</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">&quot;1996-01-26&quot;</span>&gt;</span>26 January 1996<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>속성명이 동일할 경우 구분을 위해서 <code>itemid</code> 를 부여할 수 있다.</p>
+</blockquote>
+<h3 id="itemprop"><a href="#itemprop" class="headerlink" title="itemprop"></a>itemprop</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemprop">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemprop</a></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>meta</code></td>
+<td align="left"><code>content</code> 속성값</td>
+</tr>
+<tr>
+<td align="left"><code>audio</code>, <code>embed</code>, <code>iframe</code>, <code>img</code>, <code>source</code>, <code>video</code></td>
+<td align="left"><code>src</code> 속성값</td>
+</tr>
+<tr>
+<td align="left"><code>a</code>, <code>area</code>, <code>link</code></td>
+<td align="left"><code>href</code> 속성값</td>
+</tr>
+<tr>
+<td align="left"><code>object</code></td>
+<td align="left"><code>data</code> 속성값</td>
+</tr>
+<tr>
+<td align="left"><code>time</code></td>
+<td align="left"><code>datetime</code> 속성값</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">itemscope</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;image&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;image.png&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;The Company&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Our Company&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>목록에 포함되는 속성을 정의할 수 있으며 대부분의 태그는 텍스트노드의 값과 매칭이 된다.<br>특정 태그는 텍스트노드의 값이 아닌 다른 속성값과 매칭이 된다.<br><code>content</code> 의 값이 정의되어 있으면 <code>itemprop</code> 속성의 값을 특정 속성과 자동 매칭하지 않고 <code>content</code> 의 값으로 연결한다.</p>
+</blockquote>
+<h3 id="itemref"><a href="#itemref" class="headerlink" title="itemref"></a>itemref</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemref">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemref</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;test&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemref</span>=<span class="hljs-string">&quot;test&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>itemref</code> 에 <code>id</code> 를 지정하면 <code>itemscope</code> 자식으로 인식하게 된다.</p>
+</blockquote>
+<h3 id="itemscope"><a href="#itemscope" class="headerlink" title="itemscope"></a>itemscope</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemscope">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemscope</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">itemscope</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>마이크로데이터에 정의한 속성은 일정의 범위안에서 적용되는데, 이 범위를 스코프 (<code>scope</code>) 라 한다.<br><code>DOM</code> 의 부모 자식 관계와 유사하며 모든 마이크로데이터 속성은 이 목록 내에 포함된다.</p>
+</blockquote>
+<h3 id="itemtype"><a href="#itemtype" class="headerlink" title="itemtype"></a>itemtype</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemtype">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemtype</a></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">웹페이지</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://schema.org/WebPage">https://schema.org/WebPage</a></td>
+</tr>
+<tr>
+<td align="left">브래드크럼 리스트</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://schema.org/BreadcrumbList">https://schema.org/BreadcrumbList</a></td>
+</tr>
+<tr>
+<td align="left">조직 정보</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://schema.org/Orgaization">https://schema.org/Orgaization</a></td>
+</tr>
+<tr>
+<td align="left">인물 정보</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://schema.org/Person">https://schema.org/Person</a></td>
+</tr>
+<tr>
+<td align="left">제품 정보</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://schema.org/Product">https://schema.org/Product</a></td>
+</tr>
+<tr>
+<td align="left">리뷰 정보</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://schema.org/Review">https://schema.org/Review</a></td>
+</tr>
+<tr>
+<td align="left">주문 정보</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://schema.org/Offer">https://schema.org/Offer</a></td>
+</tr>
+<tr>
+<td align="left">이벤트 정보</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://schema.org/Event">https://schema.org/Event</a></td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">&quot;http://data-vocabulary.org/Person&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>표준에 의해 사전에 정의되어 있는 것을 가져다 쓰거나 직접 원하는 방식으로, 마이크로데이터 목록을 정의할 수 있으며 자신의 웹 페이지에 사용자 지정 속성으로 삽입할 수 있다.<br>특정 형식을 기준으로 정의된 아이템은 그 형식을 해석할 수 있는 모든 프로그램에 의해 처리가 가능하므로 범용성이 매우 높다.</p>
+<p>마이크로데이터 목록을 정의하기 위해서는 네임스페이스가 (<code>namespace</code>) 가 필요한데 <code>URL</code> 을 사용하면 된다.<br>강제는 아니지만 네임스페이스 <code>URL</code> 은 실제 동작하는 웹 페이지를 가리키는 것이 좋다.<br>구글 검색엔진이 해석하고 크를링하는데 도움이 되므로 <code>itemtype</code> 을 지정 하는 것이 좋다.<br>서버사이드 렌더링에 <code>JSON-LD</code> 형식으로 보내주면 검색이 가능하다.</p>
+</blockquote>
+
+    </section>
+
+    <section class="footer">
+        <div class="background"><i class="fa-brands fa-creative-commons"></i></div>
+        <div class="post">
+            <p class="name">HTML tag attributes</p>
+            <a class="link" href="/html/attributes/">https://gronkout.github.io/html/attributes/</a>
+        </div>
+        <div class="information">
+            <div class="author">
+                <p class="label">Author</p>
+                <p class="name">GronkOut</p>
+            </div>
+            <div class="license">
+                <p class="label">Licensed under</p>
+                <ul class="list">
+                    <li class="item">
+                        <a class="link" title="Creative Commons" target="_blank" href="https://creativecommons.org/">
+                            <i class="fa-brands fa-creative-commons"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution-NonCommercial 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+            <div class="tags">
+                
+                    <a class="tag" href="/tags/html-tags/"># html tags</a>
+                
+            </div>
+        
+    </section>
+
+    <section class="comment">
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous" async></script>
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-dark" crossorigin="anonymous" async></script>
+    </section>
+</article>
+    </main>
+
+    <!-- Option -->
+    <aside section="option">
+        <div class="wrap">
+            <menu class="tabs">
+                <li class="item">
+                    <button class="button active">Search</button>
+                </li>
+                <li class="item">
+                    <button class="button">Setup</button>
+                </li>
+            </menu>
+            <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            <div section="search" class="panel active">
+                <label class="label" for="input-search-keyword">Search keyword</label>
+                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
+                <div id="search-result"></div>
+            </div>
+            <div section="setup" class="panel">
+                <label class="label" for="select-color-scheme">Change color scheme</label>
+                <select id="select-color-scheme" class="scheme">
+                    <option value="system">System default</option>
+                    <option value="light">Forced light</option>
+                    <option value="dark">Forced dark</option>
+                </select>
+                <label class="label" for="input-border-radius">Change border radius</label>
+                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
+                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
+                <div class="button-group">
+                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
+                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+<!-- Script -->
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js" type="module"></script>
+
+<script>
+  $(() => {
+    $.ajax({
+      url: '/search.xml',
+      dataType: 'xml',
+      success(xmlResponse) {
+        const datas = $('entry', xmlResponse).map((index, entry) => ({
+          title: $('title', entry).text(),
+          content: $('content', entry).text(),
+          url: $('url', entry).text(),
+        })).get();
+
+        const $searchResult = $('#search-result');
+
+        $('#input-search-keyword').on('input', (event) => {
+          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
+          let str = '<div class="scroll"><ul class="list">';
+          let numOfPostFound = 0;
+
+          $searchResult.html('');
+
+          if (event.target.value.trim().length <= 0) {
+            return;
+          }
+
+          datas.forEach((data) => {
+            const title = data.title.trim().toLowerCase();
+            const content = data.content.trim().replace(/<[^>]+>/g, '');
+            const url = data.url;
+            let isMatch = true;
+            let firstOccur = -1;
+
+            if (title !== '' && content !== '') {
+              keywords.forEach((keyword, index) => {
+                let contentIndex = content.toLowerCase().indexOf(keyword);
+
+                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
+                  isMatch = false;
+                } else {
+                  if (contentIndex < 0) contentIndex = 0;
+                  if (index === 0) firstOccur = contentIndex;
+                }
+              });
+            }
+
+            if (isMatch) {
+              numOfPostFound += 1;
+
+              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
+
+              if (firstOccur >= 0) {
+                let start = firstOccur - 50;
+                let end = firstOccur + 50;
+
+                if (start < 0) start = 0;
+                if (start === 0) end = 100;
+                if (end > content.length) end = content.length;
+
+                let match = content.substring(start, start + end);
+
+                keywords.forEach((keyword) => {
+                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
+                });
+
+                str += `<p class="content">${ match }...</p>`;
+              }
+
+              str += '</a></li>';
+            }
+          });
+
+          str += '</ul></div>';
+
+          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
+        });
+      }
+    });
+  })
+</script>
+</body>
+</html>

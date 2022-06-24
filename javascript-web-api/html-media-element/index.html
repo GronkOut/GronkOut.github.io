@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Web API - HTMLMediaElement | MIB</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.svg">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    
+        
+<link rel="stylesheet" href="/css/post.css">
+
+    
+    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
+    <script>
+      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
+      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
+    </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="post">
+    <!-- Loader -->
+    <div section="loader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header section="header">
+        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
+        <div class="title">
+            <a class="link" title="Memo In Brain" href="/">
+                <span class="text">Memo In Brain</span>
+                <img class="image" src="/img/logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="list">
+                
+                    <li class="item">
+                        <a class="button" title="Memo" href="/memo/">Memo</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            </ul>
+        </nav>
+        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
+    </header>
+
+    <!-- Main -->
+    <main section="main">
+        
+            <!-- Category / TOC -->
+            <aside section="sidebar">
+                <div class="wrap">
+                    <menu class="menu">
+                        <li class="item">
+                            <button class="button" title="Category" type="button">CATEGORY</button>
+                        </li>
+                        <li class="item">
+                            <button class="button" title="Table Of Content" type="button">TOC</button>
+                        </li>
+                    </menu>
+                    <div class="scroll">
+                        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/unit-test/">unit-test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/intersection-observer/">intersection-observer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a><span class="category-list-count">1</span></li></ul></li></ul>
+                        <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Properties"><span class="toc-list-number">1.</span> <span class="toc-list-text">Properties</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#audioTracks"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">audioTracks</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#autoplay"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">autoplay</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#buffered"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">buffered</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#controller"><span class="toc-list-number">1.4.</span> <span class="toc-list-text">controller</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#controls"><span class="toc-list-number">1.5.</span> <span class="toc-list-text">controls</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#controlsList"><span class="toc-list-number">1.6.</span> <span class="toc-list-text">controlsList</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#crossOrigin"><span class="toc-list-number">1.7.</span> <span class="toc-list-text">crossOrigin</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#currentSrc"><span class="toc-list-number">1.8.</span> <span class="toc-list-text">currentSrc</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#currentTime"><span class="toc-list-number">1.9.</span> <span class="toc-list-text">currentTime</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#defaultMuted"><span class="toc-list-number">1.10.</span> <span class="toc-list-text">defaultMuted</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#defaultPlaybackRate"><span class="toc-list-number">1.11.</span> <span class="toc-list-text">defaultPlaybackRate</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#disableRemotePlayback"><span class="toc-list-number">1.12.</span> <span class="toc-list-text">disableRemotePlayback</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#duration"><span class="toc-list-number">1.13.</span> <span class="toc-list-text">duration</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#ended"><span class="toc-list-number">1.14.</span> <span class="toc-list-text">ended</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#error"><span class="toc-list-number">1.15.</span> <span class="toc-list-text">error</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#loop"><span class="toc-list-number">1.16.</span> <span class="toc-list-text">loop</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#muted"><span class="toc-list-number">1.17.</span> <span class="toc-list-text">muted</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#networkState"><span class="toc-list-number">1.18.</span> <span class="toc-list-text">networkState</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#paused"><span class="toc-list-number">1.19.</span> <span class="toc-list-text">paused</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#playbackRate"><span class="toc-list-number">1.20.</span> <span class="toc-list-text">playbackRate</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#readyState"><span class="toc-list-number">1.21.</span> <span class="toc-list-text">readyState</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#seekable"><span class="toc-list-number">1.22.</span> <span class="toc-list-text">seekable</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sinkId"><span class="toc-list-number">1.23.</span> <span class="toc-list-text">sinkId</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#src"><span class="toc-list-number">1.24.</span> <span class="toc-list-text">src</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#srcObject"><span class="toc-list-number">1.25.</span> <span class="toc-list-text">srcObject</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#textTracks"><span class="toc-list-number">1.26.</span> <span class="toc-list-text">textTracks</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#videoTracks"><span class="toc-list-number">1.27.</span> <span class="toc-list-text">videoTracks</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#volume"><span class="toc-list-number">1.28.</span> <span class="toc-list-text">volume</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#onencrypted"><span class="toc-list-number">1.29.</span> <span class="toc-list-text">onencrypted</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#onwaitingforkey"><span class="toc-list-number">1.30.</span> <span class="toc-list-text">onwaitingforkey</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Methods"><span class="toc-list-number">2.</span> <span class="toc-list-text">Methods</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#captureStream"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">captureStream</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#canPlayType"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">canPlayType</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#fastSeek"><span class="toc-list-number">2.3.</span> <span class="toc-list-text">fastSeek</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#load"><span class="toc-list-number">2.4.</span> <span class="toc-list-text">load</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#pause"><span class="toc-list-number">2.5.</span> <span class="toc-list-text">pause</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#play"><span class="toc-list-number">2.6.</span> <span class="toc-list-text">play</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#seekToNextFrame"><span class="toc-list-number">2.7.</span> <span class="toc-list-text">seekToNextFrame</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setMediaKeys"><span class="toc-list-number">2.8.</span> <span class="toc-list-text">setMediaKeys</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#setSinkId"><span class="toc-list-number">2.9.</span> <span class="toc-list-text">setSinkId</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Events"><span class="toc-list-number">3.</span> <span class="toc-list-text">Events</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#abort"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">abort</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#canplay"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">canplay</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#canplaythrough"><span class="toc-list-number">3.3.</span> <span class="toc-list-text">canplaythrough</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#durationchange"><span class="toc-list-number">3.4.</span> <span class="toc-list-text">durationchange</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#emptied"><span class="toc-list-number">3.5.</span> <span class="toc-list-text">emptied</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#ended-1"><span class="toc-list-number">3.6.</span> <span class="toc-list-text">ended</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#error-1"><span class="toc-list-number">3.7.</span> <span class="toc-list-text">error</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#loadeddata"><span class="toc-list-number">3.8.</span> <span class="toc-list-text">loadeddata</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#loadedmetadata"><span class="toc-list-number">3.9.</span> <span class="toc-list-text">loadedmetadata</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#loadstart"><span class="toc-list-number">3.10.</span> <span class="toc-list-text">loadstart</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#pause-1"><span class="toc-list-number">3.11.</span> <span class="toc-list-text">pause</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#play-1"><span class="toc-list-number">3.12.</span> <span class="toc-list-text">play</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#playing"><span class="toc-list-number">3.13.</span> <span class="toc-list-text">playing</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#progress"><span class="toc-list-number">3.14.</span> <span class="toc-list-text">progress</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#ratechange"><span class="toc-list-number">3.15.</span> <span class="toc-list-text">ratechange</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#seeked"><span class="toc-list-number">3.16.</span> <span class="toc-list-text">seeked</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#seeking"><span class="toc-list-number">3.17.</span> <span class="toc-list-text">seeking</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#stalled"><span class="toc-list-number">3.18.</span> <span class="toc-list-text">stalled</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#suspend"><span class="toc-list-number">3.19.</span> <span class="toc-list-text">suspend</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#timeupdate"><span class="toc-list-number">3.20.</span> <span class="toc-list-text">timeupdate</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#volumechange"><span class="toc-list-number">3.21.</span> <span class="toc-list-text">volumechange</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#waiting"><span class="toc-list-number">3.22.</span> <span class="toc-list-text">waiting</span></a></li></ol></li></ol>
+                    </div>
+                    <div class="footer">
+                        <button class="button expand" title="Expand"><i class="fa-solid fa-arrows-down-to-line"></i></button>
+                        <button class="button collapse" title="Collapse"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+                        <div class="percent">
+                            <progress class="progress" max="100"></progress>
+                            <span class="text"></span>
+                        </div>
+                        <button class="button top" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+                        <button class="button bottom" title="Go to bottom"><i class="fa-solid fa-caret-up"></i></button>
+                    </div>
+                </div>
+            </aside>
+        
+        <!-- Content -->
+        <article section="content">
+    <section class="header">
+        <div class="breadcrumbs">
+            <span class="breadcrumb">MEMO IN BRAIN</span>
+            
+                <span class="breadcrumb">JAVASCRIPT-WEB-API</span>
+            
+                <span class="breadcrumb">HTML-MEDIA-ELEMENT</span>
+            
+        </div>
+        <h1 class="title">Javascript Web API - HTMLMediaElement</h1>
+    </section>
+
+    <section class="body">
+        <div class="links">
+  <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement</a>
+</div>
+
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="audioTracks"><a href="#audioTracks" class="headerlink" title="audioTracks"></a>audioTracks</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/audioTracks">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/audioTracks</a></p>
+<blockquote>
+<p>사용 가능한 오디오 트랙을 나타내는 <code>AudioTrackList</code> 객체를 반환한다.</p>
+</blockquote>
+<h3 id="autoplay"><a href="#autoplay" class="headerlink" title="autoplay"></a>autoplay</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/autoplay">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/autoplay</a></p>
+<blockquote>
+<p>미디어가 로드 되자마자 재생을 시작할지 여부를 설정하거나 반환한다.</p>
+</blockquote>
+<h3 id="buffered"><a href="#buffered" class="headerlink" title="buffered"></a>buffered</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/buffered">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/buffered</a></p>
+<blockquote>
+<p>미디어의 버퍼링 된 부분을 나타내는 <code>TimeRanges</code> 객체를 반환한다.</p>
+</blockquote>
+<h3 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controller">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controller</a></p>
+<blockquote>
+<p>미디어의 현재 미디어 컨트롤러를 나타내는 <code>MediaController</code> 객체를 반환한다.</p>
+</blockquote>
+<h3 id="controls"><a href="#controls" class="headerlink" title="controls"></a>controls</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controls">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controls</a></p>
+<blockquote>
+<p>미디어에 컨트롤 (재생 &#x2F; 일시 정지 등) 을 표시할지 여부를 설정하거나 반환한다.</p>
+</blockquote>
+<h3 id="controlsList"><a href="#controlsList" class="headerlink" title="controlsList"></a>controlsList</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controlsList">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controlsList</a></p>
+<h3 id="crossOrigin"><a href="#crossOrigin" class="headerlink" title="crossOrigin"></a>crossOrigin</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/crossOrigin">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/crossOrigin</a></p>
+<blockquote>
+<p>미디어의 <code>CORS</code> 설정을 설정하거나 반환한다.</p>
+</blockquote>
+<h3 id="currentSrc"><a href="#currentSrc" class="headerlink" title="currentSrc"></a>currentSrc</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentSrc">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentSrc</a></p>
+<blockquote>
+<p>미디어의 <code>URL</code> 을 반환한다.</p>
+</blockquote>
+<h3 id="currentTime"><a href="#currentTime" class="headerlink" title="currentTime"></a>currentTime</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentTime">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/currentTime</a></p>
+<blockquote>
+<p>미디어의 현재 재생 위치를 설정하거나 반환한다.</p>
+</blockquote>
+<h3 id="defaultMuted"><a href="#defaultMuted" class="headerlink" title="defaultMuted"></a>defaultMuted</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/defaultMuted">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/defaultMuted</a></p>
+<blockquote>
+<p>기본적으로 미디어를 음소거할지 여부를 설정하거나 반환한다.</p>
+</blockquote>
+<h3 id="defaultPlaybackRate"><a href="#defaultPlaybackRate" class="headerlink" title="defaultPlaybackRate"></a>defaultPlaybackRate</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/defaultPlaybackRate">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/defaultPlaybackRate</a></p>
+<blockquote>
+<p>미디어 재생 기본 속도를 설정하거나 반환한다.</p>
+</blockquote>
+<h3 id="disableRemotePlayback"><a href="#disableRemotePlayback" class="headerlink" title="disableRemotePlayback"></a>disableRemotePlayback</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/disableRemotePlayback">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/disableRemotePlayback</a></p>
+<h3 id="duration"><a href="#duration" class="headerlink" title="duration"></a>duration</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/duration">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/duration</a></p>
+<blockquote>
+<p>미디어의 길이를 초 단위로 반환한다.</p>
+</blockquote>
+<h3 id="ended"><a href="#ended" class="headerlink" title="ended"></a>ended</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended</a></p>
+<blockquote>
+<p>미디어 재생이 종료되었는지 여부를 반환한다.</p>
+</blockquote>
+<h3 id="error"><a href="#error" class="headerlink" title="error"></a>error</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/error">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/error</a></p>
+<blockquote>
+<p>미디어의 오류 상태를 나타내는 <code>MediaError</code> 객체를 반환한다.</p>
+</blockquote>
+<h3 id="loop"><a href="#loop" class="headerlink" title="loop"></a>loop</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loop">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loop</a></p>
+<blockquote>
+<p>완료되면 미디어를 다시 시작할지 여부를 설정하거나 반환한다.</p>
+</blockquote>
+<h3 id="muted"><a href="#muted" class="headerlink" title="muted"></a>muted</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/muted">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/muted</a></p>
+<blockquote>
+<p>미디어 음소거 여부를 설정 또는 반환한다.</p>
+</blockquote>
+<h3 id="networkState"><a href="#networkState" class="headerlink" title="networkState"></a>networkState</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/networkState">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/networkState</a></p>
+<blockquote>
+<p>미디어의 현재 네트워크 상태를 반환한다.</p>
+</blockquote>
+<h3 id="paused"><a href="#paused" class="headerlink" title="paused"></a>paused</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/paused">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/paused</a></p>
+<blockquote>
+<p>미디어가 일시 중지되었는지 여부를 반환한다.</p>
+</blockquote>
+<h3 id="playbackRate"><a href="#playbackRate" class="headerlink" title="playbackRate"></a>playbackRate</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playbackRate">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playbackRate</a></p>
+<blockquote>
+<p>미디어 재생 속도를 설정하거나 반환한다.</p>
+</blockquote>
+<h3 id="readyState"><a href="#readyState" class="headerlink" title="readyState"></a>readyState</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState</a></p>
+<blockquote>
+<p>미디어의 현재 준비 상태를 반환한다.</p>
+</blockquote>
+<h3 id="seekable"><a href="#seekable" class="headerlink" title="seekable"></a>seekable</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seekable">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seekable</a></p>
+<blockquote>
+<p>미디어의 탐색 가능한 부분을 나타내는 <code>TimeRanges</code> 객체를 반환한다.</p>
+</blockquote>
+<h3 id="sinkId"><a href="#sinkId" class="headerlink" title="sinkId"></a>sinkId</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/sinkId">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/sinkId</a></p>
+<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/src">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/src</a></p>
+<blockquote>
+<p>미디어 요소의 현재 소스를 설정하거나 반환한다.</p>
+</blockquote>
+<h3 id="srcObject"><a href="#srcObject" class="headerlink" title="srcObject"></a>srcObject</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/srcObject">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/srcObject</a></p>
+<h3 id="textTracks"><a href="#textTracks" class="headerlink" title="textTracks"></a>textTracks</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/textTracks">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/textTracks</a></p>
+<blockquote>
+<p>사용 가능한 텍스트 트랙을 나타내는 <code>TextTrackList</code> 객체를 반환한다.</p>
+</blockquote>
+<h3 id="videoTracks"><a href="#videoTracks" class="headerlink" title="videoTracks"></a>videoTracks</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/videoTracks">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/videoTracks</a></p>
+<blockquote>
+<p>사용 가능한 비디오 트랙을 나타내는 <code>VideoTrackList</code> 객체를 반환한다.</p>
+</blockquote>
+<h3 id="volume"><a href="#volume" class="headerlink" title="volume"></a>volume</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/volume">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/volume</a></p>
+<blockquote>
+<p>미디어의 볼륨을 설정하거나 반환한다.</p>
+</blockquote>
+<h3 id="onencrypted"><a href="#onencrypted" class="headerlink" title="onencrypted"></a>onencrypted</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/onencrypted">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/onencrypted</a></p>
+<h3 id="onwaitingforkey"><a href="#onwaitingforkey" class="headerlink" title="onwaitingforkey"></a>onwaitingforkey</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/onwaitingforkey">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/onwaitingforkey</a></p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="captureStream"><a href="#captureStream" class="headerlink" title="captureStream"></a>captureStream</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/captureStream">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/captureStream</a></p>
+<h3 id="canPlayType"><a href="#canPlayType" class="headerlink" title="canPlayType"></a>canPlayType</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canPlayType">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canPlayType</a></p>
+<blockquote>
+<p>다른 유형의 비디오를 재생할 수 있는지 확인한다.</p>
+</blockquote>
+<h3 id="fastSeek"><a href="#fastSeek" class="headerlink" title="fastSeek"></a>fastSeek</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/fastSeek">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/fastSeek</a></p>
+<blockquote>
+<p>입력된 시간으로 바로 이동한다.</p>
+</blockquote>
+<h3 id="load"><a href="#load" class="headerlink" title="load"></a>load</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/load">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/load</a></p>
+<blockquote>
+<p>미디어를 리셋하고 <code>src</code> 속성 또는 <code>&lt;source&gt;</code> 요소로 전달된 소스 중 최적의 소스를 로드한다.</p>
+</blockquote>
+<h3 id="pause"><a href="#pause" class="headerlink" title="pause"></a>pause</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause</a></p>
+<blockquote>
+<p>미디어를 일시 정지한다.</p>
+</blockquote>
+<h3 id="play"><a href="#play" class="headerlink" title="play"></a>play</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> videoElem = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;video&#x27;</span>);<br><span class="hljs-keyword">const</span> playButton = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;playbutton&#x27;</span>);<br><br>playButton.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, handlePlayButton, <span class="hljs-literal">false</span>);<br><br><span class="hljs-title function_">playVideo</span>();<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">playVideo</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-keyword">await</span> videoElem.<span class="hljs-title function_">play</span>();<br><br>    playButton.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;playing&#x27;</span>);<br>  &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>    playButton.<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&#x27;playing&#x27;</span>);<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">handlePlayButton</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">if</span> (videoElem.<span class="hljs-property">paused</span>) &#123;<br>    <span class="hljs-title function_">playVideo</span>();<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    videoElem.<span class="hljs-title function_">pause</span>();<br><br>    playButton.<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&#x27;playing&#x27;</span>);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>미디어를 재생한다.<br><code>async</code> 함수내에서 <code>try-catch</code> 구문을 사용하여 재생을 권고한다.</p>
+</blockquote>
+<h3 id="seekToNextFrame"><a href="#seekToNextFrame" class="headerlink" title="seekToNextFrame"></a>seekToNextFrame</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seekToNextFrame">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seekToNextFrame</a></p>
+<h3 id="setMediaKeys"><a href="#setMediaKeys" class="headerlink" title="setMediaKeys"></a>setMediaKeys</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/setMediaKeys">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/setMediaKeys</a></p>
+<h3 id="setSinkId"><a href="#setSinkId" class="headerlink" title="setSinkId"></a>setSinkId</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/setSinkId">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/setSinkId</a></p>
+<h2 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h2><h3 id="abort"><a href="#abort" class="headerlink" title="abort"></a>abort</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/abort_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/abort_event</a></p>
+<blockquote>
+<p>에러가 아닌 상황에서 미디어 데이터를 가져오는 것을 중단할 경우 발생한다.</p>
+</blockquote>
+<h3 id="canplay"><a href="#canplay" class="headerlink" title="canplay"></a>canplay</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canplay_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canplay_event</a></p>
+<blockquote>
+<p>미디어 데이터의 재생이 가능해질 때 발생한다.<br>전체 미디어를 재생하기 위해서 버퍼링이 더 필요할 수 있다.</p>
+</blockquote>
+<h3 id="canplaythrough"><a href="#canplaythrough" class="headerlink" title="canplaythrough"></a>canplaythrough</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canplaythrough_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canplaythrough_event</a></p>
+<figure class="highlight javascript"><figcaption><span>Javascript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;video&#x27;</span>).<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;canplaythrough&#x27;</span>, <span class="hljs-keyword">function</span> <span class="hljs-title function_">fn</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">play</span>();<br><br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">removeEventListener</span>(<span class="hljs-string">&#x27;canplaythrough&#x27;</span>, fn);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><figcaption><span>jQuery</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;#video&#x27;</span>).<span class="hljs-title function_">one</span>(<span class="hljs-string">&#x27;canplaythrough&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> &#123;<br>  event.<span class="hljs-property">target</span>.<span class="hljs-title function_">play</span>();<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>추가 버퍼링 없이 전체 미디어를 재생할 수 있는 시점에 발생한다.<br>아이폰에서 동작 안할 경우 <code>load</code> 이벤트를 적용한다.</p>
+</blockquote>
+<h3 id="durationchange"><a href="#durationchange" class="headerlink" title="durationchange"></a>durationchange</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/durationchange_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/durationchange_event</a></p>
+<blockquote>
+<p><code>duration</code> 속성이 바뀌었을 때 발생한다.</p>
+</blockquote>
+<h3 id="emptied"><a href="#emptied" class="headerlink" title="emptied"></a>emptied</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/emptied_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/emptied_event</a></p>
+<blockquote>
+<p>미디어가 제거된 시점에 발생한다.<br>미디어가 이미 (부분적으로라도) 로드 되었는데 <code>HTMLMediaElement.load()</code> 메서드 호출로 재 로드할 경우 발생한다.<br><code>networkState</code> 가 <code>NETWORK_EMPTY</code> 상태로 들어가게 되었을 때 발생한다.</p>
+</blockquote>
+<h3 id="ended-1"><a href="#ended-1" class="headerlink" title="ended"></a>ended</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ended_event</a></p>
+<blockquote>
+<p>미디어 재생이 완료 되었을 때 발생한다.</p>
+</blockquote>
+<h3 id="error-1"><a href="#error-1" class="headerlink" title="error"></a>error</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/error_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/error_event</a></p>
+<blockquote>
+<p>에러가 발생하여 리소스를 로드할 수 없는 시점에 발생한다.</p>
+</blockquote>
+<h3 id="loadeddata"><a href="#loadeddata" class="headerlink" title="loadeddata"></a>loadeddata</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loadeddata_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loadeddata_event</a></p>
+<blockquote>
+<p>미디어의 첫번째 프레임이 로딩 완료된 시점에 발생한다.</p>
+</blockquote>
+<h3 id="loadedmetadata"><a href="#loadedmetadata" class="headerlink" title="loadedmetadata"></a>loadedmetadata</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loadedmetadata_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loadedmetadata_event</a></p>
+<blockquote>
+<p>메타데이터가 로드 된 시점에 발생한다.</p>
+</blockquote>
+<h3 id="loadstart"><a href="#loadstart" class="headerlink" title="loadstart"></a>loadstart</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loadstart_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/loadstart_event</a></p>
+<blockquote>
+<p>미디어를 찾기 시작할 때 발생한다.</p>
+</blockquote>
+<h3 id="pause-1"><a href="#pause-1" class="headerlink" title="pause"></a>pause</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause_event</a></p>
+<blockquote>
+<p>미디어 일시 정지를 요청하고 <code>paused</code> 상태로 진입하는 시점에 발생한다.<br><code>HTMLMediaElement.pause()</code> 메서드가 호출되는 시점에 발생한다.</p>
+</blockquote>
+<h3 id="play-1"><a href="#play-1" class="headerlink" title="play"></a>play</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play_event</a></p>
+<blockquote>
+<p><code>HTMLMediaElement.play()</code> 메서드 호출이나 <code>autoplay</code> 속성에 의해 <code>paused</code> 프로퍼티가 <code>true</code> 에서 <code>false</code> 로 전환되는 시점에 발생한다.</p>
+</blockquote>
+<h3 id="playing"><a href="#playing" class="headerlink" title="playing"></a>playing</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playing_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playing_event</a></p>
+<blockquote>
+<p>일시 정지 되거나 버퍼 부족으로 재생 정지 된 이후 재생 가능한 시점에 발생한다.</p>
+</blockquote>
+<h3 id="progress"><a href="#progress" class="headerlink" title="progress"></a>progress</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/progress_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/progress_event</a></p>
+<blockquote>
+<p>브라우저가 리소르를 로딩 중일 때 주기적으로 발생한다.</p>
+</blockquote>
+<h3 id="ratechange"><a href="#ratechange" class="headerlink" title="ratechange"></a>ratechange</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ratechange_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/ratechange_event</a></p>
+<blockquote>
+<p>재생 속도가 변경될 때 발생한다.<br><code>defaultPlaybackRate</code> 나 <code>playbackRate</code> 의 속성이 변경되었을 때 발생한다.</p>
+</blockquote>
+<h3 id="seeked"><a href="#seeked" class="headerlink" title="seeked"></a>seeked</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeked_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeked_event</a></p>
+<blockquote>
+<p>미디어 탐색이 끝나면 발생한다.</p>
+</blockquote>
+<h3 id="seeking"><a href="#seeking" class="headerlink" title="seeking"></a>seeking</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeking_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/seeking_event</a></p>
+<blockquote>
+<p>미디어 탐색 중 발생한다.</p>
+</blockquote>
+<h3 id="stalled"><a href="#stalled" class="headerlink" title="stalled"></a>stalled</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/stalled_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/stalled_event</a></p>
+<blockquote>
+<p>미디어 데이터를 요청했지만 전송되지 않은 경우 발생한다.</p>
+</blockquote>
+<h3 id="suspend"><a href="#suspend" class="headerlink" title="suspend"></a>suspend</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/suspend_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/suspend_event</a></p>
+<blockquote>
+<p>미디어 로딩이 중지된 시점에 발생한다.</p>
+</blockquote>
+<h3 id="timeupdate"><a href="#timeupdate" class="headerlink" title="timeupdate"></a>timeupdate</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/timeupdate_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/timeupdate_event</a></p>
+<blockquote>
+<p>현재 재생위치가 바뀌었을 때 발생한다.</p>
+</blockquote>
+<h3 id="volumechange"><a href="#volumechange" class="headerlink" title="volumechange"></a>volumechange</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/volumechange_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/volumechange_event</a></p>
+<blockquote>
+<p>볼륨이 변경되는 시점에 발생한다.<br><code>volume</code> 속성이 바뀌거나 <code>muted</code> 속성이 바뀌었을 때 발생한다.</p>
+</blockquote>
+<h3 id="waiting"><a href="#waiting" class="headerlink" title="waiting"></a>waiting</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event</a></p>
+<blockquote>
+<p>일시적인 버퍼 부족으로 재생이 정지된 시점에 발생한다.</p>
+</blockquote>
+
+    </section>
+
+    <section class="footer">
+        <div class="background"><i class="fa-brands fa-creative-commons"></i></div>
+        <div class="post">
+            <p class="name">Javascript Web API - HTMLMediaElement</p>
+            <a class="link" href="/javascript-web-api/html-media-element/">https://gronkout.github.io/javascript-web-api/html-media-element/</a>
+        </div>
+        <div class="information">
+            <div class="author">
+                <p class="label">Author</p>
+                <p class="name">GronkOut</p>
+            </div>
+            <div class="license">
+                <p class="label">Licensed under</p>
+                <ul class="list">
+                    <li class="item">
+                        <a class="link" title="Creative Commons" target="_blank" href="https://creativecommons.org/">
+                            <i class="fa-brands fa-creative-commons"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution-NonCommercial 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+            <div class="tags">
+                
+                    <a class="tag" href="/tags/javascript/"># javascript</a>
+                
+            </div>
+        
+    </section>
+
+    <section class="comment">
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous" async></script>
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-dark" crossorigin="anonymous" async></script>
+    </section>
+</article>
+    </main>
+
+    <!-- Option -->
+    <aside section="option">
+        <div class="wrap">
+            <menu class="tabs">
+                <li class="item">
+                    <button class="button active">Search</button>
+                </li>
+                <li class="item">
+                    <button class="button">Setup</button>
+                </li>
+            </menu>
+            <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            <div section="search" class="panel active">
+                <label class="label" for="input-search-keyword">Search keyword</label>
+                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
+                <div id="search-result"></div>
+            </div>
+            <div section="setup" class="panel">
+                <label class="label" for="select-color-scheme">Change color scheme</label>
+                <select id="select-color-scheme" class="scheme">
+                    <option value="system">System default</option>
+                    <option value="light">Forced light</option>
+                    <option value="dark">Forced dark</option>
+                </select>
+                <label class="label" for="input-border-radius">Change border radius</label>
+                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
+                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
+                <div class="button-group">
+                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
+                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+<!-- Script -->
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js" type="module"></script>
+
+<script>
+  $(() => {
+    $.ajax({
+      url: '/search.xml',
+      dataType: 'xml',
+      success(xmlResponse) {
+        const datas = $('entry', xmlResponse).map((index, entry) => ({
+          title: $('title', entry).text(),
+          content: $('content', entry).text(),
+          url: $('url', entry).text(),
+        })).get();
+
+        const $searchResult = $('#search-result');
+
+        $('#input-search-keyword').on('input', (event) => {
+          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
+          let str = '<div class="scroll"><ul class="list">';
+          let numOfPostFound = 0;
+
+          $searchResult.html('');
+
+          if (event.target.value.trim().length <= 0) {
+            return;
+          }
+
+          datas.forEach((data) => {
+            const title = data.title.trim().toLowerCase();
+            const content = data.content.trim().replace(/<[^>]+>/g, '');
+            const url = data.url;
+            let isMatch = true;
+            let firstOccur = -1;
+
+            if (title !== '' && content !== '') {
+              keywords.forEach((keyword, index) => {
+                let contentIndex = content.toLowerCase().indexOf(keyword);
+
+                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
+                  isMatch = false;
+                } else {
+                  if (contentIndex < 0) contentIndex = 0;
+                  if (index === 0) firstOccur = contentIndex;
+                }
+              });
+            }
+
+            if (isMatch) {
+              numOfPostFound += 1;
+
+              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
+
+              if (firstOccur >= 0) {
+                let start = firstOccur - 50;
+                let end = firstOccur + 50;
+
+                if (start < 0) start = 0;
+                if (start === 0) end = 100;
+                if (end > content.length) end = content.length;
+
+                let match = content.substring(start, start + end);
+
+                keywords.forEach((keyword) => {
+                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
+                });
+
+                str += `<p class="content">${ match }...</p>`;
+              }
+
+              str += '</a></li>';
+            }
+          });
+
+          str += '</ul></div>';
+
+          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
+        });
+      }
+    });
+  })
+</script>
+</body>
+</html>

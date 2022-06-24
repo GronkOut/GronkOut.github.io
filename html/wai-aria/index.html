@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>WAI-ARIA v1.2 | MIB</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.svg">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    
+        
+<link rel="stylesheet" href="/css/post.css">
+
+    
+    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
+    <script>
+      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
+      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
+    </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="post">
+    <!-- Loader -->
+    <div section="loader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header section="header">
+        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
+        <div class="title">
+            <a class="link" title="Memo In Brain" href="/">
+                <span class="text">Memo In Brain</span>
+                <img class="image" src="/img/logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="list">
+                
+                    <li class="item">
+                        <a class="button" title="Memo" href="/memo/">Memo</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            </ul>
+        </nav>
+        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
+    </header>
+
+    <!-- Main -->
+    <main section="main">
+        
+            <!-- Category / TOC -->
+            <aside section="sidebar">
+                <div class="wrap">
+                    <menu class="menu">
+                        <li class="item">
+                            <button class="button" title="Category" type="button">CATEGORY</button>
+                        </li>
+                        <li class="item">
+                            <button class="button" title="Table Of Content" type="button">TOC</button>
+                        </li>
+                    </menu>
+                    <div class="scroll">
+                        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/unit-test/">unit-test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/intersection-observer/">intersection-observer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a><span class="category-list-count">1</span></li></ul></li></ul>
+                        <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Roles"><span class="toc-list-number">1.</span> <span class="toc-list-text">Roles</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Abstract-roles"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">Abstract roles</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Widget-roles"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">Widget roles</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Document-structure-roles"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">Document structure roles</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Landmark-roles"><span class="toc-list-number">1.4.</span> <span class="toc-list-text">Landmark roles</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Live-region-roles"><span class="toc-list-number">1.5.</span> <span class="toc-list-text">Live region roles</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Window-roles"><span class="toc-list-number">1.6.</span> <span class="toc-list-text">Window roles</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#States-and-properties"><span class="toc-list-number">2.</span> <span class="toc-list-text">States and properties</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Translatable-states-and-properties"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">Translatable states and properties</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Global-states-and-properties"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">Global states and properties</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Attributes"><span class="toc-list-number">3.</span> <span class="toc-list-text">Attributes</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Widget-attributes"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">Widget attributes</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Live-region-attributes"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">Live region attributes</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Drag-and-drop-attributes"><span class="toc-list-number">3.3.</span> <span class="toc-list-text">Drag-and-drop attributes</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Relationship-attributes"><span class="toc-list-number">3.4.</span> <span class="toc-list-text">Relationship attributes</span></a></li></ol></li></ol>
+                    </div>
+                    <div class="footer">
+                        <button class="button expand" title="Expand"><i class="fa-solid fa-arrows-down-to-line"></i></button>
+                        <button class="button collapse" title="Collapse"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+                        <div class="percent">
+                            <progress class="progress" max="100"></progress>
+                            <span class="text"></span>
+                        </div>
+                        <button class="button top" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+                        <button class="button bottom" title="Go to bottom"><i class="fa-solid fa-caret-up"></i></button>
+                    </div>
+                </div>
+            </aside>
+        
+        <!-- Content -->
+        <article section="content">
+    <section class="header">
+        <div class="breadcrumbs">
+            <span class="breadcrumb">MEMO IN BRAIN</span>
+            
+                <span class="breadcrumb">HTML</span>
+            
+                <span class="breadcrumb">WAI-ARIA</span>
+            
+        </div>
+        <h1 class="title">WAI-ARIA v1.2</h1>
+    </section>
+
+    <section class="body">
+        <div class="links">
+  <a target="_blank" href="https://www.w3.org/TR/wai-aria-1.2">https://www.w3.org/TR/wai-aria-1.2</a>
+</div>
+
+<h2 id="Roles"><a href="#Roles" class="headerlink" title="Roles"></a>Roles</h2><h3 id="Abstract-roles"><a href="#Abstract-roles" class="headerlink" title="Abstract roles"></a>Abstract roles</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#abstract_roles">https://www.w3.org/TR/wai-aria-1.2/#abstract_roles</a></p>
+<div class="tags">
+  <span class="tag">command</span>
+  <span class="tag">composite</span>
+  <span class="tag">input</span>
+  <span class="tag">landmark</span>
+  <span class="tag">range</span>
+  <span class="tag">roletype</span>
+  <span class="tag">section</span>
+  <span class="tag">sectionhead</span>
+  <span class="tag">select</span>
+  <span class="tag">structure</span>
+  <span class="tag">widget</span>
+  <span class="tag">window</span>
+</div>
+
+<blockquote>
+<p>역할의 개념을 정의하고 상속 구조를 잡기 위한 상위 개념의 <code>role</code> 속성 값으로 요소에 직접 사용하면 안된다.</p>
+</blockquote>
+<h3 id="Widget-roles"><a href="#Widget-roles" class="headerlink" title="Widget roles"></a>Widget roles</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#widget_roles">https://www.w3.org/TR/wai-aria-1.2/#widget_roles</a></p>
+<div class="tags">
+  <span class="tag">button</span>
+  <span class="tag">checkbox</span>
+  <span class="tag">gridcell</span>
+  <span class="tag">link</span>
+  <span class="tag">menuitem</span>
+  <span class="tag">menuitemcheckbox</span>
+  <span class="tag">menuitemradio</span>
+  <span class="tag">option</span>
+  <span class="tag">progressbar</span>
+  <span class="tag">radio</span>
+  <span class="tag">scrollbar</span>
+  <span class="tag">searchbox</span>
+  <span class="tag">separator</span>
+  <span class="tag">slider</span>
+  <span class="tag">spinbutton</span>
+  <span class="tag">switch</span>
+  <span class="tag">tab</span>
+  <span class="tag">tabpanel</span>
+  <span class="tag">textbox</span>
+  <span class="tag">treeitem</span>
+</div>
+
+<div class="tags">
+  <span class="tag">combobox</span>
+  <span class="tag">grid</span>
+  <span class="tag">listbox</span>
+  <span class="tag">menu</span>
+  <span class="tag">menubar</span>
+  <span class="tag">radiogroup</span>
+  <span class="tag">tablist</span>
+  <span class="tag">tree</span>
+  <span class="tag">treegrid</span>
+</div>
+
+<blockquote>
+<p>사용자와 상호작용하는 요소를 나타내는 위젯에 사용되는 <code>role</code> 속성 값이다.<br>위젯은 단일 요소로 구성되기도 하고 복합적인 여러 요소로 구성되기도 한다.</p>
+</blockquote>
+<h3 id="Document-structure-roles"><a href="#Document-structure-roles" class="headerlink" title="Document structure roles"></a>Document structure roles</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#document_structure_roles">https://www.w3.org/TR/wai-aria-1.2/#document_structure_roles</a></p>
+<div class="tags">
+  <span class="tag">application</span>
+  <span class="tag">article</span>
+  <span class="tag">blockquote</span>
+  <span class="tag">caption</span>
+  <span class="tag">cell</span>
+  <span class="tag">columnheader</span>
+  <span class="tag">definition</span>
+  <span class="tag">deletion</span>
+  <span class="tag">directory</span>
+  <span class="tag">document</span>
+  <span class="tag">emphasis</span>
+  <span class="tag">feed</span>
+  <span class="tag">figure</span>
+  <span class="tag">generic</span>
+  <span class="tag">group</span>
+  <span class="tag">heading</span>
+  <span class="tag">img</span>
+  <span class="tag">insertion</span>
+  <span class="tag">list</span>
+  <span class="tag">listitem</span>
+  <span class="tag">math</span>
+  <span class="tag">meter</span>
+  <span class="tag">none</span>
+  <span class="tag">note</span>
+  <span class="tag">paragraph</span>
+  <span class="tag">presentation</span>
+  <span class="tag">row</span>
+  <span class="tag">rowgroup</span>
+  <span class="tag">rowheader</span>
+  <span class="tag">separator</span>
+  <span class="tag">strong</span>
+  <span class="tag">subscript</span>
+  <span class="tag">superscript</span>
+  <span class="tag">table</span>
+  <span class="tag">term</span>
+  <span class="tag">time</span>
+  <span class="tag">toolbar</span>
+  <span class="tag">tooltip</span>
+</div>
+
+<blockquote>
+<p>페이지의 구조를 기술하는 데 사용되는 <code>role</code> 속성 값이다.<br>이들 <code>role</code> 속성 값이 적용된 요소들은 일반적으로 사용자와 상호작용하지 않는다.</p>
+</blockquote>
+<h3 id="Landmark-roles"><a href="#Landmark-roles" class="headerlink" title="Landmark roles"></a>Landmark roles</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#landmark_roles">https://www.w3.org/TR/wai-aria-1.2/#landmark_roles</a></p>
+<div class="tags">
+  <span class="tag">banner</span>
+  <span class="tag">complementary</span>
+  <span class="tag">contentinfo</span>
+  <span class="tag">form</span>
+  <span class="tag">main</span>
+  <span class="tag">navigation</span>
+  <span class="tag">region</span>
+  <span class="tag">search</span>
+</div>
+
+<blockquote>
+<p>페이지의 내비게이션에 사용되는 영역들을 정의하기 위해 사용되는 <code>role</code> 속성 값이다.</p>
+</blockquote>
+<h3 id="Live-region-roles"><a href="#Live-region-roles" class="headerlink" title="Live region roles"></a>Live region roles</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#live_region_roles">https://www.w3.org/TR/wai-aria-1.2/#live_region_roles</a></p>
+<div class="tags">
+  <span class="tag">alert</span>
+  <span class="tag">log</span>
+  <span class="tag">marquee</span>
+  <span class="tag">status</span>
+  <span class="tag">timer</span>
+</div>
+
+<h3 id="Window-roles"><a href="#Window-roles" class="headerlink" title="Window roles"></a>Window roles</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#window_roles">https://www.w3.org/TR/wai-aria-1.2/#window_roles</a></p>
+<div class="tags">
+  <span class="tag">alertdialog</span>
+  <span class="tag">dialog</span>
+</div>
+
+<blockquote>
+<p>브라우저 또는 애플리케이션 내에서 창 역할을 한다.</p>
+</blockquote>
+<h2 id="States-and-properties"><a href="#States-and-properties" class="headerlink" title="States and properties"></a>States and properties</h2><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#states_and_properties">https://www.w3.org/TR/wai-aria-1.2/#states_and_properties</a></p>
+<h3 id="Translatable-states-and-properties"><a href="#Translatable-states-and-properties" class="headerlink" title="Translatable states and properties"></a>Translatable states and properties</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#translatable-states-and-properties">https://www.w3.org/TR/wai-aria-1.2/#translatable-states-and-properties</a></p>
+<div class="tags">
+  <span class="tag">aria-label</span>
+  <span class="tag">aria-placeholder</span>
+  <span class="tag">aria-roledescription</span>
+  <span class="tag">aria-valuetext</span>
+</div>
+
+<h3 id="Global-states-and-properties"><a href="#Global-states-and-properties" class="headerlink" title="Global states and properties"></a>Global states and properties</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#global_states">https://www.w3.org/TR/wai-aria-1.2/#global_states</a></p>
+<div class="tags">
+  <span class="tag">aria-atomic</span>
+  <span class="tag">aria-busy</span>
+  <span class="tag">aria-controls</span>
+  <span class="tag">aria-current</span>
+  <span class="tag">aria-describedby</span>
+  <span class="tag">aria-details</span>
+  <span class="tag">aria-dropeffect</span>
+  <span class="tag">aria-flowto</span>
+  <span class="tag">aria-grabbed</span>
+  <span class="tag">aria-hidden</span>
+  <span class="tag">aria-keyshortcuts</span>
+  <span class="tag">aria-label</span>
+  <span class="tag">aria-labelledby</span>
+  <span class="tag">aria-live</span>
+  <span class="tag">aria-owns</span>
+  <span class="tag">aria-relevant</span>
+  <span class="tag">aria-roledescription</span>
+</div>
+
+<h2 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h2><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#state_prop_taxonomy">https://www.w3.org/TR/wai-aria-1.2/#state_prop_taxonomy</a></p>
+<h3 id="Widget-attributes"><a href="#Widget-attributes" class="headerlink" title="Widget attributes"></a>Widget attributes</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#attrs_widgets">https://www.w3.org/TR/wai-aria-1.2/#attrs_widgets</a></p>
+<div class="tags">
+  <span class="tag">aria-autocomplete</span>
+  <span class="tag">aria-checked</span>
+  <span class="tag">aria-disabled</span>
+  <span class="tag">aria-errormessage</span>
+  <span class="tag">aria-expanded</span>
+  <span class="tag">aria-haspopup</span>
+  <span class="tag">aria-hidden</span>
+  <span class="tag">aria-invalid</span>
+  <span class="tag">aria-label</span>
+  <span class="tag">aria-level</span>
+  <span class="tag">aria-modal</span>
+  <span class="tag">aria-multiline</span>
+  <span class="tag">aria-multiselectable</span>
+  <span class="tag">aria-orientation</span>
+  <span class="tag">aria-placeholder</span>
+  <span class="tag">aria-pressed</span>
+  <span class="tag">aria-readonly</span>
+  <span class="tag">aria-required</span>
+  <span class="tag">aria-selected</span>
+  <span class="tag">aria-sort</span>
+  <span class="tag">aria-valuemax</span>
+  <span class="tag">aria-valuemin</span>
+  <span class="tag">aria-valuenow</span>
+  <span class="tag">aria-valuetext</span>
+</div>
+
+<h3 id="Live-region-attributes"><a href="#Live-region-attributes" class="headerlink" title="Live region attributes"></a>Live region attributes</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#attrs_liveregions">https://www.w3.org/TR/wai-aria-1.2/#attrs_liveregions</a></p>
+<div class="tags">
+  <span class="tag">aria-atomic</span>
+  <span class="tag">aria-busy</span>
+  <span class="tag">aria-live</span>
+  <span class="tag">aria-relevant</span>
+</div>
+
+<h3 id="Drag-and-drop-attributes"><a href="#Drag-and-drop-attributes" class="headerlink" title="Drag-and-drop attributes"></a>Drag-and-drop attributes</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#attrs_dragdrop">https://www.w3.org/TR/wai-aria-1.2/#attrs_dragdrop</a></p>
+<div class="tags">
+  <span class="tag">aria-dropeffect</span>
+  <span class="tag">aria-grabbed</span>
+</div>
+
+<h3 id="Relationship-attributes"><a href="#Relationship-attributes" class="headerlink" title="Relationship attributes"></a>Relationship attributes</h3><p><a target="_blank" rel="noopener" href="https://www.w3.org/TR/wai-aria-1.2/#attrs_relationships">https://www.w3.org/TR/wai-aria-1.2/#attrs_relationships</a></p>
+<div class="tags">
+  <span class="tag">aria-activedescendant</span>
+  <span class="tag">aria-colcount</span>
+  <span class="tag">aria-colindex</span>
+  <span class="tag">aria-colspan</span>
+  <span class="tag">aria-controls</span>
+  <span class="tag">aria-describedby</span>
+  <span class="tag">aria-details</span>
+  <span class="tag">aria-errormessage</span>
+  <span class="tag">aria-flowto</span>
+  <span class="tag">aria-labelledby</span>
+  <span class="tag">aria-owns</span>
+  <span class="tag">aria-posinset</span>
+  <span class="tag">aria-rowcount</span>
+  <span class="tag">aria-rowindex</span>
+  <span class="tag">aria-rowspan</span>
+  <span class="tag">aria-setsize</span>
+</div>
+
+    </section>
+
+    <section class="footer">
+        <div class="background"><i class="fa-brands fa-creative-commons"></i></div>
+        <div class="post">
+            <p class="name">WAI-ARIA v1.2</p>
+            <a class="link" href="/html/wai-aria/">https://gronkout.github.io/html/wai-aria/</a>
+        </div>
+        <div class="information">
+            <div class="author">
+                <p class="label">Author</p>
+                <p class="name">GronkOut</p>
+            </div>
+            <div class="license">
+                <p class="label">Licensed under</p>
+                <ul class="list">
+                    <li class="item">
+                        <a class="link" title="Creative Commons" target="_blank" href="https://creativecommons.org/">
+                            <i class="fa-brands fa-creative-commons"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution-NonCommercial 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+            <div class="tags">
+                
+                    <a class="tag" href="/tags/accessibility/"># accessibility</a>
+                
+            </div>
+        
+    </section>
+
+    <section class="comment">
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous" async></script>
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-dark" crossorigin="anonymous" async></script>
+    </section>
+</article>
+    </main>
+
+    <!-- Option -->
+    <aside section="option">
+        <div class="wrap">
+            <menu class="tabs">
+                <li class="item">
+                    <button class="button active">Search</button>
+                </li>
+                <li class="item">
+                    <button class="button">Setup</button>
+                </li>
+            </menu>
+            <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            <div section="search" class="panel active">
+                <label class="label" for="input-search-keyword">Search keyword</label>
+                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
+                <div id="search-result"></div>
+            </div>
+            <div section="setup" class="panel">
+                <label class="label" for="select-color-scheme">Change color scheme</label>
+                <select id="select-color-scheme" class="scheme">
+                    <option value="system">System default</option>
+                    <option value="light">Forced light</option>
+                    <option value="dark">Forced dark</option>
+                </select>
+                <label class="label" for="input-border-radius">Change border radius</label>
+                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
+                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
+                <div class="button-group">
+                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
+                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+<!-- Script -->
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js" type="module"></script>
+
+<script>
+  $(() => {
+    $.ajax({
+      url: '/search.xml',
+      dataType: 'xml',
+      success(xmlResponse) {
+        const datas = $('entry', xmlResponse).map((index, entry) => ({
+          title: $('title', entry).text(),
+          content: $('content', entry).text(),
+          url: $('url', entry).text(),
+        })).get();
+
+        const $searchResult = $('#search-result');
+
+        $('#input-search-keyword').on('input', (event) => {
+          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
+          let str = '<div class="scroll"><ul class="list">';
+          let numOfPostFound = 0;
+
+          $searchResult.html('');
+
+          if (event.target.value.trim().length <= 0) {
+            return;
+          }
+
+          datas.forEach((data) => {
+            const title = data.title.trim().toLowerCase();
+            const content = data.content.trim().replace(/<[^>]+>/g, '');
+            const url = data.url;
+            let isMatch = true;
+            let firstOccur = -1;
+
+            if (title !== '' && content !== '') {
+              keywords.forEach((keyword, index) => {
+                let contentIndex = content.toLowerCase().indexOf(keyword);
+
+                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
+                  isMatch = false;
+                } else {
+                  if (contentIndex < 0) contentIndex = 0;
+                  if (index === 0) firstOccur = contentIndex;
+                }
+              });
+            }
+
+            if (isMatch) {
+              numOfPostFound += 1;
+
+              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
+
+              if (firstOccur >= 0) {
+                let start = firstOccur - 50;
+                let end = firstOccur + 50;
+
+                if (start < 0) start = 0;
+                if (start === 0) end = 100;
+                if (end > content.length) end = content.length;
+
+                let match = content.substring(start, start + end);
+
+                keywords.forEach((keyword) => {
+                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
+                });
+
+                str += `<p class="content">${ match }...</p>`;
+              }
+
+              str += '</a></li>';
+            }
+          });
+
+          str += '</ul></div>';
+
+          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
+        });
+      }
+    });
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>CSS Layout | MIB</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.svg">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    
+        
+<link rel="stylesheet" href="/css/post.css">
+
+    
+    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
+    <script>
+      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
+      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
+    </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="post">
+    <!-- Loader -->
+    <div section="loader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header section="header">
+        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
+        <div class="title">
+            <a class="link" title="Memo In Brain" href="/">
+                <span class="text">Memo In Brain</span>
+                <img class="image" src="/img/logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="list">
+                
+                    <li class="item">
+                        <a class="button" title="Memo" href="/memo/">Memo</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            </ul>
+        </nav>
+        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
+    </header>
+
+    <!-- Main -->
+    <main section="main">
+        
+            <!-- Category / TOC -->
+            <aside section="sidebar">
+                <div class="wrap">
+                    <menu class="menu">
+                        <li class="item">
+                            <button class="button" title="Category" type="button">CATEGORY</button>
+                        </li>
+                        <li class="item">
+                            <button class="button" title="Table Of Content" type="button">TOC</button>
+                        </li>
+                    </menu>
+                    <div class="scroll">
+                        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/unit-test/">unit-test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/intersection-observer/">intersection-observer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a><span class="category-list-count">1</span></li></ul></li></ul>
+                        <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#General"><span class="toc-list-number">1.</span> <span class="toc-list-text">General</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Align-center"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">Align center</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Division"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">Division</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Decorate"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">Decorate</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Flex"><span class="toc-list-number">2.</span> <span class="toc-list-text">Flex</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Container"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">Container</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Items"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">Items</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Grid"><span class="toc-list-number">3.</span> <span class="toc-list-text">Grid</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Container-1"><span class="toc-list-number">3.1.</span> <span class="toc-list-text">Container</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Items-1"><span class="toc-list-number">3.2.</span> <span class="toc-list-text">Items</span></a></li></ol></li></ol>
+                    </div>
+                    <div class="footer">
+                        <button class="button expand" title="Expand"><i class="fa-solid fa-arrows-down-to-line"></i></button>
+                        <button class="button collapse" title="Collapse"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+                        <div class="percent">
+                            <progress class="progress" max="100"></progress>
+                            <span class="text"></span>
+                        </div>
+                        <button class="button top" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+                        <button class="button bottom" title="Go to bottom"><i class="fa-solid fa-caret-up"></i></button>
+                    </div>
+                </div>
+            </aside>
+        
+        <!-- Content -->
+        <article section="content">
+    <section class="header">
+        <div class="breadcrumbs">
+            <span class="breadcrumb">MEMO IN BRAIN</span>
+            
+                <span class="breadcrumb">CSS</span>
+            
+                <span class="breadcrumb">LAYOUT</span>
+            
+        </div>
+        <h1 class="title">CSS Layout</h1>
+    </section>
+
+    <section class="body">
+        <div class="links">
+  <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex">https://developer.mozilla.org/en-US/docs/Web/CSS/flex</a>
+  <a target="_blank" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox">https://css-tricks.com/snippets/css/a-guide-to-flexbox</a>
+  <br>
+  <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid">https://developer.mozilla.org/en-US/docs/Web/CSS/grid</a>
+  <a target="_blank" href="https://css-tricks.com/snippets/css/complete-guide-grid">https://css-tricks.com/snippets/css/complete-guide-grid</a>
+</div>
+
+<h2 id="General"><a href="#General" class="headerlink" title="General"></a>General</h2><h3 id="Align-center"><a href="#Align-center" class="headerlink" title="Align center"></a>Align center</h3><p><a target="_blank" rel="noopener" href="https://css-tricks.com/centering-css-complete-guide">https://css-tricks.com/centering-css-complete-guide</a></p>
+<div class="tabs-panels">
+  <menu class="tabs">
+    <li class="item active"><button class="button">absolute</button></li>
+    <li class="item"><button class="button">transform</button></li>
+    <li class="item"><button class="button">flex</button></li>
+    <li class="item"><button class="button">grid</button></li>
+    <li class="item"><button class="button">table</button></li>
+  </menu>
+  <ul class="panels">
+    <li class="item active">
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>text<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-attribute">position</span>: relative;<br>  <span class="hljs-selector-class">.content</span> &#123;<br>    <span class="hljs-attribute">position</span>: absolute;<br>    inset: <span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">margin</span>: auto;<br>    <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">100px</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>컨텐츠의 너비&#x2F;높이 값이 필요하다.<br>    </li><br>    <li class="item"></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>text<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-attribute">position</span>: relative;<br>  <span class="hljs-selector-class">.content</span> &#123;<br>    <span class="hljs-attribute">position</span>: absolute;<br>    <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;<br>    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;<br>    <span class="hljs-attribute">transform</span>: translate(-<span class="hljs-number">50%</span> -<span class="hljs-number">50%</span>);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>소수점으로 계산되면 선명하게 보이지 않을 수 있다.<br>    </li><br>    <li class="item"></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>text<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>  <span class="hljs-attribute">justify-content</span>: center;<br>&#125;<br></code></pre></td></tr></table></figure>
+<br>
+    </li>
+    <li class="item">
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>text<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-attribute">display</span>: grid;<br>  place-items: center;<br>&#125;<br></code></pre></td></tr></table></figure>
+<br>
+    </li>
+    <li class="item">
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;inner&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>text<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-attribute">display</span>: table;<br>  <span class="hljs-selector-tag">table</span>-layout: fixed;<br>  <span class="hljs-selector-class">.inner</span> &#123;<br>    <span class="hljs-attribute">display</span>: table-cell;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;<br>    <span class="hljs-attribute">vertical-align</span>: middle;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>table-cell</code> 로 사용 할 엘리먼트가 추가로 필요하다.<br>    </li><br>  </ul></p>
+</blockquote>
+</div>
+
+<h3 id="Division"><a href="#Division" class="headerlink" title="Division"></a>Division</h3><h4 id="Description-list"><a href="#Description-list" class="headerlink" title="Description list"></a>Description list</h4><div class="jsfiddle-cover">
+  <iframe scrolling="no" width="100%" height="200" src="https://jsfiddle.net/oefs7dra/embedded/result,html,css/dark" frameborder="0" loading="lazy" allowfullscreen></iframe>
+</div>
+
+<h4 id="Overflow-scroll-list"><a href="#Overflow-scroll-list" class="headerlink" title="Overflow scroll list"></a>Overflow scroll list</h4><div class="jsfiddle-cover">
+  <iframe scrolling="no" width="100%" height="200" src="https://jsfiddle.net/85j4wvp9/embedded/result,html,css/dark" frameborder="0" loading="lazy" allowfullscreen></iframe>
+</div>
+
+<h4 id="Static-with-division"><a href="#Static-with-division" class="headerlink" title="Static with division"></a>Static with division</h4><div class="jsfiddle-cover">
+  <iframe scrolling="no" width="100%" height="300" src="https://jsfiddle.net/nk58gr9y/embedded/result,html,css/dark" frameborder="0" loading="lazy" allowfullscreen></iframe>
+</div>
+
+<h4 id="Flex-layout"><a href="#Flex-layout" class="headerlink" title="Flex layout"></a>Flex layout</h4><div class="jsfiddle-cover">
+  <iframe scrolling="no" width="100%" height="200" src="https://jsfiddle.net/5jcwmpso/embedded/result,html,css/dark" frameborder="0" loading="lazy" allowfullscreen></iframe>
+</div>
+
+<h4 id="Grid-layout"><a href="#Grid-layout" class="headerlink" title="Grid layout"></a>Grid layout</h4><div class="jsfiddle-cover">
+  <iframe scrolling="no" width="100%" height="200" src="https://jsfiddle.net/ua1yzef9/embedded/result,html,css/dark" frameborder="0" loading="lazy" allowfullscreen></iframe>
+</div>
+
+<h4 id="Masonry-layout"><a href="#Masonry-layout" class="headerlink" title="Masonry layout"></a>Masonry layout</h4><div class="jsfiddle-cover">
+  <iframe scrolling="no" width="100%" height="500" src="https://jsfiddle.net/5u4ev2pd/embedded/result,html,css/dark" frameborder="0" loading="lazy" allowfullscreen></iframe>
+</div>
+
+<h3 id="Decorate"><a href="#Decorate" class="headerlink" title="Decorate"></a>Decorate</h3><h4 id="Ribbon"><a href="#Ribbon" class="headerlink" title="Ribbon"></a>Ribbon</h4><div class="jsfiddle-cover">
+  <iframe scrolling="no" width="100%" height="200" src="https://jsfiddle.net/Lenh8ygq/embedded/result,html,css/dark" frameborder="0" loading="lazy" allowfullscreen></iframe>
+</div>
+
+<h2 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h2><h3 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h3><h4 id="display"><a href="#display" class="headerlink" title="display"></a>display</h4><img src="/images/post/css-flex-container.svg" class="" width="400">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* flex, inline-flex */</span><br>  <span class="hljs-attribute">display</span>: flex;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow">https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow</a></p>
+<blockquote>
+<p><code>flex-direction</code>, <code>flex-wrap</code> 속성을 축약한다.</p>
+</blockquote>
+<h4 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction">https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction</a></p>
+<img src="/images/post/css-flex-direction.svg" class="" width="400">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* row, row-reverse, column, column-reverse */</span><br>  <span class="hljs-attribute">flex-direction</span>: row;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap">https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap</a></p>
+<img src="/images/post/css-flex-wrap.svg" class="" width="400">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* nowrap, wrap, wrap-reverse */</span><br>  <span class="hljs-attribute">flex-wrap</span>: nowrap;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content">https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content</a></p>
+<img src="/images/post/css-flex-justify-content.svg" class="" width="400">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* flex-start, flex-end, center, space-between, space-around, space-evenly, start, end, left, right */</span><br>  <span class="hljs-attribute">justify-content</span>: flex-start;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items">https://developer.mozilla.org/en-US/docs/Web/CSS/align-items</a></p>
+<img src="/images/post/css-flex-align-items.svg" class="" width="400">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* stretch, flex-start, flex-end, center, baseline, first baseline, last baseline, start, end, self-start, self-end */</span><br>  <span class="hljs-attribute">align-items</span>: stretch;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-content">https://developer.mozilla.org/en-US/docs/Web/CSS/align-content</a></p>
+<img src="/images/post/css-flex-align-content.svg" class="" width="400">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* flex-start, flex-end, center, space-between, space-around, space-evenly, stretch, start, end, baseline, first baseline, last baseline */</span><br>  <span class="hljs-attribute">align-content</span>: flex-start;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="gap"><a href="#gap" class="headerlink" title="gap"></a>gap</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* top right bottom left */</span><br>  <span class="hljs-attribute">gap</span>: <span class="hljs-number">10px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>아이템의 간격을 정의한다.</p>
+</blockquote>
+<h3 id="Items"><a href="#Items" class="headerlink" title="Items"></a>Items</h3><img src="/images/post/css-flex-items.svg" class="" width="400">
+
+<h4 id="order"><a href="#order" class="headerlink" title="order"></a>order</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/order">https://developer.mozilla.org/en-US/docs/Web/CSS/order</a></p>
+<img src="/images/post/css-flex-order.svg" class="" width="400">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.item</span> &#123;<br>  <span class="hljs-attribute">order</span>: <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex">https://developer.mozilla.org/en-US/docs/Web/CSS/flex</a></p>
+<blockquote>
+<p><code>flex-grow</code>, <code>flex-shrink</code>, <code>flex-basis</code> 속성을 축약한다.</p>
+</blockquote>
+<h4 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow">https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow</a></p>
+<img src="/images/post/css-flex-grow.svg" class="" width="400">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.item</span> &#123;<br>  <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink">https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.item</span> &#123;<br>  <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis">https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.item</span> &#123;<br>  <span class="hljs-attribute">flex-basis</span>: auto;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-self">https://developer.mozilla.org/en-US/docs/Web/CSS/align-self</a></p>
+<img src="/images/post/css-flex-align-self.svg" class="" width="400">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.item</span> &#123;<br>  <span class="hljs-comment">/* auto, flex-start, flex-end, center, baseline, stretch */</span><br>  <span class="hljs-attribute">align-self</span>: auto;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="justify-self"><a href="#justify-self" class="headerlink" title="justify-self"></a>justify-self</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self">https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self</a></p>
+<blockquote>
+<p><code>flex</code> 레이아웃에서 <code>justify-self</code> 속성은 무시된다.</p>
+</blockquote>
+<h2 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h2><h3 id="Container-1"><a href="#Container-1" class="headerlink" title="Container"></a>Container</h3><h4 id="display-1"><a href="#display-1" class="headerlink" title="display"></a>display</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* grid, inline-grid */</span><br>  <span class="hljs-attribute">display</span>: grid;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="grid"><a href="#grid" class="headerlink" title="grid"></a>grid</h4><blockquote>
+<p><code>grid-template-columns</code>, <code>grid-template-rows</code>, <code>grid-template-areas</code>, <code>grid-auto-columns</code>, <code>grid-auto-rows</code>, <code>grid-auto-flow</code> 속성을 축약한다.</p>
+</blockquote>
+<h4 id="grid-template"><a href="#grid-template" class="headerlink" title="grid-template"></a>grid-template</h4><img src="/images/post/css-grid-template.svg" class="light" width="500">
+
+<blockquote>
+<p><code>grid-template-columns</code>, <code>grid-template-rows</code>, <code>grid-template-areas</code> 속성을 축약한다.</p>
+</blockquote>
+<h4 id="grid-template-columns"><a href="#grid-template-columns" class="headerlink" title="grid-template-columns"></a>grid-template-columns</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* grid-template-columns: 40px 50px auto 50px 40px; */</span><br>  <span class="hljs-attribute">grid-template-columns</span>: [first] <span class="hljs-number">40px</span> [line2] <span class="hljs-number">50px</span> [line3] auto [col4-start] <span class="hljs-number">50px</span> [five] <span class="hljs-number">40px</span> [end];<br>  <span class="hljs-comment">/* grid-template-columns: repeat(3, 20px [col-start]); */</span><br>  <span class="hljs-comment">/* grid-template-columns: 20px [col-start] 20px [col-start] 20px [col-start]; */</span><br>  <span class="hljs-comment">/* grid-column-start: col-start 2; */</span><br>  <span class="hljs-comment">/* grid-template-columns: 1fr 50px 1fr 1fr; */</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="grid-template-rows"><a href="#grid-template-rows" class="headerlink" title="grid-template-rows"></a>grid-template-rows</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* grid-template-rows: 25% 100px auto; */</span><br>  <span class="hljs-attribute">grid-template-rows</span>: [row1-start] <span class="hljs-number">25%</span> [row1-end] <span class="hljs-number">100px</span> [third-line] auto [last-line];<br>  <span class="hljs-comment">/* grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end]; */</span><br>  <span class="hljs-comment">/* grid-column-start: col-start 2; */</span><br>  <span class="hljs-comment">/* grid-template-columns: 1fr 50px 1fr 1fr; */</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="grid-template-areas"><a href="#grid-template-areas" class="headerlink" title="grid-template-areas"></a>grid-template-areas</h4><img src="/images/post/css-grid-template-areas.svg" class="light" width="400">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.item-a</span> &#123; <span class="hljs-attribute">grid-area</span>: header; &#125;<br><span class="hljs-selector-class">.item-b</span> &#123; <span class="hljs-attribute">grid-area</span>: main; &#125;<br><span class="hljs-selector-class">.item-c</span> &#123; <span class="hljs-attribute">grid-area</span>: sidebar; &#125;<br><span class="hljs-selector-class">.item-d</span> &#123; <span class="hljs-attribute">grid-area</span>: footer; &#125;<br><br><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-attribute">display</span>: grid;<br>  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">50px</span> <span class="hljs-number">50px</span> <span class="hljs-number">50px</span> <span class="hljs-number">50px</span>;<br>  <span class="hljs-attribute">grid-template-rows</span>: auto;<br>  <span class="hljs-attribute">grid-template-areas</span>:<br>    <span class="hljs-string">&quot;header header header header&quot;</span><br>    <span class="hljs-string">&quot;main main . sidebar&quot;</span><br>    <span class="hljs-string">&quot;footer footer footer footer&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="grid-auto-columns"><a href="#grid-auto-columns" class="headerlink" title="grid-auto-columns"></a>grid-auto-columns</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">60px</span> <span class="hljs-number">60px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="grid-auto-rows"><a href="#grid-auto-rows" class="headerlink" title="grid-auto-rows"></a>grid-auto-rows</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">90px</span> <span class="hljs-number">90px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="grid-auto-flow"><a href="#grid-auto-flow" class="headerlink" title="grid-auto-flow"></a>grid-auto-flow</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* row, column, row dense, column dense */</span><br>  <span class="hljs-attribute">grid-auto-flow</span>: row;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="gap-1"><a href="#gap-1" class="headerlink" title="gap"></a>gap</h4><img src="/images/post/css-grid-gap.svg" class="light" width="400">
+
+<blockquote>
+<p><code>column-gap</code>, <code>row-gap</code> 속성을 축약한다.</p>
+</blockquote>
+<h4 id="column-gap"><a href="#column-gap" class="headerlink" title="column-gap"></a>column-gap</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-attribute">column-gap</span>: <span class="hljs-number">10px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="row-gap"><a href="#row-gap" class="headerlink" title="row-gap"></a>row-gap</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-attribute">row-gap</span>: <span class="hljs-number">15px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="place-items"><a href="#place-items" class="headerlink" title="place-items"></a>place-items</h4><blockquote>
+<p><code>justify-items</code>, <code>align-items</code> 속성을 축약한다.</p>
+</blockquote>
+<h4 id="justify-items"><a href="#justify-items" class="headerlink" title="justify-items"></a>justify-items</h4><img src="/images/post/css-grid-justify-items-start.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-items-center.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-items-end.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-items-stretch.svg" class="light" width="350">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* start, center, end, stretch */</span><br>  justify-items: start;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="align-items-1"><a href="#align-items-1" class="headerlink" title="align-items"></a>align-items</h4><img src="/images/post/css-grid-align-items-start.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-items-center.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-items-end.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-items-stretch.svg" class="light" width="350">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* start, center, end, stretch */</span><br>  <span class="hljs-attribute">align-items</span>: start;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="place-content"><a href="#place-content" class="headerlink" title="place-content"></a>place-content</h4><blockquote>
+<p><code>justify-content</code>, <code>align-content</code> 속성을 축약한다.</p>
+</blockquote>
+<h4 id="justify-content-1"><a href="#justify-content-1" class="headerlink" title="justify-content"></a>justify-content</h4><img src="/images/post/css-grid-justify-content-start.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-content-center.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-content-end.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-content-stretch.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-content-space-around.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-content-space-between.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-content-space-evenly.svg" class="light" width="350">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* start, center, end, stretch, space-around, space-between, space-evenly */</span><br>  <span class="hljs-attribute">justify-content</span>: start;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="align-content-1"><a href="#align-content-1" class="headerlink" title="align-content"></a>align-content</h4><img src="/images/post/css-grid-align-content-start.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-content-center.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-content-end.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-content-stretch.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-content-space-around.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-content-space-between.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-content-space-evenly.svg" class="light" width="350">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.container</span> &#123;<br>  <span class="hljs-comment">/* start, center, end, stretch, space-around, space-between, space-evenly */</span><br>  <span class="hljs-attribute">align-content</span>: start;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Items-1"><a href="#Items-1" class="headerlink" title="Items"></a>Items</h3><h4 id="grid-column"><a href="#grid-column" class="headerlink" title="grid-column"></a>grid-column</h4><img src="/images/post/css-grid-column-row-start-end-01.svg" class="light" width="500">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.item-a</span> &#123;<br>  <span class="hljs-attribute">grid-column-start</span>: <span class="hljs-number">2</span>;<br>  <span class="hljs-attribute">grid-column-end</span>: five;<br>  <span class="hljs-attribute">grid-row-start</span>: row1-start;<br>  <span class="hljs-attribute">grid-row-end</span>: <span class="hljs-number">3</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>grid-column-start</code>, <code>grid-column-end</code> 속성을 축약한다.</p>
+</blockquote>
+<h4 id="grid-row"><a href="#grid-row" class="headerlink" title="grid-row"></a>grid-row</h4><img src="/images/post/css-grid-column-row-start-end-02.svg" class="light" width="500">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.item-b</span> &#123;<br>  <span class="hljs-attribute">grid-column-start</span>: <span class="hljs-number">1</span>;<br>  <span class="hljs-attribute">grid-column-end</span>: span col4-start;<br>  <span class="hljs-attribute">grid-row-start</span>: <span class="hljs-number">2</span>;<br>  <span class="hljs-attribute">grid-row-end</span>: span <span class="hljs-number">2</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>grid-row-start</code>, <code>grid-row-end</code> 속성을 축약한다.</p>
+</blockquote>
+<h4 id="grid-area"><a href="#grid-area" class="headerlink" title="grid-area"></a>grid-area</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.item</span> &#123;<br>  <span class="hljs-attribute">grid-area</span>: row-start column-start row-end column-end;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>영역 이름을 설정하거나 <code>grid-row</code>, <code>grid-column</code> 속성을 축약한다.</p>
+</blockquote>
+<h4 id="justify-self-1"><a href="#justify-self-1" class="headerlink" title="justify-self"></a>justify-self</h4><img src="/images/post/css-grid-justify-self-start.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-self-center.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-self-end.svg" class="light" width="350">
+<img src="/images/post/css-grid-justify-self-stretch.svg" class="light" width="350">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.item-a</span> &#123;<br>  <span class="hljs-comment">/* start, center, end, stretch */</span><br>  justify-self: start;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="align-self-1"><a href="#align-self-1" class="headerlink" title="align-self"></a>align-self</h4><img src="/images/post/css-grid-align-self-start.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-self-center.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-self-end.svg" class="light" width="350">
+<img src="/images/post/css-grid-align-self-stretch.svg" class="light" width="350">
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.item-a</span> &#123;<br>  <span class="hljs-comment">/* start, center, end, stretch */</span><br>  <span class="hljs-attribute">align-self</span>: start;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="place-self"><a href="#place-self" class="headerlink" title="place-self"></a>place-self</h4><blockquote>
+<p><code>justify-self</code>, <code>align-self</code> 속성을 축약한다.</p>
+</blockquote>
+<h4 id="order-1"><a href="#order-1" class="headerlink" title="order"></a>order</h4><blockquote>
+<p>그리드 아이템의 배치 순서를 지정한다.</p>
+</blockquote>
+
+    </section>
+
+    <section class="footer">
+        <div class="background"><i class="fa-brands fa-creative-commons"></i></div>
+        <div class="post">
+            <p class="name">CSS Layout</p>
+            <a class="link" href="/css/layout/">https://gronkout.github.io/css/layout/</a>
+        </div>
+        <div class="information">
+            <div class="author">
+                <p class="label">Author</p>
+                <p class="name">GronkOut</p>
+            </div>
+            <div class="license">
+                <p class="label">Licensed under</p>
+                <ul class="list">
+                    <li class="item">
+                        <a class="link" title="Creative Commons" target="_blank" href="https://creativecommons.org/">
+                            <i class="fa-brands fa-creative-commons"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution-NonCommercial 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </section>
+
+    <section class="comment">
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous" async></script>
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-dark" crossorigin="anonymous" async></script>
+    </section>
+</article>
+    </main>
+
+    <!-- Option -->
+    <aside section="option">
+        <div class="wrap">
+            <menu class="tabs">
+                <li class="item">
+                    <button class="button active">Search</button>
+                </li>
+                <li class="item">
+                    <button class="button">Setup</button>
+                </li>
+            </menu>
+            <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            <div section="search" class="panel active">
+                <label class="label" for="input-search-keyword">Search keyword</label>
+                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
+                <div id="search-result"></div>
+            </div>
+            <div section="setup" class="panel">
+                <label class="label" for="select-color-scheme">Change color scheme</label>
+                <select id="select-color-scheme" class="scheme">
+                    <option value="system">System default</option>
+                    <option value="light">Forced light</option>
+                    <option value="dark">Forced dark</option>
+                </select>
+                <label class="label" for="input-border-radius">Change border radius</label>
+                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
+                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
+                <div class="button-group">
+                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
+                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+<!-- Script -->
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js" type="module"></script>
+
+<script>
+  $(() => {
+    $.ajax({
+      url: '/search.xml',
+      dataType: 'xml',
+      success(xmlResponse) {
+        const datas = $('entry', xmlResponse).map((index, entry) => ({
+          title: $('title', entry).text(),
+          content: $('content', entry).text(),
+          url: $('url', entry).text(),
+        })).get();
+
+        const $searchResult = $('#search-result');
+
+        $('#input-search-keyword').on('input', (event) => {
+          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
+          let str = '<div class="scroll"><ul class="list">';
+          let numOfPostFound = 0;
+
+          $searchResult.html('');
+
+          if (event.target.value.trim().length <= 0) {
+            return;
+          }
+
+          datas.forEach((data) => {
+            const title = data.title.trim().toLowerCase();
+            const content = data.content.trim().replace(/<[^>]+>/g, '');
+            const url = data.url;
+            let isMatch = true;
+            let firstOccur = -1;
+
+            if (title !== '' && content !== '') {
+              keywords.forEach((keyword, index) => {
+                let contentIndex = content.toLowerCase().indexOf(keyword);
+
+                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
+                  isMatch = false;
+                } else {
+                  if (contentIndex < 0) contentIndex = 0;
+                  if (index === 0) firstOccur = contentIndex;
+                }
+              });
+            }
+
+            if (isMatch) {
+              numOfPostFound += 1;
+
+              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
+
+              if (firstOccur >= 0) {
+                let start = firstOccur - 50;
+                let end = firstOccur + 50;
+
+                if (start < 0) start = 0;
+                if (start === 0) end = 100;
+                if (end > content.length) end = content.length;
+
+                let match = content.substring(start, start + end);
+
+                keywords.forEach((keyword) => {
+                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
+                });
+
+                str += `<p class="content">${ match }...</p>`;
+              }
+
+              str += '</a></li>';
+            }
+          });
+
+          str += '</ul></div>';
+
+          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
+        });
+      }
+    });
+  })
+</script>
+</body>
+</html>

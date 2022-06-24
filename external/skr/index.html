@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Skrollr</title>
+  <style>
+    html, body { margin: 0; padding: 0; background-color: #000; }
+
+    #container { padding-top: 500px; }
+
+    #section-01 { position: relative; height: 2050px; background: url(images/section-01-bg.jpg) center 0 no-repeat; }
+    #section-01 .character { top: 225px; }
+
+    #section-02 { position: relative; height: 3330px; background: url(images/section-02-bg.jpg) center 0 no-repeat; }
+    #section-02:before { z-index: 10; position: absolute; top: -81px; left: 50%; transform: translateX(-50%); width: 75px; height: 148px; background: url(images/mask-01.png); content: ''; }
+    #section-02:after { z-index: 10; position: absolute; bottom: 304px; left: 50%; transform: translateX(-50%); width: 75px; height: 200px; background: url(images/mask-02.png); content: ''; }
+    #section-02 .npc-01 { position: absolute; top: 1180px; left: 50%; margin-left: 230px; }
+    #section-02 .npc-01 .balloon { position: absolute; top: -230px; left: -120px; width: 250px; }
+
+    #section-03 { position: relative; height: 2200px; background: url(images/section-03-bg.jpg) center 0 no-repeat; }
+    #section-03:before { z-index: 10; position: absolute; top: -66px; left: 50%; transform: translateX(-50%); width: 75px; height: 385px; background: url(images/mask-03.png); content: ''; }
+
+    #section-04 { position: relative; height: 2500px; background: url(images/section-04-bg.jpg) center 0 no-repeat; }
+    #section-04:before { z-index: 10; position: absolute; top: -194px; left: 50%; transform: translateX(-50%); width: 75px; height: 306px; background: url(images/mask-04.png); content: ''; }
+
+    #section-05 { position: relative; height: 1886px; background: url(images/section-05-bg.jpg) center 0 no-repeat; }
+    #section-05:before { z-index: 10; position: absolute; top: -231px; left: 50%; margin-left: -38px; width: 75px; height: 360px; background: url(images/mask-05.png); content: ''; }
+    #section-05 .door { position: absolute; top: 50px; left: 50%; margin-left: -29px; width: 60px; height: 72px; background: url(images/section-05-door.png); }
+    #section-05.open-door .door { z-index: 10; }
+    #section-05.open-door .character { z-index: 10; }
+
+    .character { position: absolute; top: 0; left: 50%; transform: translateX(-50%); }
+
+    .character .front-stop { display: none; }
+    .character .front-play { display: block; }
+    .character .back-play { display: none; }
+
+    .direction-back .character .front-stop { display: none; }
+    .direction-back .character .front-play { display: none; }
+    .direction-back .character .back-play { display: block; }
+
+    .character.stop .front-stop { display: block; }
+    .character.stop .front-play { display: none; }
+    .character.stop .back-play { display: none; }
+
+    .balloon { position: relative; display: block; margin-bottom: 38px; border: 35px solid; font-size: 20px; border-image: url(./images/border.png) 35 fill round; }
+    .balloon .point { position: absolute; top: 100%; left: 0; width: 49px; height: 73px; background: url(./images/border-point.png) 0 no-repeat; }
+    .balloon .text { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; line-height: 24px; max-height: calc(24px * 3); text-align: center; word-break: keep-all; word-wrap: break-word; }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="section-01">
+        <div class="character" data-_character1start-center="top:225px;" data-_character1end-center="top:2050px;">
+            <img class="front-stop" src="images/section-01-character-front-stop.gif" alt="섹션 1 캐릭터 앞면 멈춤">
+            <img class="front-play" src="images/section-01-character-front-play.gif" alt="섹션 1 캐릭터 앞면 움직임">
+            <img class="back-play" src="images/section-01-character-back-play.gif" alt="섹션 1 캐릭터 뒷면 움직임">
+        </div>
+    </div>
+
+    <div id="section-02">
+      <div class="character" data-_character2start-center="top:0px;" data-_character2end-center="top:3330px;">
+        <img class="front-play" src="images/section-02-character-front-play.gif" alt="섹션 2 캐릭터 앞면 움직임">
+        <img class="back-play" src="images/section-02-character-back-play.gif" alt="섹션 2 캐릭터 뒷면 움직임">
+      </div>
+      <div class="npc-01">
+        <img class="image" src="images/character-05.gif" alt="NPC 1">
+        <div class="balloon"
+             data-400-center="{opacity:0;}"
+             data-300-center="{opacity:1;}"
+             data-0-center="{opacity:1;}"
+             data--300-center="{opacity:1;}"
+             data--400-center="{opacity:0;}"
+        >
+          <div class="point" style="left: 100px; transform: rotateY(180deg);"></div>
+          <div class="text" style="-webkit-line-clamp: 5; max-height: calc(24px * 5);">
+            동해물과 백두산이 마르고 닳도록 하나님이 보우하사 우리 나라 만세. 무궁화 삼천리 화려 강산 대한사람 대한으로 길이 보전하세.<br>
+            일이삼사오육칠팔구십<br>
+            동해물과 백두산이 마르고 닳도록 하나님이 보우하사 우리 나라 만세. 무궁화 삼천리 화려 강산 대한사람 대한으로 길이 보전하세.<br>
+            일이삼사오육칠팔구십<br>
+            동해물과 백두산이 마르고 닳도록 하나님이 보우하사 우리 나라 만세. 무궁화 삼천리 화려 강산 대한사람 대한으로 길이 보전하세.<br>
+            일이삼사오육칠팔구십<br>
+            동해물과 백두산이 마르고 닳도록 하나님이 보우하사 우리 나라 만세. 무궁화 삼천리 화려 강산 대한사람 대한으로 길이 보전하세.<br>
+            일이삼사오육칠팔구십<br>
+            동해물과 백두산이 마르고 닳도록 하나님이 보우하사 우리 나라 만세. 무궁화 삼천리 화려 강산 대한사람 대한으로 길이 보전하세.<br>
+            일이삼사오육칠팔구십<br>
+            동해물과 백두산이 마르고 닳도록 하나님이 보우하사 우리 나라 만세. 무궁화 삼천리 화려 강산 대한사람 대한으로 길이 보전하세.<br>
+            일이삼사오육칠팔구십<br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="section-03">
+      <div class="character" data-_character3start-center="top:0px;" data-_character3end-center="top:2200px;">
+        <img class="front-play" src="images/section-03-character-front-play.gif" alt="섹션 3 캐릭터 앞면 움직임">
+        <img class="back-play" src="images/section-03-character-back-play.gif" alt="섹션 3 캐릭터 뒷면 움직임">
+      </div>
+    </div>
+
+    <div id="section-04">
+      <div class="character" data-_character4start-center="top:0px;" data-_character4end-center="top:2500px;">
+        <img class="front-play" src="images/section-04-character-front-play.gif" alt="섹션 4 캐릭터 앞면 움직임">
+        <img class="back-play" src="images/section-04-character-back-play.gif" alt="섹션 4 캐릭터 뒷면 움직임">
+      </div>
+    </div>
+
+    <div id="section-05">
+      <div class="door" data-10-center data--65-center data-smooth-scrolling="off"></div>
+      <div class="character" data-_character5start-center="top:0px;" data-_character5end-center="top:565px;">
+        <img class="front-play" src="images/section-05-character-front-play.gif" alt="섹션 5 캐릭터 앞면 움직임">
+        <img class="back-play" src="images/section-05-character-back-play.gif" alt="섹션 5 캐릭터 뒷면 움직임">
+      </div>
+    </div>
+  </div>
+<script src="javascripts/jquery.min.js" crossorigin></script>
+<script src="javascripts/skrollr.min.js" crossorigin></script>
+<script>
+  var $window = $(window);
+  var $body = $('body');
+  var global = {};
+  var lastScrollTop = 0;
+
+  $window.on('scroll', function () {
+    var scrollTop = $window.scrollTop();
+
+    if (scrollTop > lastScrollTop) {
+      $body.removeClass('direction-back');
+
+      // console.log('down', window.scrollY);
+    } else {
+      $body.addClass('direction-back');
+
+      // console.log('up', window.scrollY);
+    }
+
+    lastScrollTop = scrollTop;
+  }).trigger('scroll');
+
+  $window.on('resize', function () {
+    if ($window.width() > 960) {
+      setAnimation();
+    } else {
+      removeAnimation();
+    }
+  }).trigger('resize');
+
+  function setSkrollr () {
+    global.skrollr = skrollr.init({
+      smoothScrolling: true,
+      constants: {
+        character1start: 0,
+        character1end: 2050 - 225,
+
+        character2start: 0,
+        character2end: 3330,
+
+        character3start: 0,
+        character3end: 2200,
+
+        character4start: 0,
+        character4end: 2500,
+
+        character5start: 0,
+        character5end: 565,
+      }
+    });
+  }
+
+  function setRequestAnimationFrame () {
+    var $section1 = $('#section-01'); // 2050
+    var $section2 = $('#section-02'); // 3330
+    var $section3 = $('#section-03'); // 2200
+    var $section4 = $('#section-04'); // 2500
+    var $section5 = $('#section-05'); // 1886
+
+    var $section1Character = $section1.find('.character');
+    var $section5Door = $section5.find('.door');
+
+    global.rafn = requestAnimationFrame (function rafn () {
+      // 섹션 1 캐릭터 멈춤
+      ($section1Character.hasClass('skrollable-before')) ? $section1Character.addClass('stop') : $section1Character.removeClass('stop');
+
+      // 섹션 5 문
+      ($section5Door.hasClass('skrollable-between')) ? $section5.addClass('open-door') : $section5.removeClass('open-door');
+
+      requestAnimationFrame(rafn);
+    });
+  }
+
+  function setAnimation () {
+    if (!global.skrollr) {
+      setSkrollr();
+    }
+
+    if (!global.rafn) {
+      setRequestAnimationFrame();
+    }
+  }
+
+  function removeAnimation () {
+    if (global.skrollr) {
+      global.skrollr.destroy();
+      global.skrollr = null;
+    }
+
+    if (global.rafn) {
+      cancelAnimationFrame(global.rafn);
+      global.rafn = null;
+    }
+  }
+</script>
+</body>
+</html>

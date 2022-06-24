@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>CSS Rules | MIB</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.svg">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    
+        
+<link rel="stylesheet" href="/css/post.css">
+
+    
+    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
+    <script>
+      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
+      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
+    </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="post">
+    <!-- Loader -->
+    <div section="loader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header section="header">
+        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
+        <div class="title">
+            <a class="link" title="Memo In Brain" href="/">
+                <span class="text">Memo In Brain</span>
+                <img class="image" src="/img/logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="list">
+                
+                    <li class="item">
+                        <a class="button" title="Memo" href="/memo/">Memo</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            </ul>
+        </nav>
+        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
+    </header>
+
+    <!-- Main -->
+    <main section="main">
+        
+            <!-- Category / TOC -->
+            <aside section="sidebar">
+                <div class="wrap">
+                    <menu class="menu">
+                        <li class="item">
+                            <button class="button" title="Category" type="button">CATEGORY</button>
+                        </li>
+                        <li class="item">
+                            <button class="button" title="Table Of Content" type="button">TOC</button>
+                        </li>
+                    </menu>
+                    <div class="scroll">
+                        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/unit-test/">unit-test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/intersection-observer/">intersection-observer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a><span class="category-list-count">1</span></li></ul></li></ul>
+                        <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#import"><span class="toc-list-number">1.</span> <span class="toc-list-text">@import</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#charset"><span class="toc-list-number">2.</span> <span class="toc-list-text">@charset</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#color-profile"><span class="toc-list-number">3.</span> <span class="toc-list-text">@color-profile</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#counter-style"><span class="toc-list-number">4.</span> <span class="toc-list-text">@counter-style</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Descriptors"><span class="toc-list-number">4.1.</span> <span class="toc-list-text">Descriptors</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#font-face"><span class="toc-list-number">5.</span> <span class="toc-list-text">@font-face</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Descriptors-1"><span class="toc-list-number">5.1.</span> <span class="toc-list-text">Descriptors</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#font-feature-values"><span class="toc-list-number">6.</span> <span class="toc-list-text">@font-feature-values</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#keyframes"><span class="toc-list-number">7.</span> <span class="toc-list-text">@keyframes</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#media"><span class="toc-list-number">8.</span> <span class="toc-list-text">@media</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Types"><span class="toc-list-number">8.1.</span> <span class="toc-list-text">Types</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Features"><span class="toc-list-number">8.2.</span> <span class="toc-list-text">Features</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#container"><span class="toc-list-number">9.</span> <span class="toc-list-text">@container</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#container-type"><span class="toc-list-number">9.1.</span> <span class="toc-list-text">container-type</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#container-name"><span class="toc-list-number">9.2.</span> <span class="toc-list-text">container-name</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#namespace"><span class="toc-list-number">10.</span> <span class="toc-list-text">@namespace</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#page"><span class="toc-list-number">11.</span> <span class="toc-list-text">@page</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Descriptors-2"><span class="toc-list-number">11.1.</span> <span class="toc-list-text">Descriptors</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#property"><span class="toc-list-number">12.</span> <span class="toc-list-text">@property</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Descriptors-3"><span class="toc-list-number">12.1.</span> <span class="toc-list-text">Descriptors</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#supports"><span class="toc-list-number">13.</span> <span class="toc-list-text">@supports</span></a></li></ol>
+                    </div>
+                    <div class="footer">
+                        <button class="button expand" title="Expand"><i class="fa-solid fa-arrows-down-to-line"></i></button>
+                        <button class="button collapse" title="Collapse"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+                        <div class="percent">
+                            <progress class="progress" max="100"></progress>
+                            <span class="text"></span>
+                        </div>
+                        <button class="button top" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+                        <button class="button bottom" title="Go to bottom"><i class="fa-solid fa-caret-up"></i></button>
+                    </div>
+                </div>
+            </aside>
+        
+        <!-- Content -->
+        <article section="content">
+    <section class="header">
+        <div class="breadcrumbs">
+            <span class="breadcrumb">MEMO IN BRAIN</span>
+            
+                <span class="breadcrumb">CSS</span>
+            
+                <span class="breadcrumb">RULES</span>
+            
+        </div>
+        <h1 class="title">CSS Rules</h1>
+    </section>
+
+    <section class="body">
+        <div class="links">
+  <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule">https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule</a>
+</div>
+
+<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@import">https://developer.mozilla.org/en-US/docs/Web/CSS/@import</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@import</span> <span class="hljs-string">&#x27;style.css&#x27;</span>;<br><span class="hljs-keyword">@import</span> url(<span class="hljs-string">&#x27;style.css&#x27;</span>);<br><span class="hljs-keyword">@import</span> url(<span class="hljs-string">&#x27;style.css&#x27;</span>) print;<br><span class="hljs-keyword">@import</span> url supports(<span class="hljs-attribute">display</span>: <span class="hljs-attribute">grid</span>);<br><span class="hljs-keyword">@import</span> url supports(<span class="hljs-attribute">display</span>: <span class="hljs-attribute">grid</span>) screen;<br></code></pre></td></tr></table></figure>
+
+<h2 id="charset"><a href="#charset" class="headerlink" title="@charset"></a>@charset</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@charset">https://developer.mozilla.org/en-US/docs/Web/CSS/@charset</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@charset</span> <span class="hljs-string">&#x27;utf-8&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>파일의 시작 위치에 소문자로 작성한다.</p>
+</blockquote>
+<h2 id="color-profile"><a href="#color-profile" class="headerlink" title="@color-profile"></a>@color-profile</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@color-profile">https://developer.mozilla.org/en-US/docs/Web/CSS/@color-profile</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@color-profile</span> --swop5c &#123;<br>  <span class="hljs-attribute">src</span>: url(<span class="hljs-string">&#x27;https://example.org/SWOP2006_Coated5v2.icc&#x27;</span>);<br>&#125;<br><br><span class="hljs-selector-tag">div</span> &#123;<br>  <span class="hljs-attribute">background-color</span>: color(--swop5c <span class="hljs-number">0%</span> <span class="hljs-number">70%</span> <span class="hljs-number">20%</span> <span class="hljs-number">0%</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="counter-style"><a href="#counter-style" class="headerlink" title="@counter-style"></a>@counter-style</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style">https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@counter-style</span> circled-alpha &#123;<br>  system: fixed;<br>  symbols: Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ;<br>  suffix: <span class="hljs-string">&#x27; &#x27;</span>;<br>&#125;<br><br><span class="hljs-selector-tag">ul</span> &#123;<br>  <span class="hljs-attribute">list-style</span>: circled-alpha;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Descriptors"><a href="#Descriptors" class="headerlink" title="Descriptors"></a>Descriptors</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/system">https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/system</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/negative">https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/negative</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/prefix">https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/prefix</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/suffix">https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/suffix</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/range">https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/range</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/pad">https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/pad</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/fallback">https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/fallback</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/symbols">https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/symbols</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/additive-symbols">https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/additive-symbols</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/speak-as">https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style/speak-as</a></p>
+<h2 id="font-face"><a href="#font-face" class="headerlink" title="@font-face"></a>@font-face</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face</a></p>
+<a href="/css/font/" title="More information">More information</a>
+
+<h3 id="Descriptors-1"><a href="#Descriptors-1" class="headerlink" title="Descriptors"></a>Descriptors</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/ascent-override">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/ascent-override</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/descent-override">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/descent-override</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-family">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-family</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-stretch">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-stretch</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-weight">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-weight</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-variant">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-variant</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings">https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-variation-settings">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-variation-settings</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/line-gap-override">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/line-gap-override</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/size-adjust">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/size-adjust</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/src</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/unicode-range</a></p>
+<h2 id="font-feature-values"><a href="#font-feature-values" class="headerlink" title="@font-feature-values"></a>@font-feature-values</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-feature-values">https://developer.mozilla.org/en-US/docs/Web/CSS/@font-feature-values</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-comment">/* At-rule for &quot;nice-style&quot; in Font One */</span><br><span class="hljs-keyword">@font-feature-values</span> Font One &#123;<br>  <span class="hljs-keyword">@styleset</span> &#123;<br>    nice-style: <span class="hljs-number">12</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">/* At-rule for &quot;nice-style&quot; in Font Two */</span><br><span class="hljs-keyword">@font-feature-values</span> Font Two &#123;<br>  <span class="hljs-keyword">@styleset</span> &#123;<br>    nice-style: <span class="hljs-number">4</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">/* Apply the at-rules with a single declaration */</span><br><span class="hljs-selector-class">.nice-look</span> &#123;<br>  <span class="hljs-attribute">font-variant</span>-alternates: styleset(nice-style);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="keyframes"><a href="#keyframes" class="headerlink" title="@keyframes"></a>@keyframes</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@keyframes</span> from-to &#123;<br>  from &#123;&#125;<br>  to &#123;&#125;<br>&#125;<br><br><span class="hljs-keyword">@keyframes</span> percent &#123;<br>  <span class="hljs-number">0%</span> &#123;&#125;<br>  <span class="hljs-number">50%</span> &#123;&#125;<br>  <span class="hljs-number">100%</span> &#123;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div class="jsfiddle-cover">
+  <iframe scrolling="no" width="100%" height="300" src="https://jsfiddle.net/frkvtxa4/embedded/result,html,css/dark" frameborder="0" loading="lazy" allowfullscreen></iframe>
+</div>
+
+<div class="jsfiddle-cover">
+  <iframe scrolling="no" width="100%" height="200" src="https://jsfiddle.net/rp0nksbu/embedded/result,html,css/dark" frameborder="0" loading="lazy" allowfullscreen></iframe>
+</div>
+
+<h2 id="media"><a href="#media" class="headerlink" title="@media"></a>@media</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">https://developer.mozilla.org/en-US/docs/Web/CSS/@media</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries">https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">1000px</span>) &#123; <span class="hljs-comment">/* mobile first (0px ~ 999px) */</span> &#125;<br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">1000px</span>) &#123; <span class="hljs-comment">/* pc first (1000px ~ max) */</span> &#125;<br><br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">orientation</span>: landscape) &#123; <span class="hljs-comment">/* 가로 */</span> &#125;<br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">orientation</span>: portrait) &#123; <span class="hljs-comment">/* 세로 */</span> &#125;<br><br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">-webkit-min-device-pixel-ratio</span>: <span class="hljs-number">1.5</span>),<br>screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min--moz-device-pixel-ratio</span>: <span class="hljs-number">1.5</span>),<br>screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">-o-min-device-pixel-ratio</span>: <span class="hljs-number">3</span>/<span class="hljs-number">2</span>),<br>screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-device-pixel-ratio</span>: <span class="hljs-number">1.5</span>) &#123;<br>  <span class="hljs-comment">/* 레티나 디스플레이 */</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h3><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>all</code></td>
+<td align="left">모든 장치</td>
+</tr>
+<tr>
+<td align="left"><code>print</code></td>
+<td align="left">인쇄물 및 인쇄 미리보기 모드에서 화면 상에 보이는 문서</td>
+</tr>
+<tr>
+<td align="left"><code>screen</code></td>
+<td align="left">컴퓨터 화면</td>
+</tr>
+<tr>
+<td align="left"><code>speech</code></td>
+<td align="left">음성 합성기</td>
+</tr>
+</tbody></table>
+<h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><h4 id="any-hover"><a href="#any-hover" class="headerlink" title="any-hover"></a>any-hover</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-hover">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-hover</a></p>
+<blockquote>
+<p><code>none</code>, <code>hover</code></p>
+</blockquote>
+<h4 id="any-pointer"><a href="#any-pointer" class="headerlink" title="any-pointer"></a>any-pointer</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-pointer">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-pointer</a></p>
+<blockquote>
+<p><code>none</code>, <code>coarse</code>, <code>fine</code></p>
+</blockquote>
+<h4 id="aspect-ratio"><a href="#aspect-ratio" class="headerlink" title="aspect-ratio"></a>aspect-ratio</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/aspect-ratio</a></p>
+<blockquote>
+<p>화면 비율을 정의한다.</p>
+</blockquote>
+<h4 id="color"><a href="#color" class="headerlink" title="color"></a>color</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/color">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/color</a></p>
+<blockquote>
+<p>색상 비트 수를 정의한다.</p>
+</blockquote>
+<h4 id="color-gamut"><a href="#color-gamut" class="headerlink" title="color-gamut"></a>color-gamut</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/color-gamut">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/color-gamut</a></p>
+<blockquote>
+<p><code>srgb</code>, <code>p3</code>, <code>rec2020</code></p>
+</blockquote>
+<h4 id="color-index"><a href="#color-index" class="headerlink" title="color-index"></a>color-index</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/color-index">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/color-index</a></p>
+<blockquote>
+<p>색상 테이블 엔트리 수를 정의한다.</p>
+</blockquote>
+<h4 id="display-mode"><a href="#display-mode" class="headerlink" title="display-mode"></a>display-mode</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/display-mode</a></p>
+<blockquote>
+<p>화면 구성을 정의한다.<br><code>fullscreen</code>, <code>standalone</code>, <code>minimal-ui</code>, <code>browser</code></p>
+</blockquote>
+<h4 id="forced-colors"><a href="#forced-colors" class="headerlink" title="forced-colors"></a>forced-colors</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors</a></p>
+<blockquote>
+<p><code>none</code>, <code>active</code></p>
+</blockquote>
+<h4 id="grid"><a href="#grid" class="headerlink" title="grid"></a>grid</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/grid">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/grid</a></p>
+<blockquote>
+<p>출력 기기의 그리드 &#x2F; 비트맵 방식 여부를 정의한다.</p>
+</blockquote>
+<h4 id="height"><a href="#height" class="headerlink" title="height"></a>height</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/height">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/height</a></p>
+<blockquote>
+<p>화면의 높이를 정의한다.</p>
+</blockquote>
+<h4 id="hover"><a href="#hover" class="headerlink" title="hover"></a>hover</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover</a></p>
+<blockquote>
+<p><code>none</code>, <code>hover</code></p>
+</blockquote>
+<h4 id="inverted-colors"><a href="#inverted-colors" class="headerlink" title="inverted-colors"></a>inverted-colors</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/inverted-colors">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/inverted-colors</a></p>
+<blockquote>
+<p><code>none</code>, <code>inverted</code></p>
+</blockquote>
+<h4 id="monochrome"><a href="#monochrome" class="headerlink" title="monochrome"></a>monochrome</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/monochrome">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/monochrome</a></p>
+<blockquote>
+<p>모노크롬 프레임 버퍼의 픽셀당 비트 수를 정의한다.<br>흑백기기가 아닐 경우 <code>0</code> 과 같다.</p>
+</blockquote>
+<h4 id="orientation"><a href="#orientation" class="headerlink" title="orientation"></a>orientation</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/orientation">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/orientation</a></p>
+<blockquote>
+<p>화면의 가로 &#x2F; 세로 모드를 정의한다.</p>
+</blockquote>
+<h4 id="overflow-block"><a href="#overflow-block" class="headerlink" title="overflow-block"></a>overflow-block</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/overflow-block">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/overflow-block</a></p>
+<blockquote>
+<p><code>none</code>, <code>scroll</code>, <code>optional-paged</code>, <code>paged</code></p>
+</blockquote>
+<h4 id="overflow-inline"><a href="#overflow-inline" class="headerlink" title="overflow-inline"></a>overflow-inline</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/overflow-inline">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/overflow-inline</a></p>
+<blockquote>
+<p><code>none</code>, <code>scroll</code></p>
+</blockquote>
+<h4 id="pointer"><a href="#pointer" class="headerlink" title="pointer"></a>pointer</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer</a></p>
+<blockquote>
+<p>포인팅 장치 사용 가능 여부를 정의한다.<br><code>none</code>, <code>coarse</code>, <code>fine</code></p>
+</blockquote>
+<h4 id="prefers-color-scheme"><a href="#prefers-color-scheme" class="headerlink" title="prefers-color-scheme"></a>prefers-color-scheme</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">picture</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;logo-dark.jpg&quot;</span> <span class="hljs-attr">media</span>=<span class="hljs-string">&quot;(prefers-color-scheme: dark)&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;logo-light.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Homepage&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">picture</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@media</span> (<span class="hljs-attribute">prefers-color-scheme</span>: dark) &#123; <span class="hljs-comment">// Darkmode</span><br>  <span class="hljs-selector-tag">div</span> &#123;<br>    <span class="hljs-attribute">color</span>: white;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>시스템 다크 모드 사용 여부를 정의한다.<br><code>light</code>, <code>dark</code></p>
+</blockquote>
+<h4 id="prefers-contrast"><a href="#prefers-contrast" class="headerlink" title="prefers-contrast"></a>prefers-contrast</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-contrast</a></p>
+<blockquote>
+<p>컨텐츠 대비를 정의한다.<br><code>no-preference</code>, <code>more</code>, <code>less</code></p>
+</blockquote>
+<h4 id="prefers-reduced-motion"><a href="#prefers-reduced-motion" class="headerlink" title="prefers-reduced-motion"></a>prefers-reduced-motion</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-tag">div</span> &#123;<br>  <span class="hljs-attribute">animation</span>: pulse <span class="hljs-number">1s</span> linear infinite both;<br><br>  <span class="hljs-keyword">@media</span> (<span class="hljs-attribute">prefers-reduced-motion</span>) &#123;<br>    <span class="hljs-attribute">animation-name</span>: dissolve;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>움직임의 양 최소화 사용 여부를 정의한다.<br><code>no-preference</code>, <code>reduce</code></p>
+</blockquote>
+<h4 id="resolution"><a href="#resolution" class="headerlink" title="resolution"></a>resolution</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution</a></p>
+<blockquote>
+<p>화면 해상도를 정의한다.</p>
+</blockquote>
+<h4 id="scripting"><a href="#scripting" class="headerlink" title="scripting"></a>scripting</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/scripting">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/scripting</a></p>
+<blockquote>
+<p>스크립트 사용 가능 여부를 정의한다.<br><code>none</code>, <code>initial-only</code>, <code>enabled</code></p>
+</blockquote>
+<h4 id="update-frequency"><a href="#update-frequency" class="headerlink" title="update-frequency"></a>update-frequency</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/update-frequency">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/update-frequency</a></p>
+<h4 id="width"><a href="#width" class="headerlink" title="width"></a>width</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/width">https://developer.mozilla.org/en-US/docs/Web/CSS/@media/width</a></p>
+<blockquote>
+<p>화면의 너비를 정의한다.</p>
+</blockquote>
+<h2 id="container"><a href="#container" class="headerlink" title="@container"></a>@container</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-class">.sidebar</span> &#123;<br>  container-type: inline-size;<br>  container-name: sidebar;<br>&#125;<br><br><span class="hljs-keyword">@container</span> sidebar (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">400px</span>)&#123;<br>  <span class="hljs-selector-class">.card</span> &#123;<br>    <span class="hljs-attribute">display</span>: grid;<br>    <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">2</span>fr <span class="hljs-number">1</span>fr;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>크롬 설정 <a href="chrome://flags/#enable-container-queries">chrome://flags/#enable-container-queries</a> 에서 <code>Enable CSS Container Queries</code> 옵션을 활성화 해야 한다.</p>
+</blockquote>
+<h3 id="container-type"><a href="#container-type" class="headerlink" title="container-type"></a>container-type</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries#container-type_2">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries#container-type_2</a></p>
+<h3 id="container-name"><a href="#container-name" class="headerlink" title="container-name"></a>container-name</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries#container-name_2">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries#container-name_2</a></p>
+<h2 id="namespace"><a href="#namespace" class="headerlink" title="@namespace"></a>@namespace</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@namespace">https://developer.mozilla.org/en-US/docs/Web/CSS/@namespace</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@namespace</span> url(<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">1999</span>/xhtml);<br><span class="hljs-keyword">@namespace</span> svg url(<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2000</span>/svg);<br><br><span class="hljs-comment">/* This matches all XHTML &lt;a&gt; elements, as XHTML is the default unprefixed namespace */</span><br><span class="hljs-selector-tag">a</span> &#123;&#125;<br><br><span class="hljs-comment">/* This matches all SVG &lt;a&gt; elements */</span><br>svg|<span class="hljs-selector-tag">a</span> &#123;&#125;<br><br><span class="hljs-comment">/* This matches both XHTML and SVG &lt;a&gt; elements */</span><br>*|<span class="hljs-selector-tag">a</span> &#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="page"><a href="#page" class="headerlink" title="@page"></a>@page</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@page">https://developer.mozilla.org/en-US/docs/Web/CSS/@page</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@page</span> &#123;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">1cm</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Descriptors-2"><a href="#Descriptors-2" class="headerlink" title="Descriptors"></a>Descriptors</h3><h4 id="size"><a href="#size" class="headerlink" title="size"></a>size</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@page/size">https://developer.mozilla.org/en-US/docs/Web/CSS/@page/size</a></p>
+<h2 id="property"><a href="#property" class="headerlink" title="@property"></a>@property</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@property">https://developer.mozilla.org/en-US/docs/Web/CSS/@property</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@property</span> --my-color &#123;<br>  syntax: <span class="hljs-string">&#x27;&lt;color&gt;&#x27;</span>;<br>  inherits: false;<br>  initial-value: <span class="hljs-number">#c0ffee</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-property">CSS</span>.<span class="hljs-title function_">registerProperty</span>(&#123;<br>  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;--my-color&#x27;</span>,<br>  <span class="hljs-attr">syntax</span>: <span class="hljs-string">&#x27;&lt;color&gt;&#x27;</span>,<br>  <span class="hljs-attr">inherits</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">initialValue</span>: <span class="hljs-string">&#x27;#c0ffee&#x27;</span>,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="Descriptors-3"><a href="#Descriptors-3" class="headerlink" title="Descriptors"></a>Descriptors</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@property/syntax">https://developer.mozilla.org/en-US/docs/Web/CSS/@property/syntax</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@property/inherits">https://developer.mozilla.org/en-US/docs/Web/CSS/@property/inherits</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@property/initial-value">https://developer.mozilla.org/en-US/docs/Web/CSS/@property/initial-value</a></p>
+<h2 id="supports"><a href="#supports" class="headerlink" title="@supports"></a>@supports</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports">https://developer.mozilla.org/en-US/docs/Web/CSS/@supports</a></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-keyword">@supports</span> ((<span class="hljs-attribute">--a</span>: <span class="hljs-number">0</span>)) &#123;<br>  <span class="hljs-comment">/* Supported */</span><br>&#125;<br><br><span class="hljs-keyword">@supports</span> (<span class="hljs-keyword">not</span> (<span class="hljs-attribute">--a</span>: <span class="hljs-number">0</span>)) &#123;<br>  <span class="hljs-comment">/* Not supported */</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> isSupported = <span class="hljs-variable language_">window</span>.<span class="hljs-property">CSS</span> &amp;&amp; <span class="hljs-variable language_">window</span>.<span class="hljs-property">CSS</span>.<span class="hljs-property">supports</span> &amp;&amp; <span class="hljs-variable language_">window</span>.<span class="hljs-property">CSS</span>.<span class="hljs-title function_">supports</span>(<span class="hljs-string">&#x27;--a&#x27;</span>, <span class="hljs-number">0</span>);<br><br><span class="hljs-keyword">if</span> (isSupported) &#123;<br>  <span class="hljs-comment">// Supported</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  <span class="hljs-comment">// Not supported</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+    </section>
+
+    <section class="footer">
+        <div class="background"><i class="fa-brands fa-creative-commons"></i></div>
+        <div class="post">
+            <p class="name">CSS Rules</p>
+            <a class="link" href="/css/rules/">https://gronkout.github.io/css/rules/</a>
+        </div>
+        <div class="information">
+            <div class="author">
+                <p class="label">Author</p>
+                <p class="name">GronkOut</p>
+            </div>
+            <div class="license">
+                <p class="label">Licensed under</p>
+                <ul class="list">
+                    <li class="item">
+                        <a class="link" title="Creative Commons" target="_blank" href="https://creativecommons.org/">
+                            <i class="fa-brands fa-creative-commons"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution-NonCommercial 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </section>
+
+    <section class="comment">
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous" async></script>
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-dark" crossorigin="anonymous" async></script>
+    </section>
+</article>
+    </main>
+
+    <!-- Option -->
+    <aside section="option">
+        <div class="wrap">
+            <menu class="tabs">
+                <li class="item">
+                    <button class="button active">Search</button>
+                </li>
+                <li class="item">
+                    <button class="button">Setup</button>
+                </li>
+            </menu>
+            <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            <div section="search" class="panel active">
+                <label class="label" for="input-search-keyword">Search keyword</label>
+                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
+                <div id="search-result"></div>
+            </div>
+            <div section="setup" class="panel">
+                <label class="label" for="select-color-scheme">Change color scheme</label>
+                <select id="select-color-scheme" class="scheme">
+                    <option value="system">System default</option>
+                    <option value="light">Forced light</option>
+                    <option value="dark">Forced dark</option>
+                </select>
+                <label class="label" for="input-border-radius">Change border radius</label>
+                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
+                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
+                <div class="button-group">
+                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
+                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+<!-- Script -->
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js" type="module"></script>
+
+<script>
+  $(() => {
+    $.ajax({
+      url: '/search.xml',
+      dataType: 'xml',
+      success(xmlResponse) {
+        const datas = $('entry', xmlResponse).map((index, entry) => ({
+          title: $('title', entry).text(),
+          content: $('content', entry).text(),
+          url: $('url', entry).text(),
+        })).get();
+
+        const $searchResult = $('#search-result');
+
+        $('#input-search-keyword').on('input', (event) => {
+          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
+          let str = '<div class="scroll"><ul class="list">';
+          let numOfPostFound = 0;
+
+          $searchResult.html('');
+
+          if (event.target.value.trim().length <= 0) {
+            return;
+          }
+
+          datas.forEach((data) => {
+            const title = data.title.trim().toLowerCase();
+            const content = data.content.trim().replace(/<[^>]+>/g, '');
+            const url = data.url;
+            let isMatch = true;
+            let firstOccur = -1;
+
+            if (title !== '' && content !== '') {
+              keywords.forEach((keyword, index) => {
+                let contentIndex = content.toLowerCase().indexOf(keyword);
+
+                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
+                  isMatch = false;
+                } else {
+                  if (contentIndex < 0) contentIndex = 0;
+                  if (index === 0) firstOccur = contentIndex;
+                }
+              });
+            }
+
+            if (isMatch) {
+              numOfPostFound += 1;
+
+              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
+
+              if (firstOccur >= 0) {
+                let start = firstOccur - 50;
+                let end = firstOccur + 50;
+
+                if (start < 0) start = 0;
+                if (start === 0) end = 100;
+                if (end > content.length) end = content.length;
+
+                let match = content.substring(start, start + end);
+
+                keywords.forEach((keyword) => {
+                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
+                });
+
+                str += `<p class="content">${ match }...</p>`;
+              }
+
+              str += '</a></li>';
+            }
+          });
+
+          str += '</ul></div>';
+
+          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
+        });
+      }
+    });
+  })
+</script>
+</body>
+</html>

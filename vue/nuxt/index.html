@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Vue Nuxt v2.15.8 | MIB</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.svg">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    
+        
+<link rel="stylesheet" href="/css/post.css">
+
+    
+    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
+    <script>
+      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
+      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
+    </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="post">
+    <!-- Loader -->
+    <div section="loader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header section="header">
+        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
+        <div class="title">
+            <a class="link" title="Memo In Brain" href="/">
+                <span class="text">Memo In Brain</span>
+                <img class="image" src="/img/logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="list">
+                
+                    <li class="item">
+                        <a class="button" title="Memo" href="/memo/">Memo</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            </ul>
+        </nav>
+        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
+    </header>
+
+    <!-- Main -->
+    <main section="main">
+        
+            <!-- Category / TOC -->
+            <aside section="sidebar">
+                <div class="wrap">
+                    <menu class="menu">
+                        <li class="item">
+                            <button class="button" title="Category" type="button">CATEGORY</button>
+                        </li>
+                        <li class="item">
+                            <button class="button" title="Table Of Content" type="button">TOC</button>
+                        </li>
+                    </menu>
+                    <div class="scroll">
+                        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/unit-test/">unit-test</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/intersection-observer/">intersection-observer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a><span class="category-list-count">1</span></li></ul></li></ul>
+                        <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Setup"><span class="toc-list-number">1.</span> <span class="toc-list-text">Setup</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Use-NPX"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">Use NPX</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Use-NPM"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">Use NPM</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Command"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">Command</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Config"><span class="toc-list-number">2.</span> <span class="toc-list-text">Config</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#nuxt-config-js"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">nuxt.config.js</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Aliases"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">Aliases</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#extractCSS"><span class="toc-list-number">2.3.</span> <span class="toc-list-text">extractCSS</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Structure"><span class="toc-list-number">3.</span> <span class="toc-list-text">Structure</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Routing"><span class="toc-list-number">4.</span> <span class="toc-list-text">Routing</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Static-routing"><span class="toc-list-number">4.1.</span> <span class="toc-list-text">Static routing</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Dynamic-Routing"><span class="toc-list-number">4.2.</span> <span class="toc-list-text">Dynamic Routing</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Store"><span class="toc-list-number">5.</span> <span class="toc-list-text">Store</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Page-keys"><span class="toc-list-number">6.</span> <span class="toc-list-text">Page keys</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#asyncData"><span class="toc-list-number">6.1.</span> <span class="toc-list-text">asyncData</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#fetch"><span class="toc-list-number">6.2.</span> <span class="toc-list-text">fetch</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#head"><span class="toc-list-number">6.3.</span> <span class="toc-list-text">head</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#layout"><span class="toc-list-number">6.4.</span> <span class="toc-list-text">layout</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#transition"><span class="toc-list-number">6.5.</span> <span class="toc-list-text">transition</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#scrollToTop"><span class="toc-list-number">6.6.</span> <span class="toc-list-text">scrollToTop</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#validate"><span class="toc-list-number">6.7.</span> <span class="toc-list-text">validate</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#middleware"><span class="toc-list-number">6.8.</span> <span class="toc-list-text">middleware</span></a></li></ol></li></ol>
+                    </div>
+                    <div class="footer">
+                        <button class="button expand" title="Expand"><i class="fa-solid fa-arrows-down-to-line"></i></button>
+                        <button class="button collapse" title="Collapse"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+                        <div class="percent">
+                            <progress class="progress" max="100"></progress>
+                            <span class="text"></span>
+                        </div>
+                        <button class="button top" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+                        <button class="button bottom" title="Go to bottom"><i class="fa-solid fa-caret-up"></i></button>
+                    </div>
+                </div>
+            </aside>
+        
+        <!-- Content -->
+        <article section="content">
+    <section class="header">
+        <div class="breadcrumbs">
+            <span class="breadcrumb">MEMO IN BRAIN</span>
+            
+                <span class="breadcrumb">VUE</span>
+            
+                <span class="breadcrumb">NUXT</span>
+            
+        </div>
+        <h1 class="title">Vue Nuxt v2.15.8</h1>
+    </section>
+
+    <section class="body">
+        <div class="links">
+  <a target="_blank" href="https://ko.nuxtjs.org/api">https://ko.nuxtjs.org/api</a>
+</div>
+
+<script src="/js/highlight-9.16.2.min.js"></script>
+<script src="/js/highlightjs-vue.min.js"></script>
+<script>
+hljs.registerLanguage('vue', window.hljsDefineVue);
+hljs.initHighlightingOnLoad();
+</script>
+
+<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><p><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/get-started/installation">https://nuxtjs.org/docs/get-started/installation</a></p>
+<h3 id="Use-NPX"><a href="#Use-NPX" class="headerlink" title="Use NPX"></a>Use NPX</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell">npm install <span class="hljs-literal">-global</span> create<span class="hljs-literal">-nuxt-app</span><br><br>npx create<span class="hljs-literal">-nuxt-app</span> project<span class="hljs-literal">-name</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Use-NPM"><a href="#Use-NPM" class="headerlink" title="Use NPM"></a>Use NPM</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell">npm init nuxt<span class="hljs-literal">-app</span> project<span class="hljs-literal">-name</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><p><a target="_blank" rel="noopener" href="https://ko.nuxtjs.org/guide/commands">https://ko.nuxtjs.org/guide/commands</a></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>nuxt</code></td>
+<td align="left">핫 리로딩 상태로 <code>localhost:3000</code> 에서 개발서버 시작</td>
+</tr>
+<tr>
+<td align="left"><code>nuxt build</code></td>
+<td align="left">어플리케이션을 빌드하며, <code>CSS</code> 와 <code>JS</code> 를 최소화하는 작업을 진행 (프로덕션)</td>
+</tr>
+<tr>
+<td align="left"><code>nuxt start</code></td>
+<td align="left"><code>nuxt build</code> 를 실행한 후에 프로덕션 모드로 서버를 시작</td>
+</tr>
+<tr>
+<td align="left"><code>nuxt generate</code></td>
+<td align="left">어플리케이션을 빌드하고 모든 라우트를 <code>HTML</code> 파일로 생성 (정적 호스팅에 사용)</td>
+</tr>
+</tbody></table>
+<h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><h3 id="nuxt-config-js"><a href="#nuxt-config-js" class="headerlink" title="nuxt.config.js"></a>nuxt.config.js</h3><p><a target="_blank" rel="noopener" href="https://ko.nuxtjs.org/guide/configuration">https://ko.nuxtjs.org/guide/configuration</a></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>build</code></td>
+<td align="left">생성 된 <code>vendor.bundle.js</code> 파일에 모듈을 추가하여 앱 번들의 크기를 줄임 (외부 모듈을 사용 할 때 유용)</td>
+</tr>
+<tr>
+<td align="left"><code>cache</code></td>
+<td align="left">캐시된 컴포넌트를 사용하여 렌더링 성능을 향상</td>
+</tr>
+<tr>
+<td align="left"><code>css</code></td>
+<td align="left">모든 페이지에서 전역으로 사용할 <code>CSS</code> 파일 &#x2F; 모듈 &#x2F; 라이브러리 파일을 설정</td>
+</tr>
+<tr>
+<td align="left"><code>dev</code></td>
+<td align="left">개발 또는 프로덕션 모드를 정의</td>
+</tr>
+<tr>
+<td align="left"><code>env</code></td>
+<td align="left">클라이언트 및 서버에서 사용 가능한 환경 변수</td>
+</tr>
+<tr>
+<td align="left"><code>generate</code></td>
+<td align="left"><code>HTML</code> 파일로 변환할 모든 동적인 경로에 대한 각각의 <code>params</code> 값을 정의</td>
+</tr>
+<tr>
+<td align="left"><code>head</code></td>
+<td align="left">모든 페이지에서 사용할 공통 메타를 정의</td>
+</tr>
+<tr>
+<td align="left"><code>loading</code></td>
+<td align="left">기본적으로 불러올 <code>loading</code> 컴포넌트를 정의</td>
+</tr>
+<tr>
+<td align="left"><code>mode</code></td>
+<td align="left"><code>spa</code> 를 선택하면 클라이언트에서만 동작하며 서버사이드 렌더링을 하지 않음 (기본값은 <code>universal</code> 이며 클라이언트사이드 렌더링과 서버사이드 렌더링을 병행)</td>
+</tr>
+<tr>
+<td align="left"><code>plugins</code></td>
+<td align="left">어플리케이션을 인스턴스화 하기 전에 실행할 플러그인</td>
+</tr>
+<tr>
+<td align="left"><code>rootDir</code></td>
+<td align="left">어플리케이션의 위치</td>
+</tr>
+<tr>
+<td align="left"><code>router</code></td>
+<td align="left"><code>vue-router</code> 의 구성</td>
+</tr>
+<tr>
+<td align="left"><code>srcDir</code></td>
+<td align="left">어플리케이션의 <code>src</code> 디렉토리</td>
+</tr>
+<tr>
+<td align="left"><code>transition</code></td>
+<td align="left">페이지 <code>transition</code> 기능 정의</td>
+</tr>
+</tbody></table>
+<h3 id="Aliases"><a href="#Aliases" class="headerlink" title="Aliases"></a>Aliases</h3><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>~</code> or <code>@</code></td>
+<td align="left"><code>srcDir</code></td>
+</tr>
+<tr>
+<td align="left"><code>~~</code> or <code>@@</code></td>
+<td align="left"><code>rootDir</code></td>
+</tr>
+</tbody></table>
+<h3 id="extractCSS"><a href="#extractCSS" class="headerlink" title="extractCSS"></a>extractCSS</h3><p><a target="_blank" rel="noopener" href="https://ssr.vuejs.org/guide/css.html">https://ssr.vuejs.org/guide/css.html</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">build</span>: &#123;<br>    <span class="hljs-attr">extractCSS</span>: &#123;<br>      <span class="hljs-attr">allChunks</span>: <span class="hljs-literal">true</span>,<br>    &#125;,<br>  &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><p><a target="_blank" rel="noopener" href="https://ko.nuxtjs.org/guide/directory-structure">https://ko.nuxtjs.org/guide/directory-structure</a></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>api</code></td>
+<td align="left"><code>API</code> 관련 스크립트를 포함</td>
+</tr>
+<tr>
+<td align="left"><code>assets</code></td>
+<td align="left"><code>LESS</code>, <code>SASS</code>, <code>Javascript</code> 같은 컴파일되지 않은 에셋들을 포함</td>
+</tr>
+<tr>
+<td align="left"><code>components</code></td>
+<td align="left"><code>Vue</code> 컴포넌트를 포함</td>
+</tr>
+<tr>
+<td align="left"><code>directives</code></td>
+<td align="left">사용자 디렉티브를 포함</td>
+</tr>
+<tr>
+<td align="left"><code>filters</code></td>
+<td align="left">필터 파일을 포함</td>
+</tr>
+<tr>
+<td align="left"><code>layouts</code></td>
+<td align="left">애플리케이션의 레이아웃을 포함</td>
+</tr>
+<tr>
+<td align="left"><code>locales</code></td>
+<td align="left">다국어 <code>json</code> 파일을 포함</td>
+</tr>
+<tr>
+<td align="left"><code>middleware</code></td>
+<td align="left">애플리케이션의 미들웨어를 포함</td>
+</tr>
+<tr>
+<td align="left"><code>models</code></td>
+<td align="left"><code>API</code> 모델을 포함</td>
+</tr>
+<tr>
+<td align="left"><code>pages</code></td>
+<td align="left">애플리케이션의 뷰와 라우트를 포함</td>
+</tr>
+<tr>
+<td align="left"><code>plugins</code></td>
+<td align="left">플러그인을 포함</td>
+</tr>
+<tr>
+<td align="left"><code>script</code></td>
+<td align="left">스크립트 파일을 포함</td>
+</tr>
+<tr>
+<td align="left"><code>static</code></td>
+<td align="left">정적 파일들을 포함 (<code>/static/sample.jpg</code> 는 <code>/sample.jpg</code> 로 연결)</td>
+</tr>
+<tr>
+<td align="left"><code>store</code></td>
+<td align="left"><code>Vuex Store</code> 파일을 포함</td>
+</tr>
+<tr>
+<td align="left"><code>.editorconfig</code></td>
+<td align="left">에디터 설정 파일</td>
+</tr>
+<tr>
+<td align="left"><code>.eslintrc.js</code></td>
+<td align="left">자바스크립트 린트 설정 파일</td>
+</tr>
+<tr>
+<td align="left"><code>.gitignore</code></td>
+<td align="left">깃 예외 설정 파일</td>
+</tr>
+<tr>
+<td align="left"><code>app.html</code></td>
+<td align="left">기본 <code>HTML</code> 템플릿 파일</td>
+</tr>
+<tr>
+<td align="left"><code>nuxt.config.js</code></td>
+<td align="left"><code>Nuxt</code> 의 사용자 정의 설정 파일</td>
+</tr>
+<tr>
+<td align="left"><code>package.json</code></td>
+<td align="left">애플리케이션의 의존성과 스크립트를 포함하는 파일</td>
+</tr>
+</tbody></table>
+<h2 id="Routing"><a href="#Routing" class="headerlink" title="Routing"></a>Routing</h2><p><a target="_blank" rel="noopener" href="https://ko.nuxtjs.org/guide/routing">https://ko.nuxtjs.org/guide/routing</a></p>
+<blockquote>
+<p><code>pages</code> 디렉토리 내의 <code>Vue</code> 파일 구조를 기반으로 <code>vue-router</code> 를 자동으로 설정한다.</p>
+</blockquote>
+<h3 id="Static-routing"><a href="#Static-routing" class="headerlink" title="Static routing"></a>Static routing</h3><h4 id="Flat"><a href="#Flat" class="headerlink" title="Flat"></a>Flat</h4><div class="tree">
+
+<ul>
+<li><code>pages</code><ul>
+<li>index.vue</li>
+<li><code>user</code><ul>
+<li>index.vue</li>
+<li>one.vue</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>  <span class="hljs-attr">routes</span>: [<br>    &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;index&#x27;</span>, <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/index.vue&#x27;</span> &#125;,<br>    &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;user&#x27;</span>, <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/user&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/user/index.vue&#x27;</span> &#125;,<br>    &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;user-one&#x27;</span>, <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/user/one&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/user/one.vue&#x27;</span> &#125;,<br>  ],<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h4 id="Nested"><a href="#Nested" class="headerlink" title="Nested"></a>Nested</h4><div class="tree">
+
+<ul>
+<li><code>pages</code><ul>
+<li>users.vue</li>
+<li><code>user</code><ul>
+<li>index.vue</li>
+<li>_id.vue</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>  <span class="hljs-attr">routes</span>: [<br>    &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/users&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/users.vue&#x27;</span>, <span class="hljs-attr">children</span>: [<br>      &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/users/index.vue&#x27;</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;users&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;:id&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/users/_id.vue&#x27;</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;users-id&#x27;</span> &#125;,<br>    ] &#125;,<br>  ],<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="Dynamic-Routing"><a href="#Dynamic-Routing" class="headerlink" title="Dynamic Routing"></a>Dynamic Routing</h3><h4 id="Flat-1"><a href="#Flat-1" class="headerlink" title="Flat"></a>Flat</h4><div class="tree">
+
+<ul>
+<li><code>pages</code><ul>
+<li>index.vue</li>
+<li><code>_slug</code><ul>
+<li>index.vue</li>
+<li>comments.vue</li>
+</ul>
+</li>
+<li><code>users</code><ul>
+<li>_id.vue</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>  <span class="hljs-attr">routes</span>: [<br>    &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;index&#x27;</span>, <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/index.vue&#x27;</span> &#125;,<br>    &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;slug&#x27;</span>, <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/:slug&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/_slug/index.vue&#x27;</span> &#125;,<br>    &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;slug-comments&#x27;</span>, <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/:slug/comments&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/_slug/comments.vue&#x27;</span> &#125;,<br>    &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;users-id&#x27;</span>, <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/users/:id?&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/users/_id.vue&#x27;</span> &#125;,<br>  ],<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h4 id="Nested-1"><a href="#Nested-1" class="headerlink" title="Nested"></a>Nested</h4><div class="tree">
+
+<ul>
+<li><code>pages</code><ul>
+<li>index.vue</li>
+<li>_category.vue</li>
+<li><code>_category</code><ul>
+<li>index.vue</li>
+<li>_subCategory.vue</li>
+<li><code>_subCategory</code><ul>
+<li>index.vue</li>
+<li>_id.vue</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">VueRouter</span>(&#123;<br>  <span class="hljs-attr">routes</span>: [<br>    &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/index.vue&#x27;</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;index&#x27;</span> &#125;,<br>    &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;/:category&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/_category.vue&#x27;</span>, <span class="hljs-attr">children</span>: [<br>      &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/_category/index.vue&#x27;</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;category&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;:subCategory&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/_category/_subCategory.vue&#x27;</span>, <span class="hljs-attr">children</span>: [<br>        &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/_category/_subCategory/index.vue&#x27;</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;category-subCategory&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">&#x27;:id&#x27;</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">&#x27;pages/_category/_subCategory/_id.vue&#x27;</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;category-subCategory-id&#x27;</span> &#125;,<br>      ] &#125;,<br>    ] &#125;,<br>  ],<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><p><a target="_blank" rel="noopener" href="https://ko.nuxtjs.org/guide/vuex-store">https://ko.nuxtjs.org/guide/vuex-store</a></p>
+<figure class="highlight javascript"><figcaption><span>/store/index.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">state</span> = (<span class="hljs-params"></span>) =&gt; (&#123;&#125;);<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> mutations = &#123;&#125;;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getters = &#123;&#125;;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Page-keys"><a href="#Page-keys" class="headerlink" title="Page keys"></a>Page keys</h2><h3 id="asyncData"><a href="#asyncData" class="headerlink" title="asyncData"></a>asyncData</h3><p><a target="_blank" rel="noopener" href="https://ko.nuxtjs.org/guide/async-data">https://ko.nuxtjs.org/guide/async-data</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-keyword">async</span> <span class="hljs-title function_">asyncData</span>(<span class="hljs-params">&#123; params &#125;</span>) &#123;<br>    <span class="hljs-keyword">const</span> &#123; data &#125; = <span class="hljs-keyword">await</span> axios.<span class="hljs-title function_">get</span>(<span class="hljs-string">`https://my-api/posts/<span class="hljs-subst">$&#123;params.id&#125;</span>`</span>);<br><br>    <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">title</span>: data.<span class="hljs-property">title</span> &#125;;<br>  &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-keyword">async</span> <span class="hljs-title function_">asyncData</span>(<span class="hljs-params">&#123; req, res &#125;</span>) &#123;<br>    <span class="hljs-keyword">if</span> (process.<span class="hljs-property">server</span>) &#123;<br>      <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">host</span>: req.<span class="hljs-property">headers</span>.<span class="hljs-property">host</span> &#125;;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> &#123;&#125;;<br>  &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>스토어를 사용하지 않고 서버사이드에서 데이터를 가져오고 렌덩링 할 수 있다.<br>애플리케이션 최초 로드 시 서버사이드에서 한번 호출되고, 이후 페이지 이동시 클라이언트 사이드에서 호출된다.</p>
+<p>컴포넌트가 생성되기 전에 호출되므로 <code>this</code> 를 사용할 수 없다.<br>컨텍스트를 첫번째 인자로 받고, 반환 값은 <code>data</code> 와 병합된다.</p>
+</blockquote>
+<h3 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h3><p><a target="_blank" rel="noopener" href="https://ko.nuxtjs.org/api/pages-fetch">https://ko.nuxtjs.org/api/pages-fetch</a></p>
+<blockquote>
+<p>페이지가 렌더링되기 전에 스토어를 채우기 위해 사용되며, 구성 요소 데이터를 설정하지 않는다는 점을 제외하면 <code>data</code> 메서드와 같다.</p>
+</blockquote>
+<h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3><p><a target="_blank" rel="noopener" href="https://ko.nuxtjs.org/api/pages-head">https://ko.nuxtjs.org/api/pages-head</a></p>
+<figure class="highlight javascript"><figcaption><span>/nuxt.config.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">head</span>: &#123;<br>    <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;vue-boilerplate&#x27;</span>,<br>    <span class="hljs-attr">meta</span>: [<br>      &#123; <span class="hljs-attr">charset</span>: <span class="hljs-string">&#x27;utf-8&#x27;</span> &#125;,<br>      (process.<span class="hljs-property">env</span>.<span class="hljs-property">DEVICE_ENV</span> === <span class="hljs-string">&#x27;pc&#x27;</span>) &amp;&amp; &#123; <span class="hljs-string">&#x27;http-equiv&#x27;</span>: <span class="hljs-string">&#x27;X-UA-Compatible&#x27;</span>, <span class="hljs-attr">content</span>: <span class="hljs-string">&#x27;IE=edge&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;viewport&#x27;</span>, <span class="hljs-attr">content</span>: <span class="hljs-string">&#x27;width=device-width, initial-scale=1, viewport-fit=cover, shrink-to-fit=no, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&#x27;</span> &#125;,<br>      &#123; <span class="hljs-attr">hid</span>: <span class="hljs-string">&#x27;description&#x27;</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;description&#x27;</span>, <span class="hljs-attr">content</span>: <span class="hljs-string">&#x27;project description&#x27;</span> &#125;,<br>    ],<br>    <span class="hljs-attr">script</span>: [<br>      &#123; <span class="hljs-attr">src</span>: <span class="hljs-string">&#x27;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js&#x27;</span> &#125;,<br>    ],<br>    <span class="hljs-attr">link</span>: [<br>      &#123; <span class="hljs-attr">rel</span>: <span class="hljs-string">&#x27;stylesheet&#x27;</span>, <span class="hljs-attr">href</span>: <span class="hljs-string">&#x27;https://fonts.googleapis.com/css?family=Roboto&#x27;</span> &#125;,<br>    ],<br>  &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-title function_">head</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">let</span> user = <span class="hljs-variable language_">this</span>.<span class="hljs-property">user</span>;<br><br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-attr">title</span>: <span class="hljs-string">`<span class="hljs-subst">$&#123;user.fullName&#125;</span> @(<span class="hljs-subst">$&#123;user.userName&#125;</span>) - Nuxt.js`</span>,<br>      <span class="hljs-attr">meta</span>: [<br>        &#123;<br>          <span class="hljs-attr">hid</span>: <span class="hljs-string">&#x27;description&#x27;</span>,<br>          <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;description&#x27;</span>,<br>          <span class="hljs-attr">content</span>: <span class="hljs-string">`<span class="hljs-subst">$&#123;user.fullName&#125;</span>&#x27;s public profile at Nuxt.js`</span>,<br>        &#125;,<br>      ],<br>      <span class="hljs-attr">script</span>: [<br>        &#123; <span class="hljs-attr">src</span>: <span class="hljs-string">&#x27;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js&#x27;</span> &#125;,<br>      ],<br>      <span class="hljs-attr">link</span>: [<br>        &#123; <span class="hljs-attr">rel</span>: <span class="hljs-string">&#x27;stylesheet&#x27;</span>, <span class="hljs-attr">href</span>: <span class="hljs-string">&#x27;https://fonts.googleapis.com/css?family=Roboto&#x27;</span> &#125;,<br>      ],<br>    &#125;;<br>  &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>vue-meta</code> 를 사용하여 애플리케이션의 헤더와 <code>html</code> 속성을 업데이트 한다.</p>
+</blockquote>
+<h3 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h3><p><a target="_blank" rel="noopener" href="https://ko.nuxtjs.org/api/pages-layout">https://ko.nuxtjs.org/api/pages-layout</a></p>
+<blockquote>
+<p><code>layouts</code> 폴더에 정의된 레이아웃을 지정할 수 있다.</p>
+</blockquote>
+<h3 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h3><p><a target="_blank" rel="noopener" href="https://ko.nuxtjs.org/api/pages-transition">https://ko.nuxtjs.org/api/pages-transition</a></p>
+<blockquote>
+<p>페이지에 대한 특정 트랜지션을 설정한다.</p>
+</blockquote>
+<h3 id="scrollToTop"><a href="#scrollToTop" class="headerlink" title="scrollToTop"></a>scrollToTop</h3><p><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/components-glossary/scrolltotop">https://nuxtjs.org/docs/components-glossary/scrolltotop</a></p>
+<blockquote>
+<p>페이지를 렌더링하기 전에 페이지를 맨 위로 스크롤할 것인지를 나타내며, 중첩 라우트를 위해 사용된다. (기본값 <code>false</code>)</p>
+</blockquote>
+<h3 id="validate"><a href="#validate" class="headerlink" title="validate"></a>validate</h3><p><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/components-glossary/validate">https://nuxtjs.org/docs/components-glossary/validate</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-title function_">validate</span>(<span class="hljs-params">&#123; params &#125;</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-regexp">/^\d+$/</span>.<span class="hljs-title function_">test</span>(params.<span class="hljs-property">id</span>); <span class="hljs-comment">// Must be a number</span><br>  &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>동적 라우트에 대한 유효성을 검사한다.</p>
+</blockquote>
+<h3 id="middleware"><a href="#middleware" class="headerlink" title="middleware"></a>middleware</h3><p><a target="_blank" rel="noopener" href="https://nuxtjs.org/examples/middlewares/router#router-middleware">https://nuxtjs.org/examples/middlewares/router#router-middleware</a></p>
+<figure class="highlight javascript"><figcaption><span>/nuxt.config.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">router</span>: &#123;<br>    <span class="hljs-attr">middleware</span>: <span class="hljs-string">&#x27;stats&#x27;</span>,<br>  &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-attr">middleware</span>: [<span class="hljs-string">&#x27;stats&#x27;</span>],<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>nuxt.config.js</code>, 매칭된 레이아웃, 매칭된 페이지 순으로 페이지를 렌더링하기 전에 호출된다.</p>
+</blockquote>
+
+    </section>
+
+    <section class="footer">
+        <div class="background"><i class="fa-brands fa-creative-commons"></i></div>
+        <div class="post">
+            <p class="name">Vue Nuxt v2.15.8</p>
+            <a class="link" href="/vue/nuxt/">https://gronkout.github.io/vue/nuxt/</a>
+        </div>
+        <div class="information">
+            <div class="author">
+                <p class="label">Author</p>
+                <p class="name">GronkOut</p>
+            </div>
+            <div class="license">
+                <p class="label">Licensed under</p>
+                <ul class="list">
+                    <li class="item">
+                        <a class="link" title="Creative Commons" target="_blank" href="https://creativecommons.org/">
+                            <i class="fa-brands fa-creative-commons"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution-NonCommercial 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+            <div class="tags">
+                
+                    <a class="tag" href="/tags/javascript/"># javascript</a>
+                
+            </div>
+        
+    </section>
+
+    <section class="comment">
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous" async></script>
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-dark" crossorigin="anonymous" async></script>
+    </section>
+</article>
+    </main>
+
+    <!-- Option -->
+    <aside section="option">
+        <div class="wrap">
+            <menu class="tabs">
+                <li class="item">
+                    <button class="button active">Search</button>
+                </li>
+                <li class="item">
+                    <button class="button">Setup</button>
+                </li>
+            </menu>
+            <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            <div section="search" class="panel active">
+                <label class="label" for="input-search-keyword">Search keyword</label>
+                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
+                <div id="search-result"></div>
+            </div>
+            <div section="setup" class="panel">
+                <label class="label" for="select-color-scheme">Change color scheme</label>
+                <select id="select-color-scheme" class="scheme">
+                    <option value="system">System default</option>
+                    <option value="light">Forced light</option>
+                    <option value="dark">Forced dark</option>
+                </select>
+                <label class="label" for="input-border-radius">Change border radius</label>
+                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
+                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
+                <div class="button-group">
+                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
+                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+<!-- Script -->
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js" type="module"></script>
+
+<script>
+  $(() => {
+    $.ajax({
+      url: '/search.xml',
+      dataType: 'xml',
+      success(xmlResponse) {
+        const datas = $('entry', xmlResponse).map((index, entry) => ({
+          title: $('title', entry).text(),
+          content: $('content', entry).text(),
+          url: $('url', entry).text(),
+        })).get();
+
+        const $searchResult = $('#search-result');
+
+        $('#input-search-keyword').on('input', (event) => {
+          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
+          let str = '<div class="scroll"><ul class="list">';
+          let numOfPostFound = 0;
+
+          $searchResult.html('');
+
+          if (event.target.value.trim().length <= 0) {
+            return;
+          }
+
+          datas.forEach((data) => {
+            const title = data.title.trim().toLowerCase();
+            const content = data.content.trim().replace(/<[^>]+>/g, '');
+            const url = data.url;
+            let isMatch = true;
+            let firstOccur = -1;
+
+            if (title !== '' && content !== '') {
+              keywords.forEach((keyword, index) => {
+                let contentIndex = content.toLowerCase().indexOf(keyword);
+
+                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
+                  isMatch = false;
+                } else {
+                  if (contentIndex < 0) contentIndex = 0;
+                  if (index === 0) firstOccur = contentIndex;
+                }
+              });
+            }
+
+            if (isMatch) {
+              numOfPostFound += 1;
+
+              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
+
+              if (firstOccur >= 0) {
+                let start = firstOccur - 50;
+                let end = firstOccur + 50;
+
+                if (start < 0) start = 0;
+                if (start === 0) end = 100;
+                if (end > content.length) end = content.length;
+
+                let match = content.substring(start, start + end);
+
+                keywords.forEach((keyword) => {
+                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
+                });
+
+                str += `<p class="content">${ match }...</p>`;
+              }
+
+              str += '</a></li>';
+            }
+          });
+
+          str += '</ul></div>';
+
+          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
+        });
+      }
+    });
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ScrollMagic</title>
+  <style>
+    html, body { margin: 0; padding: 0; }
+
+    #section-01 { position: relative; overflow: hidden; height: 2788px; background: url(images/section-01-bg.jpg) no-repeat 50% 0; }
+    #section-01 .traffic-light { z-index: 10; position: absolute; margin-left: -340px; top: 147px; left: 50%; width: 601px; height: 442px; background: url(images/section-01-traffic-light.png) 0 0; }
+    #section-01 .traffic-light.stop { background-position-y: -442px; }
+    #section-01 .tower-tree { z-index: 10; position: absolute; margin-left: -465px; top: 900px; left: 50%; width: 310px; height: 459px; background: url(images/section-01-tower-tree.png) 0; }
+    #section-01 .high-bridge { z-index: 10; position: absolute; margin-left: -225px; top: 1811px; left: 50%; width: 225px; height: 482px; background: url(images/section-01-high-bridge.png) 0; }
+    #section-01 .building-roof { z-index: 10; position: absolute; margin-left: -225px; bottom: 0; left: 50%; width: 225px; height: 79px; background: url(images/section-01-building-roof.png) 0; }
+    #section-01 .propeller-plane { z-index: 10; position: absolute; margin-left: -317px; top: 1000px; left: 50%; width: 635px; height: 564px; background: url(images/section-01-propeller-plane.png) 0; animation: propeller-plane 7s linear none infinite; }
+    @keyframes propeller-plane { 0% { transform: translate(-800px, 500px); } 75% { transform: translate(1000px, -500px); } 100% { transform: translate(1000px, -500px); } }
+    #section-01 .clump-cloud-01 { z-index: 10; position: absolute; margin-left: 0; top: 1000px; left: 50%; width: 399px; height: 492px; background: url(images/section-01-clump-cloud-01.png) 0; }
+    #section-01 .clump-cloud-02 { z-index: 10; position: absolute; margin-left: -450px; top: 1400px; left: 50%; width: 400px; height: 506px; background: url(images/section-01-clump-cloud-02.png) 0; }
+    #section-01 .clump-cloud-03 { z-index: 10; position: absolute; margin-left: -100px; top: 1400px; left: 50%; width: 436px; height: 631px; background: url(images/section-01-clump-cloud-03.png) 0; }
+
+    #section-02 { position: relative; overflow: hidden; height: 3263px; background:url(images/section-02-bg.jpg) no-repeat 50% 0 #000; }
+    #section-02 .train-railway { z-index: 10; position: absolute; margin-left: -482px; top: 0; left: 50%; width: 960px; height: 350px; background: url(images/section-02-train-railway.png) 0; }
+    #section-02 .train-railway .train { position: absolute; top: 25px; width: 960px; height: 160px; background: url(images/section-02-train-railway-train.png) no-repeat 0 0; animation: train 3s linear none infinite; }
+    @keyframes train { 0% { background-position-x: 1000px; } 75% { background-position-x: -1500px; } 100% { background-position-x: -1500px; } }
+    #section-02 .train-railway:after { position: absolute; top: 0; left: 0; width: 960px; height:250px; background:url(images/section-02-train-railway-mask.png); content: ''; }
+    #section-02 .quadruple-drone { z-index: 10; position: absolute; top: 0; left: 50%; margin-left: 1000px; width: 280px; height: 280px; background: url(images/section-02-quadruple-drone.png); transform: scale(0.5); animation: quadruple-drone 0.2s steps(5) infinite; animation-fill-mode: forwards; }
+    @keyframes quadruple-drone { 0% { background-position: 0 0; } 100% { background-position: -1400px 0; } }
+    #section-02 .clump-cloud-01 { z-index: 10; position: absolute; margin-left: -150px; top: 850px; left: 50%; width: 415px; height: 662px; background: url(images/section-02-clump-cloud-01.png) 0; }
+    #section-02 .clump-cloud-02 { z-index: 10; position: absolute; margin-left: -500px; top: 1400px; left: 50%; width: 401px; height: 539px; background: url(images/section-02-clump-cloud-02.png) 0; }
+    #section-02 .clump-cloud-03 { z-index: 10; position: absolute; margin-left: -50px; top: 2500px; left: 50%; width: 385px; height: 539px; background:url(images/section-02-clump-cloud-03.png) 0; }
+
+    #section-03 { position: relative; overflow: hidden; height: 3330px; background: url(images/section-03-bg.jpg) no-repeat 50% 0; }
+    #section-03 .laptop-monitor { z-index: 10; position: absolute; margin-left: -480px; top: 0; left: 50%; width: 960px; height: 109px; background: url(images/section-03-laptop-monitor.jpg) 0; }
+    #section-03 .laptop-glass { z-index: 10; position: absolute; margin-left: -336px; top: 109px; left: 50%; width: 289px; height: 159px; background: url(images/section-03-laptop-glass.png) 0; }
+    #section-03 .laptop-glass .piece { display: none; position: absolute; top: -60px; left: -25px; width: 383px; height: 437px; background: url(images/section-03-laptop-glass-piece.png); }
+    #section-03 .laptop-glass.break { background-position-x: 289px; }
+    #section-03 .laptop-glass.break .piece { display: block; }
+    #section-03 .tower-tree { z-index: 10; position: absolute; margin-left: -460px; top: 1230px; left: 50%; width: 394px; height: 1598px; background: url(images/section-03-tower-tree.png) 0; }
+    #section-03 .car-yellow { z-index: 10; position: absolute; margin-left: -108px; top: 3330px; left: 50%; width: 121px; height: 177px; background: url(images/section-03-car-yellow.png) 0; }
+    #section-03 .high-bridge-01 { z-index: 10; position: absolute; margin-left: -227px; top: 1617px; left: 50%; width: 224px; height: 248px; background: url(images/section-03-high-bridge-01.png) 0; }
+    #section-03 .high-bridge-02 { z-index: 10; position: absolute; margin-left: -227px; top: 2230px; left: 50%; width: 225px; height: 272px; background: url(images/section-03-high-bridge-02.png) 0; }
+    #section-03 .car-red { z-index: 10; position: absolute; margin-left: 480px; top: 2110px; left: 50%; width: 152px; height: 113px; background: url(images/section-03-car-red.png) 0; animation: car-red 2s linear none infinite; }
+    @keyframes car-red { 0% { top: 2110px; margin-left: 480px; } 25% { top: 2110px; margin-left: 480px; } 100% { top: 2370px; margin-left: -620px; } }
+    #section-03 .car-blue { z-index: 10; position: absolute; margin-left: -650px; top: 1660px; left: 50%; width: 152px; height: 113px; background: url(images/section-03-car-blue.png) 0; animation: car-blue 5s linear none infinite; }
+    @keyframes car-blue { 0% { top: 1660px; margin-left: -650px; } 75% { top: 1837px; margin-left: 500px; } 100% { top: 1837px; margin-left: 500px; } }
+    #section-03 .high-bridge-mask { z-index: 10; position: absolute; top: 1580px; width: 100%; height: 950px; background: url(images/section-03-high-bridge-mask.png) repeat-y 50% 0; }
+    #section-03 .traffic-light { z-index: 10; position: absolute; margin-left: -243px; top: 3249px; left: 50%; width: 248px; height: 81px; background: url(images/section-03-traffic-light.png) 0; }
+
+    #section-04 { position: relative; overflow: hidden; width: 100%; height: 3700px; background: url(images/section-04-bg.jpg) no-repeat 50% 0; }
+    #section-04 .mountain-tunnel { z-index: 10; position: absolute; margin-left: -231px; top: 0; left: 50%; width: 150px; height: 504px; background: url(images/section-04-mountain-tunnel.png) 0; }
+    #section-04 .gull-shadow-01 { z-index: 10; position: absolute; margin-left: 0; top: 600px; left: 50%; width: 100px; height: 100px; background: url(images/section-04-gull-shadow-01.png) 0; transform-origin: -200px 100px; animation: gull-rotate 30s linear none infinite; }
+    #section-04 .gull-bird-01 { z-index: 10; position: absolute; margin-left: -50px; top: 500px; left: 50%; width: 100px; height: 100px; background: url(images/section-04-gull-bird-01.png) 0; transform-origin: -200px 100px; animation: gull-rotate 30s linear none infinite; }
+    #section-04 .gull-shadow-02 { z-index: 10; position: absolute; margin-left: 400px; top: 1000px; left: 50%; width: 200px; height: 200px; background: url(images/section-04-gull-shadow-02.png) 0; transform-origin: -200px 100px; animation: gull-rotate 10s linear none infinite; }
+    #section-04 .gull-bird-02 { z-index: 10; position: absolute; margin-left: 300px; top: 900px; left: 50%; width: 200px; height: 200px; background: url(images/section-04-gull-bird-02.png) 0; transform-origin: -200px 100px; animation: gull-rotate 10s linear none infinite; }
+    #section-04 .gull-shadow-03 { z-index: 10; position: absolute; margin-left: 100px; top: 1300px; left: 50%; width: 150px; height: 150px; background: url(images/section-04-gull-shadow-03.png) 0; transform-origin: -200px 100px; animation: gull-rotate 20s linear none infinite; }
+    #section-04 .gull-bird-03 { z-index: 10; position: absolute; margin-left: 0; top: 1200px; left: 50%; width: 150px; height: 150px; background: url(images/section-04-gull-bird-03.png) 0; transform-origin: -200px 100px; animation: gull-rotate 20s linear none infinite; }
+    @keyframes gull-rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    #section-04 .traffic-light { z-index: 10; position: absolute; margin-left: -222px; top: 1763px; left: 50%; width: 257px; height: 965px; background: url(images/section-04-traffic-light.png) 0; }
+
+    .section-cover { z-index: 10; position: relative; height: 1200px;}
+    .section-cover.green { background:url(images/section-cover-green.jpg) 50% 0; }
+    .section-cover.red { background:url(images/section-cover-red.jpg) 50% 0; }
+    .section-cover.purple { background:url(images/section-cover-purple.jpg) 50% 0; }
+    .section-cover.blue { background:url(images/section-cover-blue.jpg) 50% 0; }
+    .section-cover .title { margin: 0; padding: 250px 0 0; font-size: 150px; font-weight: bold; text-align: center; color: #fff; }
+
+    .car { position: fixed; top: 65px; left: 50%; margin-left: -215px; width: 121px; height: 177px; background: url(images/car.png) 0; }
+    .car.light { top: 0; left: 50%; margin-left: -479px; bottom: 0; width: 960px; height: 2000px; background: url(images/car-light.png) 0; }
+  </style>
+</head>
+
+<body>
+<div id="section-01">
+  <div class="traffic-light"></div>
+  <div class="tower-tree"></div>
+  <div class="high-bridge"></div>
+  <div class="building-roof"></div>
+  <div class="propeller-plane"></div>
+  <div class="clump-cloud-01"></div>
+  <div class="clump-cloud-02"></div>
+  <div class="clump-cloud-03"></div>
+</div>
+
+<div class="section-cover green">
+  <p class="title">SECTION</p>
+</div>
+
+<div id="section-02">
+  <div class="train-railway">
+    <div class="train"></div>
+  </div>
+  <div class="quadruple-drone"></div>
+  <div class="clump-cloud-01"></div>
+  <div class="clump-cloud-02"></div>
+  <div class="clump-cloud-03"></div>
+</div>
+
+<div class="section-cover red">
+  <p class="title">SECTION</p>
+</div>
+
+<div id="section-03">
+  <div class="laptop-monitor"></div>
+  <div class="laptop-glass">
+    <div class="piece"></div>
+  </div>
+  <div class="tower-tree"></div>
+  <div class="car-yellow"></div>
+  <div class="high-bridge-01"></div>
+  <div class="high-bridge-02"></div>
+  <div class="car-red"></div>
+  <div class="car-blue"></div>
+  <div class="high-bridge-mask"></div>
+  <div class="traffic-light"></div>
+</div>
+
+<div class="section-cover purple">
+  <p class="title">SECTION</p>
+</div>
+
+<div id="section-04">
+  <div class="mountain-tunnel"></div>
+  <div class="gull-shadow-01"></div>
+  <div class="gull-shadow-02"></div>
+  <div class="gull-shadow-03"></div>
+  <div class="gull-bird-01"></div>
+  <div class="gull-bird-02"></div>
+  <div class="gull-bird-03"></div>
+  <div class="traffic-light"></div>
+</div>
+
+<div class="car"></div>
+
+<script src="javascripts/jquery.min.js"></script>
+<script src="javascripts/gsap.min.js"></script>
+<script src="javascripts/MotionPathPlugin.min.js"></script>
+<script src="javascripts/ScrollMagic.min.js"></script>
+<script src="javascripts/animation.gsap.min.js"></script>
+<script src="javascripts/debug.addIndicators.min.js"></script>
+<script>
+  var $window = $(window);
+  var windowHeight = 0;
+
+  $window.on('resize', function () {
+    windowHeight = $window.height();
+  }).trigger('resize');
+
+  var controller = new ScrollMagic.Controller({ addIndicators: true });
+
+  // 1: section-01 traffic-light
+  new ScrollMagic.Scene({ triggerElement: '#section-01', duration: '50%', offset: 1 }).setClassToggle('.traffic-light', 'stop').addTo(controller);
+
+  // 2: section-02 car light
+  new ScrollMagic.Scene({ triggerElement: '#section-02', duration: 4400, offset: -500 }).setClassToggle('.car', 'light').addTo(controller);
+
+  // 3: section-02 quadruple-drone
+  new ScrollMagic.Scene({ triggerElement: '#section-02', duration: 3263, offset: 0 }).setTween(
+    gsap.to('.quadruple-drone', { duration: 1, motionPath: { path: [{ x: -1300, y: 500, scale: 1 }, { x: -1000, y: 2000, scale: 1 }, { x: 300, y: 3500, scale: 0.5 }], autoRotate: 90 }, ease: Linear.easeNone })
+  ).addTo(controller);
+
+  // 4: section-03 laptop-glass
+  new ScrollMagic.Scene({ triggerElement: '#section-03', duration: 0, offset: windowHeight / 2 }).setClassToggle('.laptop-glass', 'break').addTo(controller);
+
+  // 5: section-03 car-yellow
+  new ScrollMagic.Scene({ triggerElement: '#section-03', duration: 1000, offset: 2000 }).setTween(
+    gsap.to('.car-yellow', { duration: 1, y: -1000, ease: Linear.easeNone })
+  ).addTo(controller);
+</script>
+</body>
+</html>
