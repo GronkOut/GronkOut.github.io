@@ -726,10 +726,13 @@ const worksRef = ref(database, 'works');
     resize({ target }) {
       windowWidth = $(target).width();
     },
-    load() {
-      $('[href^="http://alvarotrigo"]').parent().remove();
-    }
   }).trigger('resize');
+
+  window.requestAnimationFrame(function step() {
+    $('[href^="http://alvarotrigo"]').parent().remove();
+
+    window.requestAnimationFrame(step);
+  });
 
   $body.on('scroll', () => {
     const percent = Math.floor($body.scrollTop() / Math.round($sectionMain.height() - $window.height() + $sectionHeader.outerHeight(true)) * 100);
