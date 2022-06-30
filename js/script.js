@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js';
-import { getDatabase, ref, get, update, remove, set, query } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js';
+import { getDatabase, ref, onValue, get, push, update, remove, set, query } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js';
 
 initializeApp({
   apiKey: "AIzaSyD7_os0n04FPAAluh3sztzIpPbdJJvzCJU",
@@ -11,6 +11,7 @@ initializeApp({
 });
 
 const database = getDatabase();
+const refMemo = ref(database, 'memo');
 const refCalendar = ref(database, 'calendar');
 
 // $.noConflict();
@@ -528,6 +529,16 @@ const refCalendar = ref(database, 'calendar');
   // Common - Body class
   $body.addClass(locationPath.split('/')[1]);
 
+  // Common - Masonry
+  const $masonry = $('#masonry');
+
+  if ($masonry.length) {
+    new Masonry('.category-list', {
+      itemSelector: '.category-list > .category-list-item',
+      percentPosition: true,
+    });
+  }
+
   // Common - Fullpage
   const $fullpage = $('#fullpage');
 
@@ -560,6 +571,70 @@ const refCalendar = ref(database, 'calendar');
       slidesPerView: 'auto',
     });
   }
+
+  // Common - Memo
+  const $memo = $('#memo');
+  const $memoList = $memo.find('.list');
+  const $memoForm = $memo.find('.form');
+  const $memoFormType = $memoForm.find('.type');
+  const $memoFormName = $memoForm.find('.name');
+  const $memoFormUrl = $memoForm.find('.url');
+  const $memoFormAdd = $memoForm.find('.add');
+
+  $memoFormAdd.on('click', () => {
+    const type = $memoFormType.val();
+    const name = $memoFormName.val();
+    const url = $memoFormUrl.val();
+
+    if (type && name.length > 0 && url.length > 0) {
+      push(refMemo, { type, name, url });
+
+      $memoFormName.val('');
+      $memoFormUrl.val('');
+    } else {
+      alert('Required name and url');
+    }
+  });
+
+  onValue(refMemo, (snapshot) => {
+    const data = snapshot.val();
+
+    $memoList.empty();
+
+    for (let key in data) {
+      const item = data[key];
+
+      $(`<li class="item" data-key="${ key }">
+        <span class="type ${ item.type }">${ item.type }</span>
+        <a class="name" target="_blank" href="${ item.url }">${ item.name }</a>
+        <button class="button edit" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+        <button class="button delete" title="Delete"><i class="fa-solid fa-trash-can"></i></button>
+      </li>`).on('click', ({ target }) => {
+        const $target = $(target);
+        const $button = $target.closest('.button');
+
+        if ($button.hasClass('edit')) {
+          const type = prompt('Enter type', item.type);
+          const name = prompt('Enter name', item.name);
+          const url = prompt('Enter URL', item.url);
+
+          if (type && name && url) {
+            update(refMemo, {
+              [`${ key }/type`]: type,
+              [`${ key }/name`]: name,
+              [`${ key }/url`]: url,
+            });
+          }
+        }
+
+        if($button.hasClass('delete')) {
+          const result = confirm('Delete item');
+
+          if (result) remove(ref(database, `memo/${ key }`));
+        }
+      }).appendTo($memoList);
+    }
+  });
 
   // Common - Calendar
   const $schedule = $('#schedule');

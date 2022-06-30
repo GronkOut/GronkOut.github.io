@@ -4,11 +4,16 @@ html {
   --color-point-01: #e59027;
   --color-point-02: #10c500;
   --color-00-100: rgba(0, 0, 0, 1.0);
+  --color-00-090: rgba(0, 0, 0, 0.9);
   --color-00-080: rgba(0, 0, 0, 0.8);
+  --color-00-070: rgba(0, 0, 0, 0.7);
+  --color-00-060: rgba(0, 0, 0, 0.6);
   --color-00-050: rgba(0, 0, 0, 0.5);
+  --color-00-040: rgba(0, 0, 0, 0.4);
+  --color-00-030: rgba(0, 0, 0, 0.3);
   --color-00-020: rgba(0, 0, 0, 0.2);
   --color-00-010: rgba(0, 0, 0, 0.1);
-  --color-00-000: rgba(0, 0, 0, 0.0);
+  --color-00-005: rgba(0, 0, 0, 0.05);
   --color-01-100: #111;
   --color-02-100: #222;
   --color-03-100: #333;
@@ -19,26 +24,36 @@ html {
   --color-08-100: #888;
   --color-09-100: #999;
   --color-10-100: #aaa;
-  --color-10-050:  rgba(170, 170, 170, 0.5);
+  --color-10-050: rgba(170, 170, 170, 0.5);
   --color-11-100: #bbb;
   --color-12-100: #ccc;
   --color-13-100: #ddd;
   --color-14-100: #eee;
-  --color-15-000: rgba(255, 255, 255, 0.0);
+  --color-15-005: rgba(255, 255, 255, 0.05);
+  --color-15-010: rgba(255, 255, 255, 0.1);
   --color-15-020: rgba(255, 255, 255, 0.2);
+  --color-15-030: rgba(255, 255, 255, 0.3);
+  --color-15-040: rgba(255, 255, 255, 0.4);
   --color-15-050: rgba(255, 255, 255, 0.5);
+  --color-15-060: rgba(255, 255, 255, 0.6);
+  --color-15-070: rgba(255, 255, 255, 0.7);
   --color-15-080: rgba(255, 255, 255, 0.8);
+  --color-15-090: rgba(255, 255, 255, 0.9);
   --color-15-100: rgba(255, 255, 255, 1.0); }
   html[data-color-scheme='dark'] {
     --color-point-01: #ed561b;
     --color-point-02: #009b36;
-    --color-point-01-05: rgba(#ed561b, 0.5);
     --color-00-100: rgba(255, 255, 255, 1.0);
+    --color-00-090: rgba(255, 255, 255, 0.9);
     --color-00-080: rgba(255, 255, 255, 0.8);
+    --color-00-070: rgba(255, 255, 255, 0.7);
+    --color-00-060: rgba(255, 255, 255, 0.6);
     --color-00-050: rgba(255, 255, 255, 0.5);
+    --color-00-040: rgba(255, 255, 255, 0.4);
+    --color-00-030: rgba(255, 255, 255, 0.3);
     --color-00-020: rgba(255, 255, 255, 0.2);
     --color-00-010: rgba(255, 255, 255, 0.1);
-    --color-00-000: rgba(255, 255, 255, 0.0);
+    --color-00-005: rgba(255, 255, 255, 0.05);
     --color-01-100: #eee;
     --color-02-100: #ddd;
     --color-03-100: #ccc;
@@ -54,10 +69,16 @@ html {
     --color-12-100: #333;
     --color-13-100: #222;
     --color-14-100: #111;
-    --color-15-000: rgba(0, 0, 0, 0.0);
+    --color-15-005: rgba(0, 0, 0, 0.05);
+    --color-15-010: rgba(0, 0, 0, 0.1);
     --color-15-020: rgba(0, 0, 0, 0.2);
+    --color-15-030: rgba(0, 0, 0, 0.3);
+    --color-15-040: rgba(0, 0, 0, 0.4);
     --color-15-050: rgba(0, 0, 0, 0.5);
+    --color-15-060: rgba(0, 0, 0, 0.6);
+    --color-15-070: rgba(0, 0, 0, 0.7);
     --color-15-080: rgba(0, 0, 0, 0.8);
+    --color-15-090: rgba(0, 0, 0, 0.9);
     --color-15-100: rgba(0, 0, 0, 1.0); }
 
 html, body {
@@ -611,6 +632,83 @@ body {
 
 body.page #button-sidebar-show {
   display: none; }
+
+body.page #memo {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  padding: 90px 20px 20px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-15-100); }
+  body.page #memo .section .form {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 5px;
+    gap: 10px;
+    align-items: center; }
+    body.page #memo .section .form .type {
+      width: 80px;
+      padding: 3px 5px;
+      color: #fff;
+      font-size: 13px;
+      border: none;
+      border-radius: var(--border-radius);
+      background-color: var(--color-point-01);
+      user-select: none; }
+    body.page #memo .section .form .name, body.page #memo .section .form .url {
+      flex: 1;
+      padding: 5px 10px;
+      border: none;
+      border-bottom: 1px dashed var(--color-12-100);
+      background-color: transparent;
+      color: var(--color-00-100); }
+    body.page #memo .section .form .button {
+      padding: 0 5px;
+      color: var(--color-12-100);
+      transition: all 0.2s; }
+      body.page #memo .section .form .button:not(:disabled):hover {
+        color: var(--color-point-01); }
+  body.page #memo .section .list {
+    overflow: hidden;
+    border-radius: var(--border-radius); }
+    body.page #memo .section .list .item {
+      display: flex;
+      padding: 5px;
+      gap: 5px;
+      align-items: center; }
+      body.page #memo .section .list .item .type {
+        box-sizing: border-box;
+        width: 80px;
+        padding: 3px 5px;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        border-radius: var(--border-radius);
+        user-select: none; }
+        body.page #memo .section .list .item .type.articles {
+          background-color: #00a9ff; }
+        body.page #memo .section .list .item .type.sources {
+          background-color: #ffbb3b; }
+      body.page #memo .section .list .item .name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1;
+        padding: 0 5px;
+        color: var(--color-05-100);
+        white-space: nowrap;
+        transition: all 0.2s; }
+        body.page #memo .section .list .item .name:hover {
+          color: var(--color-point-01); }
+      body.page #memo .section .list .item .button {
+        padding: 0 5px;
+        color: var(--color-12-100);
+        transition: all 0.2s; }
+        body.page #memo .section .list .item .button:hover {
+          color: var(--color-point-01); }
+      body.page #memo .section .list .item:nth-child(odd) {
+        background-color: rgba(150, 150, 150, 0.1); }
+      body.page #memo .section .list .item:nth-child(even) {
+        background-color: rgba(150, 150, 150, 0.05); }
 
 body.page #schedule {
   box-sizing: border-box;
