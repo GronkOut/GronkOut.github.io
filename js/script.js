@@ -205,6 +205,7 @@ const refCalendar = ref(database, 'calendar');
   const $sectionSearch = $('[section="search"]');
   const $sectionSetup = $('[section="setup"]');
   const $sectionLoader = $('[section="loader"]')
+  const $categoryList = $('.category-list');
 
   /* Header *///////////////////////////////////////////////////////////////////////////////////////////////////////////
   $sectionHeader.find('.option').on('click', () => {
@@ -284,7 +285,6 @@ const refCalendar = ref(database, 'calendar');
   /* Sidebar *//////////////////////////////////////////////////////////////////////////////////////////////////////////
   const $sectionSidebarMenuItem = $sectionSidebar.find('.menu .item .button');
   const $sectionSidebarScrollList = $sectionSidebar.find('.scroll > ul, .scroll > ol');
-  const $sectionSidebarCategoryList = $sectionSidebar.find('.category-list');
 
   $('#button-sidebar-show').on('click', () => {
     $sectionSidebar.addClass('open');
@@ -334,7 +334,7 @@ const refCalendar = ref(database, 'calendar');
     const $parent = $(`.category-list-link.parent[href="/${ parent }/"]`);
 
     if ($parent.length) {
-      $parent.parent().appendTo($sectionSidebarCategoryList);
+      $parent.parent().appendTo($categoryList);
 
       if (child.length) {
         child.forEach((name) => {
