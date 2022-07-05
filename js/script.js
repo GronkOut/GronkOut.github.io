@@ -1,4 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider  } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-auth.js';
 import { getDatabase, ref, onValue, get, push, update, remove, set, query } from 'https://www.gstatic.com/firebasejs/9.8.3/firebase-database.js';
 
 initializeApp({
@@ -10,14 +11,27 @@ initializeApp({
   appId: "1:928469708065:web:2dd5c6cdf9c484af946260"
 });
 
+const auth = getAuth();
+const googleAuthProvider = new GoogleAuthProvider();
 const database = getDatabase();
 const refMemo = ref(database, 'memo');
 const refCalendar = ref(database, 'calendar');
 
-// $.noConflict();
+const signIn = async () => {
+  try {
+    const result = await signInWithPopup(auth, googleAuthProvider);
+    const { accessToken } = GoogleAuthProvider.credentialFromResult(result);
+
+    sessionStorage.setItem('accessToken', accessToken);
+  } catch (error) {
+    console.dir(error);
+  }
+};
 
 ;(($) => {
   const locationPath = location.pathname;
+  const locationPathDepth1 = locationPath.split('/')[1];
+  const locationPathDepth2 = locationPath.split('/')[2];
   const locationHash = location.hash;
   const documentRange = document.createRange();
   const categoryArray = [
@@ -401,7 +415,11 @@ const refCalendar = ref(database, 'calendar');
   $.merge($sectionSidebarTocListLink, $sectionContentHeaderListLink).on('click', (event) => {
     event.preventDefault();
 
-    $($(event.currentTarget).attr('href'))[0].scrollIntoView({ behavior: 'smooth' });
+    const $heading = $($(event.currentTarget).attr('href'));
+
+    if ($heading.length) {
+      $heading[0].scrollIntoView({ behavior: 'smooth' });
+    }
   });
 
   // Sidebar- Footer
@@ -443,6 +461,7 @@ const refCalendar = ref(database, 'calendar');
   const $sectionContentHeader = $sectionContent.find('section.header');
   const $sectionContentHeaderTitle = $sectionContentHeader.find('.title');
   const $sectionContentBody = $sectionContent.find('section.body');
+  const $sectionContentFooter = $sectionContent.find('section.footer');
 
   const titleSplit = $sectionContentHeaderTitle.text().split(' v');
 
@@ -511,6 +530,14 @@ const refCalendar = ref(database, 'calendar');
     });
   });
 
+  // Content - Footer
+
+  if ($sectionContentFooter.length) {
+    $sectionContentFooter.find('.navigation').append(
+      categoryArray.find(({ parent }) => parent === locationPathDepth1).child.map((item) => `<a class="link ${ item === locationPathDepth2 ? 'active' : '' }" href="/${ locationPathDepth1 }/${ item }/">${ item }</a>`).join('')
+    );
+  }
+
   /* Common *///////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Common - Encrypt
   const $hbeInputField = $('.hbe-input-field');
@@ -527,7 +554,7 @@ const refCalendar = ref(database, 'calendar');
   });
 
   // Common - Body class
-  $body.addClass(locationPath.split('/')[1]);
+  $body.addClass(locationPathDepth1);
 
   // Common - Masonry
   const $masonry = $('#masonry');
@@ -567,8 +594,18 @@ const refCalendar = ref(database, 'calendar');
   const $swiper = $('.swiper');
 
   if ($swiper.length) {
-    new Swiper('.swiper', {
-      slidesPerView: 'auto',
+    $swiper.each((index, element) => {
+      new Swiper(element, {
+        slidesPerView: 'auto',
+        autoHeight: true,
+        pagination: {
+          el: $(element).find('.swiper-pagination')[0],
+        },
+      });
+    });
+
+    $('.video').on('dblclick', ({ target }) => {
+      target.requestFullscreen();
     });
   }
 
@@ -582,6 +619,12 @@ const refCalendar = ref(database, 'calendar');
   const $memoFormAdd = $memoForm.find('.add');
 
   $memoFormAdd.on('click', () => {
+    if (!sessionStorage.getItem('accessToken')) {
+      signIn();
+
+      return;
+    }
+
     const type = $memoFormType.val();
     const name = $memoFormName.val();
     const url = $memoFormUrl.val();
@@ -644,6 +687,10 @@ const refCalendar = ref(database, 'calendar');
   const $calendar = $('#calendar');
 
   if ($calendar.length) {
+    if (!sessionStorage.getItem('accessToken')) {
+      signIn();
+    }
+
     const CalendarList = [
       { id: '1', name: 'GronkOut', checked: true, color: '#fff', bgColor: '#9e5fff', dragBgColor: '#9e5fff', borderColor: '#9e5fff' },
       { id: '2', name: 'Company', checked: true, color: '#fff', bgColor: '#00a9ff', dragBgColor: '#00a9ff', borderColor: '#00a9ff' },
@@ -787,6 +834,16 @@ const refCalendar = ref(database, 'calendar');
     });
 
     setToday();
+
+    $document.on('keydown', ({ key }) => {
+      if (key === 'ArrowLeft' || key === 'ArrowDown') {
+        calendar.prev();
+      } else if (key === 'ArrowRight' || key === 'ArrowUp') {
+        calendar.next();
+      }
+
+      setToday();
+    });
   }
 
   // Common - Event

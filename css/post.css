@@ -1,7 +1,7 @@
 html {
   --border-radius: 3px;
   --highlight-height: 200px;
-  --color-point-01: #e59027;
+  --color-point-01: #f18500;
   --color-point-02: #10c500;
   --color-00-100: rgba(0, 0, 0, 1.0);
   --color-00-090: rgba(0, 0, 0, 0.9);
@@ -270,6 +270,7 @@ body {
   gap: 10px;
   background-color: var(--color-15-050);
   backdrop-filter: blur(5px);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.05);
   transition: all 0.2s; }
   [section='header'] .button {
     display: block;
@@ -608,7 +609,7 @@ body {
         text-align: center;
         border-radius: var(--border-radius);
         color: var(--color-point-01);
-        background-color: var(--color-14-100);
+        background-color: var(--color-15-100);
         opacity: 1; }
         .hbe-container .hbe-content .hbe-input .hbe-input-field::placeholder {
           font-size: 14px;
@@ -860,9 +861,10 @@ body.post {
             height: 100%;
             padding: 2px 10px 3px;
             vertical-align: top;
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             font-size: 12px;
             font-weight: bold;
+            letter-spacing: 1px;
             border-radius: var(--border-radius);
             color: var(--color-10-100);
             transition: all 0.2s; }
@@ -1010,8 +1012,9 @@ body.post {
           body.post [section='sidebar'] .wrap .footer .percent .text {
             position: absolute;
             inset: 0;
+            font-family: 'Ubuntu', sans-serif;
             font-size: 12px;
-            line-height: 14px;
+            line-height: 15px;
             text-align: center; }
   body.post [section='content'] {
     grid-area: content;
@@ -1160,48 +1163,48 @@ body.post {
         filter: invert(1); }
       [data-color-scheme='light'] body.post [section='content'] section.body img.dark {
         filter: invert(1); }
-      body.post [section='content'] section.body > ul, body.post [section='content'] section.body > ol {
+      body.post [section='content'] section.body > ul, body.post [section='content'] section.body > ol, body.post [section='content'] section.body > .hbe-container > div > ul, body.post [section='content'] section.body > .hbe-container > div > ol {
         margin-left: 20px; }
-        body.post [section='content'] section.body > ul li, body.post [section='content'] section.body > ol li {
+        body.post [section='content'] section.body > ul li, body.post [section='content'] section.body > ol li, body.post [section='content'] section.body > .hbe-container > div > ul li, body.post [section='content'] section.body > .hbe-container > div > ol li {
           transition: all 0.2s; }
-          body.post [section='content'] section.body > ul li::marker, body.post [section='content'] section.body > ol li::marker {
+          body.post [section='content'] section.body > ul li::marker, body.post [section='content'] section.body > ol li::marker, body.post [section='content'] section.body > .hbe-container > div > ul li::marker, body.post [section='content'] section.body > .hbe-container > div > ol li::marker {
             color: var(--color-10-100); }
-          body.post [section='content'] section.body > ul li:hover, body.post [section='content'] section.body > ol li:hover {
+          body.post [section='content'] section.body > ul li:hover, body.post [section='content'] section.body > ol li:hover, body.post [section='content'] section.body > .hbe-container > div > ul li:hover, body.post [section='content'] section.body > .hbe-container > div > ol li:hover {
             color: var(--color-00-100); }
-          body.post [section='content'] section.body > ul li + li, body.post [section='content'] section.body > ol li + li {
+          body.post [section='content'] section.body > ul li + li, body.post [section='content'] section.body > ol li + li, body.post [section='content'] section.body > .hbe-container > div > ul li + li, body.post [section='content'] section.body > .hbe-container > div > ol li + li {
             margin-top: 5px; }
-      body.post [section='content'] section.body > ul {
+      body.post [section='content'] section.body > ul, body.post [section='content'] section.body > .hbe-container > div > ul {
         list-style: circle; }
-      body.post [section='content'] section.body > ol {
+      body.post [section='content'] section.body > ol, body.post [section='content'] section.body > .hbe-container > div > ol {
         list-style: decimal; }
-      body.post [section='content'] section.body > table {
+      body.post [section='content'] section.body > table, body.post [section='content'] section.body > .hbe-container > div > table {
         overflow: hidden;
         table-layout: fixed;
         margin: 10px 0;
         width: 100%;
         border-radius: var(--border-radius);
         box-shadow: 0 0 0 1px var(--color-13-100); }
-        body.post [section='content'] section.body > table th, body.post [section='content'] section.body > table td {
+        body.post [section='content'] section.body > table th, body.post [section='content'] section.body > table td, body.post [section='content'] section.body > .hbe-container > div > table th, body.post [section='content'] section.body > .hbe-container > div > table td {
           padding: 5px 10px; }
-          body.post [section='content'] section.body > table th:not(:first-child), body.post [section='content'] section.body > table td:not(:first-child) {
+          body.post [section='content'] section.body > table th:not(:first-child), body.post [section='content'] section.body > table td:not(:first-child), body.post [section='content'] section.body > .hbe-container > div > table th:not(:first-child), body.post [section='content'] section.body > .hbe-container > div > table td:not(:first-child) {
             position: relative; }
-            body.post [section='content'] section.body > table th:not(:first-child):before, body.post [section='content'] section.body > table td:not(:first-child):before {
+            body.post [section='content'] section.body > table th:not(:first-child):before, body.post [section='content'] section.body > table td:not(:first-child):before, body.post [section='content'] section.body > .hbe-container > div > table th:not(:first-child):before, body.post [section='content'] section.body > .hbe-container > div > table td:not(:first-child):before {
               position: absolute;
               inset: 5px 0;
               border-left: solid 1px rgba(120, 120, 120, 0.1);
               content: ''; }
-        body.post [section='content'] section.body > table thead tr th {
+        body.post [section='content'] section.body > table thead tr th, body.post [section='content'] section.body > .hbe-container > div > table thead tr th {
           font-weight: normal;
           background-color: var(--color-13-100); }
-          body.post [section='content'] section.body > table thead tr th:empty {
+          body.post [section='content'] section.body > table thead tr th:empty, body.post [section='content'] section.body > .hbe-container > div > table thead tr th:empty {
             padding: 0; }
-        body.post [section='content'] section.body > table tbody tr {
+        body.post [section='content'] section.body > table tbody tr, body.post [section='content'] section.body > .hbe-container > div > table tbody tr {
           transition: all 0.2s; }
-          body.post [section='content'] section.body > table tbody tr:hover {
+          body.post [section='content'] section.body > table tbody tr:hover, body.post [section='content'] section.body > .hbe-container > div > table tbody tr:hover {
             background-color: var(--color-15-100); }
-          body.post [section='content'] section.body > table tbody tr td {
+          body.post [section='content'] section.body > table tbody tr td, body.post [section='content'] section.body > .hbe-container > div > table tbody tr td {
             border-top: 1px solid var(--color-13-100); }
-          body.post [section='content'] section.body > table tbody tr:first-child td {
+          body.post [section='content'] section.body > table tbody tr:first-child td, body.post [section='content'] section.body > .hbe-container > div > table tbody tr:first-child td {
             border: none; }
       body.post [section='content'] section.body figure.highlight {
         position: relative;
@@ -1392,19 +1395,25 @@ body.post {
         background-color: var(--color-15-100);
         user-select: none; }
       body.post [section='content'] section.footer {
+        z-index: 0;
         overflow: hidden;
         position: relative;
         margin-top: 20px;
+        font-family: 'Ubuntu', sans-serif;
         user-select: none; }
         body.post [section='content'] section.footer .background {
+          z-index: -1;
           position: absolute;
-          top: -210px;
-          right: -95px;
-          font-size: 400px;
+          top: 50%;
+          margin-top: -290px;
+          right: -120px;
+          font-size: 500px;
           color: var(--color-13-100); }
         body.post [section='content'] section.footer .post .name {
-          margin: 0;
-          font-size: 20px; }
+          margin: 0 0 5px;
+          font-size: 40px;
+          letter-spacing: -1px;
+          color: var(--color-10-100); }
         body.post [section='content'] section.footer .post .link {
           color: var(--color-10-100);
           transition: all 0.2s; }
@@ -1412,21 +1421,22 @@ body.post {
             color: var(--color-00-100); }
         body.post [section='content'] section.footer .information {
           display: flex;
-          margin-top: 20px;
+          margin-top: 30px;
           gap: 20px; }
           body.post [section='content'] section.footer .information .author .label {
             margin: 0;
             font-size: 12px;
-            color: var(--color-05-100); }
+            color: var(--color-10-100); }
           body.post [section='content'] section.footer .information .author .name {
-            margin: 5px 0 0;
+            margin: 8px 0 0;
             color: var(--color-10-100); }
           body.post [section='content'] section.footer .information .license .label {
             margin: 0;
             font-size: 12px;
-            color: var(--color-05-100); }
+            color: var(--color-10-100); }
           body.post [section='content'] section.footer .information .license .list {
             display: flex;
+            margin-top: 5px;
             gap: 10px; }
             body.post [section='content'] section.footer .information .license .list .item .link {
               display: block;
@@ -1435,29 +1445,50 @@ body.post {
               transition: all 0.2s; }
               body.post [section='content'] section.footer .information .license .list .item .link:hover {
                 color: var(--color-00-100);
-                transform: scale(1.2); }
+                transform: scale(1.1); }
+        body.post [section='content'] section.footer .navigation {
+          display: flex;
+          margin-top: 20px;
+          padding-top: 20px;
+          flex-wrap: wrap;
+          gap: 10px;
+          width: calc(100% - 370px);
+          border-top: dashed 1px var(--color-13-100); }
+          body.post [section='content'] section.footer .navigation .link {
+            padding: 3px 8px 4px;
+            font-size: 14px;
+            border-radius: var(--border-radius);
+            background-color: var(--color-15-100);
+            transition: all 0.2s; }
+            body.post [section='content'] section.footer .navigation .link.active {
+              color: var(--color-point-01);
+              pointer-events: none; }
+            body.post [section='content'] section.footer .navigation .link:hover {
+              color: var(--color-00-100);
+              background-color: var(--color-point-01); }
         body.post [section='content'] section.footer .tags {
           display: flex;
           margin-top: 20px;
           padding-top: 20px;
           gap: 10px;
-          width: calc(100% - 280px);
+          width: calc(100% - 350px);
           border-top: dashed 1px var(--color-13-100); }
           body.post [section='content'] section.footer .tags .tag {
             padding: 2px 8px 3px;
             font-size: 12px;
             border-radius: var(--border-radius);
             background-color: var(--color-15-100);
-            transition: all 0.2s; }
-            body.post [section='content'] section.footer .tags .tag:hover {
-              color: var(--color-point-01); }
+            opacity: 0.5; }
       body.post [section='content'] section.comment {
         overflow: hidden;
-        margin-top: 20px;
+        margin: 20px -8px 0 0;
         padding: 0;
-        background-color: transparent; }
+        background-color: transparent;
+        user-select: none; }
         body.post [section='content'] section.comment .utterances {
-          margin-top: -40px;
+          margin-top: -50px;
+          margin-left: -4px;
+          margin-right: -4px;
           max-width: 100%;
           height: 269px; }
         [data-color-scheme='light'] body.post [section='content'] section.comment .utterances:nth-child(1) {
@@ -1540,5 +1571,5 @@ body.post {
         margin-top: 10px; }
         body.post [section='content'] section.footer .background {
           display: none; }
-        body.post [section='content'] section.footer .tags {
+        body.post [section='content'] section.footer .navigation, body.post [section='content'] section.footer .tags {
           width: 100%; } }
