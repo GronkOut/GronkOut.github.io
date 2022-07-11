@@ -650,7 +650,7 @@ body.page.memo #memo {
     align-items: center;
     user-select: none; }
     body.page.memo #memo .section .form .type {
-      width: 80px;
+      width: 100px;
       padding: 3px 5px;
       color: #fff;
       font-size: 13px;
@@ -665,6 +665,8 @@ body.page.memo #memo {
       border-bottom: 1px dashed var(--color-12-100);
       background-color: transparent;
       color: var(--color-00-100); }
+      body.page.memo #memo .section .form .name[disabled], body.page.memo #memo .section .form .url[disabled] {
+        opacity: 0.2; }
     body.page.memo #memo .section .form .button {
       padding: 0 5px;
       color: var(--color-12-100);
@@ -674,7 +676,7 @@ body.page.memo #memo {
   body.page.memo #memo .section .list {
     overflow-x: hidden;
     overflow-y: auto;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 200px);
     border-radius: var(--border-radius); }
     body.page.memo #memo .section .list .item {
       display: flex;
@@ -683,13 +685,15 @@ body.page.memo #memo {
       align-items: center; }
       body.page.memo #memo .section .list .item .type {
         box-sizing: border-box;
-        width: 80px;
+        width: 100px;
         padding: 3px 5px;
         color: #fff;
         font-size: 14px;
         text-align: center;
         border-radius: var(--border-radius);
         user-select: none; }
+        body.page.memo #memo .section .list .item .type.temporary {
+          background-color: var(--color-08-100); }
         body.page.memo #memo .section .list .item .type.articles {
           background-color: #00a9ff; }
         body.page.memo #memo .section .list .item .type.sources {
@@ -714,6 +718,16 @@ body.page.memo #memo {
         background-color: rgba(150, 150, 150, 0.1); }
       body.page.memo #memo .section .list .item:nth-child(even) {
         background-color: rgba(150, 150, 150, 0.05); }
+  body.page.memo #memo .section .bottom {
+    margin-top: 10px; }
+    body.page.memo #memo .section .bottom .search {
+      box-sizing: border-box;
+      padding: 5px 10px;
+      width: 100%;
+      border: none;
+      border-bottom: 1px dashed var(--color-12-100);
+      background-color: transparent;
+      color: var(--color-00-100); }
 
 body.page.schedule #schedule {
   box-sizing: border-box;
@@ -925,10 +939,12 @@ body.page.portfolio #fp-nav {
   bottom: -15px; }
 
 @media screen and (max-width: 940px) {
-  body.page.memo #memo .section .form .type {
-    width: 100%; }
-  body.page.memo #memo .section .list {
-    height: calc(100vh - 230px); }
+  body.page.memo #memo {
+    padding: 50px 10px 10px; }
+    body.page.memo #memo .section .form .type {
+      width: 100%; }
+    body.page.memo #memo .section .list {
+      height: calc(100vh - 180px); }
   body.page.schedule #schedule {
     padding: 60px 10px 10px; }
     body.page.schedule #schedule .header {

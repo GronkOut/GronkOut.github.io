@@ -1319,6 +1319,13 @@ body.post {
           height: 50px;
           background-color: #1c2128;
           content: ''; }
+      body.post [section='content'] section.body .post-link {
+        margin: 10px 0;
+        padding: 5px 10px;
+        border-radius: var(--border-radius);
+        border: 2px solid var(--color-point-01); }
+        body.post [section='content'] section.body .post-link:before {
+          content: 'Reference post: '; }
       body.post [section='content'] section.body .tags {
         display: flex;
         margin: 10px 0;

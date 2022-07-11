@@ -81,6 +81,7 @@ const signIn = async () => {
     { parent: 'javascript-web-api', child: [
       'event-target',
       'window',
+      'navigator',
       'node',
       'document',
       'element',
@@ -613,10 +614,27 @@ const signIn = async () => {
   const $memo = $('#memo');
   const $memoList = $memo.find('.list');
   const $memoForm = $memo.find('.form');
+  const $memoSearch = $memo.find('.search');
   const $memoFormType = $memoForm.find('.type');
   const $memoFormName = $memoForm.find('.name');
   const $memoFormUrl = $memoForm.find('.url');
   const $memoFormAdd = $memoForm.find('.add');
+
+  $memoForm.find('input').on('keydown', (event) => {
+    if (event.code === 'Enter') {
+      event.stopImmediatePropagation();
+
+      $memoFormAdd.trigger('click');
+    }
+  });
+
+  $memoFormType.on('change', (event) => {
+    if (event.target.value === 'temporary') {
+      $memoFormUrl.attr('disabled', 'disabled');
+    } else {
+      $memoFormUrl.removeAttr('disabled');
+    }
+  });
 
   $memoFormAdd.on('click', () => {
     if (!sessionStorage.getItem('accessToken')) {
@@ -629,14 +647,38 @@ const signIn = async () => {
     const name = $memoFormName.val();
     const url = $memoFormUrl.val();
 
-    if (type && name.length > 0 && url.length > 0) {
-      push(refMemo, { type, name, url });
+    if (type === 'temporary') {
+      if (name.length > 0) {
+        push(refMemo, { type, name });
 
-      $memoFormName.val('');
-      $memoFormUrl.val('');
+        $memoFormName.val('');
+      } else {
+        alert('Required name');
+      }
     } else {
-      alert('Required name and url');
+      if (name.length > 0 && url.length > 0) {
+        push(refMemo, { type, name, url });
+
+        $memoFormName.val('');
+        $memoFormUrl.val('');
+      } else {
+        alert('Required name and url');
+      }
     }
+  });
+
+  $memoSearch.on('input', (event) => {
+    if (event.code === 'Enter') {
+      event.stopImmediatePropagation();
+    }
+
+    $memoList.find('.name').each((index, element) => {
+      if (element.innerText.toLowerCase().includes(event.target.value.toLowerCase())) {
+        $(element).parent().show();
+      } else {
+        $(element).parent().hide();
+      }
+    });
   });
 
   onValue(refMemo, (snapshot) => {
@@ -659,14 +701,24 @@ const signIn = async () => {
         if ($button.hasClass('edit')) {
           const type = prompt('Enter type', item.type);
           const name = prompt('Enter name', item.name);
-          const url = prompt('Enter URL', item.url);
 
-          if (type && name && url) {
-            update(refMemo, {
-              [`${ key }/type`]: type,
-              [`${ key }/name`]: name,
-              [`${ key }/url`]: url,
-            });
+          if (type === 'temporary') {
+            if (type && name) {
+              update(refMemo, {
+                [`${ key }/type`]: type,
+                [`${ key }/name`]: name,
+              });
+            }
+          } else {
+            const url = prompt('Enter URL', item.url);
+
+            if (type && name && url) {
+              update(refMemo, {
+                [`${ key }/type`]: type,
+                [`${ key }/name`]: name,
+                [`${ key }/url`]: url,
+              });
+            }
           }
         }
 
@@ -785,8 +837,6 @@ const signIn = async () => {
         guide.clearGuideElement();
       },
       clickSchedule({ schedule }) {
-        console.log('clickSchedule', schedule);
-
         const title = prompt('Enter title\nIf you want delete then enter blank title.', schedule.title);
 
         if (title) {
@@ -811,8 +861,6 @@ const signIn = async () => {
         }
       },
       beforeUpdateSchedule({ schedule, start, end, changes }) {
-        console.log('beforeUpdateSchedule', start, end, changes);
-
         calendar.updateSchedule(schedule.id, schedule.calendarId, changes);
 
         update(refCalendar, {
@@ -835,11 +883,23 @@ const signIn = async () => {
 
     setToday();
 
-    $document.on('keydown', ({ key }) => {
-      if (key === 'ArrowLeft' || key === 'ArrowDown') {
-        calendar.prev();
-      } else if (key === 'ArrowRight' || key === 'ArrowUp') {
+    $document.on({
+      keydown({ key }) {
+        if (key === 'ArrowLeft' || key === 'ArrowDown') {
+          calendar.prev();
+        } else if (key === 'ArrowRight' || key === 'ArrowUp') {
+          calendar.next();
+        }
+
+        setToday();
+      }
+    });
+
+    window.addEventListener('wheel', (event) => {
+      if (Math.sign(event.deltaY) > 0) {
         calendar.next();
+      } else {
+        calendar.prev();
       }
 
       setToday();
