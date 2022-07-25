@@ -944,7 +944,7 @@ body.page.portfolio #fp-nav {
     body.page.memo #memo .section .form .type {
       width: 100%; }
     body.page.memo #memo .section .list {
-      height: calc(100vh - 180px); }
+      height: calc(100vh - 220px); }
   body.page.schedule #schedule {
     padding: 60px 10px 10px; }
     body.page.schedule #schedule .header {

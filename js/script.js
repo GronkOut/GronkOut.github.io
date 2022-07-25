@@ -100,6 +100,7 @@ const signIn = async () => {
       'web-socket',
     ] },
     { parent: 'javascript-libraries', child: [
+      'algorithm',
       'eslint',
       'unit-test',
       'immutable',
