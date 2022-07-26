@@ -306,7 +306,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><code>/[0-9]/</code>, <code>/\d/</code></td>
+<td align="left"><code>/[0-9]/</code> or <code>/\d/</code></td>
 <td align="left">숫자</td>
 </tr>
 <tr>
@@ -322,7 +322,7 @@
 <td align="left">영문 대소문자</td>
 </tr>
 <tr>
-<td align="left"><code>/[0-9a-zA-Z_]/</code>, <code>/\w/</code></td>
+<td align="left"><code>/[0-9a-zA-Z_]/</code> or <code>/\w/</code></td>
 <td align="left">숫자, 영문, <code>_</code></td>
 </tr>
 <tr>
@@ -330,8 +330,8 @@
 <td align="left">한글</td>
 </tr>
 <tr>
-<td align="left">&#96;&#x2F;[ぁ-ゔ]+</td>
-<td align="left">[ァ-ヴー]+[々〆〤]&#x2F;&#96;</td>
+<td align="left"><code>/[ぁ-ゔ]+|[ァ-ヴー]+[々〆〤]/</code></td>
+<td align="left">일어</td>
 </tr>
 <tr>
 <td align="left"><code>/[一-龥]/</code></td>
