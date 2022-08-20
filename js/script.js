@@ -156,6 +156,15 @@ const signIn = async () => {
       'router',
       'redux',
     ] },
+    { parent: 'svelte', child: [
+      'setup',
+      'components',
+      'template',
+      'context-api',
+      'special-elements',
+      'style-effect',
+      'router',
+    ] },
     { parent: 'typescript', child: [
       'setup',
       'types',
@@ -181,9 +190,9 @@ const signIn = async () => {
       'hexo-theme',
     ] },
     { parent: 'database', child: [
-      'mysql/',
-      'mongodb/',
-      'mongoose/',
+      'mysql',
+      'mongodb',
+      'mongoose',
     ] },
     { parent: 'firebase', child: [
       'setup',
@@ -206,6 +215,7 @@ const signIn = async () => {
       'interview',
     ] },
   ];
+
   let windowWidth = 0;
 
   /* Selectors *////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -486,7 +496,7 @@ const signIn = async () => {
       $('<span class="title" />').appendTo($figureCaption);
     }
 
-    $(`<span class="type">${ (type === 'PLAINTEXT') ? 'VUE' : type }</span>`).prependTo($figureCaption);
+    $(`<span class="type">${ (type === 'PLAINTEXT') ? locationPathDepth1.toUpperCase() : type }</span>`).prependTo($figureCaption);
 
     const $foldButton = $('<button class="button fold" title="Toggle show full code"><i class="fa-solid fa-angle-down"></i></button>').on('click', () => {
       $figure.toggleClass('fold');
