@@ -139,6 +139,7 @@ const signIn = async () => {
       'composition',
       'emit',
       'vuex',
+      'pinia',
       'router',
       'plugin',
       'nuxt',
