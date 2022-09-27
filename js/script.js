@@ -94,6 +94,7 @@ const signIn = async () => {
       'canvas',
       'indexed-db',
       'data-transfer',
+      'broadcast-channel',
       'media-devices',
       'web-worker',
       'web-component',
