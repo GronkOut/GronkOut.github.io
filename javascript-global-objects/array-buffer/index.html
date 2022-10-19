@@ -114,7 +114,7 @@
 
     <section class="body">
         <div class="links">
-  <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer</a>
 </div>
 
 <h2 id="Static-properties"><a href="#Static-properties" class="headerlink" title="Static properties"></a>Static properties</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> buffer = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayBuffer</span>(<span class="hljs-number">20</span>); <span class="hljs-comment">// 20byte 의 버퍼영역 생성</span><br><br>buffer.<span class="hljs-property">byteLength</span>; <span class="hljs-comment">// 20</span><br><br><span class="hljs-keyword">const</span> int32View = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Int32Array</span>(buffer); <span class="hljs-comment">// 정수 32bit (4byte) = buffer (20byte) 에는 5 개의 값을 저장 가능</span><br><span class="hljs-comment">// 자바스크립트의 최대값은 8byte 를 사용해야 함</span><br></code></pre></td></tr></table></figure>

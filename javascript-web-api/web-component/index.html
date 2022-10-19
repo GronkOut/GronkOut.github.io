@@ -114,14 +114,14 @@
 
     <section class="body">
         <div class="links">
-  <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">https://developer.mozilla.org/en-US/docs/Web/Web_Components</a>
-  <a target="_blank" href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements">https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements</a>
-  <a target="_blank" href="https://css-tricks.com/an-introduction-to-web-components">https://css-tricks.com/an-introduction-to-web-components</a>
-  <a target="_blank" href="https://css-tricks.com/crafting-reusable-html-templates">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array</a>
-  <a target="_blank" href="https://css-tricks.com/creating-a-custom-element-from-scratch">https://css-tricks.com/creating-a-custom-element-from-scratch</a>
-  <a target="_blank" href="https://css-tricks.com/encapsulating-style-and-structure-with-shadow-dom">https://css-tricks.com/encapsulating-style-and-structure-with-shadow-dom</a>
-  <a target="_blank" href="https://css-tricks.com/advanced-tooling-for-web-components">https://css-tricks.com/advanced-tooling-for-web-components</a>
-  <a target="_blank" href="https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component">https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">https://developer.mozilla.org/en-US/docs/Web/Web_Components</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements">https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://css-tricks.com/an-introduction-to-web-components">https://css-tricks.com/an-introduction-to-web-components</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://css-tricks.com/crafting-reusable-html-templates">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://css-tricks.com/creating-a-custom-element-from-scratch">https://css-tricks.com/creating-a-custom-element-from-scratch</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://css-tricks.com/encapsulating-style-and-structure-with-shadow-dom">https://css-tricks.com/encapsulating-style-and-structure-with-shadow-dom</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://css-tricks.com/advanced-tooling-for-web-components">https://css-tricks.com/advanced-tooling-for-web-components</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component">https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component</a>
 </div>
 
 <h2 id="Custom-elements"><a href="#Custom-elements" class="headerlink" title="Custom elements"></a>Custom elements</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyCounter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">HTMLParagraphElement</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">super</span>();<br>  &#125;<br>&#125;<br><br><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;my-counter&#x27;</span>);<br><br><span class="hljs-comment">// document.createElement(&#x27;p&#x27;, &#123; is: &#x27;my-counter&#x27; &#125;);</span><br></code></pre></td></tr></table></figure>

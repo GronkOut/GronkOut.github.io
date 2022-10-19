@@ -114,8 +114,8 @@
 
     <section class="body">
         <div class="links">
-  <a target="_blank" href="https://www.heroku.com">https://www.heroku.com</a>
-  <a target="_blank" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">https://devcenter.heroku.com/articles/getting-started-with-nodejs</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://www.heroku.com">https://www.heroku.com</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">https://devcenter.heroku.com/articles/getting-started-with-nodejs</a>
 </div>
 
 <h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell">heroku login<br>Email: gronkout@gmail.com<br>Password: ****<br><br>heroku create<br>// https://limitless<span class="hljs-literal">-mesa-38233</span>.herokuapp.com/ | https://git.heroku.com/limitless<span class="hljs-literal">-mesa-38233</span>.git<br><br>git init<br><br>git remote add heroku https://git.heroku.com/limitless<span class="hljs-literal">-mesa-38233</span>.git<br><br>heroku config:<span class="hljs-built_in">set</span> NPM_CONFIG_PRODUCTION=false<br>heroku config:<span class="hljs-built_in">set</span> HOST=<span class="hljs-number">0.0</span>.<span class="hljs-number">0.0</span><br>heroku config:<span class="hljs-built_in">set</span> NODE_ENV=production<br><br>git add .<br>git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;init&quot;</span><br>git push heroku master<br></code></pre></td></tr></table></figure>

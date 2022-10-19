@@ -114,7 +114,7 @@
 
     <section class="body">
         <div class="links">
-  <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel">https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel">https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel</a>
 </div>
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> broadcast = <span class="hljs-keyword">new</span> <span class="hljs-title class_">BroadcastChannel</span>(<span class="hljs-string">&#x27;new_channel&#x27;</span>);<br><br>broadcast.<span class="hljs-property">onmessage</span> = <span class="hljs-function">(<span class="hljs-params">&#123; data, origin &#125;</span>) =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`<span class="hljs-subst">$&#123; origin &#125;</span> says <span class="hljs-subst">$&#123; data &#125;</span>`</span>);<br>&#125;;<br><br>broadcast.<span class="hljs-title function_">postMessage</span>(<span class="hljs-string">&#x27;Example message&#x27;</span>);<br></code></pre></td></tr></table></figure>

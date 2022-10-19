@@ -869,6 +869,25 @@ body.page.portfolio #fullpage {
     border-radius: var(--border-radius); }
     body.page.portfolio #fullpage .section .slide .swiper .image, body.page.portfolio #fullpage .section .slide .swiper .video {
       width: 100%; }
+    body.page.portfolio #fullpage .section .slide .swiper .movie {
+      position: relative;
+      display: block; }
+      body.page.portfolio #fullpage .section .slide .swiper .movie:before {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        font-size: 50px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: all 0.5s;
+        content: '\f03d'; }
+      body.page.portfolio #fullpage .section .slide .swiper .movie:hover:before, body.page.portfolio #fullpage .section .slide .swiper .movie:hover:after {
+        opacity: 1; }
     body.page.portfolio #fullpage .section .slide .swiper .link {
       position: relative;
       display: block; }

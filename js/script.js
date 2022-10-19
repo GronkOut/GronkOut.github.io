@@ -609,17 +609,25 @@ const signIn = async () => {
 
   if ($swiper.length) {
     $swiper.each((index, element) => {
+      const $element = $(element);
+      const $firstVideo = $element.find('.swiper-slide').eq(0).find('video');
+
       new Swiper(element, {
         slidesPerView: 'auto',
         autoHeight: true,
         pagination: {
-          el: $(element).find('.swiper-pagination')[0],
+          el: $element.find('.swiper-pagination')[0],
+        },
+        on: {
+          init(swiper) {
+            if ($firstVideo.length) {
+              $firstVideo.on('loadedmetadata', () => {
+                swiper.update();
+              });
+            }
+          }
         },
       });
-    });
-
-    $('.video').on('dblclick', ({ target }) => {
-      target.requestFullscreen();
     });
   }
 

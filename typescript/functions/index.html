@@ -114,8 +114,8 @@
 
     <section class="body">
         <div class="links">
-  <a target="_blank" href="https://www.typescriptlang.org/docs/handbook/2/functions.html">https://www.typescriptlang.org/docs/handbook/2/functions.html</a>
-  <a target="_blank" href="https://joshua1988.github.io/ts/guide/functions.html">https://joshua1988.github.io/ts/guide/functions.html</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://www.typescriptlang.org/docs/handbook/2/functions.html">https://www.typescriptlang.org/docs/handbook/2/functions.html</a>
+  <a target="_blank" rel="noopener noreferrer" href="https://joshua1988.github.io/ts/guide/functions.html">https://joshua1988.github.io/ts/guide/functions.html</a>
 </div>
 
 <h2 id="Object-parameter"><a href="#Object-parameter" class="headerlink" title="Object parameter"></a>Object parameter</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">// 오브젝트 타입을 직접 입력하는 것보다 별칭 또는 인터페이스를 사용하면 중복 코드를 줄일 수 있음</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">addTodo</span>(<span class="hljs-params">todo: &#123; id: <span class="hljs-built_in">number</span>; title: <span class="hljs-built_in">string</span>; done: <span class="hljs-built_in">boolean</span> &#125;</span>): <span class="hljs-built_in">void</span> &#123;<br>  todoList.<span class="hljs-title function_">push</span>(todo);<br>&#125;<br></code></pre></td></tr></table></figure>
