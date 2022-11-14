@@ -1119,8 +1119,10 @@ body.post {
           margin-top: 0; }
           body.post [section='content'] section.body h2:first-of-type .divider, body.post [section='content'] section.body h2:first-of-type:before, body.post [section='content'] section.body h2:first-of-type:after {
             display: none; }
+        body.post [section='content'] section.body h2 + h3 {
+          margin-top: 30px; }
       body.post [section='content'] section.body h3 {
-        margin: 40px 0 25px;
+        margin: 50px 0 25px;
         padding-bottom: 5px;
         font-size: 30px;
         font-weight: 200;

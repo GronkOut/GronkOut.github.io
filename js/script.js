@@ -103,7 +103,6 @@ const signIn = async () => {
     { parent: 'javascript-libraries', child: [
       'algorithm',
       'eslint',
-      'unit-test',
       'immutable',
       'fullpage',
       'gsap',
@@ -115,6 +114,7 @@ const signIn = async () => {
       'json-server',
       'three',
       'youtube',
+      'jest',
     ] },
     { parent: 'jquery', child: [
       'setup',
@@ -558,7 +558,9 @@ const signIn = async () => {
 
   $hbeInputField.attr('placeholder', 'Enter password').before("<div class='hbe-title'>Encrypted content</div><div class='hbe-text'>Here's something encrypted, password is required to continue reading.</div>");
   $hbeInputField.on('keydown', function(event) {
-    if (event.key === 'Enter') {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+
       $sectionLoader.removeClass('hide');
 
       setTimeout(() => {
@@ -574,6 +576,18 @@ const signIn = async () => {
   const $masonry = $('#masonry');
 
   if ($masonry.length) {
+    $('.category-list > .category-list-item').each((index, element) => {
+      const $target = $(element).find('.category-list-link.parent');
+      const title = $target.text();
+
+      $target.replaceWith(`
+        <div class="category-list-item-cover">
+          <img class="category-list-item-image" src="/img/index/${ title }.jpg">
+          <div class="category-list-item-title">${ title }</div>
+        </div>
+      `);
+    });
+
     new Masonry('.category-list', {
       itemSelector: '.category-list > .category-list-item',
       percentPosition: true,

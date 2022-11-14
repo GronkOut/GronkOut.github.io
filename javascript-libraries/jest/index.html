@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Javascript - Jest v29.2 | MIB</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="robots" content="none">
+    <meta name="viewport" content="width=device-width">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.svg">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    
+        
+<link rel="stylesheet" href="/css/post.css">
+
+    
+    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
+    <script>
+      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
+      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
+    </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="post">
+    <!-- Loader -->
+    <div section="loader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header section="header">
+        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
+        <div class="title">
+            <a class="link" title="Memo In Brain" href="/">
+                <span class="text">Memo In Brain</span>
+                <img class="image" src="/img/logo.svg" alt="Logo">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul class="list">
+                
+                    <li class="item">
+                        <a class="button" title="Memo" href="/memo/">Memo</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
+                    </li>
+                
+                    <li class="item">
+                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
+                    </li>
+                
+            </ul>
+        </nav>
+        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
+    </header>
+
+    <!-- Main -->
+    <main section="main">
+        
+            <!-- Category / TOC -->
+            <aside section="sidebar">
+                <div class="wrap">
+                    <menu class="menu">
+                        <li class="item">
+                            <button class="button" title="Category" type="button">CATEGORY</button>
+                        </li>
+                        <li class="item">
+                            <button class="button" title="Table Of Content" type="button">TOC</button>
+                        </li>
+                    </menu>
+                    <div class="scroll">
+                        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/algorithm/">algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/jest/">jest</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/broadcast-channel/">broadcast-channel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/intersection-observer/">intersection-observer</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/navigator/">navigator</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/">svelte</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/components/">components</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/context-api/">context-api</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/special-elements/">special-elements</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/style-effect/">style-effect</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/template/">template</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/pinia/">pinia</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a><span class="category-list-count">1</span></li></ul></li></ul>
+                        
+                            <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Vanilla"><span class="toc-list-number">1.</span> <span class="toc-list-text">Vanilla</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Setup"><span class="toc-list-number">1.1.</span> <span class="toc-list-text">Setup</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#CLI"><span class="toc-list-number">1.2.</span> <span class="toc-list-text">CLI</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Globals"><span class="toc-list-number">1.3.</span> <span class="toc-list-text">Globals</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Expect"><span class="toc-list-number">1.4.</span> <span class="toc-list-text">Expect</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#Vite-React"><span class="toc-list-number">2.</span> <span class="toc-list-text">Vite React</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Setup-1"><span class="toc-list-number">2.1.</span> <span class="toc-list-text">Setup</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Use-test"><span class="toc-list-number">2.2.</span> <span class="toc-list-text">Use test</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Render-methods"><span class="toc-list-number">2.3.</span> <span class="toc-list-text">Render methods</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#Render-queries"><span class="toc-list-number">2.4.</span> <span class="toc-list-text">Render queries</span></a></li></ol></li></ol>
+                        
+                    </div>
+                    <div class="footer">
+                        <button class="button expand" title="Expand"><i class="fa-solid fa-arrows-down-to-line"></i></button>
+                        <button class="button collapse" title="Collapse"><i class="fa-solid fa-arrows-up-to-line"></i></button>
+                        <div class="percent">
+                            <progress class="progress" max="100"></progress>
+                            <span class="text"></span>
+                        </div>
+                        <button class="button top" title="Go to top"><i class="fa-solid fa-caret-up"></i></button>
+                        <button class="button bottom" title="Go to bottom"><i class="fa-solid fa-caret-up"></i></button>
+                    </div>
+                </div>
+            </aside>
+        
+        <!-- Content -->
+        <article section="content">
+    <section class="header">
+        <div class="breadcrumbs">
+            <span class="breadcrumb">MEMO IN BRAIN</span>
+            
+                <span class="breadcrumb">JAVASCRIPT-LIBRARIES</span>
+            
+                <span class="breadcrumb">JEST</span>
+            
+        </div>
+        <h1 class="title">Javascript - Jest v29.2</h1>
+    </section>
+
+    <section class="body">
+        <div class="links">
+  <a target="_blank" rel="noopener noreferrer" href="https://jestjs.io/docs/api">https://jestjs.io/docs/api</a>
+</div>
+
+<h2 id="Vanilla"><a href="#Vanilla" class="headerlink" title="Vanilla"></a>Vanilla</h2><h3 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell">npm install <span class="hljs-literal">--save-dev</span> jest<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight json"><figcaption><span>package.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;test&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;jest&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="CLI"><a href="#CLI" class="headerlink" title="CLI"></a>CLI</h3><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/cli">https://jestjs.io/docs/cli</a></p>
+<h3 id="Globals"><a href="#Globals" class="headerlink" title="Globals"></a>Globals</h3><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api">https://jestjs.io/docs/api</a></p>
+<h4 id="beforeEach"><a href="#beforeEach" class="headerlink" title="beforeEach"></a>beforeEach</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#beforeeachfn-timeout">https://jestjs.io/docs/api#beforeeachfn-timeout</a></p>
+<blockquote>
+<p>각 테스트가 실행되기 전에 함수를 실행한다.</p>
+</blockquote>
+<h4 id="afterEach"><a href="#afterEach" class="headerlink" title="afterEach"></a>afterEach</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#aftereachfn-timeout">https://jestjs.io/docs/api#aftereachfn-timeout</a></p>
+<blockquote>
+<p>각 테스트가 완료된 후 함수를 실행한다.</p>
+</blockquote>
+<h4 id="beforeAll"><a href="#beforeAll" class="headerlink" title="beforeAll"></a>beforeAll</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#beforeallfn-timeout">https://jestjs.io/docs/api#beforeallfn-timeout</a></p>
+<blockquote>
+<p>최초 테스트가 실행되기 전에 함수를 실행한다.</p>
+</blockquote>
+<h4 id="afterAll"><a href="#afterAll" class="headerlink" title="afterAll"></a>afterAll</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#afterallfn-timeout">https://jestjs.io/docs/api#afterallfn-timeout</a></p>
+<blockquote>
+<p>모든 테스트가 완료된 후 함수를 실행한다.</p>
+</blockquote>
+<h4 id="describe"><a href="#describe" class="headerlink" title="describe"></a>describe</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#describename-fn">https://jestjs.io/docs/api#describename-fn</a></p>
+<blockquote>
+<p>관련있는 테스트로 그룹화한다.<br>중첩 가능하다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-comment">//</span><br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h4 id="describe-each"><a href="#describe-each" class="headerlink" title="describe.each"></a>describe.each</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#describeeachtablename-fn-timeout">https://jestjs.io/docs/api#describeeachtablename-fn-timeout</a></p>
+<h4 id="describe-only"><a href="#describe-only" class="headerlink" title="describe.only"></a>describe.only</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#describeonlyname-fn">https://jestjs.io/docs/api#describeonlyname-fn</a></p>
+<h4 id="describe-only-each"><a href="#describe-only-each" class="headerlink" title="describe.only.each"></a>describe.only.each</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#describeonlyeachtablename-fn">https://jestjs.io/docs/api#describeonlyeachtablename-fn</a></p>
+<h4 id="describe-skip"><a href="#describe-skip" class="headerlink" title="describe.skip"></a>describe.skip</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#describeskipname-fn">https://jestjs.io/docs/api#describeskipname-fn</a></p>
+<h4 id="describe-skip-each"><a href="#describe-skip-each" class="headerlink" title="describe.skip.each"></a>describe.skip.each</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#describeskipeachtablename-fn">https://jestjs.io/docs/api#describeskipeachtablename-fn</a></p>
+<h4 id="test"><a href="#test" class="headerlink" title="test"></a>test</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testname-fn-timeout">https://jestjs.io/docs/api#testname-fn-timeout</a></p>
+<blockquote>
+<p>테스트를 실행하는 메서드이다.<br><code>it</code> 메서드와 동일하다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-comment">//</span><br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h4 id="test-concurrent"><a href="#test-concurrent" class="headerlink" title="test.concurrent"></a>test.concurrent</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testconcurrentname-fn-timeout">https://jestjs.io/docs/api#testconcurrentname-fn-timeout</a></p>
+<h4 id="test-concurrent-each"><a href="#test-concurrent-each" class="headerlink" title="test.concurrent.each"></a>test.concurrent.each</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testconcurrenteachtablename-fn-timeout">https://jestjs.io/docs/api#testconcurrenteachtablename-fn-timeout</a></p>
+<h4 id="test-concurrent-only-each"><a href="#test-concurrent-only-each" class="headerlink" title="test.concurrent.only.each"></a>test.concurrent.only.each</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testconcurrentonlyeachtablename-fn">https://jestjs.io/docs/api#testconcurrentonlyeachtablename-fn</a></p>
+<h4 id="test-concurrent-skip-each"><a href="#test-concurrent-skip-each" class="headerlink" title="test.concurrent.skip.each"></a>test.concurrent.skip.each</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testconcurrentskipeachtablename-fn">https://jestjs.io/docs/api#testconcurrentskipeachtablename-fn</a></p>
+<h4 id="test-each"><a href="#test-each" class="headerlink" title="test.each"></a>test.each</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testeachtablename-fn-timeout">https://jestjs.io/docs/api#testeachtablename-fn-timeout</a></p>
+<h4 id="test-failing"><a href="#test-failing" class="headerlink" title="test.failing"></a>test.failing</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testfailingname-fn-timeout">https://jestjs.io/docs/api#testfailingname-fn-timeout</a></p>
+<h4 id="test-failing-each"><a href="#test-failing-each" class="headerlink" title="test.failing.each"></a>test.failing.each</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testfailingeachname-fn-timeout">https://jestjs.io/docs/api#testfailingeachname-fn-timeout</a></p>
+<h4 id="test-only-failing"><a href="#test-only-failing" class="headerlink" title="test.only.failing"></a>test.only.failing</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testonlyfailingname-fn-timeout">https://jestjs.io/docs/api#testonlyfailingname-fn-timeout</a></p>
+<h4 id="test-skip-failing"><a href="#test-skip-failing" class="headerlink" title="test.skip.failing"></a>test.skip.failing</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testskipfailingname-fn-timeout">https://jestjs.io/docs/api#testskipfailingname-fn-timeout</a></p>
+<h4 id="test-only"><a href="#test-only" class="headerlink" title="test.only"></a>test.only</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testonlyname-fn-timeout">https://jestjs.io/docs/api#testonlyname-fn-timeout</a></p>
+<h4 id="test-only-each"><a href="#test-only-each" class="headerlink" title="test.only.each"></a>test.only.each</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testonlyeachtablename-fn-1">https://jestjs.io/docs/api#testonlyeachtablename-fn-1</a></p>
+<h4 id="test-skip"><a href="#test-skip" class="headerlink" title="test.skip"></a>test.skip</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testskipname-fn">https://jestjs.io/docs/api#testskipname-fn</a></p>
+<h4 id="test-skip-each"><a href="#test-skip-each" class="headerlink" title="test.skip.each"></a>test.skip.each</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testskipeachtablename-fn">https://jestjs.io/docs/api#testskipeachtablename-fn</a></p>
+<h4 id="test-todo"><a href="#test-todo" class="headerlink" title="test.todo"></a>test.todo</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/api#testtodoname">https://jestjs.io/docs/api#testtodoname</a></p>
+<h3 id="Expect"><a href="#Expect" class="headerlink" title="Expect"></a>Expect</h3><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect">https://jestjs.io/docs/expect</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">expect</span>(<span class="hljs-number">1</span> + <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="expect-extend"><a href="#expect-extend" class="headerlink" title="expect.extend"></a>expect.extend</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectextendmatchers">https://jestjs.io/docs/expect#expectextendmatchers</a></p>
+<blockquote>
+<p><code>matcher</code> 를 확장한다.</p>
+</blockquote>
+<h4 id="expect-anything"><a href="#expect-anything" class="headerlink" title="expect.anything"></a>expect.anything</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectanything">https://jestjs.io/docs/expect#expectanything</a></p>
+<blockquote>
+<p><code>null</code> 또는 <code>undefined</code> 가 아닌 경우와 일치한다.</p>
+</blockquote>
+<h4 id="expect-any"><a href="#expect-any" class="headerlink" title="expect.any"></a>expect.any</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectanyconstructor">https://jestjs.io/docs/expect#expectanyconstructor</a></p>
+<h4 id="expect-stringContaining"><a href="#expect-stringContaining" class="headerlink" title="expect.stringContaining"></a>expect.stringContaining</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectstringcontainingstring">https://jestjs.io/docs/expect#expectstringcontainingstring</a></p>
+<h4 id="expect-not-stringContaining"><a href="#expect-not-stringContaining" class="headerlink" title="expect.not.stringContaining"></a>expect.not.stringContaining</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectnotstringcontainingstring">https://jestjs.io/docs/expect#expectnotstringcontainingstring</a></p>
+<h4 id="expect-stringMatching"><a href="#expect-stringMatching" class="headerlink" title="expect.stringMatching"></a>expect.stringMatching</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectstringmatchingstring--regexp">https://jestjs.io/docs/expect#expectstringmatchingstring--regexp</a></p>
+<h4 id="expect-not-stringMatching"><a href="#expect-not-stringMatching" class="headerlink" title="expect.not.stringMatching"></a>expect.not.stringMatching</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectnotstringmatchingstring--regexp">https://jestjs.io/docs/expect#expectnotstringmatchingstring--regexp</a></p>
+<h4 id="expect-arrayContaining"><a href="#expect-arrayContaining" class="headerlink" title="expect.arrayContaining"></a>expect.arrayContaining</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectarraycontainingarray">https://jestjs.io/docs/expect#expectarraycontainingarray</a></p>
+<h4 id="expect-not-arrayContaining"><a href="#expect-not-arrayContaining" class="headerlink" title="expect.not.arrayContaining"></a>expect.not.arrayContaining</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectnotarraycontainingarray">https://jestjs.io/docs/expect#expectnotarraycontainingarray</a></p>
+<h4 id="expect-objectContaining"><a href="#expect-objectContaining" class="headerlink" title="expect.objectContaining"></a>expect.objectContaining</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectobjectcontainingobject">https://jestjs.io/docs/expect#expectobjectcontainingobject</a></p>
+<h4 id="expect-not-objectContaining"><a href="#expect-not-objectContaining" class="headerlink" title="expect.not.objectContaining"></a>expect.not.objectContaining</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectnotobjectcontainingobject">https://jestjs.io/docs/expect#expectnotobjectcontainingobject</a></p>
+<h4 id="expect-assertions"><a href="#expect-assertions" class="headerlink" title="expect.assertions"></a>expect.assertions</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectassertionsnumber">https://jestjs.io/docs/expect#expectassertionsnumber</a></p>
+<h4 id="expect-closeTo"><a href="#expect-closeTo" class="headerlink" title="expect.closeTo"></a>expect.closeTo</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectclosetonumber-numdigits">https://jestjs.io/docs/expect#expectclosetonumber-numdigits</a></p>
+<h4 id="expect-hasAssertions"><a href="#expect-hasAssertions" class="headerlink" title="expect.hasAssertions"></a>expect.hasAssertions</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expecthasassertions">https://jestjs.io/docs/expect#expecthasassertions</a></p>
+<h4 id="expect-addSnapshotSerializer"><a href="#expect-addSnapshotSerializer" class="headerlink" title="expect.addSnapshotSerializer"></a>expect.addSnapshotSerializer</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#expectaddsnapshotserializerserializer">https://jestjs.io/docs/expect#expectaddsnapshotserializerserializer</a></p>
+<h4 id="not"><a href="#not" class="headerlink" title=".not"></a>.not</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#not">https://jestjs.io/docs/expect#not</a></p>
+<blockquote>
+<p>반대의 경우로 테스트한다.</p>
+</blockquote>
+<h4 id="toBeNull"><a href="#toBeNull" class="headerlink" title=".toBeNull"></a>.toBeNull</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobenull">https://jestjs.io/docs/expect#tobenull</a></p>
+<blockquote>
+<p><code>null</code> 인지 테스트한다.<br><code>toBe(null)</code> 과 동일하지만 오류 메세지가 더 좋다.</p>
+</blockquote>
+<h4 id="toBeDefined"><a href="#toBeDefined" class="headerlink" title=".toBeDefined"></a>.toBeDefined</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobedefined">https://jestjs.io/docs/expect#tobedefined</a></p>
+<blockquote>
+<p>정의된 값이 있는지 테스트한다.</p>
+</blockquote>
+<h4 id="toBeUndefined"><a href="#toBeUndefined" class="headerlink" title=".toBeUndefined"></a>.toBeUndefined</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobeundefined">https://jestjs.io/docs/expect#tobeundefined</a></p>
+<blockquote>
+<p>정의된 값이 없는지 테스트한다.</p>
+</blockquote>
+<h4 id="toBeTruthy"><a href="#toBeTruthy" class="headerlink" title=".toBeTruthy"></a>.toBeTruthy</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobetruthy">https://jestjs.io/docs/expect#tobetruthy</a></p>
+<blockquote>
+<p>참 값인지 테스트한다.</p>
+</blockquote>
+<h4 id="toBeFalsy"><a href="#toBeFalsy" class="headerlink" title=".toBeFalsy"></a>.toBeFalsy</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobefalsy">https://jestjs.io/docs/expect#tobefalsy</a></p>
+<blockquote>
+<p>거짓 값 (<code>false</code>, <code>0</code>, <code>&#39;&#39;</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>) 인지 테스트한다.</p>
+</blockquote>
+<h4 id="toBeNaN"><a href="#toBeNaN" class="headerlink" title=".toBeNaN"></a>.toBeNaN</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobenan">https://jestjs.io/docs/expect#tobenan</a></p>
+<blockquote>
+<p>숫자가 아닌지 테스트한다.</p>
+</blockquote>
+<h4 id="toBe"><a href="#toBe" class="headerlink" title=".toBe"></a>.toBe</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobevalue">https://jestjs.io/docs/expect#tobevalue</a></p>
+<blockquote>
+<p>값이 동일한지 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">expect</span>(<span class="hljs-number">1</span> + <span class="hljs-number">2</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-number">3</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="toBeCloseTo"><a href="#toBeCloseTo" class="headerlink" title=".toBeCloseTo"></a>.toBeCloseTo</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobeclosetonumber-numdigits">https://jestjs.io/docs/expect#tobeclosetonumber-numdigits</a></p>
+<blockquote>
+<p>부동소수점 숫자를 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">expect</span>(<span class="hljs-number">0.2</span> + <span class="hljs-number">0.1</span>).<span class="hljs-title function_">toBeCloseTo</span>(<span class="hljs-number">0.3</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// 5 자리 정밀도로 통과함</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="toBeLessThan"><a href="#toBeLessThan" class="headerlink" title=".toBeLessThan"></a>.toBeLessThan</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobelessthannumber--bigint">https://jestjs.io/docs/expect#tobelessthannumber--bigint</a></p>
+<blockquote>
+<p>보다 작은 값인지 테스트한다.</p>
+</blockquote>
+<h4 id="toBeGreaterThan"><a href="#toBeGreaterThan" class="headerlink" title=".toBeGreaterThan"></a>.toBeGreaterThan</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobegreaterthannumber--bigint">https://jestjs.io/docs/expect#tobegreaterthannumber--bigint</a></p>
+<blockquote>
+<p>보다 큰 값인지 테스트한다.</p>
+</blockquote>
+<h4 id="toBeLessThanOrEqual"><a href="#toBeLessThanOrEqual" class="headerlink" title=".toBeLessThanOrEqual"></a>.toBeLessThanOrEqual</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobelessthanorequalnumber--bigint">https://jestjs.io/docs/expect#tobelessthanorequalnumber--bigint</a></p>
+<blockquote>
+<p>보다 작거나 같은 값인지 테스트한다.</p>
+</blockquote>
+<h4 id="toBeGreaterThanOrEqual"><a href="#toBeGreaterThanOrEqual" class="headerlink" title=".toBeGreaterThanOrEqual"></a>.toBeGreaterThanOrEqual</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobegreaterthanorequalnumber--bigint">https://jestjs.io/docs/expect#tobegreaterthanorequalnumber--bigint</a></p>
+<blockquote>
+<p>보다 크거나 같은 값인지 테스트한다.</p>
+</blockquote>
+<h4 id="toHaveLength"><a href="#toHaveLength" class="headerlink" title=".toHaveLength"></a>.toHaveLength</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tohavelengthnumber">https://jestjs.io/docs/expect#tohavelengthnumber</a></p>
+<blockquote>
+<p><code>length</code> 속성이 있고 값이 일치하는지 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">expect</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]).<span class="hljs-title function_">toHaveLength</span>(<span class="hljs-number">3</span>);<br><span class="hljs-title function_">expect</span>(<span class="hljs-string">&#x27;abc&#x27;</span>).<span class="hljs-title function_">toHaveLength</span>(<span class="hljs-number">3</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="toHaveProperty"><a href="#toHaveProperty" class="headerlink" title=".toHaveProperty"></a>.toHaveProperty</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tohavepropertykeypath-value">https://jestjs.io/docs/expect#tohavepropertykeypath-value</a></p>
+<blockquote>
+<p>속성이 존재하는지와 값이 같은지 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">expect</span>(&#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> &#125;).<span class="hljs-title function_">toHaveProperty</span>(<span class="hljs-string">&#x27;a&#x27;</span>);<br><span class="hljs-title function_">expect</span>(&#123; <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> &#125;).<span class="hljs-title function_">toHaveProperty</span>(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-number">1</span>);<br><span class="hljs-title function_">expect</span>(&#123; <span class="hljs-attr">a</span>: &#123; <span class="hljs-attr">b</span>: <span class="hljs-number">1</span> &#125; &#125;).<span class="hljs-title function_">toHaveProperty</span>(<span class="hljs-string">&#x27;a.b&#x27;</span>);<br><span class="hljs-title function_">expect</span>(&#123; <span class="hljs-attr">a</span>: &#123; <span class="hljs-attr">b</span>: <span class="hljs-number">1</span> &#125; &#125;).<span class="hljs-title function_">toHaveProperty</span>(<span class="hljs-string">&#x27;a.b&#x27;</span>, <span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="toContain"><a href="#toContain" class="headerlink" title=".toContain"></a>.toContain</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tocontainitem">https://jestjs.io/docs/expect#tocontainitem</a></p>
+<blockquote>
+<p>목록에서 값을 포함하는지 여부를 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">expect</span>(<span class="hljs-string">&#x27;abc&#x27;</span>).<span class="hljs-title function_">toContain</span>(<span class="hljs-string">&#x27;b&#x27;</span>);<br><span class="hljs-title function_">expect</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]).<span class="hljs-title function_">toContain</span>(<span class="hljs-number">2</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="toContainEqual"><a href="#toContainEqual" class="headerlink" title=".toContainEqual"></a>.toContainEqual</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tocontainequalitem">https://jestjs.io/docs/expect#tocontainequalitem</a></p>
+<blockquote>
+<p>목록에서 값목록을 포함하는지 여부를 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">expect</span>(<span class="hljs-string">&#x27;abc&#x27;</span>).<span class="hljs-title function_">toContainEqual</span>(<span class="hljs-string">&#x27;ab&#x27;</span>);<br><span class="hljs-title function_">expect</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]).<span class="hljs-title function_">toContainEqual</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]);<br><span class="hljs-title function_">expect</span>(&#123;<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">c</span>: <span class="hljs-number">3</span>&#125;).<span class="hljs-title function_">toContainEqual</span>(&#123;<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h4 id="toEqual"><a href="#toEqual" class="headerlink" title=".toEqual"></a>.toEqual</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#toequalvalue">https://jestjs.io/docs/expect#toequalvalue</a></p>
+<blockquote>
+<p>목록과 일치하는지 여부를 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">expect</span>(<span class="hljs-string">&#x27;abc&#x27;</span>).<span class="hljs-title function_">toContainEqual</span>(<span class="hljs-string">&#x27;abc&#x27;</span>);<br><span class="hljs-title function_">expect</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]).<span class="hljs-title function_">toContainEqual</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);<br><span class="hljs-title function_">expect</span>(&#123;<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">c</span>: <span class="hljs-number">3</span>&#125;).<span class="hljs-title function_">toContainEqual</span>(&#123;<span class="hljs-attr">a</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">c</span>: <span class="hljs-number">3</span>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h4 id="toMatch"><a href="#toMatch" class="headerlink" title=".toMatch"></a>.toMatch</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tomatchregexp--string">https://jestjs.io/docs/expect#tomatchregexp--string</a></p>
+<blockquote>
+<p>정규식과 일치를 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">expect</span>(<span class="hljs-string">&#x27;abcdefg&#x27;</span>).<span class="hljs-title function_">toMatch</span>(<span class="hljs-regexp">/cde/</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="toMatchObject"><a href="#toMatchObject" class="headerlink" title=".toMatchObject"></a>.toMatchObject</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tomatchobjectobject">https://jestjs.io/docs/expect#tomatchobjectobject</a></p>
+<h4 id="toBeInstanceOf"><a href="#toBeInstanceOf" class="headerlink" title=".toBeInstanceOf"></a>.toBeInstanceOf</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tobeinstanceofclass">https://jestjs.io/docs/expect#tobeinstanceofclass</a></p>
+<blockquote>
+<p>클래스의 인스턴스인지 테스트한다.</p>
+</blockquote>
+<h4 id="toHaveBeenCalled"><a href="#toHaveBeenCalled" class="headerlink" title=".toHaveBeenCalled"></a>.toHaveBeenCalled</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tohavebeencalled">https://jestjs.io/docs/expect#tohavebeencalled</a></p>
+<blockquote>
+<p>함수에서 호출되었는지 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> jestFn = jest.<span class="hljs-title function_">fn</span>();<br><br><span class="hljs-title function_">testFn</span>(jestFn);<br><br><span class="hljs-title function_">expect</span>(jestFn).<span class="hljs-title function_">toHaveBeenCalled</span>();<br></code></pre></td></tr></table></figure>
+
+<h4 id="toHaveBeenCalledTimes"><a href="#toHaveBeenCalledTimes" class="headerlink" title=".toHaveBeenCalledTimes"></a>.toHaveBeenCalledTimes</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tohavebeencalledtimesnumber">https://jestjs.io/docs/expect#tohavebeencalledtimesnumber</a></p>
+<blockquote>
+<p>함수에서 호출된 횟수가 일치하는지 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> jestFn = jest.<span class="hljs-title function_">fn</span>();<br><br><span class="hljs-title function_">testFn</span>(jestFn);<br><br><span class="hljs-title function_">expect</span>(jestFn).<span class="hljs-title function_">toHaveBeenCalledTimes</span>(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="toHaveBeenCalledWith"><a href="#toHaveBeenCalledWith" class="headerlink" title=".toHaveBeenCalledWith"></a>.toHaveBeenCalledWith</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tohavebeencalledwitharg1-arg2-">https://jestjs.io/docs/expect#tohavebeencalledwitharg1-arg2-</a></p>
+<h4 id="toHaveBeenLastCalledWith"><a href="#toHaveBeenLastCalledWith" class="headerlink" title=".toHaveBeenLastCalledWith"></a>.toHaveBeenLastCalledWith</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tohavebeenlastcalledwitharg1-arg2-">https://jestjs.io/docs/expect#tohavebeenlastcalledwitharg1-arg2-</a></p>
+<h4 id="toHaveReturned"><a href="#toHaveReturned" class="headerlink" title=".toHaveReturned"></a>.toHaveReturned</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tohavereturned">https://jestjs.io/docs/expect#tohavereturned</a></p>
+<blockquote>
+<p>함수의 리턴값이 성공적으로 반환되었는지 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> jestFn = jest.<span class="hljs-title function_">fn</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-literal">true</span>);<br><br><span class="hljs-title function_">jestFn</span>();<br><br><span class="hljs-title function_">expect</span>(jestFn).<span class="hljs-title function_">toHaveReturned</span>();<br></code></pre></td></tr></table></figure>
+
+<h4 id="toHaveReturnedTimes"><a href="#toHaveReturnedTimes" class="headerlink" title=".toHaveReturnedTimes"></a>.toHaveReturnedTimes</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tohavereturnedtimesnumber">https://jestjs.io/docs/expect#tohavereturnedtimesnumber</a></p>
+<blockquote>
+<p>함수의 리턴값이 성공적으로 반환된 횟수가 일치하는지 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> jestFn = jest.<span class="hljs-title function_">fn</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-literal">true</span>);<br><br><span class="hljs-title function_">jestFn</span>();<br><br><span class="hljs-title function_">expect</span>(jestFn).<span class="hljs-title function_">toHaveReturnedTimes</span>(<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="toHaveReturnedWith"><a href="#toHaveReturnedWith" class="headerlink" title=".toHaveReturnedWith"></a>.toHaveReturnedWith</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tohavereturnedwithvalue">https://jestjs.io/docs/expect#tohavereturnedwithvalue</a></p>
+<blockquote>
+<p>함수가 특정값을 반환했는지 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> jestFn = jest.<span class="hljs-title function_">fn</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-string">&#x27;a&#x27;</span>);<br><br><span class="hljs-title function_">jestFn</span>();<br><br><span class="hljs-title function_">expect</span>(jestFn).<span class="hljs-title function_">toHaveReturnedWith</span>(<span class="hljs-string">&#x27;a&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="toHaveLastReturnedWith"><a href="#toHaveLastReturnedWith" class="headerlink" title=".toHaveLastReturnedWith"></a>.toHaveLastReturnedWith</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tohavelastreturnedwithvalue">https://jestjs.io/docs/expect#tohavelastreturnedwithvalue</a></p>
+<h4 id="toHaveNthReturnedWith"><a href="#toHaveNthReturnedWith" class="headerlink" title=".toHaveNthReturnedWith"></a>.toHaveNthReturnedWith</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tohaventhreturnedwithnthcall-value">https://jestjs.io/docs/expect#tohaventhreturnedwithnthcall-value</a></p>
+<h4 id="toStrictEqual"><a href="#toStrictEqual" class="headerlink" title=".toStrictEqual"></a>.toStrictEqual</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tostrictequalvalue">https://jestjs.io/docs/expect#tostrictequalvalue</a></p>
+<h4 id="toThrow"><a href="#toThrow" class="headerlink" title=".toThrow"></a>.toThrow</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tothrowerror">https://jestjs.io/docs/expect#tothrowerror</a></p>
+<h4 id="resolves"><a href="#resolves" class="headerlink" title=".resolves"></a>.resolves</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#resolves">https://jestjs.io/docs/expect#resolves</a></p>
+<blockquote>
+<p><code>Promise</code> 를 언래핑하고 이행된 약속을 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">await</span> <span class="hljs-title function_">expect</span>(<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>(<span class="hljs-string">&#x27;abc&#x27;</span>)).<span class="hljs-property">resolves</span>.<span class="hljs-title function_">toBe</span>(<span class="hljs-string">&#x27;abc&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="rejects"><a href="#rejects" class="headerlink" title=".rejects"></a>.rejects</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#rejects">https://jestjs.io/docs/expect#rejects</a></p>
+<blockquote>
+<p><code>Promise</code> 를 언래핑하고 거부된 약속을 테스트한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">await</span> <span class="hljs-title function_">expect</span>(<span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;abc&#x27;</span>))).<span class="hljs-property">rejects</span>.<span class="hljs-title function_">toThrow</span>(<span class="hljs-string">&#x27;abc&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="toMatchSnapshot"><a href="#toMatchSnapshot" class="headerlink" title=".toMatchSnapshot"></a>.toMatchSnapshot</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tomatchsnapshotpropertymatchers-hint">https://jestjs.io/docs/expect#tomatchsnapshotpropertymatchers-hint</a><br><a target="_blank" rel="noopener" href="https://jestjs.io/docs/snapshot-testing">https://jestjs.io/docs/snapshot-testing</a></p>
+<blockquote>
+<p>스냅샷과 일치 여부를 테스트한다.<br>외부에 스냅샷 파일을 생성한다.</p>
+</blockquote>
+<h4 id="toMatchInlineSnapshot"><a href="#toMatchInlineSnapshot" class="headerlink" title=".toMatchInlineSnapshot"></a>.toMatchInlineSnapshot</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tomatchinlinesnapshotpropertymatchers-inlinesnapshot">https://jestjs.io/docs/expect#tomatchinlinesnapshotpropertymatchers-inlinesnapshot</a><br><a target="_blank" rel="noopener" href="https://jestjs.io/docs/snapshot-testing#inline-snapshots">https://jestjs.io/docs/snapshot-testing#inline-snapshots</a></p>
+<blockquote>
+<p>스냅샷과 일치 여부를 테스트한다.<br>내부에 스냅샷 문자열을 추가한다.</p>
+</blockquote>
+<h4 id="toThrowErrorMatchingSnapshot"><a href="#toThrowErrorMatchingSnapshot" class="headerlink" title=".toThrowErrorMatchingSnapshot"></a>.toThrowErrorMatchingSnapshot</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tothrowerrormatchingsnapshothint">https://jestjs.io/docs/expect#tothrowerrormatchingsnapshothint</a></p>
+<h4 id="toThrowErrorMatchingInlineSnapshot"><a href="#toThrowErrorMatchingInlineSnapshot" class="headerlink" title=".toThrowErrorMatchingInlineSnapshot"></a>.toThrowErrorMatchingInlineSnapshot</h4><p><a target="_blank" rel="noopener" href="https://jestjs.io/docs/expect#tothrowerrormatchinginlinesnapshotinlinesnapshot">https://jestjs.io/docs/expect#tothrowerrormatchinginlinesnapshotinlinesnapshot</a></p>
+<h2 id="Vite-React"><a href="#Vite-React" class="headerlink" title="Vite React"></a>Vite React</h2><h3 id="Setup-1"><a href="#Setup-1" class="headerlink" title="Setup"></a>Setup</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell">npm install <span class="hljs-literal">--save-dev</span> vitest @vitest/ui @vitest/coverage<span class="hljs-literal">-c8</span> @testing<span class="hljs-literal">-library</span>/react @testing<span class="hljs-literal">-library</span>/jest<span class="hljs-literal">-dom</span> @testing<span class="hljs-literal">-library</span>/user<span class="hljs-literal">-event</span> jsdom redux<span class="hljs-literal">-mock-store</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight json"><figcaption><span>package.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;test&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vitest&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;test:ui&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vitest --ui&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;test:run&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vitest run&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;test:update&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vitest -u&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;coverage&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vitest run --coverage&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><figcaption><span>vite.config.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; defineConfig &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vite&#x27;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineConfig</span>(&#123;<br>  <span class="hljs-attr">test</span>: &#123;<br>    <span class="hljs-attr">globals</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">environment</span>: <span class="hljs-string">&#x27;jsdom&#x27;</span>,<br>    <span class="hljs-attr">setupFiles</span>: <span class="hljs-string">&#x27;./src/test/setup.js&#x27;</span>,<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><figcaption><span>/src/test/setup.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;@testing-library/jest-dom&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Use-test"><a href="#Use-test" class="headerlink" title="Use test"></a>Use test</h3><figure class="highlight javascript"><figcaption><span>/src/test/index.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; afterEach &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vitest&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; cleanup, render &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@testing-library/react&#x27;</span>;<br><br><span class="hljs-title function_">afterEach</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-title function_">cleanup</span>();<br>&#125;);<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">customRender</span> = (<span class="hljs-params">ui, options = &#123;&#125;</span>) =&gt; <span class="hljs-title function_">render</span>(ui, &#123;<br>  <span class="hljs-attr">wrapper</span>: <span class="hljs-function">(<span class="hljs-params">&#123; children &#125;</span>) =&gt;</span> children, ...options,<br>&#125;);<br><br><span class="hljs-keyword">export</span> * <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@testing-library/react&#x27;</span>;<br><span class="hljs-keyword">export</span> &#123; <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> userEvent &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@testing-library/user-event&#x27;</span>;<br><span class="hljs-keyword">export</span> &#123; customRender <span class="hljs-keyword">as</span> render &#125;;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><figcaption><span>/src/components/Header.test.jsx</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; describe, expect, test &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vitest&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">MemoryRouter</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-router-dom&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Provider</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-redux&#x27;</span>;<br><span class="hljs-keyword">import</span> configureStore <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;redux-mock-store&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; render &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@/test&#x27;</span>;<br><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">Header</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./Header&#x27;</span>;<br><br><span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;Header&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> initialState = &#123; <span class="hljs-attr">output</span>:<span class="hljs-number">10</span> &#125;;<br>  <span class="hljs-keyword">const</span> mockStore = <span class="hljs-title function_">configureStore</span>();<br>  <span class="hljs-keyword">const</span> store = <span class="hljs-title function_">mockStore</span>(initialState);<br><br>  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Render&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> &#123; getByText &#125; = <span class="hljs-title function_">render</span>(<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">&#123;</span> <span class="hljs-attr">store</span> &#125;&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">Header</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>,<br>      &#123; <span class="hljs-attr">wrapper</span>: <span class="hljs-title class_">MemoryRouter</span> &#125;,<br>    );<br><br>    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">getByText</span>(<span class="hljs-string">&#x27;ABC&#x27;</span>)).<span class="hljs-property">not</span>.<span class="hljs-title function_">toBeNull</span>();<br>  &#125;);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h3 id="Render-methods"><a href="#Render-methods" class="headerlink" title="Render methods"></a>Render methods</h3><h4 id="baseElement"><a href="#baseElement" class="headerlink" title="baseElement"></a>baseElement</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/react-testing-library/api/#baseelement-1">https://testing-library.com/docs/react-testing-library/api/#baseelement-1</a></p>
+<blockquote>
+<p><code>body</code> 태그를 포함한 돔 요소를 반환한다.</p>
+</blockquote>
+<h4 id="container"><a href="#container" class="headerlink" title="container"></a>container</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/react-testing-library/api/#container-1">https://testing-library.com/docs/react-testing-library/api/#container-1</a></p>
+<blockquote>
+<p><code>div</code> 태그로 감싼 돔 요소를 반환한다.<br><code>container.firstChild</code> 로 <code>Fragment</code> 요소를 가져올 수 있다.<br>쿼리할 때 사용하지 않는 것이 좋다.</p>
+</blockquote>
+<h4 id="asFragment"><a href="#asFragment" class="headerlink" title="asFragment"></a>asFragment</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/react-testing-library/api/#asfragment">https://testing-library.com/docs/react-testing-library/api/#asfragment</a></p>
+<blockquote>
+<p>렌더링된 구성요소를 반환한다.<br>이벤트에 반응하여 변경된 요소를 파악할때 유용하다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; getByText, asFragment &#125; = <span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">TestComponent</span> /&gt;</span></span>);<br><span class="hljs-keyword">const</span> firstRender = <span class="hljs-title function_">asFragment</span>();<br><br>fireEvent.<span class="hljs-title function_">click</span>(<span class="hljs-title function_">getByText</span>(<span class="hljs-string">&#x27;Increase&#x27;</span>));<br><br><span class="hljs-title function_">expect</span>(firstRender).<span class="hljs-title function_">toMatchDiffSnapshot</span>(<span class="hljs-title function_">asFragment</span>());<br></code></pre></td></tr></table></figure>
+
+<h4 id="rerender"><a href="#rerender" class="headerlink" title="rerender"></a>rerender</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/react-testing-library/api/#rerender">https://testing-library.com/docs/react-testing-library/api/#rerender</a></p>
+<blockquote>
+<p><code>props</code> 를 업데이트하여 재 렌더링한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; rerender &#125; = <span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">TestComponent</span> <span class="hljs-attr">number</span>=<span class="hljs-string">&#123;</span> <span class="hljs-attr">1</span> &#125; /&gt;</span></span>);<br><br><span class="hljs-title function_">rerender</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">TestComponent</span> <span class="hljs-attr">number</span>=<span class="hljs-string">&#123;</span> <span class="hljs-attr">2</span> &#125; /&gt;</span></span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="unmount"><a href="#unmount" class="headerlink" title="unmount"></a>unmount</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/react-testing-library/api/#unmount">https://testing-library.com/docs/react-testing-library/api/#unmount</a></p>
+<blockquote>
+<p>렌더링된 구성 요소를 마운트 해제한다.<br>구성 요소를 제거할때 발생하는 일을 테스트하는데 유용하다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; container, unmount &#125; = <span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">TestComponent</span> /&gt;</span></span>);<br><br><span class="hljs-title function_">unmount</span>();<br></code></pre></td></tr></table></figure>
+
+<h4 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/react-testing-library/api/#debug">https://testing-library.com/docs/react-testing-library/api/#debug</a></p>
+<blockquote>
+<p>돔 요소를 출력한다.<br><code>screen.debug</code> 를 사용하는 것을 추천한다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">HelloWorld</span> = (<span class="hljs-params"></span>) =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello World<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;<br><span class="hljs-keyword">const</span> &#123; debug &#125; = <span class="hljs-title function_">render</span>(<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">HelloWorld</span> /&gt;</span></span>);<br><br><span class="hljs-title function_">debug</span>();<br></code></pre></td></tr></table></figure>
+
+<h3 id="Render-queries"><a href="#Render-queries" class="headerlink" title="Render queries"></a>Render queries</h3><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/queries/about">https://testing-library.com/docs/queries/about</a></p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">0 Match</th>
+<th align="left">1 Match</th>
+<th align="left">&gt;1 Match</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">getBy*</td>
+<td align="left"><code>Error</code></td>
+<td align="left"><code>Element</code></td>
+<td align="left"><code>Error</code></td>
+</tr>
+<tr>
+<td align="left">queryBy*</td>
+<td align="left"><code>null</code></td>
+<td align="left"><code>Element</code></td>
+<td align="left"><code>Error</code></td>
+</tr>
+<tr>
+<td align="left">findBy*</td>
+<td align="left"><code>reject Promise</code></td>
+<td align="left"><code>resolve Promise</code></td>
+<td align="left"><code>Error</code></td>
+</tr>
+<tr>
+<td align="left">getAllBy*</td>
+<td align="left"><code>Error</code></td>
+<td align="left"><code>[]</code></td>
+<td align="left"><code>[]</code></td>
+</tr>
+<tr>
+<td align="left">queryAllBy*</td>
+<td align="left"><code>[]</code></td>
+<td align="left"><code>[]</code></td>
+<td align="left"><code>[]</code></td>
+</tr>
+<tr>
+<td align="left">findAllBy*</td>
+<td align="left"><code>Error</code></td>
+<td align="left"><code>[]</code></td>
+<td align="left"><code>[]</code></td>
+</tr>
+</tbody></table>
+<h4 id="ByRole"><a href="#ByRole" class="headerlink" title="ByRole"></a>ByRole</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/queries/byrole">https://testing-library.com/docs/queries/byrole</a></p>
+<h4 id="ByLabelText"><a href="#ByLabelText" class="headerlink" title="ByLabelText"></a>ByLabelText</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/queries/bylabeltext">https://testing-library.com/docs/queries/bylabeltext</a></p>
+<h4 id="ByPlaceholderText"><a href="#ByPlaceholderText" class="headerlink" title="ByPlaceholderText"></a>ByPlaceholderText</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/queries/byplaceholdertext">https://testing-library.com/docs/queries/byplaceholdertext</a></p>
+<h4 id="ByText"><a href="#ByText" class="headerlink" title="ByText"></a>ByText</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/queries/bytext">https://testing-library.com/docs/queries/bytext</a></p>
+<h4 id="ByDisplayValue"><a href="#ByDisplayValue" class="headerlink" title="ByDisplayValue"></a>ByDisplayValue</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/queries/bydisplayvalue">https://testing-library.com/docs/queries/bydisplayvalue</a></p>
+<h4 id="ByAltText"><a href="#ByAltText" class="headerlink" title="ByAltText"></a>ByAltText</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/queries/byalttext">https://testing-library.com/docs/queries/byalttext</a></p>
+<h4 id="ByTitle"><a href="#ByTitle" class="headerlink" title="ByTitle"></a>ByTitle</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/queries/bytitle">https://testing-library.com/docs/queries/bytitle</a></p>
+<h4 id="ByTestId"><a href="#ByTestId" class="headerlink" title="ByTestId"></a>ByTestId</h4><p><a target="_blank" rel="noopener" href="https://testing-library.com/docs/queries/bytestid">https://testing-library.com/docs/queries/bytestid</a></p>
+
+    </section>
+
+    <section class="footer">
+        <div class="background"><i class="fa-brands fa-creative-commons"></i></div>
+        <div class="post">
+            <p class="name">Javascript - Jest v29.2</p>
+            <a class="link" href="/javascript-libraries/jest/">https://gronkout.github.io/javascript-libraries/jest/</a>
+        </div>
+        <div class="information">
+            <div class="author">
+                <p class="label">Author</p>
+                <p class="name">GronkOut</p>
+            </div>
+            <div class="license">
+                <p class="label">Licensed under</p>
+                <ul class="list">
+                    <li class="item">
+                        <a class="link" title="Creative Commons" target="_blank" href="https://creativecommons.org/">
+                            <i class="fa-brands fa-creative-commons"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" title="Attribution-NonCommercial 4.0 International" target="_blank" href="https://creativecommons.org/licenses/by-nc/4.0/">
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="navigation">
+        </div>
+        
+            <div class="tags">
+                
+                    <span class="tag"># javascript</span>
+                
+                    <span class="tag"># testing framework</span>
+                
+            </div>
+        
+    </section>
+
+    <section class="comment">
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous"></script>
+        <script src="https://utteranc.es/client.js" repo="GronkOut/gronkout.github.io" issue-term="pathname" label="Comment" theme="github-dark" crossorigin="anonymous"></script>
+    </section>
+</article>
+    </main>
+
+    <!-- Option -->
+    <aside section="option">
+        <div class="wrap">
+            <menu class="tabs">
+                <li class="item">
+                    <button class="button active">Search</button>
+                </li>
+                <li class="item">
+                    <button class="button">Setup</button>
+                </li>
+            </menu>
+            <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            <div section="search" class="panel active">
+                <label class="label" for="input-search-keyword">Search keyword</label>
+                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
+                <div id="search-result"></div>
+            </div>
+            <div section="setup" class="panel">
+                <label class="label" for="select-color-scheme">Change color scheme</label>
+                <select id="select-color-scheme" class="scheme">
+                    <option value="system">System default</option>
+                    <option value="light">Forced light</option>
+                    <option value="dark">Forced dark</option>
+                </select>
+                <label class="label" for="input-border-radius">Change border radius</label>
+                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
+                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
+                <div class="button-group">
+                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
+                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+<!-- Script -->
+
+
+
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js" type="module"></script>
+
+<script>
+  $(() => {
+    $.ajax({
+      url: '/search.xml',
+      dataType: 'xml',
+      success(xmlResponse) {
+        const datas = $('entry', xmlResponse).map((index, entry) => ({
+          title: $('title', entry).text(),
+          content: $('content', entry).text(),
+          url: $('url', entry).text(),
+        })).get();
+
+        const $searchResult = $('#search-result');
+
+        $('#input-search-keyword').on('input', (event) => {
+          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
+          let str = '<div class="scroll"><ul class="list">';
+          let numOfPostFound = 0;
+
+          $searchResult.html('');
+
+          if (event.target.value.trim().length <= 0) {
+            return;
+          }
+
+          datas.forEach((data) => {
+            const title = data.title.trim().toLowerCase();
+            const content = data.content.trim().replace(/<[^>]+>/g, '');
+            const url = data.url;
+            let isMatch = true;
+            let firstOccur = -1;
+
+            if (title !== '' && content !== '') {
+              keywords.forEach((keyword, index) => {
+                let contentIndex = content.toLowerCase().indexOf(keyword);
+
+                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
+                  isMatch = false;
+                } else {
+                  if (contentIndex < 0) contentIndex = 0;
+                  if (index === 0) firstOccur = contentIndex;
+                }
+              });
+            }
+
+            if (isMatch) {
+              numOfPostFound += 1;
+
+              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
+
+              if (firstOccur >= 0) {
+                let start = firstOccur - 50;
+                let end = firstOccur + 50;
+
+                if (start < 0) start = 0;
+                if (start === 0) end = 100;
+                if (end > content.length) end = content.length;
+
+                let match = content.substring(start, start + end);
+
+                keywords.forEach((keyword) => {
+                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
+                });
+
+                str += `<p class="content">${ match }...</p>`;
+              }
+
+              str += '</a></li>';
+            }
+          });
+
+          str += '</ul></div>';
+
+          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
+        });
+      }
+    });
+  })
+</script>
+</body>
+</html>
