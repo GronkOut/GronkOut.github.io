@@ -848,7 +848,10 @@ body #masonry {
         border-radius: var(--border-radius);
         border: 1px solid var(--color-00-005);
         background-color: var(--color-15-030);
+        transition: all 0.2s;
         content: ''; }
+      body #masonry .category-list > .category-list-item:hover:after {
+        background-color: var(--color-13-100); }
       body #masonry .category-list > .category-list-item .category-list-item-cover {
         position: relative;
         overflow: hidden;
