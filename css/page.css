@@ -860,6 +860,11 @@ body.page.portfolio #fullpage {
     body.page.portfolio #fullpage .section .slide .slide-list .item {
       color: var(--color-05-100);
       transition: all 0.2s; }
+      body.page.portfolio #fullpage .section .slide .slide-list .item .link {
+        text-decoration: underline;
+        transition: all 0.2s; }
+        body.page.portfolio #fullpage .section .slide .slide-list .item .link:hover {
+          color: var(--color-point-01); }
       body.page.portfolio #fullpage .section .slide .slide-list .item::marker {
         color: var(--color-10-100); }
       body.page.portfolio #fullpage .section .slide .slide-list .item + li {

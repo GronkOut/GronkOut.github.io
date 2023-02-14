@@ -80,6 +80,7 @@ const signIn = async () => {
     ] },
     { parent: 'javascript-web-api', child: [
       'event-target',
+      'abort-controller',
       'window',
       'navigator',
       'node',
@@ -88,7 +89,6 @@ const signIn = async () => {
       'html-element',
       'html-form-element',
       'html-media-element',
-      'intersection-observer',
       'blob-file',
       'xml-http-request',
       'canvas',
@@ -96,6 +96,7 @@ const signIn = async () => {
       'data-transfer',
       'broadcast-channel',
       'media-devices',
+      'observer',
       'web-worker',
       'web-component',
       'web-socket',
@@ -183,13 +184,14 @@ const signIn = async () => {
       'http-request',
     ] },
     { parent: 'node', child: [
+      'fs',
       'npm',
       'gulp',
       'ejs',
       'webpack',
       'vite',
+      'electron',
       'hexo',
-      'hexo-theme',
     ] },
     { parent: 'database', child: [
       'mysql',
@@ -209,11 +211,15 @@ const signIn = async () => {
       'koa',
       'heroku',
     ] },
+    { parent: 'ai', child: [
+        'vision',
+    ] },
     { parent: 'etc', child: [
       'character',
       'git',
       'chrome-extension',
       'excel',
+      'mac-os',
       'interview',
     ] },
   ];
