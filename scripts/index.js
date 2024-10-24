@@ -4,15 +4,12 @@
 
   if ($fullpage.length) {
     fp = new fullpage('#fullpage', {
-      licenseKey: '4A970FEE-847D4023-8572C79E-2838B2CF',
       menu: '#menu',
       navigation: true,
       slidesNavigation: true,
       loopHorizontal: false,
       normalScrollElements: '.swiper, [section="option"]',
       scrollOverflow: true,
-      scrollOverflowReset: true,
-      scrollOverflowResetKey: 'cGxheW5jLmNvbV9yMzVjMk55YjJ4c1QzWmxjbVpzYjNkU1pYTmxkQT09RTd4',
       parallax: true,
       parallaxKey: 'cGxheW5jLmNvbV85WTJjR0Z5WVd4c1lYZz05VW4=',
       parallaxOptions: {
