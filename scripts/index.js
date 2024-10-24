@@ -62,6 +62,6 @@
   });
 
   setInterval(() => {
-    $('.fp-viewing-ncsoft-5 > div').hide();
+    $('body > div').hide();
   }, 0);
 })(window.jQuery);
