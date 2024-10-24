@@ -4,6 +4,7 @@
 
   if ($fullpage.length) {
     fp = new fullpage('#fullpage', {
+      licenseKey: '4A970FEE-847D4023-8572C79E-2838B2CF',
       menu: '#menu',
       navigation: true,
       slidesNavigation: true,
@@ -60,5 +61,7 @@
     }
   });
 
-  $('.fp-viewing-ncsoft-5 > div').hide();
+  setInterval(() => {
+    $('.fp-viewing-ncsoft-5 > div').hide();
+  }, 0);
 })(window.jQuery);
