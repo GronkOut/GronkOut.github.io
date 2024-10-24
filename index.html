@@ -1,204 +1,962 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8">
-    <title>Memo In Brain</title>
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta name="robots" content="none">
-    <meta name="viewport" content="width=device-width">
-    <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/img/logo.svg">
-
-    <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
-    
-        
-<link rel="stylesheet" href="/css/vendors/fullpage-3.1.2.min.css">
-<link rel="stylesheet" href="/css/index.css">
-
-    
-    <link rel="stylesheet" href="/css/vendors/font-awesome-6.1.1.all.min.css">
-    <script>
-      const localStorageColorScheme = window.localStorage.getItem('colorScheme');
-      const isColorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-      document.documentElement.setAttribute('data-color-scheme', localStorageColorScheme || (isColorSchemeDark ? 'dark' : 'light'));
-    </script>
-<meta name="generator" content="Hexo 6.2.0"></head>
-
-<body class="">
-    <!-- Loader -->
-    <div section="loader">
-        <div class="icon"></div>
-    </div>
-
-    <!-- Header -->
-    <header section="header">
-        <button id="button-sidebar-show" class="button"><i class="fa-solid fa-bars"></i></button>
-        <div class="title">
-            <a class="link" title="Memo In Brain" href="/">
-                <span class="text">Memo In Brain</span>
-                <img class="image" src="/img/logo.svg" alt="Logo">
+  <meta charset="utf-8">
+  <title>Memo In Brain</title>
+  <meta name="robots" content="none">
+  <meta name="viewport" content="width=device-width">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111">
+  <link rel="shortcut icon" href="/images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Orbitron&family=Ubuntu&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/fullpage-3.1.2.min.css">
+  <link rel="stylesheet" href="/styles/swiper-8.2.4.min.css">
+  <link rel="stylesheet" href="/styles/viewer.css">
+  <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+  <article id="fullpage">
+    <!-- NC Soft -->
+    <section class="section active" data-tooltip="NC Soft" data-anchor="ncsoft">
+      <div class="slide" data-anchor="index">
+        <div class="fp-bg">
+          <img class="image" src="/images/ncsoft.png" alt="NC Soft" />
+        </div>
+        <h2 class="index-title">NC Soft</h2>
+        <ul class="index-list">
+          <li class="item">
+            <a class="link" href="#ncsoft/1">
+              <h3 class="title">VARCO Studio</h3>
+              <p class="date">2024년 6월 ~ 2024년 11월</p>
             </a>
-        </div>
-        <nav class="menu">
-            <ul class="list">
-                
-                    <li class="item">
-                        <a class="button" title="Memo" href="/memo/">Memo</a>
-                    </li>
-                
-                    <li class="item">
-                        <a class="button" title="Schedule" href="/schedule/">Schedule</a>
-                    </li>
-                
-                    <li class="item">
-                        <a class="button" title="Portfolio" href="/portfolio/">Portfolio</a>
-                    </li>
-                
-            </ul>
-        </nav>
-        <button class="button option" title="Options"><i class="fa-solid fa-gear"></i></button>
-    </header>
-
-    <!-- Main -->
-    <main section="main">
-        
-        <!-- Content -->
-        <article id="masonry">
-    <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/layout/">layout</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/font/">font</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/properties/">properties</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/rules/">rules</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/functions/">functions</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/selectors/">selectors</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ai/">ai</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ai/vision/">vision</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/etc/character/">character</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/chrome-extension/">chrome-extension</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/excel/">excel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/mac-os/">mac-os</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/database/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongoose/">mongoose</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/mongodb/">mongodb</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/">firebase</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/authentication/">authentication</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/firebase/setup/">setup</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/html/attributes/">attributes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/body/">body</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/head/">head</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/wai-aria/">wai-aria</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/html/kwcag/">kwcag</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/">javascript-global-objects</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array-buffer/">array-buffer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/array/">array</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/boolean/">boolean</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/data-view/">data-view</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/class/">class</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/date/">date</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/map/">map</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/json/">json</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/function/">function</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/number/">number</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/object/">object</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/proxy/">proxy</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/promise/">promise</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/operators/">operators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/reflect/">reflect</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/regexp/">regexp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/shared-array-buffer/">shared-array-buffer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/set/">set</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/statements/">statements</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/string/">string</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/symbol/">symbol</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/typed-array/">typed-array</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-map/">weak-map</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/weak-set/">weak-set</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-global-objects/web-assembly/">web-assembly</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/">javascript-libraries</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/algorithm/">algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/eslint/">eslint</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/immutable/">immutable</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/gsap/">gsap</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/js-zip/">js-zip</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/fullpage/">fullpage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/jest/">jest</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/scroll-magic/">scroll-magic</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/skrollr/">skrollr</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/smooth-scrollbar/">smooth-scrollbar</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/json-server/">json-server</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/swiper/">swiper</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/three/">three</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-libraries/youtube/">youtube</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/">javascript-web-api</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/abort-controller/">abort-controller</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/broadcast-channel/">broadcast-channel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/blob-file/">blob-file</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/data-transfer/">data-transfer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/canvas/">canvas</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/document/">document</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-element/">html-element</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/element/">element</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/event-target/">event-target</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-form-element/">html-form-element</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/html-media-element/">html-media-element</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/indexed-db/">indexed-db</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/observer/">observer</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/media-devices/">media-devices</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/node/">node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/navigator/">navigator</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-component/">web-component</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-socket/">web-socket</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/web-worker/">web-worker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/window/">window</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript-web-api/xml-http-request/">xml-http-request</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/effects/">effects</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/ajax/">ajax</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/plugins/">plugins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/manipulation/">manipulation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/selectors/">selectors</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/traversing/">traversing</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/utilities/">utilities</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/setup/">setup</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/events/">events</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/ejs/">ejs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/electron/">electron</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/fs/">fs</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/gulp/">gulp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/npm/">npm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/webpack/">webpack</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/vite/">vite</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/server/heroku/">heroku</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/koa/">koa</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/status/">status</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/iis/">iis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/nginx/">nginx</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/react/events/">events</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/components/">components</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/props/">props</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/jsx/">jsx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/lifecycle/">lifecycle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/redux/">redux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/ref/">ref</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/router/">router</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/rendering/">rendering</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/setup/">setup</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/state/">state</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/">svelte</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/setup/">setup</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/context-api/">context-api</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/router/">router</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/special-elements/">special-elements</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/components/">components</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/style-effect/">style-effect</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/svelte/template/">template</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/">typescript</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/asynchronous/">asynchronous</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/classes/">classes</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/decorators/">decorators</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/functions/">functions</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/generics/">generics</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/setup/">setup</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/interfaces/">interfaces</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/typescript/types/">types</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/vue/application/">application</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/built-ins/">built-ins</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/composition/">composition</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/data/">data</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/directives/">directives</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/emit/">emit</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/lifecycle/">lifecycle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/global/">global</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/options/">options</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/nuxt/">nuxt</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/pinia/">pinia</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/plugin/">plugin</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/reactivity/">reactivity</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/setup/">setup</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/router/">router</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/vuex/">vuex</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/debug/">debug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/http-request/">http-request</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/optimization/">optimization</a></li></ul></li></ul>
-</article>
-
-    </main>
-
-    <!-- Option -->
-    <aside section="option">
-        <div class="wrap">
-            <menu class="tabs">
-                <li class="item">
-                    <button class="button active">Search</button>
-                </li>
-                <li class="item">
-                    <button class="button">Setup</button>
-                </li>
-            </menu>
-            <button class="close"><i class="fa-solid fa-xmark"></i></button>
-            <div section="search" class="panel active">
-                <label class="label" for="input-search-keyword">Search keyword</label>
-                <input id="input-search-keyword" class="keyword" autocomplete="off" placeholder="Enter keyword" />
-                <div id="search-result"></div>
+          </li>
+          <li class="item">
+            <a class="link" href="#ncsoft/2">
+              <h3 class="title">VARCO Art</h3>
+              <p class="date">2023년 3월 ~ 2024년 6월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#ncsoft/3">
+              <h3 class="title">Deeplift</h3>
+              <p class="date">2022년 5월 ~ 2022년 10월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#ncsoft/4">
+              <h3 class="title">AI 비디오 검색</h3>
+              <p class="date">2022년 2월 ~ 2022년 4월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#ncsoft/5">
+              <h3 class="title">AI 비디오 분석</h3>
+              <p class="date">2021년 6월 ~ 2022년 2월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#ncsoft/6">
+              <h3 class="title">블레이드 & 소울 2</h3>
+              <p class="date">2021년 5월 ~ 2021년 6월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#ncsoft/7">
+              <h3 class="title">아이온</h3>
+              <p class="date">2020년 6월 ~ 2021년 6월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#ncsoft/8">
+              <h3 class="title">트릭스터 M</h3>
+              <p class="date">2020년 6월 ~ 2020년 10월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#ncsoft/9">
+              <h3 class="title">공통 가이드북 서비스</h3>
+              <p class="date">2020년 3월 ~ 2021년 6월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#ncsoft/10">
+              <h3 class="title">리니지 2 M</h3>
+              <p class="date">2019년 3월 ~ 2020년 11월</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="slide" data-anchor="1">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">VARCO Studio</span>
+            <span class="date">2024년 6월 ~ 2024년 11월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Vue 3) 100% / Node</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Studio-1.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Studio-2.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Lora-1.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Text-1.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Text-2.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Text-3.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Chatbot-1.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Gentle-1.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Saas-1.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Saas-2.png">
+              </div>
             </div>
-            <div section="setup" class="panel">
-                <label class="label" for="select-color-scheme">Change color scheme</label>
-                <select id="select-color-scheme" class="scheme">
-                    <option value="system">System default</option>
-                    <option value="light">Forced light</option>
-                    <option value="dark">Forced dark</option>
-                </select>
-                <label class="label" for="input-border-radius">Change border radius</label>
-                <input id="input-border-radius" class="radius" type="range" min="0" max="10">
-                <label class="label" for="button-reset-setup">Reverts to previous settings</label>
-                <div class="button-group">
-                    <button id="button-encrypt" class="button" disabled><i class="fa-solid fa-lock" style="margin-right: 10px;"></i>ENCRYPT</button>
-                    <button id="button-reset-setup" class="button"><i class="fa-solid fa-arrow-rotate-right" style="margin-right: 10px; transform: rotateY(180deg);"></i>RESET</button>
-                </div>
-            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">VARCO 개발실 프론트엔드 개발 팀장</li>
+            <li class="item">VARCO 서비스 (스튜디오, 로라 학습, 텍스트, 챗봇 빌더, 어드민) 통합</li>
+            <li class="item">pnpm 모노레포 구성 (UI 컴포넌트 통합)</li>
+            <li class="item">[스튜디오] 스튜디오 무한 캔버스 형식의 UX 개발 (vue-flow, konva)</li>
+            <li class="item">[로라학습] 이미지 생성 모델 학습 및 배포 서비스</li>
+            <li class="item">[텍스트] 문장, 퀘스트, 캐릭터, 대화, 요약, 번역 등 생성 서비스</li>
+            <li class="item">[챗봇빌더] 챗봇에 사용할 어드민 관리툴</li>
+            <li class="item">[젠틀워즈] 금칙어 모니터링 및 패턴 어드민 관리툴</li>
+            <li class="item">[사스어드민] 아트 서비스 구독/크레딧 차감 방식 적용, 연동 어드민 관리툴</li>
+          </ul>
         </div>
-    </aside>
+      </div>
+      <div class="slide" data-anchor="2">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">VARCO Art</span>
+            <span class="date">2023년 3월 ~ 2024년 6월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Vue 3) 100% / Node</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="movie" href="/images/Varco-Art-1.mp4" target="_blank" rel="noopener noreferrer">
+                  <video class="video" src="/images/Varco-Art-1.mp4" muted loop data-autoplay data-keepplaying></video>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="movie" href="/images/Varco-Art-2.mp4" target="_blank" rel="noopener noreferrer">
+                  <video class="video" src="/images/Varco-Art-2.mp4" muted loop data-autoplay data-keepplaying></video>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="movie" href="/images/Varco-Art-3.mp4" target="_blank" rel="noopener noreferrer">
+                  <video class="video" src="/images/Varco-Art-3.mp4" muted loop data-autoplay data-keepplaying></video>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="movie" href="/images/Varco-Art-4.mp4" target="_blank" rel="noopener noreferrer">
+                  <video class="video" src="/images/Varco-Art-4.mp4" muted loop data-autoplay data-keepplaying></video>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="movie" href="/images/Varco-Art-5.mp4" target="_blank" rel="noopener noreferrer">
+                  <video class="video" src="/images/Varco-Art-5.mp4" muted loop data-autoplay data-keepplaying></video>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Art-6.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Art-7.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Art-8.png">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Varco-Art-9.png">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">Stable Diffusion 기반 사내용 웹 서비스로 시작</li>
+            <li class="item">사용된 모든 UI 컴포넌트 신규 개발, 테마, 다국어</li>
+            <li class="item">텍스트 위저드, 이미지 위저드 (멀티 컨트롤넷) 등 편의성 UI 제공</li>
+            <li class="item">국내 패션업체 공급 계약 후 패션 모델 특화</li>
+            <li class="item">인페인팅, 컨트롤넷 (캐니, 뎁스, 포즈, 스케치, IPA), 3D 모델, 이미지 블렌딩, 업스케일, 배경제거</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="3">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">Deeplift</span>
+            <span class="date">2022년 5월 ~ 2022년 10월</span>
+          </h3>
+          <p class="slide-role">디자인 100% / 마크업 (PC/모바일 반응형) 100% / 프론트엔드 (React 18) 100% / Python</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="movie" href="/images/Deeplift-1.mp4" target="_blank" rel="noopener noreferrer">
+                  <video class="video" src="/images/Deeplift-1.mp4" muted loop data-autoplay data-keepplaying></video>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="movie" href="/images/Deeplift-2.mp4" target="_blank" rel="noopener noreferrer">
+                  <video class="video" src="/images/Deeplift-2.mp4" muted loop data-autoplay data-keepplaying></video>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="movie" href="/images/Deeplift-3.mp4" target="_blank" rel="noopener noreferrer">
+                  <video class="video" src="/images/Deeplift-3.mp4" muted loop data-autoplay data-keepplaying></video>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">python 으로 개발한 AI 코드를 Streamlit 으로 구동한 소스 코드 공유 플랫폼</li>
+            <li class="item">Github repository API 연동 및 코드 에디터 개발</li>
+            <li class="item">Websocket 을 적용하여 어플리케이션 상태 실시간 반영</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="4">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">AI 비디오 검색</span>
+            <span class="date">2022년 2월 ~ 2022년 4월</span>
+          </h3>
+          <p class="slide-role">디자인 100% / 마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Vue 3) 100% / Python / Electron</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="movie" href="/images/VideoSearch.mp4" target="_blank" rel="noopener noreferrer">
+                  <video class="video" src="/images/VideoSearch.mp4" muted loop data-autoplay data-keepplaying></video>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="movie" href="/images/VideoSearchApp.mp4" target="_blank" rel="noopener noreferrer">
+                  <video class="video" src="/images/VideoSearchApp.mp4" muted loop data-autoplay data-keepplaying></video>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/VideoSearch-1.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/VideoSearch-2.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/VideoSearch-3.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">이미지와 매칭되는 비디오 샷을 AI 를 통해 검색</li>
+            <li class="item">동영상 프레임 제어 및 localStorage/IndexedDB/File 캐시 기술 적용</li>
+            <li class="item">버추얼 슬라이더 적용으로 성능 대폭 향상</li>
+            <li class="item"><a class="link" href="https://www.npmjs.com/package/vue3-canvas-video-player" target="_blank">Vue3 캔버스 비디오 플레이어 라이브러리 개발 및 배포</a></li>
+            <li class="item">일렉트론 데스크탑 어플리케이션 개발</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="5">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">AI 비디오 분석</span>
+            <span class="date">2021년 6월 ~ 2022년 2월</span>
+          </h3>
+          <p class="slide-role">디자인 100% / 마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Vue 2) 100% / 백엔드 Python</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="movie" href="/images/VideoMetadataViewer.mp4" target="_blank" rel="noopener noreferrer">
+                  <video class="video" src="/images/VideoMetadataViewer.mp4" muted loop data-autoplay data-keepplaying></video>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/VideoMetadataViewer-1.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/VideoMetadataViewer-2.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/VideoMetadataViewer-3.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">AI 를 통해 비디오를 분석(Segmentation)한 메타 데이터를 관리 및 편집</li>
+            <li class="item">바운딩 박스 및 포즈 데이터 처리</li>
+            <li class="item">동영상 프레임 제어 및 localStorage/IndexedDB/File 캐시 기술 적용</li>
+            <li class="item">대용량 데이터 (비디오/JSON) 처리 기술 적용</li>
+            <li class="item">Python streamlit 데이터 연동</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="6">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">블레이드 & 소울 2</span>
+            <span class="date">2021년 5월 ~ 2021년 6월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Javascript) 100% / 백엔드 JSP</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/BladeSoul2-Worldmap-1.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/BladeSoul2-Worldmap-2.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">월드맵, 그랜드 오픈 런칭</li>
+            <li class="item">인트로 / 진입 / 진출 영상 모션 적용</li>
+            <li class="item">드래그 UI / UX</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="7">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">아이온</span>
+            <span class="date">2020년 6월 ~ 2021년 6월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Javascript) 100% / 백엔드 JSP</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/Aion-Community.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Aion-GameGuide.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">자바 스프링 기반 커뮤니티 서스테이닝</li>
+            <li class="item">게임소개 사이트 고도화</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="8">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">트릭스터 M</span>
+            <span class="date">2020년 6월 ~ 2020년 10월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Javascript) 100% / 백엔드 JSP</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/TricksterM-Luanching.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/TricksterM-GameGuide.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">사전 예약, 그랜드 오픈 런칭</li>
+            <li class="item">페럴렉스 스크롤 기반 게임 가이드 (iframe 간 데이터 연동 처리)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="9">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">공통 가이드북 서비스</span>
+            <span class="date">2020년 3월 ~ 2021년 6월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Javascript, Vue 2) 100% / 백엔드 JSP</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/Guidebook-Community-1.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Guidebook-Community-2.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Guidebook-Admin.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">각 커뮤니티에서 공통적으로 사용되는 게임 가이드 서비스</li>
+            <li class="item">리니지 W, 블레이드 & 소울 2, 프로야구 H 3, 리니지 2 M, 리니지 M, 리니지 2, 아이온 적용</li>
+            <li class="item">위지윅 컨텐츠 에디터 기능 개발</li>
+            <li class="item">관리툴과 연동하여 운영 업무 간소화</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="10">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">리니지 2 M</span>
+            <span class="date">2019년 3월 ~ 2020년 11월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Javascript, JQuery) 100% / 백엔드 JSP</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/Lineage2M-Preorder.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Lineage2M-Worldmap.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Lineage2M-Oren.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Lineage2M-Beora.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">사전예약 및 프로모션 템플릿 (보일러플레이트 코드) 개발로 일정 단축</li>
+            <li class="item">이펙트, 영상 제어, 모션 타임라인, 유튜브 API, 공유하기 기능 공통화</li>
+            <li class="item">사전 예약, 월드맵, 그랜드 오픈 런칭</li>
+            <li class="item">상아탑의 현자들 티저 / 업데이트</li>
+            <li class="item">베오라의 유적 티저 / 업데이트</li>
+            <li class="item">아프리카 TV 프로모션</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- NHN Technology Service -->
+    <section class="section" data-tooltip="NHN Technology Service" data-anchor="nts">
+      <div class="slide" data-anchor="index">
+        <div class="fp-bg">
+          <video class="video" src="/images/nts.mp4" loop muted data-autoplay></video>
+        </div>
+        <h2 class="index-title">NHN Technology Service</h2>
+        <ul class="index-list">
+          <li class="item">
+            <a class="link" href="#nts/1">
+              <h3 class="title">네이버 쇼핑 윈도</h3>
+              <p class="date">2015년 7월 ~ 2018년 9월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#nts/2">
+              <h3 class="title">네이버 공통 좋아요 서비스</h3>
+              <p class="date">2016년 12월 ~ 2017 4월</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="slide" data-anchor="1">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">네이버 쇼핑 윈도</span>
+            <span class="date">2015년 7월 ~ 2018년 9월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (React) 50%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="link" href="https://shopping.naver.com/department/home/" target="_blank" rel="noopener noreferrer">
+                  <img class="image" src="/images/Naver-Shopping.jpg">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-01.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-02.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-03.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-04.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-05.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-06.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-07.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-08.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-09.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-10.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-11.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-12.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-13.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Naver-Shopping-14.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">네이버 쇼핑윈도 UI 개발 및 리딩</li>
+            <li class="item">기존 윈도 리액트로 변환 작업, 신규 윈도 오픈 및 서스테이닝</li>
+            <li class="item">버티컬 12 개 외 추가 프로젝트 진행</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="2">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">네이버 공통 좋아요 서비스</span>
+            <span class="date">2016년 12월 ~ 2017 4월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Javascript) 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="link" href="https://terms.naver.com/entry.naver?docId=3377330&cid=43667&categoryId=43667" target="_blank" rel="noopener noreferrer">
+                  <img class="image" src="/images/Naver-Like.jpg">
+                </a>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">네이버에서 공통적으로 사용되는 인라인 서비스</li>
+            <li class="item">쇼핑, 뉴스, 스포츠, 연예, 증권, 지식백과, 그라폴리오 등 각 서비스에서 사용</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- The Uber Creative -->
+    <section class="section" data-tooltip="The Uber Creative" data-anchor="uber">
+      <div class="slide" data-anchor="index">
+        <div class="fp-bg">
+          <video class="video" src="/images/tuc.mp4" loop muted data-autoplay></video>
+        </div>
+        <h2 class="index-title">The Uber Creative</h2>
+        <ul class="index-list">
+          <li class="item">
+            <a class="link" href="#uber/1">
+              <h3 class="title">웹 에이전시</h3>
+              <p class="date">2014년 11월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#uber/2">
+              <h3 class="title">패럴렉스 교육</h3>
+              <p class="date">2014년 9월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#uber/3">
+              <h3 class="title">Angel in the sky</h3>
+              <p class="date">2014년 7월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#uber/4">
+              <h3 class="title">대우건설 산업단지</h3>
+              <p class="date">2013년 12월 ~ 2014년 1월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#uber/5">
+              <h3 class="title">쉐보레 오피셜 / DIK</h3>
+              <p class="date">2013년 7월 ~ 2014년 12월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#uber/6">
+              <h3 class="title">푸르지오 닷컴 / 분양 / 웹진</h3>
+              <p class="date">2013년 7월 ~ 2014년 12월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#uber/7">
+              <h3 class="title">삼성 제일모직 / 스타론</h3>
+              <p class="date">2013년 7월 ~ 2014년 6월</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="slide" data-anchor="1">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">웹 에이전시</span>
+            <span class="date">2014년 11월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Javascript) 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="link" href="https://theuber.co.kr/" target="_blank" rel="noopener noreferrer">
+                  <img class="image" src="/images/The-Uber-Creative.jpg">
+                </a>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">프론트엔드 개발 팀장</li>
+            <li class="item">공식 홈페이지</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="2">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">패럴렉스 교육</span>
+            <span class="date">2014년 9월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Javascript) 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="link" href="https://gronkout.github.io/external/prx/" target="_blank" rel="noopener noreferrer">
+                  <img class="image" src="/images/Parallax.jpg">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a class="link" href="https://gronkout.github.io/external/skr/" target="_blank" rel="noopener noreferrer">
+                  <img class="image" src="/images/Skrollr.jpg">
+                </a>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">R&D 교육용 샘플 사이트 제작 (동작 원리 및 제작 가이드)</li>
+            <li class="item">스크롤 기반 모션 트윈 / 백그라운드 제어 / 베지어 곡선 제어</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="3">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">Angel in the sky</span>
+            <span class="date">2014년 7월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Javascript) 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/Angel-In-The-Sky.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">해외 IPhone 배포용 웹 사이트</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="4">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">대우건설 산업단지</span>
+            <span class="date">2013년 12월 ~ 2014년 1월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Javascript) 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/Daewoo.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">대우건설 제안 참여 및 수주</li>
+            <li class="item">프리젠테이션 모드, 맵 API 기능 구현</li>
+            <li class="item">산단이슈 JSON 데이터 연동 시스템, 무한 스크롤링 UI 개발</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="5">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">쉐보레 오피셜 / DIK</span>
+            <span class="date">2013년 7월 ~ 2014년 12월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 플래시 100% / 프론트엔드 (Javascript) 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="link" href="http://www.chevrolet.co.kr/" target="_blank" rel="noopener noreferrer">
+                  <img class="image" src="/images/Chevrolet.jpg">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Chevrolet-DIK.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">쉐보레 글로벌 스타일가이드에 따른 3차 리뉴얼 및 고도화 작업 진행</li>
+            <li class="item">플래시 컨텐츠를 웹베이스로 교체, 웹사이트 성능 최적화 작업</li>
+            <li class="item">그 외 쉐보레 캠페인 사이트 약 10건 (카마로, 말리부, 등), 스타일북</li>
+            <li class="item">영업소 DIK - Digital Interactive Kiosk 개발</li>
+            <li class="item">터치스크린 UI, 영상플레이어 개발</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="6">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">푸르지오 닷컴 / 분양 / 웹진</span>
+            <span class="date">2013년 7월 ~ 2014년 12월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Javascript) 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="link" href="http://www.prugio.com/" target="_blank" rel="noopener noreferrer">
+                  <img class="image" src="/images/Prugio.jpg">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Prugio-Webzine.jpg">
+              </div>
+              <div class="swiper-slide">
+                <a class="link" href="http://www.prugio.com/sale/sale.aspx" target="_blank" rel="noopener noreferrer">
+                  <img class="image" src="/images/Prugio-Sale.jpg">
+                </a>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">접근성 인증마크 획득</li>
+            <li class="item">웹 사이트 어워드 대상 수상</li>
+            <li class="item">캐스트 JSON 데이터 연동 시스템 구축</li>
+            <li class="item">분양 한눈에 보기 기능 개발 (다음맵 API 활용)</li>
+            <li class="item">신규 사업 분양 PT 제안 참여 및 수주</li>
+            <li class="item">VR 서비스 연계 관련 작업 진행</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="7">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">삼성 제일모직 / 스타론</span>
+            <span class="date">2013년 7월 ~ 2014년 6월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 플래시 100% / 프론트엔드 (Javascript) 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/Samsung-Chemical.jpg">
+              </div>
+              <div class="swiper-slide">
+                <a class="link" href="http://www.staron.com/" target="_blank" rel="noopener noreferrer">
+                  <img class="image" src="/images/Samsung-Staron.jpg">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Samsung-Digital-Insight.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">4차 고도화 진행, 웹사이트 성능 최적화 작업</li>
+            <li class="item">JSON 데이터 연동 시스템 구축</li>
+            <li class="item">무한 스크롤링 UI 개발 및 적용</li>
+            <li class="item">웹접근성 2.0 업그레이드 및 크로스브라우징 확대</li>
+            <li class="item">크로스브라우징 작업을 통해 호환 브라우저 확대</li>
+            <li class="item">8개 다국어 언어 작업</li>
+            <li class="item">삼성 디지털 키오스크 컨텐츠</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- ETC -->
+    <section class="section" data-tooltip="ETC" data-anchor="etc">
+      <div class="slide" data-anchor="index">
+        <div class="fp-bg">
+          <img class="image" src="/images/etc.jpg" alt="ETC" />
+        </div>
+        <h2 class="index-title">ETC</h2>
+        <ul class="index-list">
+          <li class="item">
+            <a class="link" href="#etc/1">
+              <h3 class="title">개인 프로젝트</h3>
+              <p class="date">2018년 12월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#etc/2">
+              <h3 class="title">아틀란티카 S</h3>
+              <p class="date">2010년 10월 ~ 2013년 6월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#etc/3">
+              <h3 class="title">프리랜서 프로젝트</h3>
+              <p class="date">2010년 8월 ~ 2010년 9월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#etc/4">
+              <h3 class="title">한국전력공사 KDN</h3>
+              <p class="date">2008년 5월 ~ 2010년 7월</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="slide" data-anchor="1">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">개인 프로젝트</span>
+            <span class="date">2018년 12월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Vue, Nuxt, React) 100% / 서버 (KOA, MongoDB, Firebase) 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/Movie-Manager.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/IT-News.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">미드 관람용, IT 뉴스레터 스크랩용 앱 개발</li>
+            <li class="item">일반 / 구글 로그인, 댓글 기능</li>
+            <li class="item">Nuxt 서버사이드 렌더링 적용</li>
+            <li class="item">파이어베이스 Auth, Database, Storage 사용</li>
+            <li class="item">Koa + mongodb 노드 백엔드 서버 개발, Heroku 배포</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="2">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">아틀란티카 S</span>
+            <span class="date">2010년 10월 ~ 2013년 6월</span>
+          </h3>
+          <p class="slide-role">플래시 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="link" href="http://www.youtube.com/watch?feature=player_embedded&v=54poesxw_i8" target="_blank" rel="noopener noreferrer">
+                  <img class="image" src="/images/AtlanticaS.jpg">
+                </a>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">페이스북 기반 소셜네트워크 게임</li>
+            <li class="item">G-Star 2011 출품 (엔도어즈)</li>
+            <li class="item">국내 최초 SNS 전략롤플레잉 카드 배틀 게임 (전세계 동시 서비스 진행)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="3">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">프리랜서 프로젝트</span>
+            <span class="date">2010년 8월 ~ 2010년 9월</span>
+          </h3>
+          <p class="slide-role">마크업 100% / 프론트엔드 100% / 플래시 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a class="link" href="http://zhtv.tving.com/zhtv/" target="_blank" rel="noopener noreferrer">
+                  <img class="image" src="/images/ZH-TV.jpg">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Samsung-Printer.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">중화 TV 인덱스 페이지 개편</li>
+            <li class="item">삼성 사무용 복합기 CD 타이틀 개발</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="4">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">한국전력공사 KDN</span>
+            <span class="date">2008년 5월 ~ 2010년 7월</span>
+          </h3>
+          <p class="slide-role">마크업 100% / 프론트엔드 100% / 플래시 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/Kepco.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Kepco-Cyber.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Kepco-Sports.jpg">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Kepco-Energy.jpg">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">메인 풀 플래시, 서브 메뉴 및 컨텐츠 플래시 개발</li>
+            <li class="item">서브 페이지 마크업 및 UI 개발</li>
+            <li class="item">플래시 UI 개발, XML 데이터 연동</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </article>
 
-<!-- Script -->
-
-    
-<script src="/js/masonry-4.2.2.min.js"></script>
-
-
-
-<script src="/js/jquery-3.6.0.min.js"></script>
-<script src="/js/script.js" type="module"></script>
-
-<script>
-  $(() => {
-    $.ajax({
-      url: '/search.xml',
-      dataType: 'xml',
-      success(xmlResponse) {
-        const datas = $('entry', xmlResponse).map((index, entry) => ({
-          title: $('title', entry).text(),
-          content: $('content', entry).text(),
-          url: $('url', entry).text(),
-        })).get();
-
-        const $searchResult = $('#search-result');
-
-        $('#input-search-keyword').on('input', (event) => {
-          const keywords = event.target.value.trim().toLowerCase().split(/[\s\-]+/);
-          let str = '<div class="scroll"><ul class="list">';
-          let numOfPostFound = 0;
-
-          $searchResult.html('');
-
-          if (event.target.value.trim().length <= 0) {
-            return;
-          }
-
-          datas.forEach((data) => {
-            const title = data.title.trim().toLowerCase();
-            const content = data.content.trim().replace(/<[^>]+>/g, '');
-            const url = data.url;
-            let isMatch = true;
-            let firstOccur = -1;
-
-            if (title !== '' && content !== '') {
-              keywords.forEach((keyword, index) => {
-                let contentIndex = content.toLowerCase().indexOf(keyword);
-
-                if (title.indexOf(keyword) < 0 && contentIndex < 0) {
-                  isMatch = false;
-                } else {
-                  if (contentIndex < 0) contentIndex = 0;
-                  if (index === 0) firstOccur = contentIndex;
-                }
-              });
-            }
-
-            if (isMatch) {
-              numOfPostFound += 1;
-
-              str += `<li class="item"><a href="${ url }" class="link"><p class="title"><i class="fa-solid fa-file-circle-check"></i><span class="path">[${ url.split('/')[1] + '/' + url.split('/')[2] }]</span><span class="text">${ title }</span></p>`;
-
-              if (firstOccur >= 0) {
-                let start = firstOccur - 50;
-                let end = firstOccur + 50;
-
-                if (start < 0) start = 0;
-                if (start === 0) end = 100;
-                if (end > content.length) end = content.length;
-
-                let match = content.substring(start, start + end);
-
-                keywords.forEach((keyword) => {
-                  match = match.replace(new RegExp(keyword, 'gi'), `<em class="keyword">${ keyword }</em>`);
-                });
-
-                str += `<p class="content">${ match }...</p>`;
-              }
-
-              str += '</a></li>';
-            }
-          });
-
-          str += '</ul></div>';
-
-          $searchResult.html(`<p class="summary">${ (numOfPostFound > 0) ? `${ numOfPostFound } posts found` : 'Nothing found' }</p>` + str);
-        });
-      }
-    });
-  })
-</script>
+  <script src="/scripts/easings.min.js"></script>
+  <script src="/scripts/scrolloverflow.min.js"></script>
+  <script src="/scripts/fullpage-3.1.2.min.js"></script>
+  <script src="/scripts/fullpage.extensions-3.1.2.min.js"></script>
+  <script src="/scripts/fullpage.scrollOverflowReset.min.js"></script>
+  <script src="/scripts/fullpage.parallax.min.js"></script>
+  <script src="/scripts/swiper-8.2.4.min.js"></script>
+  <script src="/scripts/jquery-3.6.0.min.js"></script>
+  <script src="/scripts/viewer.js"></script>
+  <script src="/scripts/index.js"></script>
 </body>
 </html>
