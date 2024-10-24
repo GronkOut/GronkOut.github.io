@@ -59,4 +59,6 @@
       fp.setKeyboardScrolling(true);
     }
   });
+
+  $('.fp-viewing-ncsoft-5 > div').hide();
 })(window.jQuery);
