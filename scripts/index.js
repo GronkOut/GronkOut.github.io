@@ -17,10 +17,10 @@
   });
 
   const interval = setInterval(() => {
-    const $target = $('body > div');
+    const $target = $('body > div > a');
 
     if ($target.length) {
-      $target.css('transform', 'translateX(-500px) !important');
+      $target.text('리소스 다운로드 중입니다.');
 
       clearInterval(interval);
     }
