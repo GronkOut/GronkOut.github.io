@@ -16,8 +16,14 @@
     },
   });
 
-  setInterval(() => {
-    $('body > div > a').text('리소스 다운로드 진행중입니다.');
+  const interval = setInterval(() => {
+    const $target = $('body > div > a');
+
+    if ($target.length) {
+      $target.text('리소스 다운로드 진행중입니다.');
+
+      clearInterval(interval);
+    }
   }, 300);
 
   const $swiper = $('.swiper');
