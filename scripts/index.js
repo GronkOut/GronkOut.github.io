@@ -1,25 +1,24 @@
 ;(($) => {
-  const $fullpage = $('#fullpage');
-  let fp;
+  const fp = new fullpage('#fullpage', {
+    licenseKey: '4A970FEE-847D4023-8572C79E-2838B2CF',
+    menu: '#menu',
+    navigation: true,
+    slidesNavigation: true,
+    loopHorizontal: false,
+    normalScrollElements: '.swiper, [section="option"]',
+    scrollOverflow: true,
+    parallax: true,
+    parallaxKey: 'cGxheW5jLmNvbV85WTJjR0Z5WVd4c1lYZz05VW4=',
+    parallaxOptions: {
+      type: 'cover',
+      percentage: 50,
+      property: 'translate',
+    },
+  });
 
-  if ($fullpage.length) {
-    fp = new fullpage('#fullpage', {
-      licenseKey: '4A970FEE-847D4023-8572C79E-2838B2CF',
-      menu: '#menu',
-      navigation: true,
-      slidesNavigation: true,
-      loopHorizontal: false,
-      normalScrollElements: '.swiper, [section="option"]',
-      scrollOverflow: true,
-      parallax: true,
-      parallaxKey: 'cGxheW5jLmNvbV85WTJjR0Z5WVd4c1lYZz05VW4=',
-      parallaxOptions: {
-        type: 'cover',
-        percentage: 50,
-        property: 'translate',
-      },
-    });
-  }
+  setInterval(() => {
+    $('body > div > a').text('리소스 다운로드 진행중입니다.');
+  }, 300);
 
   const $swiper = $('.swiper');
 
@@ -60,8 +59,4 @@
       fp.setKeyboardScrolling(true);
     }
   });
-
-  setInterval(() => {
-    $('body > div').hide();
-  }, 0);
 })(window.jQuery);
