@@ -194,7 +194,7 @@ sup {
   color: var(--color-point-01);
 }
 #fullpage .section .slide .index-list .item .link {
-  display: flex;
+  display: inline-flex;
   padding: 5px 30px;
   align-items: center;
   flex-wrap: wrap;
@@ -339,7 +339,7 @@ sup {
   opacity: 1;
 }
 #fullpage .section .slide .swiper .swiper-pagination-bullet {
-  background-color: #888;
+  background-color: #fff;
 }
 #fullpage .section .slide .swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: var(--color-point-01);
@@ -348,7 +348,7 @@ sup {
   width: 50px;
   height: 50px;
   border: none;
-  color: var(--color-10-100);
+  color: var(--color-05-100);
   transition: all 0.2s;
 }
 #fullpage .section .fp-controlArrow:before {
@@ -370,7 +370,7 @@ sup {
   inset: auto 20px 20px !important;
 }
 #fullpage .section .fp-slidesNav a span {
-  background-color: var(--color-10-100);
+  background-color: var(--color-05-100);
   transition: all 0.2s;
 }
 #fullpage .section .fp-slidesNav a:hover span {
