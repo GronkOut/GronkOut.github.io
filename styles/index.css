@@ -155,6 +155,7 @@ sup {
 
 
 #fullpage {
+  color-scheme: dark;
   user-select: none;
 }
 #fullpage .section .slide .fp-tableCell {
