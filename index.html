@@ -24,6 +24,8 @@
         const decrypted = CryptoJS.AES.decrypt(encryptedContent, password + 'gronkout');
         const content = decrypted.toString(CryptoJS.enc.Utf8);
 
+        console.log(content);
+
         if (!content) throw new Error('Decryption failed');
 
         return content;
@@ -37,7 +39,7 @@
       const content = await decryptContent(password);
 
       if (content) {
-        document.body.innerHTML = content;
+        document.getElementById('content').innerHTML = content;
       } else {
         alert('암호가 잘못되었습니다. 접근이 차단됩니다.');
       }
@@ -47,6 +49,6 @@
   </script>
 </head>
 <body>
-
+  <div id="content"></div>
 </body>
 </html>
