@@ -350,6 +350,7 @@ sup {
   height: 50px;
   border: none;
   color: var(--color-05-100);
+  transform: scaleY(1.8);
   transition: all 0.2s;
 }
 #fullpage .section .fp-controlArrow:before {
@@ -358,11 +359,10 @@ sup {
   margin: auto;
   font-size: 30px;
   text-align: center;
-  transform: scaleY(1.8);
   content: '>';
 }
 #fullpage .section .fp-controlArrow.fp-prev {
-  transform: rotate(180deg);
+  transform: scaleY(1.8) scaleX(-1);
 }
 #fullpage .section .fp-controlArrow:hover {
   color: var(--color-point-01);
