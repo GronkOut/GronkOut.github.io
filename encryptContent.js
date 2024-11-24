@@ -931,16 +931,6 @@ const content = `
       </div>
     </section>
   </article>
-
-  <script src="/scripts/easings.min.js"></script>
-  <script src="/scripts/scrolloverflow.min.js"></script>
-  <script src="/scripts/fullpage-3.1.2.min.js"></script>
-  <script src="/scripts/fullpage.extensions-3.1.2.min.js"></script>
-  <script src="/scripts/fullpage.parallax.min.js"></script>
-  <script src="/scripts/jquery-3.6.0.min.js"></script>
-  <script src="/scripts/swiper-8.2.4.min.js"></script>
-  <script src="/scripts/viewer.js"></script>
-  <script src="/scripts/index.js"></script>
 `;
 const encryptedContent = CryptoJS.AES.encrypt(content, password + 'gronkout').toString();
 
