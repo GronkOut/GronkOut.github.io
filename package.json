@@ -2,7 +2,7 @@
   "name": "gronkout",
   "version": "1.0.0",
   "scripts": {
-    "encrypt": "node ./encryptContent.js"
+    "encrypt": "node ./scripts/encrypt-content.js"
   },
   "dependencies": {
     "crypto-js": "^4.2.0"

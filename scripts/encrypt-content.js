@@ -1,5 +1,5 @@
 const CryptoJS = require('crypto-js');
-const password = '1234';
+const password = '';
 const content = `
 <article id="fullpage">
     <!-- NC Soft -->
@@ -932,6 +932,6 @@ const content = `
     </section>
   </article>
 `;
-const encryptedContent = CryptoJS.AES.encrypt(content, password + 'gronkout').toString();
+const encryptedContent = CryptoJS.AES.encrypt(content, password).toString();
 
 console.log(encryptedContent);
