@@ -1,0 +1,10 @@
+{
+  "name": "gronkout",
+  "version": "1.0.0",
+  "scripts": {
+    "encrypt": "node ./encryptContent.js"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0"
+  }
+}
