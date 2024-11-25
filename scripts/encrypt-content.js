@@ -797,24 +797,30 @@ const content = `
         <ul class="index-list">
           <li class="item">
             <a class="link" href="#etc/1">
+              <h3 class="title">AI 연계 프로젝트</h3>
+              <p class="date">2022년 12월 ~ 2024년 11월</p>
+            </a>
+          </li>
+          <li class="item">
+            <a class="link" href="#etc/2">
               <h3 class="title">개인 프로젝트</h3>
               <p class="date">2018년 12월</p>
             </a>
           </li>
           <li class="item">
-            <a class="link" href="#etc/2">
+            <a class="link" href="#etc/3">
               <h3 class="title">아틀란티카 S</h3>
               <p class="date">2010년 10월 ~ 2013년 6월</p>
             </a>
           </li>
           <li class="item">
-            <a class="link" href="#etc/3">
+            <a class="link" href="#etc/4">
               <h3 class="title">프리랜서 프로젝트</h3>
               <p class="date">2010년 8월 ~ 2010년 9월</p>
             </a>
           </li>
           <li class="item">
-            <a class="link" href="#etc/4">
+            <a class="link" href="#etc/5">
               <h3 class="title">한국전력공사 KDN</h3>
               <p class="date">2008년 5월 ~ 2010년 7월</p>
             </a>
@@ -822,6 +828,41 @@ const content = `
         </ul>
       </div>
       <div class="slide" data-anchor="1">
+        <div class="slide-wrap">
+          <h3 class="slide-title">
+            <span class="text">AI 연계 프로젝트</span>
+            <span class="date">2022년 12월 ~ 2024년 11월</span>
+          </h3>
+          <p class="slide-role">마크업 (PC/모바일 반응형) 100% / 프론트엔드 (Vue, Native Javascript) 100%</p>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img class="image" src="/images/Vue3-Canvas-Video-Player.png" alt="image">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/Vue3-Canvas-Video-Player.gif" alt="image">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/AI-Canny.png" alt="image">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/AI-Remove-Background.png" alt="image">
+              </div>
+              <div class="swiper-slide">
+                <img class="image" src="/images/AI-Auto-Pick.png" alt="image">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <ul class="slide-list">
+            <li class="item">비디오 플레이어 개발 및 NPM 배포 (프레임 단위 바운딩박스)</li>
+            <li class="item">이미지 Canny 추출 (OpenCV)</li>
+            <li class="item">이미지 배경 제거 (TensorFlow, OpenCV)</li>
+            <li class="item">영역 자동 선택 (TensorFlow, ONNX, OpenCV)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide" data-anchor="2">
         <div class="slide-wrap">
           <h3 class="slide-title">
             <span class="text">개인 프로젝트</span>
@@ -848,7 +889,7 @@ const content = `
           </ul>
         </div>
       </div>
-      <div class="slide" data-anchor="2">
+      <div class="slide" data-anchor="3">
         <div class="slide-wrap">
           <h3 class="slide-title">
             <span class="text">아틀란티카 S</span>
@@ -872,7 +913,7 @@ const content = `
           </ul>
         </div>
       </div>
-      <div class="slide" data-anchor="3">
+      <div class="slide" data-anchor="4">
         <div class="slide-wrap">
           <h3 class="slide-title">
             <span class="text">프리랜서 프로젝트</span>
@@ -898,7 +939,7 @@ const content = `
           </ul>
         </div>
       </div>
-      <div class="slide" data-anchor="4">
+      <div class="slide" data-anchor="5">
         <div class="slide-wrap">
           <h3 class="slide-title">
             <span class="text">한국전력공사 KDN</span>
